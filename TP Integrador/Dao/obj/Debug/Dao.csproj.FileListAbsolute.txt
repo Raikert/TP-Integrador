@@ -1,0 +1,9 @@
+C:\Users\Raikert\Desktop\facu\Prog III\Aplicaciones Web\Unidad 7\Aplicaciones Web - Programacion en tres Capas\Dao\bin\Debug\Dao.dll
+C:\Users\Raikert\Desktop\facu\Prog III\Aplicaciones Web\Unidad 7\Aplicaciones Web - Programacion en tres Capas\Dao\bin\Debug\Dao.pdb
+C:\Users\Raikert\Desktop\facu\Prog III\Aplicaciones Web\Unidad 7\Aplicaciones Web - Programacion en tres Capas\Dao\bin\Debug\Entidades.dll
+C:\Users\Raikert\Desktop\facu\Prog III\Aplicaciones Web\Unidad 7\Aplicaciones Web - Programacion en tres Capas\Dao\bin\Debug\Entidades.pdb
+C:\Users\Raikert\Desktop\facu\Prog III\Aplicaciones Web\Unidad 7\Aplicaciones Web - Programacion en tres Capas\Dao\obj\Debug\Dao.csprojAssemblyReference.cache
+C:\Users\Raikert\Desktop\facu\Prog III\Aplicaciones Web\Unidad 7\Aplicaciones Web - Programacion en tres Capas\Dao\obj\Debug\Dao.csproj.CoreCompileInputs.cache
+C:\Users\Raikert\Desktop\facu\Prog III\Aplicaciones Web\Unidad 7\Aplicaciones Web - Programacion en tres Capas\Dao\obj\Debug\Dao.csproj.CopyComplete
+C:\Users\Raikert\Desktop\facu\Prog III\Aplicaciones Web\Unidad 7\Aplicaciones Web - Programacion en tres Capas\Dao\obj\Debug\Dao.dll
+C:\Users\Raikert\Desktop\facu\Prog III\Aplicaciones Web\Unidad 7\Aplicaciones Web - Programacion en tres Capas\Dao\obj\Debug\Dao.pdb

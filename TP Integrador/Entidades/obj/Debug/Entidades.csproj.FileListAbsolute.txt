@@ -1,0 +1,6 @@
+C:\Users\Raikert\Desktop\facu\Prog III\Aplicaciones Web\Unidad 7\Aplicaciones Web - Programacion en tres Capas\Entidades\bin\Debug\Entidades.dll
+C:\Users\Raikert\Desktop\facu\Prog III\Aplicaciones Web\Unidad 7\Aplicaciones Web - Programacion en tres Capas\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Raikert\Desktop\facu\Prog III\Aplicaciones Web\Unidad 7\Aplicaciones Web - Programacion en tres Capas\Entidades\obj\Debug\Entidades.csprojAssemblyReference.cache
+C:\Users\Raikert\Desktop\facu\Prog III\Aplicaciones Web\Unidad 7\Aplicaciones Web - Programacion en tres Capas\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\Raikert\Desktop\facu\Prog III\Aplicaciones Web\Unidad 7\Aplicaciones Web - Programacion en tres Capas\Entidades\obj\Debug\Entidades.dll
+C:\Users\Raikert\Desktop\facu\Prog III\Aplicaciones Web\Unidad 7\Aplicaciones Web - Programacion en tres Capas\Entidades\obj\Debug\Entidades.pdb

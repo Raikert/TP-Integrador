@@ -1,0 +1,11 @@
+C:\Users\Raikert\Desktop\facu\Prog III\Aplicaciones Web\Unidad 7\Aplicaciones Web - Programacion en tres Capas\Negocio\bin\Debug\Negocio.dll
+C:\Users\Raikert\Desktop\facu\Prog III\Aplicaciones Web\Unidad 7\Aplicaciones Web - Programacion en tres Capas\Negocio\bin\Debug\Negocio.pdb
+C:\Users\Raikert\Desktop\facu\Prog III\Aplicaciones Web\Unidad 7\Aplicaciones Web - Programacion en tres Capas\Negocio\bin\Debug\Dao.dll
+C:\Users\Raikert\Desktop\facu\Prog III\Aplicaciones Web\Unidad 7\Aplicaciones Web - Programacion en tres Capas\Negocio\bin\Debug\Entidades.dll
+C:\Users\Raikert\Desktop\facu\Prog III\Aplicaciones Web\Unidad 7\Aplicaciones Web - Programacion en tres Capas\Negocio\bin\Debug\Dao.pdb
+C:\Users\Raikert\Desktop\facu\Prog III\Aplicaciones Web\Unidad 7\Aplicaciones Web - Programacion en tres Capas\Negocio\bin\Debug\Entidades.pdb
+C:\Users\Raikert\Desktop\facu\Prog III\Aplicaciones Web\Unidad 7\Aplicaciones Web - Programacion en tres Capas\Negocio\obj\Debug\Negocio.csprojAssemblyReference.cache
+C:\Users\Raikert\Desktop\facu\Prog III\Aplicaciones Web\Unidad 7\Aplicaciones Web - Programacion en tres Capas\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\Raikert\Desktop\facu\Prog III\Aplicaciones Web\Unidad 7\Aplicaciones Web - Programacion en tres Capas\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+C:\Users\Raikert\Desktop\facu\Prog III\Aplicaciones Web\Unidad 7\Aplicaciones Web - Programacion en tres Capas\Negocio\obj\Debug\Negocio.dll
+C:\Users\Raikert\Desktop\facu\Prog III\Aplicaciones Web\Unidad 7\Aplicaciones Web - Programacion en tres Capas\Negocio\obj\Debug\Negocio.pdb
