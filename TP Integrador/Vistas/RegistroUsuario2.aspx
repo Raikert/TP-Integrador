@@ -83,7 +83,7 @@
                 <br />
                 <br />
                 <strong>
-                <asp:Button ID="btnContinuar" runat="server" BackColor="#33CC33" BorderColor="Black" CssClass="auto-style5" Text="Continuar &gt;" />
+                <asp:Button ID="btnContinuar" runat="server" BackColor="#33CC33" BorderColor="Black" CssClass="auto-style5" Text="Continuar &gt;" OnClick="btnContinuar_Click" />
                 <br />
                 <br />
                 <br />

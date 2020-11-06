@@ -11,7 +11,10 @@ namespace Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (Session["Usuario"] == null)
+            Session["Usuario"] = "No esta logueado";
+            else
+            UsuarioConectado.Text = (string)Session["Usuario"];
         }
     }
 }

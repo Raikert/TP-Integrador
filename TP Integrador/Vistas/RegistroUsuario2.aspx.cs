@@ -14,5 +14,11 @@ namespace Vistas
             this.UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
             txtEmail.Text = (string)Session["Email"];
         }
+
+        protected void btnContinuar_Click(object sender, EventArgs e)
+        {
+            Session["Usuario"] = "Bienvenido/a " + txtNombre.Text;
+            Response.Redirect("Home.aspx");
+        }
     }
 }

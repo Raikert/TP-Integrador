@@ -50,7 +50,7 @@
             background-color: deepskyblue;
         }
         .auto-style13 {
-            color: #FFFFFF;
+            color: #800000;
             font-size: large;
         }
         </style>
@@ -184,8 +184,9 @@
             <br />
             <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong>
-            <asp:Label ID="UsuarioConectado" runat="server" BackColor="#0000CC" BorderColor="#993333" BorderWidth="5px" CssClass="auto-style13" Font-Italic="True" Text="No esta logueado"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <asp:Label style="text-align: center" ID="UsuarioConectado" runat="server" BackColor="White" BorderColor="#993333" BorderWidth="5px" CssClass="auto-style13" Font-Italic="True" Text="No esta logueado" Height="24px" Width="151px"></asp:Label>
+            </strong>
             </div>
     </form>
 </body>
