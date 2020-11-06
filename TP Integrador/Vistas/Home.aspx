@@ -57,7 +57,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style="background-color: darkgray; width: 15%; height: 1000px; float: left"></div>
+        <div style="background-color: darkgray; width: 15%; height: 1200px; float: left"></div>
         <div style="width: 70%; float: left">
             <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/Biblioteca Libra logo.png" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -94,9 +94,9 @@
                             <div class="auto-style12"> <strong><em>Precio</em></strong></div>
                             <br />
                             <div style="background-color:goldenrod"> &nbsp;
-                                <asp:TextBox ID="txtMinimo" runat="server" Height="25px" Width="75px" placeholder="Minimo"></asp:TextBox>
+                                <asp:TextBox style="text-align: center" ID="txtMinimo" runat="server" Height="25px" Width="75px" placeholder="Minimo"></asp:TextBox>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-                                <asp:TextBox ID="txtMaximo" runat="server" Height="25px" Width="75px" placeholder="Máximo"></asp:TextBox>
+                                <asp:TextBox style="text-align: center" ID="txtMaximo" runat="server" Height="25px" Width="75px" placeholder="Máximo"></asp:TextBox>
                             </div>
                         </div>
                     </td>
@@ -174,11 +174,11 @@
             <asp:SqlDataSource ID="ConexionParaDataListYListView" runat="server" ConnectionString="<%$ ConnectionStrings:ConexionDeTesteoConBD-Empresa %>" SelectCommand="SELECT [ImagenURL] FROM [Personas]"></asp:SqlDataSource>
             <br />
         </div>
-        <div style="background-color: darkgray; width: 15%; height: 1000px; float: left">
+        <div style="background-color: darkgray; width: 15%; height: 1200px; float: left">
             <div style="background-color: rgb(67,117,199); " class="auto-style5">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:HyperLink ID="hlInicioSesion" runat="server" CssClass="auto-style3" Font-Names="Ebrima" ForeColor="White">Iniciar Sesion</asp:HyperLink>
-                &nbsp; &nbsp;<span class="auto-style2">|</span>&nbsp;&nbsp;&nbsp;&nbsp;<asp:HyperLink ID="hlRegistrarse" runat="server" CssClass="auto-style3" Font-Names="Ebrima" ForeColor="White">Registrarse</asp:HyperLink>
+                &nbsp; &nbsp;<span class="auto-style2">|</span>&nbsp;&nbsp;&nbsp;&nbsp;<asp:HyperLink ID="hlRegistrarse" runat="server" CssClass="auto-style3" Font-Names="Ebrima" ForeColor="White" NavigateUrl="RegistroUsuario1.aspx">Registrarse</asp:HyperLink>
             </div>
             <br />
             <br />
