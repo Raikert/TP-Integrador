@@ -171,7 +171,7 @@
                 </tr>
             </table>
             <br />
-            <asp:SqlDataSource ID="ConexionParaDataListYListView" runat="server" ConnectionString="Data Source=localhost\sqlexpress;Initial Catalog=Empresa;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [ImagenURL] FROM [Personas]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="ConexionParaDataListYListView" runat="server" ConnectionString="<%$ ConnectionStrings:ConexionDeTesteoConBD-Empresa %>" SelectCommand="SELECT [ImagenURL] FROM [Personas]"></asp:SqlDataSource>
             <br />
         </div>
         <div style="background-color: darkgray; width: 15%; height: 1000px; float: left">
