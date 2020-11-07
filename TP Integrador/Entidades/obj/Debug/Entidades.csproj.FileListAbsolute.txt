@@ -10,3 +10,9 @@ C:\Users\Raikert\Documents\GitHub\TP-Integrador\TP Integrador\Entidades\obj\Debu
 C:\Users\Raikert\Documents\GitHub\TP-Integrador\TP Integrador\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
 C:\Users\Raikert\Documents\GitHub\TP-Integrador\TP Integrador\Entidades\obj\Debug\Entidades.dll
 C:\Users\Raikert\Documents\GitHub\TP-Integrador\TP Integrador\Entidades\obj\Debug\Entidades.pdb
+C:\Users\FranMuslera\Desktop\TP-Integrador\TP Integrador\Entidades\bin\Debug\Entidades.dll
+C:\Users\FranMuslera\Desktop\TP-Integrador\TP Integrador\Entidades\bin\Debug\Entidades.pdb
+C:\Users\FranMuslera\Desktop\TP-Integrador\TP Integrador\Entidades\obj\Debug\Entidades.csprojAssemblyReference.cache
+C:\Users\FranMuslera\Desktop\TP-Integrador\TP Integrador\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\FranMuslera\Desktop\TP-Integrador\TP Integrador\Entidades\obj\Debug\Entidades.dll
+C:\Users\FranMuslera\Desktop\TP-Integrador\TP Integrador\Entidades\obj\Debug\Entidades.pdb
