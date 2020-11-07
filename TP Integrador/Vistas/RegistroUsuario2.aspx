@@ -21,16 +21,16 @@
         }
         </style>
 </head>
-<body>
+<body style="background-color:darkgray">
     <form id="form1" runat="server">
-        <div style="background-color:darkgray; height:1000px">
+        <div style="background-color:darkgray; height:955px">
             <br />
             <br />
             <br />
             <br />
             <br />
             <div style="float:left; width:35%"> &nbsp;</div>
-            <div style="background-color:white;float:left;width:30%;height:900px" class="auto-style1">
+            <div style="background-color:white;float:left;width:30%;height:850px" class="auto-style1">
                 <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/Biblioteca Libra logo.png" />
                 <br />
                 <br />
@@ -69,7 +69,7 @@
                 <br />
                 <asp:Label ID="lblMensaje5" runat="server" Font-Names="Sitka Subheading" Text="Contraseña"></asp:Label>
                 <br />
-                <asp:TextBox style="text-align: center" ID="txtContraseña" runat="server" Height="20px" Width="300px" CssClass="auto-style4" Font-Names="Calibri"></asp:TextBox>
+                <asp:TextBox style="text-align: center" ID="txtContraseña" runat="server" Height="20px" Width="300px" CssClass="auto-style4" Font-Names="Calibri" TextMode="Password"></asp:TextBox>
                 <br />
                 <asp:RequiredFieldValidator ID="rfvContraseña" runat="server" ControlToValidate="txtContraseña" CssClass="auto-style3" ErrorMessage="Campo obligatorio" Font-Names="Bahnschrift" ForeColor="Red"></asp:RequiredFieldValidator>
                 <br />

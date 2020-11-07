@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegistroUsuario1.aspx.cs" Inherits="Vistas.RegistroUsuario1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="InicioSesion1.aspx.cs" Inherits="Vistas.InicioSesion1" %>
 
 <!DOCTYPE html>
 
@@ -9,39 +9,33 @@
     <style type="text/css">
         .auto-style1 {
             text-align: center;
-            float: left;
-            width: 30%;
-            height: 500px;
-        }
-        .auto-style2 {
-            font-weight: bold;
-        }
-        .auto-style3 {
-            font-size: small;
-        }
-        .nuevoEstilo1 {
-            text-align: center;
         }
         .auto-style6 {
             font-size: medium;
         }
-    </style>
+        .auto-style3 {
+            font-size: small;
+        }
+        .auto-style2 {
+            font-weight: bold;
+        }
+        </style>
 </head>
 <body style="background-color:darkgray">
     <form id="form1" runat="server">
-        <div style="background-color:darkgray; height:955px">
+        <div style="height:955px">
             <br />
             <br />
             <br />
             <br />
             <br />
             <br />
-            <div style="float:left; width:35%"> &nbsp;</div>
-            <div style="background-color:white;" class="auto-style1"> 
-            <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/Biblioteca Libra logo.png" />
+            <div style="float:left;width:35%"> &nbsp;</div>
+            <div style="background-color:white;float:left;width:30%;height:500px" class="auto-style1">
+                <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/Biblioteca Libra logo.png" />
                 <br />
                 <br />
-                <asp:Label ID="lblMensaje1" runat="server" CssClass="auto-style6" Font-Names="Segoe UI" ForeColor="#0033CC" Text="Ingrese su dirección de e-mail para poder realizar esta accion:"></asp:Label>
+                <asp:Label ID="lblMensaje" runat="server" CssClass="auto-style6" Font-Names="Segoe UI" ForeColor="#0033CC" Text="Ingrese su dirección de e-mail para poder realizar esta accion:"></asp:Label>
                 <br />
                 <br />
                 <asp:TextBox style="text-align: center" ID="txtEmail" runat="server" Width="280px" placeholder="Ingrese aqui su email" BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" Font-Names="Comic Sans MS" Height="22px"></asp:TextBox>
@@ -60,9 +54,8 @@
                 <br />
                 <br />
                 </strong>
-                <asp:Label ID="lblMensaje" runat="server" Font-Names="Calibri Light" Text="Si usted ya ha creado una cuenta anteriormente, asegurese de utilizar la misma dirección de email para recuperar los datos de su cuenta"></asp:Label>
+                <asp:Label ID="lblMensaje1" runat="server" Font-Names="Calibri Light" Text="Si usted ya ha creado una cuenta anteriormente, asegurese de utilizar la misma dirección de email para recuperar los datos de su cuenta"></asp:Label>
             </div>
-            <div style="float:left; width:35%"> </div>
         </div>
     </form>
 </body>
