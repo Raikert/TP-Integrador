@@ -92,6 +92,10 @@
     <Content Include="RestablecerContraseña.aspx" />
     <Content Include="vista1.aspx" />
     <Content Include="vista2%28carrito%29.aspx" />
+    <Content Include="VistaCategorias.aspx" />
+    <Content Include="VistaContacto.aspx" />
+    <Content Include="VistaEditoriales.aspx" />
+    <Content Include="vistaLibros.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +155,34 @@
     </Compile>
     <Compile Include="vista2%28carrito%29.aspx.designer.cs">
       <DependentUpon>vista2%28carrito%29.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VistaCategorias.aspx.cs">
+      <DependentUpon>VistaCategorias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VistaCategorias.aspx.designer.cs">
+      <DependentUpon>VistaCategorias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VistaContacto.aspx.cs">
+      <DependentUpon>VistaContacto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VistaContacto.aspx.designer.cs">
+      <DependentUpon>VistaContacto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VistaEditoriales.aspx.cs">
+      <DependentUpon>VistaEditoriales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VistaEditoriales.aspx.designer.cs">
+      <DependentUpon>VistaEditoriales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vistaLibros.aspx.cs">
+      <DependentUpon>vistaLibros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vistaLibros.aspx.designer.cs">
+      <DependentUpon>vistaLibros.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
