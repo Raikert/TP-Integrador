@@ -85,6 +85,9 @@
     <Content Include="Imagenes\9.png" />
     <Content Include="Imagenes\Biblioteca Libra logo.png" />
     <Content Include="Imagenes\carrito logo.jpg" />
+    <Content Include="Imagenes\facebook.png" />
+    <Content Include="Imagenes\twitter.png" />
+    <Content Include="Imagenes\youtube.png" />
     <Content Include="InicioSesion1.aspx" />
     <Content Include="InicioSesion2.aspx" />
     <Content Include="RegistroUsuario1.aspx" />
