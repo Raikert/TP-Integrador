@@ -16,3 +16,9 @@ C:\Users\FranMuslera\Desktop\TP-Integrador\TP Integrador\Entidades\obj\Debug\Ent
 C:\Users\FranMuslera\Desktop\TP-Integrador\TP Integrador\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
 C:\Users\FranMuslera\Desktop\TP-Integrador\TP Integrador\Entidades\obj\Debug\Entidades.dll
 C:\Users\FranMuslera\Desktop\TP-Integrador\TP Integrador\Entidades\obj\Debug\Entidades.pdb
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Entidades\bin\Debug\Entidades.dll
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Entidades\bin\Debug\Entidades.pdb
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Entidades\obj\Debug\Entidades.csprojAssemblyReference.cache
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Entidades\obj\Debug\Entidades.dll
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Entidades\obj\Debug\Entidades.pdb

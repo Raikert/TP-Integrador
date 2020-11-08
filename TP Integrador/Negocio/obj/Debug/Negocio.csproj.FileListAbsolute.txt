@@ -31,3 +31,14 @@ C:\Users\FranMuslera\Desktop\TP-Integrador\TP Integrador\Negocio\obj\Debug\Negoc
 C:\Users\FranMuslera\Desktop\TP-Integrador\TP Integrador\Negocio\obj\Debug\Negocio.csproj.CopyComplete
 C:\Users\FranMuslera\Desktop\TP-Integrador\TP Integrador\Negocio\obj\Debug\Negocio.dll
 C:\Users\FranMuslera\Desktop\TP-Integrador\TP Integrador\Negocio\obj\Debug\Negocio.pdb
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Negocio\bin\Debug\Negocio.dll
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Negocio\bin\Debug\Negocio.pdb
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Negocio\bin\Debug\Dao.dll
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Negocio\bin\Debug\Entidades.dll
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Negocio\bin\Debug\Dao.pdb
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Negocio\bin\Debug\Entidades.pdb
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Negocio\obj\Debug\Negocio.csprojAssemblyReference.cache
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Negocio\obj\Debug\Negocio.dll
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Negocio\obj\Debug\Negocio.pdb

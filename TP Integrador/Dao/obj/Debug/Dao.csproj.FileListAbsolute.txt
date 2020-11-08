@@ -25,3 +25,12 @@ C:\Users\FranMuslera\Desktop\TP-Integrador\TP Integrador\Dao\obj\Debug\Dao.cspro
 C:\Users\FranMuslera\Desktop\TP-Integrador\TP Integrador\Dao\obj\Debug\Dao.csproj.CopyComplete
 C:\Users\FranMuslera\Desktop\TP-Integrador\TP Integrador\Dao\obj\Debug\Dao.dll
 C:\Users\FranMuslera\Desktop\TP-Integrador\TP Integrador\Dao\obj\Debug\Dao.pdb
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Dao\bin\Debug\Dao.dll
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Dao\bin\Debug\Dao.pdb
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Dao\bin\Debug\Entidades.dll
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Dao\bin\Debug\Entidades.pdb
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Dao\obj\Debug\Dao.csprojAssemblyReference.cache
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Dao\obj\Debug\Dao.csproj.CoreCompileInputs.cache
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Dao\obj\Debug\Dao.csproj.CopyComplete
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Dao\obj\Debug\Dao.dll
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Dao\obj\Debug\Dao.pdb

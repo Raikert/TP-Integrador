@@ -90,6 +90,8 @@
     <Content Include="RegistroUsuario1.aspx" />
     <Content Include="RegistroUsuario2.aspx" />
     <Content Include="RestablecerContraseña.aspx" />
+    <Content Include="vista1.aspx" />
+    <Content Include="vista2%28carrito%29.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -135,6 +137,20 @@
     </Compile>
     <Compile Include="RestablecerContraseña.aspx.designer.cs">
       <DependentUpon>RestablecerContraseña.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vista1.aspx.cs">
+      <DependentUpon>vista1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vista1.aspx.designer.cs">
+      <DependentUpon>vista1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vista2%28carrito%29.aspx.cs">
+      <DependentUpon>vista2%28carrito%29.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vista2%28carrito%29.aspx.designer.cs">
+      <DependentUpon>vista2%28carrito%29.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
