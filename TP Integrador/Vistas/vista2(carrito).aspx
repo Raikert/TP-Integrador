@@ -116,6 +116,16 @@
             margin-bottom: 0px;
         }
 
+        .auto-style24 {
+            justify-content: center;
+            align-items: center;
+            border: 2px groove gray;
+            width: 198px;
+        }
+        .auto-style25 {
+            width: 198px;
+        }
+
         </style>
 </head>
 <body class="centrado">
@@ -128,7 +138,7 @@
                     <td class="hl1">
                         <asp:HyperLink ID="hlHome" runat="server">HOME</asp:HyperLink>
                     </td>
-                    <td class="hl1">
+                    <td class="auto-style24">
                         <asp:HyperLink ID="hlContacto" runat="server">Contacto</asp:HyperLink>
                     </td>
                     <td class="hl1">
@@ -138,7 +148,7 @@
                 <tr>
                     <td class="auto-style2"><strong>TITULO</strong></td>
                     <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style25">&nbsp;</td>
                     <td class="auto-style20">&nbsp;</td>
                 </tr>
             </table>
@@ -194,34 +204,46 @@
         <table class="auto-style23">
             <tr>
                 <td class="auto-style22">
-                    <asp:ListView ID="ListView1" runat="server" DataKeyNames="Dni" DataSourceID="SqlDataSource1">
+                    <asp:ListView ID="ListView1" runat="server" DataKeyNames="Cod_Libro_Lb" DataSourceID="SqlDataSource1">
                         <AlternatingItemTemplate>
-                            <span style="">Dni:
-                            <asp:Label ID="DniLabel" runat="server" Text='<%# Eval("Dni") %>' />
+                            <span style="">Precio_Lb:
+                            <asp:Label ID="Precio_LbLabel" runat="server" Text='<%# Eval("Precio_Lb") %>' />
                             <br />
-                            Nombre:
-                            <asp:Label ID="NombreLabel" runat="server" Text='<%# Eval("Nombre") %>' />
+                            NombreLibro_Lb:
+                            <asp:Label ID="NombreLibro_LbLabel" runat="server" Text='<%# Eval("NombreLibro_Lb") %>' />
                             <br />
-                            Apellido:
-                            <asp:Label ID="ApellidoLabel" runat="server" Text='<%# Eval("Apellido") %>' />
+                            Cod_Libro_Lb:
+                            <asp:Label ID="Cod_Libro_LbLabel" runat="server" Text='<%# Eval("Cod_Libro_Lb") %>' />
                             <br />
-                            ImagenURL:
-                            <asp:Label ID="ImagenURLLabel" runat="server" Text='<%# Eval("ImagenURL") %>' />
+                            ImagenURL_Lb:
+                            <asp:Label ID="ImagenURL_LbLabel" runat="server" Text='<%# Eval("ImagenURL_Lb") %>' />
                             <br />
-<br /></span>
+                            Categoria_Lb:
+                            <asp:Label ID="Categoria_LbLabel" runat="server" Text='<%# Eval("Categoria_Lb") %>' />
+<br />Editorial_Lb:
+                            <asp:Label ID="Editorial_LbLabel" runat="server" Text='<%# Eval("Editorial_Lb") %>' />
+                            <br />
+                            <br />
+                            </span>
                         </AlternatingItemTemplate>
                         <EditItemTemplate>
-                            <span style="">Dni:
-                            <asp:Label ID="DniLabel1" runat="server" Text='<%# Eval("Dni") %>' />
+                            <span style="">Precio_Lb:
+                            <asp:TextBox ID="Precio_LbTextBox" runat="server" Text='<%# Bind("Precio_Lb") %>' />
                             <br />
-                            Nombre:
-                            <asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' />
+                            NombreLibro_Lb:
+                            <asp:TextBox ID="NombreLibro_LbTextBox" runat="server" Text='<%# Bind("NombreLibro_Lb") %>' />
                             <br />
-                            Apellido:
-                            <asp:TextBox ID="ApellidoTextBox" runat="server" Text='<%# Bind("Apellido") %>' />
+                            Cod_Libro_Lb:
+                            <asp:Label ID="Cod_Libro_LbLabel1" runat="server" Text='<%# Eval("Cod_Libro_Lb") %>' />
                             <br />
-                            ImagenURL:
-                            <asp:TextBox ID="ImagenURLTextBox" runat="server" Text='<%# Bind("ImagenURL") %>' />
+                            ImagenURL_Lb:
+                            <asp:TextBox ID="ImagenURL_LbTextBox" runat="server" Text='<%# Bind("ImagenURL_Lb") %>' />
+                            <br />
+                            Categoria_Lb:
+                            <asp:TextBox ID="Categoria_LbTextBox" runat="server" Text='<%# Bind("Categoria_Lb") %>' />
+                            <br />
+                            Editorial_Lb:
+                            <asp:TextBox ID="Editorial_LbTextBox" runat="server" Text='<%# Bind("Editorial_Lb") %>' />
                             <br />
                             <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar" />
                             <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar" />
@@ -231,56 +253,73 @@
                             <span>No se han devuelto datos.</span>
                         </EmptyDataTemplate>
                         <InsertItemTemplate>
-                            <span style="">Dni:
-                            <asp:TextBox ID="DniTextBox" runat="server" Text='<%# Bind("Dni") %>' />
-                            <br />Nombre:
-                            <asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' />
-                            <br />Apellido:
-                            <asp:TextBox ID="ApellidoTextBox" runat="server" Text='<%# Bind("Apellido") %>' />
-                            <br />ImagenURL:
-                            <asp:TextBox ID="ImagenURLTextBox" runat="server" Text='<%# Bind("ImagenURL") %>' />
+                            <span style="">Precio_Lb:
+                            <asp:TextBox ID="Precio_LbTextBox" runat="server" Text='<%# Bind("Precio_Lb") %>' />
+                            <br />NombreLibro_Lb:
+                            <asp:TextBox ID="NombreLibro_LbTextBox" runat="server" Text='<%# Bind("NombreLibro_Lb") %>' />
+                            <br />Cod_Libro_Lb:
+                            <asp:TextBox ID="Cod_Libro_LbTextBox" runat="server" Text='<%# Bind("Cod_Libro_Lb") %>' />
+                            <br />ImagenURL_Lb:
+                            <asp:TextBox ID="ImagenURL_LbTextBox" runat="server" Text='<%# Bind("ImagenURL_Lb") %>' />
+                            <br />
+                            Categoria_Lb:
+                            <asp:TextBox ID="Categoria_LbTextBox" runat="server" Text='<%# Bind("Categoria_Lb") %>' />
+                            <br />
+                            Editorial_Lb:
+                            <asp:TextBox ID="Editorial_LbTextBox" runat="server" Text='<%# Bind("Editorial_Lb") %>' />
                             <br />
                             <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
                             <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Borrar" />
                             <br /><br /></span>
                         </InsertItemTemplate>
                         <ItemTemplate>
-                            Codigo: <span style="">&nbsp;<asp:Label ID="DniLabel" runat="server" Text='<%# Eval("Dni") %>' />
+                            <span style="">Precio_Lb:
+                            <asp:Label ID="Precio_LbLabel" runat="server" Text='<%# Eval("Precio_Lb") %>' />
                             <br />
-                            Nombre:
-                            <asp:Label ID="NombreLabel" runat="server" Text='<%# Eval("Nombre") %>' />
+                            NombreLibro_Lb:
+                            <asp:Label ID="NombreLibro_LbLabel" runat="server" Text='<%# Eval("NombreLibro_Lb") %>' />
                             <br />
-                            Editorial&nbsp;
-                            <asp:Label ID="ApellidoLabel" runat="server" Text='<%# Eval("Apellido") %>' />
+                            Cod_Libro_Lb: <asp:Label ID="Cod_Libro_LbLabel" runat="server" Text='<%# Eval("Cod_Libro_Lb") %>' />
+                            <br />
+                            ImagenURL_Lb:
+                            <asp:Label ID="ImagenURL_LbLabel" runat="server" Text='<%# Eval("ImagenURL_Lb") %>' />
+                            <br />
+                            Categoria_Lb:
+                            <asp:Label ID="Categoria_LbLabel" runat="server" Text='<%# Eval("Categoria_Lb") %>' />
+                            <br />
+                            Editorial_Lb:
+                            <asp:Label ID="Editorial_LbLabel" runat="server" Text='<%# Eval("Editorial_Lb") %>' />
                             <br />
                             <br />
-                            &nbsp;<asp:Image ID="Image1" runat="server" Height="100px" ImageUrl='<%# Eval("ImagenURL") %>' Width="150px" />
                             </span>
                         </ItemTemplate>
                         <LayoutTemplate>
                             <div id="itemPlaceholderContainer" runat="server" style="">
                                 <span runat="server" id="itemPlaceholder" />
-                                <br />
-                                <br />
-                                </span>
                             </div>
                             <div style="">
                             </div>
                         </LayoutTemplate>
                         <SelectedItemTemplate>
-                            <span style="">Dni:
-                            <asp:Label ID="DniLabel" runat="server" Text='<%# Eval("Dni") %>' />
+                            <span style="">Precio_Lb:
+                            <asp:Label ID="Precio_LbLabel" runat="server" Text='<%# Eval("Precio_Lb") %>' />
                             <br />
-                            Nombre:
-                            <asp:Label ID="NombreLabel" runat="server" Text='<%# Eval("Nombre") %>' />
+                            NombreLibro_Lb:
+                            <asp:Label ID="NombreLibro_LbLabel" runat="server" Text='<%# Eval("NombreLibro_Lb") %>' />
                             <br />
-                            Apellido:
-                            <asp:Label ID="ApellidoLabel" runat="server" Text='<%# Eval("Apellido") %>' />
+                            Cod_Libro_Lb:
+                            <asp:Label ID="Cod_Libro_LbLabel" runat="server" Text='<%# Eval("Cod_Libro_Lb") %>' />
                             <br />
-                            ImagenURL:
-                            <asp:Label ID="ImagenURLLabel" runat="server" Text='<%# Eval("ImagenURL") %>' />
+                            ImagenURL_Lb:
+                            <asp:Label ID="ImagenURL_LbLabel" runat="server" Text='<%# Eval("ImagenURL_Lb") %>' />
                             <br />
-<br /></span>
+                            Categoria_Lb:
+                            <asp:Label ID="Categoria_LbLabel" runat="server" Text='<%# Eval("Categoria_Lb") %>' />
+<br />Editorial_Lb:
+                            <asp:Label ID="Editorial_LbLabel" runat="server" Text='<%# Eval("Editorial_Lb") %>' />
+                            <br />
+                            <br />
+                            </span>
                         </SelectedItemTemplate>
                     </asp:ListView>
                 </td>
@@ -357,7 +396,7 @@
             </tr>
         </table>--%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EmpresaConnectionString2 %>" SelectCommand="SELECT [Dni], [Nombre], [Apellido], [ImagenURL] FROM [Personas]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Precio_Lb], [NombreLibro_Lb], [Cod_Libro_Lb], [ImagenURL_Lb], [Categoria_Lb], [Editorial_Lb] FROM [Libros]"></asp:SqlDataSource>
     </form>
     <br />
     

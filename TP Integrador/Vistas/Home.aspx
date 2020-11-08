@@ -53,6 +53,9 @@
             color: #800000;
             font-size: large;
         }
+        .auto-style14 {
+            font-size: medium;
+        }
         </style>
 </head>
 <body style="background-color:darkgray">
@@ -84,11 +87,21 @@
                             Filtrar por...<br />
                             <br />
                             </em><div class="auto-style12"> <strong><em>Categoria</em></strong></div>
-                            <asp:DataList ID="dlCategorias" runat="server" Height="217px">
+                            <asp:DataList ID="dlCategorias" runat="server" Height="217px" DataKeyField="Nombre_Ca" DataSourceID="dsCategorias">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="LinkButton1" runat="server" CssClass="auto-style14" Text='<%# Eval("Nombre_Ca") %>'></asp:LinkButton>
+                                    <br />
+<br />
+                                </ItemTemplate>
                             </asp:DataList>
                             <br />
                             <div class="auto-style12"> <strong><em>Editorial</em></strong></div>
-                            <asp:DataList ID="dlEditoriales" runat="server">
+                            <asp:DataList ID="dlEditoriales" runat="server" DataKeyField="Nombre_E" DataSourceID="dsEditoriales">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="LinkButton2" runat="server" CssClass="auto-style14" Text='<%# Eval("Nombre_E") %>'></asp:LinkButton>
+                                    <br />
+<br />
+                                </ItemTemplate>
                             </asp:DataList>
                             <br />
                             <div class="auto-style12"> <strong><em>Precio</em></strong></div>
@@ -143,7 +156,7 @@
                 <ItemTemplate>
                     <td runat="server" style="">
                         &nbsp;<br />
-                        <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl='<%# Eval("ImagenURL") %>' Height="223px" Width="143px" />
+                        <asp:ImageButton ID="ImagenLibro" runat="server" ImageUrl='<%# Eval("ImagenURL_Lb") %>' Height="223px" Width="143px" />
                         <br /></td>
                 </ItemTemplate>
                 <LayoutTemplate>
@@ -171,7 +184,9 @@
                 </tr>
             </table>
             <br />
-            <asp:SqlDataSource ID="ConexionParaDataListYListView" runat="server" ConnectionString="<%$ ConnectionStrings:ConexionDeTesteoConBD-Empresa %>" SelectCommand="SELECT [ImagenURL] FROM [Personas]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="ConexionParaDataListYListView" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Cod_Libro_Lb], [ImagenURL_Lb] FROM [Libros]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="dsCategorias" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Nombre_Ca] FROM [Categorias]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="dsEditoriales" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Nombre_E] FROM [Editoriales]"></asp:SqlDataSource>
             <br />
         </div>
         <div style="background-color: darkgray; width: 15%; height: 1200px; float: left">
