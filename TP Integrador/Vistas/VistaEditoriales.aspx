@@ -132,7 +132,7 @@
                 <tr id="hl1">
                     <td class="auto-style3">&nbsp;</td>
                     <td class="hl1">
-                        <asp:HyperLink ID="hlHome" runat="server">HOME</asp:HyperLink>
+                        <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/Home.aspx">HOME</asp:HyperLink>
                     </td>
                     <td class="hl1">
                         <asp:HyperLink ID="hlContacto" runat="server" NavigateUrl="~/VistaContacto.aspx">Contacto</asp:HyperLink>

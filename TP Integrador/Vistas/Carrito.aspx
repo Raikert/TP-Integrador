@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="vista2(carrito).aspx.cs" Inherits="vistas.vista2_carrito_" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Carrito.aspx.cs" Inherits="vistas.vista2_carrito_" %>
 
 <!DOCTYPE html>
 
@@ -25,10 +25,10 @@
         }
         .auto-style2 {
             font-size: xx-large;
-            width: 634px;
+            width: 585px;
         }
         .auto-style3 {
-            width: 634px;
+            width: 585px;
         }
         .auto-style5 {
             font-size: x-large;
@@ -120,10 +120,23 @@
             justify-content: center;
             align-items: center;
             border: 2px groove gray;
-            width: 198px;
+            width: 120px;
         }
         .auto-style25 {
-            width: 198px;
+            width: 120px;
+        }
+
+        .auto-style26 {
+            width: 291px;
+        }
+        .auto-style27 {
+            justify-content: center;
+            align-items: center;
+            border: 2px groove gray;
+            width: 92px;
+        }
+        .auto-style28 {
+            width: 92px;
         }
 
         </style>
@@ -135,19 +148,22 @@
             <table class="auto-style1">
                 <tr id="hl1">
                     <td class="auto-style3">&nbsp;</td>
-                    <td class="hl1">
-                        <asp:HyperLink ID="hlHome" runat="server">HOME</asp:HyperLink>
+                    <td class="auto-style27">
+                        <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/Home.aspx">HOME</asp:HyperLink>
                     </td>
                     <td class="auto-style24">
-                        <asp:HyperLink ID="hlContacto" runat="server">Contacto</asp:HyperLink>
+                        <asp:HyperLink ID="hlContacto" runat="server" NavigateUrl="~/VistaContacto.aspx">Contacto</asp:HyperLink>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </td>
                     <td class="hl1">
                         <asp:HyperLink ID="hlMiCuenta" runat="server">Mi Cuenta</asp:HyperLink>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style2"><strong>TITULO</strong></td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style2">
+                        <asp:Image ID="Image1" runat="server" Height="84px" ImageUrl="~/Imagenes/Biblioteca Libra logo.png" Width="104px" />
+                    </td>
+                    <td class="auto-style28">&nbsp;</td>
                     <td class="auto-style25">&nbsp;</td>
                     <td class="auto-style20">&nbsp;</td>
                 </tr>
@@ -175,17 +191,14 @@
                 <td>
                     <table  class="auto-style1">
                         <tr class="hl2">
-                            <td>
-                                <asp:HyperLink ID="hlLibros" runat="server">Libros</asp:HyperLink>
+                            <td class="auto-style26">
+                                <asp:HyperLink ID="hlLibros" runat="server" NavigateUrl="~/vistaLibros.aspx">Libros</asp:HyperLink>
                             </td>
                             <td>
-                                <asp:HyperLink ID="hlCategorias" runat="server">Categorias</asp:HyperLink>
+                                <asp:HyperLink ID="hlCategorias" runat="server" NavigateUrl="~/VistaCategorias.aspx">Categorias</asp:HyperLink>
                             </td>
                             <td>
-                                <asp:HyperLink ID="hlEditoriales" runat="server">Editoriales</asp:HyperLink>
-                            </td>
-                            <td>
-                                <asp:HyperLink ID="hlStock" runat="server">En stock</asp:HyperLink>
+                                <asp:HyperLink ID="hlEditoriales" runat="server" NavigateUrl="~/VistaEditoriales.aspx">Editoriales</asp:HyperLink>
                             </td>
                         </tr>
                     </table>

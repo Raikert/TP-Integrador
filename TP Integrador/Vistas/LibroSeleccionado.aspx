@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="vista1.aspx.cs" Inherits="vistas.vista1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LibroSeleccionado.aspx.cs" Inherits="vistas.vista1" %>
 
 <!DOCTYPE html>
 
@@ -111,7 +111,7 @@
             margin-top: 0px;
         }
         .auto-style24 {
-            width: 216px;
+            width: 291px;
         }
 
     </style>
@@ -124,17 +124,19 @@
                 <tr id="hl1">
                     <td class="auto-style3">&nbsp;</td>
                     <td class="hl1">
-                        <asp:HyperLink ID="hlHome" runat="server">HOME</asp:HyperLink>
+                        <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/Home.aspx">HOME</asp:HyperLink>
                     </td>
                     <td class="hl1">
-                        <asp:HyperLink ID="hlContacto" runat="server">Contacto</asp:HyperLink>
+                        <asp:HyperLink ID="hlContacto" runat="server" NavigateUrl="~/VistaContacto.aspx">Contacto</asp:HyperLink>
                     </td>
                     <td class="hl1">
                         <asp:HyperLink ID="hlMiCuenta" runat="server">Mi Cuenta</asp:HyperLink>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style2"><strong>TITULO</strong></td>
+                    <td class="auto-style2">
+                        <asp:Image ID="Image2" runat="server" Height="84px" ImageUrl="~/Imagenes/Biblioteca Libra logo.png" Width="104px" />
+                    </td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                     <td class="auto-style20">&nbsp;</td>
@@ -164,16 +166,13 @@
                     <table  class="auto-style1">
                         <tr class="hl2">
                             <td class="auto-style24">
-                                <asp:HyperLink ID="hlLibros" runat="server">Libros</asp:HyperLink>
+                                <asp:HyperLink ID="hlLibros" runat="server" NavigateUrl="~/vistaLibros.aspx">Libros</asp:HyperLink>
                             </td>
                             <td>
-                                <asp:HyperLink ID="hlCategorias" runat="server">Categorias</asp:HyperLink>
+                                <asp:HyperLink ID="hlCategorias" runat="server" NavigateUrl="~/VistaCategorias.aspx">Categorias</asp:HyperLink>
                             </td>
                             <td>
-                                <asp:HyperLink ID="hlEditoriales" runat="server">Editoriales</asp:HyperLink>
-                            </td>
-                            <td>
-                                <asp:HyperLink ID="hlStock" runat="server">En stock</asp:HyperLink>
+                                <asp:HyperLink ID="hlEditoriales" runat="server" NavigateUrl="~/VistaEditoriales.aspx">Editoriales</asp:HyperLink>
                             </td>
                         </tr>
                     </table>
@@ -185,8 +184,8 @@
         <br />
         <table class="auto-style1">
             <tr>
-                <td class="auto-style22">TITULO DEL LIBRO&nbsp;&nbsp;&nbsp; </td>
-                <td>&nbsp;&nbsp;&nbsp; &nbsp; CATEGORIA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EDITORIAL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+                <td class="auto-style22"><em>TITULO DEL LIBRO:&nbsp;&nbsp;&nbsp; </em> </td>
+                <td><em>&nbsp;&nbsp;&nbsp; &nbsp; CATEGORIA:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EDITORIAL:&nbsp;&nbsp; </em> </td>
             </tr>
             <tr>
                 <td class="auto-style22">

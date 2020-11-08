@@ -93,8 +93,8 @@
     <Content Include="RegistroUsuario1.aspx" />
     <Content Include="RegistroUsuario2.aspx" />
     <Content Include="RestablecerContraseña.aspx" />
-    <Content Include="vista1.aspx" />
-    <Content Include="vista2%28carrito%29.aspx" />
+    <Content Include="LibroSeleccionado.aspx" />
+    <Content Include="Carrito.aspx" />
     <Content Include="VistaCategorias.aspx" />
     <Content Include="VistaContacto.aspx" />
     <Content Include="VistaEditoriales.aspx" />
@@ -145,19 +145,19 @@
     <Compile Include="RestablecerContraseña.aspx.designer.cs">
       <DependentUpon>RestablecerContraseña.aspx</DependentUpon>
     </Compile>
-    <Compile Include="vista1.aspx.cs">
-      <DependentUpon>vista1.aspx</DependentUpon>
+    <Compile Include="LibroSeleccionado.aspx.cs">
+      <DependentUpon>LibroSeleccionado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="vista1.aspx.designer.cs">
-      <DependentUpon>vista1.aspx</DependentUpon>
+    <Compile Include="LibroSeleccionado.aspx.designer.cs">
+      <DependentUpon>LibroSeleccionado.aspx</DependentUpon>
     </Compile>
-    <Compile Include="vista2%28carrito%29.aspx.cs">
-      <DependentUpon>vista2%28carrito%29.aspx</DependentUpon>
+    <Compile Include="Carrito.aspx.cs">
+      <DependentUpon>Carrito.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="vista2%28carrito%29.aspx.designer.cs">
-      <DependentUpon>vista2%28carrito%29.aspx</DependentUpon>
+    <Compile Include="Carrito.aspx.designer.cs">
+      <DependentUpon>Carrito.aspx</DependentUpon>
     </Compile>
     <Compile Include="VistaCategorias.aspx.cs">
       <DependentUpon>VistaCategorias.aspx</DependentUpon>

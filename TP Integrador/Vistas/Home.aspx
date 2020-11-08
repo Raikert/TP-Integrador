@@ -56,6 +56,26 @@
         .auto-style14 {
             font-size: medium;
         }
+        
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style26 {
+            width: 291px;
+        }
+        .auto-style27 {
+            border: 2px groove black;
+            background-color: gray;
+        }
+
+        .hl2 td{
+           justify-content: center;
+           align-items: center;
+           border: 2px groove black;
+           background-color:antiquewhite;
+          
+         }
+
         </style>
 </head>
 <body style="background-color:darkgray">
@@ -77,7 +97,21 @@
                 <asp:Label ID="CantidadProductosCarrito" runat="server" ForeColor="#009933" Text="0"></asp:Label>
                 &nbsp;</strong><asp:Label ID="lblTexto" runat="server" CssClass="auto-style3" Text="producto | AR$"></asp:Label>
             &nbsp;<strong><asp:Label ID="MontoCarrito" runat="server" ForeColor="#CC3300" Text="0,00"></asp:Label>
-            </strong>&nbsp;<asp:ImageButton ID="ImageButton1" runat="server" Height="54px" ImageUrl="~/Imagenes/carrito logo.jpg" Width="49px" />
+            </strong>&nbsp;<asp:ImageButton ID="ImageButton1" runat="server" Height="54px" ImageUrl="~/Imagenes/carrito logo.jpg" Width="49px" PostBackUrl="~/Carrito.aspx" />
+            <br />
+                    <table  class="auto-style1">
+                        <tr class="hl2">
+                            <td class="auto-style27" style="justify-content: center; align-items: center;">
+                                <asp:HyperLink ID="hlLibros" runat="server" NavigateUrl="~/vistaLibros.aspx">Libros</asp:HyperLink>
+                            </td>
+                            <td>
+                                <asp:HyperLink ID="hlCategorias" runat="server" NavigateUrl="~/VistaCategorias.aspx">Categorias</asp:HyperLink>
+                            </td>
+                            <td>
+                                <asp:HyperLink ID="hlEditoriales" runat="server" NavigateUrl="~/VistaEditoriales.aspx">Editoriales</asp:HyperLink>
+                            </td>
+                        </tr>
+                    </table>
             <br />
             <table class="auto-style6">
                 <tr>
