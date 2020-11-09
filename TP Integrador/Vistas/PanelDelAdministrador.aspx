@@ -131,7 +131,8 @@
                 <br />
                 <asp:ValidationSummary ID="ValidationSummary10" runat="server" HeaderText="Errores" ShowMessageBox="True" ShowSummary="False" ValidationGroup="9" Width="233px" />
                 <asp:ValidationSummary ID="ValidationSummary11" runat="server" HeaderText="Errores" ShowMessageBox="True" ShowSummary="False" ValidationGroup="10" Width="233px" />
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Nombre_Ca] FROM [Categorias]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Nombre_E] FROM [Editoriales]"></asp:SqlDataSource>
                 <br />
             </div>
             <div style="background-color:white; " class="auto-style9">
@@ -181,11 +182,11 @@
                         <asp:TextBox ID="NombreLibro_Lb" runat="server" Width="178px"></asp:TextBox>
                                 </td>
                                 <td class="auto-style15">
-                        <asp:DropDownList ID="Categoria_Lb" runat="server">
+                        <asp:DropDownList ID="Categoria_Lb" runat="server" DataSourceID="SqlDataSource1" DataTextField="Nombre_Ca" DataValueField="Nombre_Ca">
                         </asp:DropDownList>
                                 </td>
                                 <td class="auto-style16">
-                        <asp:DropDownList ID="Editorial_Lb" runat="server">
+                        <asp:DropDownList ID="Editorial_Lb" runat="server" DataSourceID="SqlDataSource2" DataTextField="Nombre_E" DataValueField="Nombre_E">
                         </asp:DropDownList>
                                 </td>
                                 <td class="auto-style17">
@@ -214,10 +215,10 @@
                     <br />
 &nbsp;&nbsp;
                         <asp:Button ID="btnMostrarLibros" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Mostrar libros" Width="105px" OnClick="btnMostrarLibros_Click" />
-&nbsp;<asp:Button ID="btnBuscarLibro" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar por codigo" Width="134px" OnClick="btnBuscarLibro_Click" />
-&nbsp;<asp:Button ID="btnAgregarLibro" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Agregar" ValidationGroup="1" />
-&nbsp;<asp:Button ID="btnModificarLibro" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Modificar" OnClick="btnModificarLibro_Click" />
-&nbsp;<asp:Button ID="btnBorrarLibro" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Borrar" ValidationGroup="0" />
+&nbsp;<asp:Button ID="btnBuscarLibro" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar por codigo" Width="134px" OnClick="btnBuscarLibro_Click" ValidationGroup="0" />
+&nbsp;<asp:Button ID="btnAgregarLibro" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Agregar" ValidationGroup="1" OnClick="btnAgregarLibro_Click" />
+&nbsp;<asp:Button ID="btnModificarLibro" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Modificar" OnClick="btnModificarLibro_Click" ValidationGroup="0" />
+&nbsp;<asp:Button ID="btnBorrarLibro" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Dar de baja" ValidationGroup="0" OnClick="btnBorrarLibro_Click" Width="90px" />
 &nbsp;&nbsp;
                         <br />
                         <br />
@@ -395,7 +396,7 @@
                         <asp:Button ID="btnMostrarProveedores" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Mostrar proveedores" Width="150px" />
 &nbsp;<asp:Button ID="btnBuscarProveedor" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar por codigo" Width="134px" />
 &nbsp;<asp:Button ID="btnAgregarProveedor" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Agregar" ValidationGroup="7" />
-&nbsp;<asp:Button ID="btnModificarProveedor" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Modificar" OnClick="btnModificarProveedor_Click" />
+&nbsp;<asp:Button ID="btnModificarProveedor" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Modificar" />
 &nbsp;<asp:Button ID="btnBorrarProveedor" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Borrar" ValidationGroup="6" />
                     </strong>
                     <br />
@@ -492,7 +493,7 @@
                         <asp:Button ID="btnMostrarStock" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Mostrar stocks" Width="115px" />
 &nbsp;<asp:Button ID="btnBuscarStock" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar por codigo" Width="134px" />
 &nbsp;<asp:Button ID="btnAgregarStock" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Agregar" ValidationGroup="9" />
-&nbsp;<asp:Button ID="btnModificarStock" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Modificar" OnClick="btnModificarProveedor_Click" />
+&nbsp;<asp:Button ID="btnModificarStock" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Modificar" />
 &nbsp;<asp:Button ID="btnBorrarStock" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Borrar" ValidationGroup="10" />
                     <br />
                     <br />

@@ -22,85 +22,123 @@ namespace Vistas
 
         }
 
-        protected void btnModificarProveedor_Click(object sender, EventArgs e)
-        {
-            if (Cod_Proveedor_Pr.ToString() != "")
-            {
-                /* Proveedor prov
-                 
-                NegocioProveedores np
-
-                prov = txtCodigo.text;
-
-                np.modificarCodigo(prov);
-
-                "Update Proveedores set prov.codigo.id = prov.codigo.text"
-
-                */
-
-
-            }
-        }
-
-        protected void cvCodigoLibro_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-            if (args.Value.Length < 5)
-            {
-                args.IsValid = true;
-            }
-            else
-            {
-                args.IsValid = false;
-            }
-        }
-
         protected void btnMostrarLibros_Click(object sender, EventArgs e)
         {
-           grdLibro.DataSource = obj.cargarGrilla("SELECT id_libro_lb AS ID, Cod_Libro_Lb AS CODIGO, NombreLibro_Lb AS NOMBRE, Descripcion_lb AS DESCRIPCION, Categoria_Lb AS CATEGORIA, Editorial_Lb AS EDITORIAL, Precio_Lb AS PRECIO, Activo_Lb AS ACTIVO FROM Libros");
-           grdLibro.DataBind();
+            BindearGrid(ref grdLibro, "SELECT id_libro_lb AS ID, Cod_Libro_Lb AS CODIGO, NombreLibro_Lb AS NOMBRE, " +
+               "Descripcion_lb AS DESCRIPCION, Categoria_Lb AS CATEGORIA, Editorial_Lb AS EDITORIAL, Precio_Lb AS PRECIO, " +
+               "Activo_Lb AS ACTIVO FROM Libros");
+
+            obj.cerrarConexion();
         }
 
         protected void btnBuscarLibro_Click(object sender, EventArgs e)
         {
-            grdLibro.DataSource = obj.cargarGrilla("SELECT id_libro_lb AS ID, Cod_Libro_Lb AS CODIGO, NombreLibro_Lb AS NOMBRE, " +
+            BindearGrid(ref grdLibro, "SELECT id_libro_lb AS ID, Cod_Libro_Lb AS CODIGO, NombreLibro_Lb AS NOMBRE, " +
                 "Descripcion_lb AS DESCRIPCION, Categoria_Lb AS CATEGORIA, Editorial_Lb AS EDITORIAL, Precio_Lb AS PRECIO, " +
-                "Activo_Lb AS ACTIVO FROM Libros where Cod_Libro_Lb = '" + Cod_Libro_Lb.Text+"'");
-            grdLibro.DataBind();
+                "Activo_Lb AS ACTIVO FROM Libros where Cod_Libro_Lb = '" + Cod_Libro_Lb.Text + "'");
+
+            obj.cerrarConexion();
+
+            limpiartxt(ref Cod_Libro_Lb);
         }
 
         protected void btnModificarLibro_Click(object sender, EventArgs e)
         {
-            modificar(ref Cod_Libro_Lb,ref NombreLibro_Lb);
-            modificar(ref Cod_Libro_Lb, ref Descripcion_lb);
-            modificar(ref Cod_Libro_Lb, ref Precio_Lb, true);
+            string tabla = "Libros";
 
-            grdLibro.DataSource = obj.cargarGrilla("SELECT id_libro_lb AS ID, Cod_Libro_Lb AS CODIGO, NombreLibro_Lb AS NOMBRE, " +
-                "Descripcion_lb AS DESCRIPCION, Categoria_Lb AS CATEGORIA, Editorial_Lb AS EDITORIAL, Precio_Lb AS PRECIO, " +
-                "Activo_Lb AS ACTIVO FROM Libros where Cod_Libro_Lb = '" + Cod_Libro_Lb.Text + "'");
-            grdLibro.DataBind();
+            modificar(ref Cod_Libro_Lb,ref NombreLibro_Lb,tabla);
+            modificar(ref Cod_Libro_Lb, ref Descripcion_lb, tabla);
+            modificar(ref Cod_Libro_Lb, ref Precio_Lb, tabla, true);
+            modificar(ref Cod_Libro_Lb,ref Categoria_Lb, tabla);
+            modificar(ref Cod_Libro_Lb, ref Editorial_Lb, tabla);
+            modificar(ref Cod_Libro_Lb, ref Activo_Lb, tabla, true, true);
+
+            BindearGrid(ref grdLibro, "SELECT id_libro_lb AS ID, Cod_Libro_Lb AS CODIGO, NombreLibro_Lb AS NOMBRE, " +
+               "Descripcion_lb AS DESCRIPCION, Categoria_Lb AS CATEGORIA, Editorial_Lb AS EDITORIAL, Precio_Lb AS PRECIO, " +
+               "Activo_Lb AS ACTIVO FROM Libros where Cod_Libro_Lb = '" + Cod_Libro_Lb.Text + "'");
 
             obj.cerrarConexion();
         }
 
 
-        public void modificar(ref TextBox mod,ref TextBox cod,bool inter=false)
+        public void modificar(ref TextBox cod,ref TextBox value,string tabla, bool inter = false)
         {
-            if (mod.Text != "")
+            if (value.Text != "")
             {    
-                string codigo = mod.Text;
-                string campo = cod.ID;
-                string valor = cod.Text;
-                string tabla = "Libros";
+                string codigo = cod.Text;
+                string campo = value.ID;
+                string valor = value.Text;
                 obj.modificarCampo(codigo, campo, valor, tabla,inter);
+                limpiartxt(ref cod);
+                limpiartxt(ref value);
             }
         }
 
+        public void modificar(ref TextBox cod, string campo,string valor, string tabla, bool inter = false)
+        {
+                string codigo = cod.Text;
+                obj.modificarCampo(codigo, campo, valor, tabla, inter);
+        }
 
+        public void modificar(ref TextBox mod, ref DropDownList cod, string tabla, bool inter = false,bool estado = false)
+        {
+            if (mod.Text != "")
+            {
+                string codigo = mod.Text;
+                string campo = cod.ID;
+                string valor;
 
+                if(!estado)
+                valor = cod.Text;
+                else
+                valor = cod.SelectedValue;
 
+                obj.modificarCampo(codigo, campo, valor, tabla, inter);
+            }
+        }
 
+        protected void btnBorrarLibro_Click(object sender, EventArgs e)
+        {
+            string tabla = "Libros";
 
+            modificar(ref Cod_Libro_Lb,"Activo_Lb","0", tabla, true);
 
+            obj.cerrarConexion();
+
+            limpiartxt(ref Cod_Libro_Lb);
+
+            lblEstadoABM_Libro.Text = "Registro de libro dado de baja exitosamente";
+        }
+
+        public void BindearGrid(ref GridView grid,string consulta)
+        {
+            grdLibro.DataSource = obj.cargarGrilla(consulta);
+            grdLibro.DataBind();
+        }
+
+        protected void btnAgregarLibro_Click(object sender, EventArgs e)
+        {
+            obj.ConsultaPersonalizada("INSERT INTO Libros(Cod_Libro_Lb, NombreLibro_Lb, Descripcion_lb, Editorial_Lb, Categoria_Lb, Precio_Lb, Activo_Lb)" +
+                "SELECT '"+ Cod_Libro_Lb.Text + "', '" + NombreLibro_Lb.Text + "', '" + Descripcion_lb.Text + "', '" + Editorial_Lb.Text + "', '" + Categoria_Lb.Text +
+                "', '" + Precio_Lb.Text + "', 'true'");
+
+            BindearGrid(ref grdLibro, "SELECT id_libro_lb AS ID, Cod_Libro_Lb AS CODIGO, NombreLibro_Lb AS NOMBRE, " +
+               "Descripcion_lb AS DESCRIPCION, Categoria_Lb AS CATEGORIA, Editorial_Lb AS EDITORIAL, Precio_Lb AS PRECIO, " +
+               "Activo_Lb AS ACTIVO FROM Libros where Cod_Libro_Lb = '" + Cod_Libro_Lb.Text + "'");
+
+            obj.cerrarConexion();
+
+            limpiartxt(ref Cod_Libro_Lb);
+            limpiartxt(ref NombreLibro_Lb);
+            limpiartxt(ref Precio_Lb);
+            limpiartxt(ref Descripcion_lb);
+
+            lblEstadoABM_Libro.Text = "Registro de libro agregado exitosamente";
+        }
+
+        public void limpiartxt(ref TextBox textBox)
+        {
+            textBox.Text = "";
+        }
     }
-
 }

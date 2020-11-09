@@ -25,13 +25,16 @@ namespace vistas
 
         }
 
-
+        public void ConsultaPersonalizada(string consulta)
+        {
+            obj.Command(consulta);
+            obj.CommandRun();
+        }
 
         public DataTable cargarGrilla(string consulta)
         {
             obj.Adapter(consulta);
             obj.DataSet("tabla");
-            obj.Cerrar();
             return obj.grid_DataTable("tabla");       
                
         }
@@ -57,19 +60,5 @@ namespace vistas
         {
             obj.Cerrar();
         }
-
-     
-
-
-
-
     }
-
-
-
-
-
-
-
-
 }
