@@ -131,6 +131,8 @@
                 <br />
                 <asp:ValidationSummary ID="ValidationSummary10" runat="server" HeaderText="Errores" ShowMessageBox="True" ShowSummary="False" ValidationGroup="9" Width="233px" />
                 <asp:ValidationSummary ID="ValidationSummary11" runat="server" HeaderText="Errores" ShowMessageBox="True" ShowSummary="False" ValidationGroup="10" Width="233px" />
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+                <br />
             </div>
             <div style="background-color:white; " class="auto-style9">
                 <div class="auto-style8"> 
@@ -212,14 +214,14 @@
                     <br />
 &nbsp;&nbsp;
                         <asp:Button ID="btnMostrarLibros" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Mostrar libros" Width="105px" OnClick="btnMostrarLibros_Click" />
-&nbsp;<asp:Button ID="btnBuscarLibro" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar por codigo" Width="134px" />
+&nbsp;<asp:Button ID="btnBuscarLibro" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar por codigo" Width="134px" OnClick="btnBuscarLibro_Click" />
 &nbsp;<asp:Button ID="btnAgregarLibro" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Agregar" ValidationGroup="1" />
-&nbsp;<asp:Button ID="btnModificarLibro" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Modificar" />
+&nbsp;<asp:Button ID="btnModificarLibro" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Modificar" OnClick="btnModificarLibro_Click" />
 &nbsp;<asp:Button ID="btnBorrarLibro" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Borrar" ValidationGroup="0" />
 &nbsp;&nbsp;
                         <br />
                         <br />
-                    <asp:GridView ID="grdLibro" runat="server" CssClass="auto-style11" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5">
+                    <asp:GridView ID="grdLibro" runat="server" CssClass="auto-style11" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5" Height="200px" Width="255px">
                         <AlternatingRowStyle BackColor="White" />
                         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#990000" Font-Bold="True" Font-Names="Javanese Text" ForeColor="White" />
@@ -233,11 +235,9 @@
                     </asp:GridView>
                     <br />&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="lblEstadoABM_Libro" runat="server" Font-Names="Arial"></asp:Label>
+                        <br />
                     <br />
-                    <br />
-                    <br />
-&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Label ID="lblABM_Categoria" runat="server" BackColor="#FFCC00" CssClass="auto-style10" Font-Names="Bahnschrift SemiBold" Text="ABM Categorias" BorderColor="#FF6600" BorderWidth="5px"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblABM_Categoria" runat="server" BackColor="#FFCC00" CssClass="auto-style10" Font-Names="Bahnschrift SemiBold" Text="ABM Categorias" BorderColor="#FF6600" BorderWidth="5px"></asp:Label>
                         <br />
                         <br />&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="lblNombre0" runat="server" CssClass="auto-style3" Font-Names="Candara Light" Text="Nombre"></asp:Label>
@@ -273,7 +273,7 @@
 &nbsp;<asp:Button ID="btnBorrarCategoria" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Borrar" ValidationGroup="2" />
                     &nbsp;<br />
                         <br />
-                    <asp:GridView ID="grdCategoria" runat="server" CssClass="auto-style11" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5">
+                    <asp:GridView ID="grdCategoria" runat="server" CssClass="auto-style11" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5">
                         <AlternatingRowStyle BackColor="White" />
                         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#990000" Font-Bold="True" Font-Names="Javanese Text" ForeColor="White" />
@@ -323,7 +323,7 @@
 &nbsp;<asp:Button ID="btnBorrarEditorial" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Borrar" ValidationGroup="4" />
                     <br />
                         <br />
-                    <asp:GridView ID="grdEditorial" runat="server" CssClass="auto-style11" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5">
+                    <asp:GridView ID="grdEditorial" runat="server" CssClass="auto-style11" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5">
                         <AlternatingRowStyle BackColor="White" />
                         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#990000" Font-Bold="True" Font-Names="Javanese Text" ForeColor="White" />
@@ -400,7 +400,7 @@
                     </strong>
                     <br />
                     <strong>
-                    <asp:GridView ID="grdProveedor" runat="server" CssClass="auto-style11" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5">
+                    <asp:GridView ID="grdProveedor" runat="server" CssClass="auto-style11" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5">
                         <AlternatingRowStyle BackColor="White" />
                         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#990000" Font-Bold="True" Font-Names="Javanese Text" ForeColor="White" />
@@ -446,7 +446,7 @@
 &nbsp;<asp:Button ID="btnBorrarLibroXProveedor" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Borrar" ValidationGroup="8" />
                     <br />
                     <br />
-                    <asp:GridView ID="grdLibrosXProveedores" runat="server" CssClass="auto-style11" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5">
+                    <asp:GridView ID="grdLibrosXProveedores" runat="server" CssClass="auto-style11" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5">
                         <AlternatingRowStyle BackColor="White" />
                         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#990000" Font-Bold="True" Font-Names="Javanese Text" ForeColor="White" />
@@ -496,7 +496,7 @@
 &nbsp;<asp:Button ID="btnBorrarStock" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Borrar" ValidationGroup="10" />
                     <br />
                     <br />
-                    <asp:GridView ID="grdStock" runat="server" CssClass="auto-style11" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5">
+                    <asp:GridView ID="grdStock" runat="server" CssClass="auto-style11" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5">
                         <AlternatingRowStyle BackColor="White" />
                         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#990000" Font-Bold="True" Font-Names="Javanese Text" ForeColor="White" />
@@ -529,7 +529,7 @@
 &nbsp;<asp:Button ID="btnBuscarCliente" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar por codigo" Width="134px" />
                     <br />
                     <br />
-                    <asp:GridView ID="grdCliente" runat="server" CssClass="auto-style11" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5">
+                    <asp:GridView ID="grdCliente" runat="server" CssClass="auto-style11" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5">
                         <AlternatingRowStyle BackColor="White" />
                         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#990000" Font-Bold="True" Font-Names="Javanese Text" ForeColor="White" />
@@ -567,7 +567,7 @@
 &nbsp;<asp:Button ID="btnBuscarVentas" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar por codigo" Width="134px" />
                     <br />
                     <br />
-                    <asp:GridView ID="grdVentas" runat="server" CssClass="auto-style11" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5">
+                    <asp:GridView ID="grdVentas" runat="server" CssClass="auto-style11" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5">
                         <AlternatingRowStyle BackColor="White" />
                         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#990000" Font-Bold="True" Font-Names="Javanese Text" ForeColor="White" />
@@ -608,7 +608,7 @@
 &nbsp;<asp:Button ID="btnBuscarDetalleVentas" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar por codigo" Width="134px" />
                     <br />
                     <br />
-                    <asp:GridView ID="grdDetalleVentas" runat="server" CssClass="auto-style11" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5">
+                    <asp:GridView ID="grdDetalleVentas" runat="server" CssClass="auto-style11" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5">
                         <AlternatingRowStyle BackColor="White" />
                         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#990000" Font-Bold="True" Font-Names="Javanese Text" ForeColor="White" />

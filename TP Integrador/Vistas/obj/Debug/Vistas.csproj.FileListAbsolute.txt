@@ -250,3 +250,5 @@ E:\Documents\GitHub\TP-Integrador\TP Integrador\Vistas\obj\Debug\Vistas.csproj.C
 E:\Documents\GitHub\TP-Integrador\TP Integrador\Vistas\obj\Debug\Vistas.csproj.CopyComplete
 E:\Documents\GitHub\TP-Integrador\TP Integrador\Vistas\obj\Debug\Vistas.dll
 E:\Documents\GitHub\TP-Integrador\TP Integrador\Vistas\obj\Debug\Vistas.pdb
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Vistas\bin\Dao.dll
+E:\Documents\GitHub\TP-Integrador\TP Integrador\Vistas\bin\Dao.pdb
