@@ -9,6 +9,9 @@
     <style type="text/css">
         .auto-style1 {
             text-align: center;
+            float: left;
+            width: 30%;
+            height: 593px;
         }
         .auto-style6 {
             font-size: medium;
@@ -31,7 +34,7 @@
             <br />
             <br />
             <div style="float:left;width:35%"> &nbsp;</div>
-            <div style="background-color:white;float:left;width:30%;height:500px" class="auto-style1">
+            <div style="background-color:white;" class="auto-style1">
                 <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/Biblioteca Libra logo.png" />
                 <br />
                 <br />
@@ -44,8 +47,16 @@
 &nbsp;<asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="txtEmail" CssClass="auto-style3" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Font-Names="Bahnschrift">No ha ingresado email correcto</asp:RegularExpressionValidator>
                 <br />
                 <br />
+                <asp:TextBox style="text-align: center" ID="txtPass" runat="server" Width="280px" placeholder="Ingrese aqui su email" BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" Font-Names="Comic Sans MS" Height="22px" TextMode="Password"></asp:TextBox>
+                <br />
+                <asp:RequiredFieldValidator ID="rfvEmail0" runat="server" ControlToValidate="txtEmail" CssClass="auto-style3" ErrorMessage="Campo obligatorio" Font-Names="Bahnschrift" ForeColor="Red"></asp:RequiredFieldValidator>
+                <br />
+                <br />
                 <strong>
                 <asp:Button ID="btnContinuar" runat="server" BackColor="#33CC33" BorderColor="Black" CssClass="auto-style2" ForeColor="Black" Text="Continuar &gt;" OnClick="btnContinuar_Click" />
+                <br />
+                <br />
+                <asp:LinkButton ID="lbRestablecerContraseña" runat="server" ForeColor="#CC6600" OnClick="lbRestablecerContraseña_Click">¿Olvidó su contraseña?</asp:LinkButton>
                 <br />
                 <br />
                 </strong>

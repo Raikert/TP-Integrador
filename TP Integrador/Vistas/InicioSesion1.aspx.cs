@@ -16,7 +16,24 @@ namespace Vistas
 
         protected void btnContinuar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("InicioSesion2.aspx");
+            string cuenta;
+            string pass;
+
+            cuenta = txtEmail.Text;
+            pass = txtPass.Text;
+
+            if(cuenta == "admin@admin.com" && pass == "admin")
+            {
+                Response.Redirect("PanelDelAdministrador.aspx");
+            }else {
+                Session["Usuario"] = "Bienvenido/a X";
+                Response.Redirect("Home.aspx");
+            }
+        }
+
+        protected void lbRestablecerContraseña_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("RestablecerContraseña.aspx");
         }
     }
 }

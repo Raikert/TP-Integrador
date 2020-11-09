@@ -89,7 +89,6 @@
     <Content Include="Imagenes\twitter.png" />
     <Content Include="Imagenes\youtube.png" />
     <Content Include="InicioSesion1.aspx" />
-    <Content Include="InicioSesion2.aspx" />
     <Content Include="PanelDelAdministrador.aspx" />
     <Content Include="RegistroUsuario1.aspx" />
     <Content Include="RegistroUsuario2.aspx" />
@@ -116,13 +115,6 @@
     </Compile>
     <Compile Include="InicioSesion1.aspx.designer.cs">
       <DependentUpon>InicioSesion1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="InicioSesion2.aspx.cs">
-      <DependentUpon>InicioSesion2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="InicioSesion2.aspx.designer.cs">
-      <DependentUpon>InicioSesion2.aspx</DependentUpon>
     </Compile>
     <Compile Include="PanelDelAdministrador.aspx.cs">
       <DependentUpon>PanelDelAdministrador.aspx</DependentUpon>
