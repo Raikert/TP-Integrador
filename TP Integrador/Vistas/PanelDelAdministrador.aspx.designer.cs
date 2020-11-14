@@ -564,6 +564,15 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnBuscarLibro;
 
         /// <summary>
+        /// Control ddlCampoBuscar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCampoBuscar;
+
+        /// <summary>
         /// Control btnAgregarLibro.
         /// </summary>
         /// <remarks>
@@ -591,15 +600,6 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnBorrarLibro;
 
         /// <summary>
-        /// Control grdLibro.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdLibro;
-
-        /// <summary>
         /// Control lblEstadoABM_Libro.
         /// </summary>
         /// <remarks>
@@ -607,6 +607,15 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEstadoABM_Libro;
+
+        /// <summary>
+        /// Control grdLibro.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdLibro;
 
         /// <summary>
         /// Control lblABM_Categoria.

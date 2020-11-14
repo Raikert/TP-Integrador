@@ -215,14 +215,27 @@
                     <br />
 &nbsp;&nbsp;
                         <asp:Button ID="btnMostrarLibros" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Mostrar libros" Width="105px" OnClick="btnMostrarLibros_Click" />
-&nbsp;<asp:Button ID="btnBuscarLibro" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar por codigo" Width="134px" OnClick="btnBuscarLibro_Click" ValidationGroup="0" />
+&nbsp;<asp:Button ID="btnBuscarLibro" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar por:" Width="103px" OnClick="btnBuscarLibro_Click" />
+&nbsp;<asp:DropDownList ID="ddlCampoBuscar" runat="server">
+                            <asp:ListItem Value="0">Codigo</asp:ListItem>
+                            <asp:ListItem Value="1">Nombre/Titulo</asp:ListItem>
+                            <asp:ListItem Value="2">Categoria</asp:ListItem>
+                            <asp:ListItem Value="3">Editorial</asp:ListItem>
+                            <asp:ListItem Value="4">Precio</asp:ListItem>
+                            <asp:ListItem Value="5">Estado</asp:ListItem>
+                            <asp:ListItem Value="6">Descripcion</asp:ListItem>
+                        </asp:DropDownList>
 &nbsp;<asp:Button ID="btnAgregarLibro" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Agregar" ValidationGroup="1" OnClick="btnAgregarLibro_Click" />
 &nbsp;<asp:Button ID="btnModificarLibro" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Modificar" OnClick="btnModificarLibro_Click" ValidationGroup="0" />
 &nbsp;<asp:Button ID="btnBorrarLibro" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Dar de baja" ValidationGroup="0" OnClick="btnBorrarLibro_Click" Width="90px" />
 &nbsp;&nbsp;
                         <br />
                         <br />
-                    <asp:GridView ID="grdLibro" runat="server" CssClass="auto-style11" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5" Height="200px" Width="255px">
+&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="lblEstadoABM_Libro" runat="server" Font-Names="Arial"></asp:Label>
+                        <br />
+                        <br />
+                    <asp:GridView ID="grdLibro" runat="server" CssClass="auto-style11" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5" Height="200px" Width="255px" AllowPaging="True" OnPageIndexChanging="grdLibro_PageIndexChanging">
                         <AlternatingRowStyle BackColor="White" />
                         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#990000" Font-Bold="True" Font-Names="Javanese Text" ForeColor="White" />
@@ -234,8 +247,6 @@
                         <SortedDescendingCellStyle BackColor="#FCF6C0" />
                         <SortedDescendingHeaderStyle BackColor="#820000" />
                     </asp:GridView>
-                    <br />&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Label ID="lblEstadoABM_Libro" runat="server" Font-Names="Arial"></asp:Label>
                         <br />
                     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblABM_Categoria" runat="server" BackColor="#FFCC00" CssClass="auto-style10" Font-Names="Bahnschrift SemiBold" Text="ABM Categorias" BorderColor="#FF6600" BorderWidth="5px"></asp:Label>

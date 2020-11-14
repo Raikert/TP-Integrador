@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
 using System.Data.SqlClient;
 using System.Data;
 
@@ -10,39 +9,10 @@ namespace ClaseBD
 {
     public class BD
     {
-        private string rutaBD;
-        
-        private string consulta;
-        
         private SqlConnection cn;
 
-        private SqlCommand cmd;
-
-        private SqlDataReader reader;
-
-        private SqlDataAdapter adap;
-
-        private DataSet ds;
-
-        public BD(string rutaBD_p) 
+        public BD(string rutaBD)
         {
-            Conexion(rutaBD_p);
-        }
-
-        public BD()
-        {
-
-        }
-
-        public void cambiarRuta(string rutaBD_p)
-        {
-            rutaBD = rutaBD_p;
-        }
-
-        public void Conexion(string rutaBD_p)
-        {
-            cambiarRuta(rutaBD_p);
-            
             cn = new SqlConnection(rutaBD);
 
             cn.Open();
@@ -53,28 +23,52 @@ namespace ClaseBD
             cn.Close();
         }
 
-        public void cambiarConsulta(string consulta_p)
+        public int Command(string consulta)
         {
-            consulta = consulta_p;
-        }
-
-        public string getConsulta()
-        {
-            return consulta;
-        }
-
-        public void Command(string consulta_p)
-        {
-
-            cambiarConsulta(consulta_p);
-
-            cmd = new SqlCommand();
+            SqlCommand cmd = new SqlCommand();
 
             cmd.CommandText = consulta;
 
             cmd.Connection = cn;
+
+            return cmd.ExecuteNonQuery();
         }
 
+        public DataTable Consulta_DataTable(string consulta)
+        {
+            DataSet ds = new DataSet();
+
+            SqlDataAdapter adap = new SqlDataAdapter(consulta, cn);
+
+            adap.Fill(ds, "tabla");
+
+            return ds.Tables["tabla"];
+        }
+
+        /*
+        
+        public void Conexion(string rutaBD)
+        {
+            cn = new SqlConnection(rutaBD);
+
+            cn.Open();
+        }
+
+        public int CommandRun()
+        {
+            return cmd.ExecuteNonQuery();
+        }
+
+        public void cambiarConsulta(string consulta_p)
+        {
+            consulta = consulta_p;
+        }
+        
+        public string getConsulta()
+        {
+            return consulta;
+        }
+        
         public void CommandProcedure(string StoredProcedureName)
         {
             cmd = new SqlCommand();
@@ -95,23 +89,10 @@ namespace ClaseBD
         {
             cmd = cmd_p;
         }
-
-        public int CommandRun()
+        
+        public void Adapter(string consulta)
         {
-            return cmd.ExecuteNonQuery();
-        }
-
-        public void Adapter(string consulta_p)
-        {
-            
-            cambiarConsulta(consulta_p);
-
             adap = new SqlDataAdapter(consulta, cn);
-        }
-
-        public void Reader()
-        {
-            reader = cmd.ExecuteReader();
         }
 
         public void readerClose()
@@ -131,79 +112,64 @@ namespace ClaseBD
             adap.Fill(ds, tabla);
         }
 
-        //public void grid_Reader(ref GridView grid)
-        //{
-        //    grid.DataSource = reader;
-
-        //    grid.DataBind();
-        //}
-
-        public DataTable grid_DataTable(string tabla)
+        public void grid_Reader(ref GridView grid)
         {
-            return ds.Tables[tabla];
+            grid.DataSource = reader;
+
+            grid.DataBind();
         }
 
-        //public void ddl_Reader(DropDownList ddl,string dataTextField,string dataValueField = "")
-        //{  
-        //    ddl.DataSource = reader;
+        public void ddl_Reader(DropDownList ddl,string dataTextField,string dataValueField = "")
+        {  
+            ddl.DataSource = reader;
 
-        //    ddl.DataTextField = dataTextField;
+            ddl.DataTextField = dataTextField;
 
-        //    if (dataValueField != "")
-        //    ddl.DataValueField = dataValueField;
+            if (dataValueField != "")
+            ddl.DataValueField = dataValueField;
 
-        //    ddl.DataBind();
-        //}
+            ddl.DataBind();
+        }
 
-        //public void ddl_ReaderRead2(DropDownList ddl,string Column1,string Column2)
-        //{
-        //    while(reader.Read())
-        //    {
-        //        ddl.Items.Add(reader[Column1] + "-" + reader[Column2]);
-        //    }
-        //}
+        public void ddl_ReaderRead2(DropDownList ddl,string Column1,string Column2)
+        {
+            while(reader.Read())
+            {
+              ddl.Items.Add(reader[Column1] + "-" + reader[Column2]);
+            }
+        }
 
-        //public void ddl_DataSet(DropDownList ddl,string tabla, string dataTextField, string dataValueField = "")
-        //{
-        //    ddl.DataSource = ds.Tables[tabla];
+        public void ddl_DataSet(DropDownList ddl,string tabla, string dataTextField, string dataValueField = "")
+        {
+            ddl.DataSource = ds.Tables[tabla];
 
-        //    ddl.DataTextField = dataTextField;
+            ddl.DataTextField = dataTextField;
 
-        //    if (dataValueField != "")
-        //        ddl.DataValueField = dataValueField;
+            if (dataValueField != "")
+               ddl.DataValueField = dataValueField;
 
-        //    ddl.DataBind();
-        //}
+            ddl.DataBind();
+        }
 
-        //public void ddl_DataSetRead2(DropDownList ddl, string tabla, string Column1, string Column2)
-        //{
-        //    foreach(DataRow dr in ds.Tables[tabla].Rows)
-        //    {
-        //        ddl.Items.Add(dr[Column1] + "-" + dr[Column2]);
-        //    } 
-        //}
+        public void ddl_DataSetRead2(DropDownList ddl, string tabla, string Column1, string Column2)
+        {
+            foreach(DataRow dr in ds.Tables[tabla].Rows)
+            {
+                ddl.Items.Add(dr[Column1] + "-" + dr[Column2]);
+            } 
+        }
 
-        //public void cargarLabel(Label lbl, string mensaje)
-        //{
-        //    lbl.Text = mensaje;
-        //}
+        public void cargarLabel(Label lbl, string mensaje)
+        {
+            lbl.Text = mensaje;
+        }
 
-        //public void limpiartxt(TextBox textBox)
-        //{
-        //    textBox.Text = "";
-        //}
+        public void limpiartxt(TextBox textBox)
+        {
+            textBox.Text = "";
+        }
 
-
-
-
-        ////////////////////////////////////////////////////
-
-
-       
-
-
-
-
+        */
 
     }
 }

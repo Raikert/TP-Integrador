@@ -5,44 +5,31 @@ using System.Data;
 using System.Linq;
 using System.Web;
 
-
-
-namespace vistas
+namespace Negocio
 {
     public class NegocioGenerales
     {
-        private string rutaBD;
         private BD obj;
-
-      public  NegocioGenerales(string rutaBD)
-        {
-            this.rutaBD = rutaBD;
-             obj = new BD(rutaBD);
-        }
 
         public NegocioGenerales()
         {
-
+            obj = new BD(@"Data Source=localhost\sqlexpress;Initial Catalog=PFprogramacion3;Integrated Security=True");
         }
 
-        public void ConsultaPersonalizada(string consulta)
+        public void Consulta(string consulta)
         {
             obj.Command(consulta);
-            obj.CommandRun();
         }
 
-        public DataTable cargarGrilla(string consulta)
+        public DataTable cargar_Grid(string consulta)
         {
-            obj.Adapter(consulta);
-            obj.DataSet("tabla");
-            return obj.grid_DataTable("tabla");       
-               
+            return obj.Consulta_DataTable(consulta);
         }
 
-        public void modificarCampo(string codigo,string campo,string valor, string tabla,bool inter)
+        public void modificarCampo(string codigo, string campo, string valor, string tabla, bool int_value)
         {
             string formatoVal;
-            if (!inter)
+            if (!int_value)
             {
                 formatoVal = "'" + valor + "'";
             }
@@ -51,9 +38,7 @@ namespace vistas
                 formatoVal = valor;
             }
 
-            obj.Command("Update " + tabla + " set " + campo + " = " + formatoVal+"where Cod_Libro_Lb = '"+codigo+"'");
-            obj.CommandRun();
-            
+            obj.Command("Update " + tabla + " set " + campo + " = " + formatoVal + " where Cod_Libro_Lb = '" + codigo + "'");
         }
 
         public void cerrarConexion()
