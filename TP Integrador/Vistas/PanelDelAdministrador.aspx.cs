@@ -27,24 +27,32 @@ namespace Vistas
             lib = new Libro();
 
             limpiarEstados();
+
+            if(!IsPostBack)
+            {
+                Bindear(ref Categoria_Lb, "SELECT[Nombre_Ca] FROM[Categorias]", "Nombre_Ca");
+                Bindear(ref Editorial_Lb, "SELECT [Nombre_E] FROM [Editoriales]", "Nombre_E");
+            }
         }
 
         protected void grdLibro_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grdLibro.PageIndex = e.NewPageIndex;
 
-            BindearGrid(ref grdLibro, (string)Session["consulta_actual"], true);
+            Bindear(ref grdLibro, (string)Session["consulta_actual"], true);
 
             obj.cerrarConexion();
         }
 
         protected void btnMostrarLibros_Click(object sender, EventArgs e)
         {
-            BindearGrid(ref grdLibro, lib.getConsulta(0));
+            int filas_afectadas = Bindear(ref grdLibro, lib.getConsulta(0));
 
             obj.cerrarConexion();
 
             Session["consulta_actual"] = lib.getConsulta(0);
+
+            lblEstadoABM_Libro.Text = "Se encontraron " + filas_afectadas + " registros de libros";
         }
 
         protected void btnBuscarLibro_Click(object sender, EventArgs e)
@@ -59,13 +67,15 @@ namespace Vistas
 
             lib.setMostrar_Where(Convert.ToInt32(ddlCampoBuscar.SelectedValue));
 
-            BindearGrid(ref grdLibro, lib.getConsulta(1));
+            int filas_afectadas = Bindear(ref grdLibro, lib.getConsulta(1));
 
             obj.cerrarConexion();
 
             Session["consulta_actual"] = lib.getConsulta(1);
 
             limpiar(ref Cod_Libro_Lb);
+
+            lblEstadoABM_Libro.Text = "Se encontraron " + filas_afectadas + " registros de libros";
         }
 
         protected void btnModificarLibro_Click(object sender, EventArgs e)
@@ -81,9 +91,11 @@ namespace Vistas
 
             lib.setMostrar_Where(Cod_Libro_Lb.ID, "'" + Cod_Libro_Lb.Text + "'");
 
-            BindearGrid(ref grdLibro, lib.getConsulta(1));
+            Bindear(ref grdLibro, lib.getConsulta(1));
 
             obj.cerrarConexion();
+
+            limpiar(ref Cod_Libro_Lb);
 
             lblEstadoABM_Libro.Text = "Registro de libro modificado exitosamente";
         }
@@ -104,7 +116,7 @@ namespace Vistas
 
             lib.setMostrar_Where(Cod_Libro_Lb.ID, "'" + Cod_Libro_Lb.Text + "'");
 
-            BindearGrid(ref grdLibro, lib.getConsulta(1));
+            Bindear(ref grdLibro, lib.getConsulta(1));
 
             obj.cerrarConexion();
 
@@ -124,7 +136,6 @@ namespace Vistas
                 string campo = value.ID;
                 string valor = value.Text;
                 obj.modificarCampo(codigo, campo, valor, tabla, int_value);
-                limpiar(ref cod);
                 limpiar(ref value);
             }
         }
@@ -135,30 +146,41 @@ namespace Vistas
             obj.modificarCampo(codigo, campo, valor, tabla, int_value);
         }
 
-        public void modificar(ref TextBox mod, ref DropDownList cod, string tabla, bool int_value = false, bool estado = false)
+        public void modificar(ref TextBox cod, ref DropDownList value, string tabla, bool int_value = false, bool estado = false)
         {
-            if (mod.Text != "")
-            {
-                string codigo = mod.Text;
-                string campo = cod.ID;
+                string codigo = cod.Text;
+                string campo = value.ID;
                 string valor;
 
                 if (!estado)
-                    valor = cod.Text;
+                    valor = value.Text;
                 else
-                    valor = cod.SelectedValue;
+                    valor = value.SelectedValue;
 
                 obj.modificarCampo(codigo, campo, valor, tabla, int_value);
-            }
         }
 
-        public void BindearGrid(ref GridView grid, string consulta,bool reiniciar_paginas = false)
+        public int Bindear(ref GridView grid, string consulta,bool reiniciar_paginas = false)
         {
-            grdLibro.DataSource = obj.cargar_Grid(consulta);
+            DataTable tabla = obj.DataTable_Query(consulta);
+
+            grdLibro.DataSource = tabla;
             grdLibro.DataBind();
             
             if(reiniciar_paginas)
             grdLibro.PageIndex = 0;
+
+            return tabla.Rows.Count;
+        }
+
+        public void Bindear(ref DropDownList ddl, string consulta, string campo)
+        {
+            DataTable tabla = obj.DataTable_Query(consulta);
+
+            foreach (DataRow fila in tabla.Rows)
+            {
+                ddl.Items.Add(fila[campo].ToString());
+            }
         }
 
         public void limpiar(ref TextBox textBox)

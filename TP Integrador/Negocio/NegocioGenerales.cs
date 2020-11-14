@@ -21,7 +21,7 @@ namespace Negocio
             obj.Command(consulta);
         }
 
-        public DataTable cargar_Grid(string consulta)
+        public DataTable DataTable_Query(string consulta)
         {
             return obj.Consulta_DataTable(consulta);
         }

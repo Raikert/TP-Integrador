@@ -69,6 +69,15 @@
                 <asp:RequiredFieldValidator ID="rfvPrecioLibro" runat="server" ControlToValidate="Precio_Lb" Display="None" ErrorMessage="No ingreso el precio del libro" ValidationGroup="1"></asp:RequiredFieldValidator>
                 <br />
                 <asp:RequiredFieldValidator ID="rfvDescripcionLibro" runat="server" ControlToValidate="Descripcion_lb" Display="None" ErrorMessage="No ingreso la descripcion del libro" ValidationGroup="1"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="rfvCategoriaLibro" runat="server" ControlToValidate="Categoria_Lb" Display="None" ErrorMessage="No selecciono la categoria del libro" ValidationGroup="1" InitialValue="Seleccionar"></asp:RequiredFieldValidator>
+                <br />
+                <asp:RequiredFieldValidator ID="rfvCategoriaLibro0" runat="server" ControlToValidate="Categoria_Lb" Display="None" ErrorMessage="No selecciono la categoria del libro" ValidationGroup="0" InitialValue="Seleccionar"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="rfvEditorialLibro" runat="server" ControlToValidate="Editorial_Lb" Display="None" ErrorMessage="No selecciono la editorial del libro" ValidationGroup="1" InitialValue="Seleccionar"></asp:RequiredFieldValidator>
+                <br />
+                <asp:RequiredFieldValidator ID="rfvEditorialLibro0" runat="server" ControlToValidate="Editorial_Lb" Display="None" ErrorMessage="No selecciono la editorial del libro" ValidationGroup="0" InitialValue="Seleccionar"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="rfvEstadoLibro" runat="server" ControlToValidate="Activo_Lb" Display="None" ErrorMessage="No selecciono el estado del libro" ValidationGroup="1" InitialValue="Seleccionar"></asp:RequiredFieldValidator>
+                <br />
+                <asp:RequiredFieldValidator ID="rfvEstadoLibro0" runat="server" ControlToValidate="Activo_Lb" Display="None" ErrorMessage="No selecciono el estado del libro" ValidationGroup="0" InitialValue="Seleccionar"></asp:RequiredFieldValidator>
                 <br />
                 <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="Errores" ShowMessageBox="True" ShowSummary="False" ValidationGroup="0" Width="233px" />
                 <asp:ValidationSummary ID="ValidationSummary2" runat="server" HeaderText="Errores" ShowMessageBox="True" ShowSummary="False" ValidationGroup="1" Width="233px" />
@@ -137,7 +146,7 @@
             </div>
             <div style="background-color:white; " class="auto-style9">
                 <div class="auto-style8"> 
-                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/Biblioteca Libra logo.png" />
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/Panel del Administrador logo.png" />
                 </div>
                 <div class="auto-style7"> 
                         <br />
@@ -182,17 +191,20 @@
                         <asp:TextBox ID="NombreLibro_Lb" runat="server" Width="178px"></asp:TextBox>
                                 </td>
                                 <td class="auto-style15">
-                        <asp:DropDownList ID="Categoria_Lb" runat="server" DataSourceID="SqlDataSource1" DataTextField="Nombre_Ca" DataValueField="Nombre_Ca">
+                        <asp:DropDownList ID="Categoria_Lb" runat="server">
+                            <asp:ListItem>Seleccionar</asp:ListItem>
                         </asp:DropDownList>
                                 </td>
                                 <td class="auto-style16">
-                        <asp:DropDownList ID="Editorial_Lb" runat="server" DataSourceID="SqlDataSource2" DataTextField="Nombre_E" DataValueField="Nombre_E">
+                        <asp:DropDownList ID="Editorial_Lb" runat="server">
+                            <asp:ListItem>Seleccionar</asp:ListItem>
                         </asp:DropDownList>
                                 </td>
                                 <td class="auto-style17">
                         <asp:TextBox ID="Precio_Lb" runat="server" Width="79px"></asp:TextBox>
                                 </td>
                                 <td><asp:DropDownList ID="Activo_Lb" runat="server">
+                                    <asp:ListItem>Seleccionar</asp:ListItem>
                         <asp:ListItem Value="1">Activo</asp:ListItem>
                         <asp:ListItem Value="0">Inactivo</asp:ListItem>
                     </asp:DropDownList>
@@ -210,7 +222,7 @@
                         </strong>
                         <br />&nbsp;&nbsp;
                         <asp:TextBox ID="Descripcion_lb" runat="server" Height="58px" TextMode="MultiLine" Width="240px"></asp:TextBox>
-                    &nbsp; <strong>
+                        <strong>
                         <br />
                     <br />
 &nbsp;&nbsp;
