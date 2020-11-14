@@ -95,16 +95,16 @@ namespace Vistas
             lib.catLibro = Categoria_Lb.Text;
             lib.editLibro = Editorial_Lb.Text;
             lib.precioLibro = Precio_Lb.Text;
-            lib.estadoLibro = Activo_Lb.Text;
+            lib.estadoLibro = Activo_Lb.SelectedValue;
             lib.descLibro = Descripcion_lb.Text;
 
             lib.setConsultaInsert();
 
             obj.Consulta(lib.getConsulta(2));
 
-            lib.setMostrar_Where(Cod_Libro_Lb.ID, Cod_Libro_Lb.Text);
+            lib.setMostrar_Where(Cod_Libro_Lb.ID, "'" + Cod_Libro_Lb.Text + "'");
 
-            BindearGrid(ref grdLibro, lib.getConsulta(2));
+            BindearGrid(ref grdLibro, lib.getConsulta(1));
 
             obj.cerrarConexion();
 
@@ -114,22 +114,6 @@ namespace Vistas
             limpiar(ref Descripcion_lb);
 
             lblEstadoABM_Libro.Text = "Registro de libro agregado exitosamente";
-        }
-
-        protected void btnBorrarLibro_Click(object sender, EventArgs e)
-        {
-            string tabla = "Libros";
-
-            modificar(ref Cod_Libro_Lb, "Activo_Lb", "0", tabla, true);
-
-            BindearGrid(ref grdLibro, "SELECT Cod_Libro_Lb AS CODIGO, Activo_Lb AS ACTIVO " +
-                "FROM Libros where Cod_Libro_Lb = '" + Cod_Libro_Lb.Text + "'");
-
-            obj.cerrarConexion();
-
-            limpiar(ref Cod_Libro_Lb);
-
-            lblEstadoABM_Libro.Text = "Registro de libro dado de baja exitosamente";
         }
 
         public void modificar(ref TextBox cod, ref TextBox value, string tabla, bool int_value = false)

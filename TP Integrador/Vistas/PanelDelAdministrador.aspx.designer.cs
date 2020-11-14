@@ -591,15 +591,6 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnModificarLibro;
 
         /// <summary>
-        /// Control btnBorrarLibro.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBorrarLibro;
-
-        /// <summary>
         /// Control lblEstadoABM_Libro.
         /// </summary>
         /// <remarks>

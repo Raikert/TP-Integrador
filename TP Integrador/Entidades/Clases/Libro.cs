@@ -55,7 +55,7 @@ namespace Entidades.Clases
 		public String descLibro
 		{
 			get { return desc_Libro; }
-			set { cod_Libro = value; }
+			set { desc_Libro = value; }
 		}
 		public String catLibro
 		{
@@ -91,7 +91,7 @@ namespace Entidades.Clases
         {
 			consultas[2] = "INSERT INTO Libros(Cod_Libro_Lb, NombreLibro_Lb, Descripcion_lb, Editorial_Lb, Categoria_Lb, Precio_Lb, Activo_Lb)" +
 				"SELECT '" + cod_Libro + "', '" + nombre_Libro + "', '" + desc_Libro + "', '" + edit_Libro + "', '" + cat_Libro +
-				"', '" + prec_Libro + "', 'true'";
+				"', '" + prec_Libro + "', '" + estado_Libro + "'";
 		}
 
 		public void setMostrar_Where(string campo, string valor)

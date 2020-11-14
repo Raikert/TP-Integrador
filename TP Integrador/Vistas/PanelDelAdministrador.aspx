@@ -144,7 +144,7 @@
 &nbsp;
                         <br />
 &nbsp;&nbsp;
-                        <asp:Label ID="lblABM_Libros" runat="server" BackColor="#FFCC00" CssClass="auto-style10" Font-Names="Bahnschrift SemiBold" Text="ABM Libros" BorderColor="#FF6600" BorderWidth="5px"></asp:Label>
+                        <asp:Label ID="lblABM_Libros" runat="server" BackColor="#FFCC00" CssClass="auto-style10" Font-Names="Bahnschrift SemiBold" Text="Libros" BorderColor="#FF6600" BorderWidth="5px"></asp:Label>
                         <br />
                         <br />&nbsp;&nbsp;
                         <table class="auto-style12">
@@ -227,7 +227,6 @@
                         </asp:DropDownList>
 &nbsp;<asp:Button ID="btnAgregarLibro" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Agregar" ValidationGroup="1" OnClick="btnAgregarLibro_Click" />
 &nbsp;<asp:Button ID="btnModificarLibro" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Modificar" OnClick="btnModificarLibro_Click" ValidationGroup="0" />
-&nbsp;<asp:Button ID="btnBorrarLibro" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Dar de baja" ValidationGroup="0" OnClick="btnBorrarLibro_Click" Width="90px" />
 &nbsp;&nbsp;
                         <br />
                         <br />
