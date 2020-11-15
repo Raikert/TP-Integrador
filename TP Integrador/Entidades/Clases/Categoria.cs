@@ -68,9 +68,9 @@ namespace Entidades.Clases
 		//////////
 		public void ConsultasC()
 		{
-			consultasC = new string[10];
+			consultasC = new string[3];
 
-			consultasC[0] = "select * from Categorias";
+			consultasC[0] = "select Nombre_Ca as NOMBRE,Descripcion_Ca AS DESCRIPCION,Activo_Ca AS ACTIVO FROM Categorias";
 		}
 
 		public void setConsultaInsertC()
@@ -81,7 +81,7 @@ namespace Entidades.Clases
 
 		public void setMostrar_WhereC(string campo, string valor)
 		{
-			consultasC[1] = "SELECT Nombre_Ca,Descripcion_Ca,Activo_Ca FROM Categorias WHERE " + campo + " = " + valor;
+			consultasC[1] = "SELECT Nombre_Ca as NOMBRE,Descripcion_Ca AS DESCRIPCION,Activo_Ca AS ACTIVO FROM Categorias WHERE " + campo + " = " + valor;
 		}
 
 
@@ -110,7 +110,7 @@ namespace Entidades.Clases
 					break;
 			}
 
-			consultasC[1] = "SELECT Nombre_Ca,Descripcion_Ca,Activo_Ca FROM Categorias WHERE " + campo_string + " = " + valor;
+			consultasC[1] = "SELECT Nombre_Ca as NOMBRE,Descripcion_Ca AS DESCRIPCION,Activo_Ca AS ACTIVO FROM Categorias WHERE " + campo_string + " = " + valor;
 		}
 
 		public string getConsultaC(int indice)

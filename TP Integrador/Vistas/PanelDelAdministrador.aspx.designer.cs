@@ -699,6 +699,15 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.TextBox Descripcion_Ca;
 
         /// <summary>
+        /// Control Label1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+
+        /// <summary>
         /// Control btnMostrarCategorias.
         /// </summary>
         /// <remarks>
@@ -771,15 +780,6 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label lblABM_Editorial;
 
         /// <summary>
-        /// Control lblCodigo0.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCodigo0;
-
-        /// <summary>
         /// Control lblNombre1.
         /// </summary>
         /// <remarks>
@@ -798,13 +798,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label lblEstado1;
 
         /// <summary>
-        /// Control Cod_Editorial_E.
+        /// Control lblCodigo0.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Cod_Editorial_E;
+        protected global::System.Web.UI.WebControls.Label lblCodigo0;
 
         /// <summary>
         /// Control Nombre_E.
@@ -825,6 +825,15 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.DropDownList Activo_E;
 
         /// <summary>
+        /// Control Cod_Editorial_E.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Cod_Editorial_E;
+
+        /// <summary>
         /// Control btnMostrarEditoriales.
         /// </summary>
         /// <remarks>
@@ -843,6 +852,15 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnBuscarEditorial;
 
         /// <summary>
+        /// Control ddlCampoBuscarE.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCampoBuscarE;
+
+        /// <summary>
         /// Control btnAgregarEditorial.
         /// </summary>
         /// <remarks>
@@ -859,15 +877,6 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnModificarEditorial;
-
-        /// <summary>
-        /// Control btnBorrarEditorial.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBorrarEditorial;
 
         /// <summary>
         /// Control grdEditorial.
@@ -1095,6 +1104,15 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnBuscarProveedor;
 
         /// <summary>
+        /// Control ddlCampoBuscarP.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCampoBuscarP;
+
+        /// <summary>
         /// Control btnAgregarProveedor.
         /// </summary>
         /// <remarks>
@@ -1111,15 +1129,6 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnModificarProveedor;
-
-        /// <summary>
-        /// Control btnBorrarProveedor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBorrarProveedor;
 
         /// <summary>
         /// Control grdProveedor.

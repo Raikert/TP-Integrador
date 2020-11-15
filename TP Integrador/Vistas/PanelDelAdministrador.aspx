@@ -50,6 +50,10 @@
         .auto-style17 {
             width: 97px;
         }
+        .auto-style18 {
+            margin-left: 19px;
+            font-size: small;
+        }
     </style>
 </head>
 <body style="background-color: darkgray">
@@ -150,7 +154,7 @@
 &nbsp;
                         <br />
 &nbsp;&nbsp;
-                        <asp:Label ID="lblABM_Libros" runat="server" BackColor="#FFCC00" CssClass="auto-style10" Font-Names="Bahnschrift SemiBold" Text="Libros" BorderColor="#FF6600" BorderWidth="5px"></asp:Label>
+                        <asp:Label ID="lblABM_Libros" runat="server" BackColor="#FFCC00" CssClass="auto-style10" Font-Names="Bahnschrift SemiBold" Text="Modulo Libros" BorderColor="#FF6600" BorderWidth="5px"></asp:Label>
                         <br />
                         <br />&nbsp;&nbsp;
                         <table class="auto-style12">
@@ -257,7 +261,7 @@
                     </asp:GridView>
                         <br />
                     <br />
-&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblABM_Categoria" runat="server" BackColor="#FFCC00" CssClass="auto-style10" Font-Names="Bahnschrift SemiBold" Text="ABM Categorias" BorderColor="#FF6600" BorderWidth="5px"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblABM_Categoria" runat="server" BackColor="#FFCC00" CssClass="auto-style10" Font-Names="Bahnschrift SemiBold" Text="Modulo Categorias" BorderColor="#FF6600" BorderWidth="5px"></asp:Label>
                         <br />
                         <br />&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="lblNombre0" runat="server" CssClass="auto-style3" Font-Names="Candara Light" Text="Nombre"></asp:Label>
@@ -284,6 +288,7 @@
                         <br />&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:TextBox ID="Descripcion_Ca" runat="server" Height="58px" TextMode="MultiLine" Width="240px"></asp:TextBox>
 &nbsp;&nbsp; 
+                        <asp:Label ID="Label1" runat="server"></asp:Label>
                         <br />
                     <br />
 &nbsp;&nbsp;&nbsp;
@@ -295,7 +300,7 @@
                             <asp:ListItem Value="2">Descripcion</asp:ListItem>
                         </asp:DropDownList>
 &nbsp; <asp:Button ID="btnAgregarCategoria" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Agregar" ValidationGroup="3" OnClick="btnAgregarCategoria_Click" />
-&nbsp;<asp:Button ID="btnModificarCategoria" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Modificar" />
+&nbsp;<asp:Button ID="btnModificarCategoria" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Modificar" OnClick="btnModificarCategoria_Click" />
 &nbsp;&nbsp;<br />
                         <br />
                     <asp:GridView ID="grdCategoria" runat="server" CssClass="auto-style11" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5" AllowPaging="True" OnPageIndexChanging="grdCategoria_PageIndexChanging">
@@ -316,21 +321,17 @@
                     <br />
                     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Label ID="lblABM_Editorial" runat="server" BackColor="#FFCC00" CssClass="auto-style10" Font-Names="Bahnschrift SemiBold" Text="ABM Editoriales" BorderColor="#FF6600" BorderWidth="5px"></asp:Label>
+                        <asp:Label ID="lblABM_Editorial" runat="server" BackColor="#FFCC00" CssClass="auto-style10" Font-Names="Bahnschrift SemiBold" Text="Modulo Editoriales" BorderColor="#FF6600" BorderWidth="5px"></asp:Label>
                         <br />
-                        <br />&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Label ID="lblCodigo0" runat="server" CssClass="auto-style3" Font-Names="Candara Light" Text="Codigo"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="lblNombre1" runat="server" CssClass="auto-style3" Font-Names="Candara Light" Text="Nombre"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="lblEstado1" runat="server" CssClass="auto-style3" Font-Names="Candara Light" Text="Estado"></asp:Label>
-                    &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="lblEstado1" runat="server" CssClass="auto-style3" Font-Names="Candara Light" Text="Estado"></asp:Label>
+                        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<asp:Label ID="lblCodigo0" runat="server" CssClass="auto-style3" Font-Names="Candara Light" Text="Codigo"></asp:Label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <br />&nbsp;&nbsp;
                         &nbsp;
-                        <asp:TextBox ID="Cod_Editorial_E" runat="server" Width="77px"></asp:TextBox>
-&nbsp;&nbsp;
+                        &nbsp;&nbsp;
                         <asp:TextBox ID="Nombre_E" runat="server" Width="122px"></asp:TextBox>
 &nbsp;
                         <asp:DropDownList ID="Activo_E" runat="server">
@@ -338,17 +339,22 @@
                             <asp:ListItem Value="0">Inactivo</asp:ListItem>
                     </asp:DropDownList>
 &nbsp;&nbsp; 
+                        <asp:TextBox ID="Cod_Editorial_E" runat="server" Width="77px"></asp:TextBox>
                         <br />
                     <br />
 &nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnMostrarEditoriales" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Mostrar editoriales" Width="138px" />
-&nbsp;<asp:Button ID="btnBuscarEditorial" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar por codigo" Width="134px" />
-&nbsp;<asp:Button ID="btnAgregarEditorial" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Agregar" ValidationGroup="5" />
-&nbsp;<asp:Button ID="btnModificarEditorial" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Modificar" />
-&nbsp;<asp:Button ID="btnBorrarEditorial" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Borrar" ValidationGroup="4" />
-                    <br />
+                        <asp:Button ID="btnMostrarEditoriales" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Mostrar editoriales" Width="138px" OnClick="btnMostrarEditoriales_Click" />
+&nbsp;<asp:Button ID="btnBuscarEditorial" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar :" Width="85px" OnClick="btnBuscarEditorial_Click" />
+&nbsp;<asp:DropDownList ID="ddlCampoBuscarE" runat="server">
+                            <asp:ListItem Value="0">Codigo</asp:ListItem>
+                            <asp:ListItem Value="1">Nombre</asp:ListItem>
+                            <asp:ListItem Value="2">Estado</asp:ListItem>
+                        </asp:DropDownList>
+&nbsp;<asp:Button ID="btnAgregarEditorial" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Agregar" ValidationGroup="5" OnClick="btnAgregarEditorial_Click" />
+&nbsp;<asp:Button ID="btnModificarEditorial" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Modificar" OnClick="btnModificarEditorial_Click" />
+&nbsp;<br />
                         <br />
-                    <asp:GridView ID="grdEditorial" runat="server" CssClass="auto-style11" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5">
+                    <asp:GridView ID="grdEditorial" runat="server" CssClass="auto-style11" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5" AllowPaging="True" OnPageIndexChanging="grdEditorial_PageIndexChanging">
                         <AlternatingRowStyle BackColor="White" />
                         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#990000" Font-Bold="True" Font-Names="Javanese Text" ForeColor="White" />
@@ -365,7 +371,7 @@
                     <br />
                     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Label ID="lblABM_Proveedores" runat="server" BackColor="#FFCC00" CssClass="auto-style10" Font-Names="Bahnschrift SemiBold" Text="ABM Proveedores" BorderColor="#FF6600" BorderWidth="5px"></asp:Label>
+                        <asp:Label ID="lblABM_Proveedores" runat="server" BackColor="#FFCC00" CssClass="auto-style10" Font-Names="Bahnschrift SemiBold" Text="Modulo Proveedores" BorderColor="#FF6600" BorderWidth="5px"></asp:Label>
                     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <br />
@@ -417,15 +423,27 @@
                     <br />
                     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnMostrarProveedores" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Mostrar proveedores" Width="150px" />
-&nbsp;<asp:Button ID="btnBuscarProveedor" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar por codigo" Width="134px" />
-&nbsp;<asp:Button ID="btnAgregarProveedor" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Agregar" ValidationGroup="7" />
-&nbsp;<asp:Button ID="btnModificarProveedor" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Modificar" />
-&nbsp;<asp:Button ID="btnBorrarProveedor" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Borrar" ValidationGroup="6" />
+                        <asp:Button ID="btnMostrarProveedores" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Mostrar proveedores" Width="150px" OnClick="btnMostrarProveedores_Click" />
+&nbsp;<asp:Button ID="btnBuscarProveedor" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar por :" Width="95px" OnClick="btnBuscarProveedor_Click" />
+&nbsp;<asp:DropDownList ID="ddlCampoBuscarP" runat="server" Height="16px" Width="84px">
+                            <asp:ListItem Value="0">Codigo</asp:ListItem>
+                            <asp:ListItem Value="1">Razon social</asp:ListItem>
+                            <asp:ListItem Value="2">Direccion</asp:ListItem>
+                            <asp:ListItem Value="3">Ciudad</asp:ListItem>
+                            <asp:ListItem Value="4">Provincia</asp:ListItem>
+                            <asp:ListItem Value="5">Cuit</asp:ListItem>
+                            <asp:ListItem Value="6">Telefono</asp:ListItem>
+                            <asp:ListItem Value="7">Contacto</asp:ListItem>
+                            <asp:ListItem Value="8">Email</asp:ListItem>
+                            <asp:ListItem Value="9">Estado</asp:ListItem>
+                        </asp:DropDownList>
+&nbsp;<asp:Button ID="btnAgregarProveedor" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Agregar" ValidationGroup="7" OnClick="btnAgregarProveedor_Click" />
+&nbsp;<asp:Button ID="btnModificarProveedor" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Modificar" OnClick="btnModificarProveedor_Click" />
+&nbsp;<br />
                     </strong>
                     <br />
                     <strong>
-                    <asp:GridView ID="grdProveedor" runat="server" CssClass="auto-style11" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5">
+                    <asp:GridView ID="grdProveedor" runat="server" CssClass="auto-style18" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5" AllowPaging="True" OnPageIndexChanging="grdProveedor_PageIndexChanging">
                         <AlternatingRowStyle BackColor="White" />
                         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#990000" Font-Bold="True" Font-Names="Javanese Text" ForeColor="White" />

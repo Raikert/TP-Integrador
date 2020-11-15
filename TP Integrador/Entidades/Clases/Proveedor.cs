@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entidades.Clases
 {
-    class Proveedor
+   public class Proveedor
     {
-		private int id_pr;
+		private String id_pr;
 		private String cod_pr;
 		private String razon_social_pr;
 		private String direc_pr;
@@ -18,14 +18,16 @@ namespace Entidades.Clases
 		private String telefono_pr;
 		private String contacto_pr;
 		private String email_pr;
-		private bool estado_pr;
+		private String estado_pr;
+		private string[] consultasP;
 
 		public Proveedor()
 		{
+			ConsultasP();
 		}
 
-		public Proveedor(int idPr, String codPr, String razonSocPr, String direcPr, String ciudadPr, String provPr,
-			String cuitPr, String telefonoPr, String contactoPr, String emailPr, bool estadoPr)
+		public Proveedor(String idPr, String codPr, String razonSocPr, String direcPr, String ciudadPr, String provPr,
+			String cuitPr, String telefonoPr, String contactoPr, String emailPr, String estadoPr)
 		{
 			this.id_pr = idPr;
 			this.cod_pr = codPr;
@@ -38,9 +40,11 @@ namespace Entidades.Clases
 			this.contacto_pr = contactoPr;
 			this.email_pr = emailPr;
 			this.estado_pr = estadoPr;
+
+			ConsultasP();
 		}
 
-		public int idProveedor
+		public string idProveedor
 		{
 			get { return id_pr; }
 			set { id_pr = value; }
@@ -91,10 +95,100 @@ namespace Entidades.Clases
 			get { return contacto_pr; }
 			set { contacto_pr = value; }
 		}
-		public bool EstProveedor
+		public string EstProveedor
 		{
 			get { return estado_pr; }
 			set { estado_pr = value; }
 		}
+
+
+
+		public void ConsultasP()
+		{
+			consultasP = new string[10];
+
+			consultasP[0] = "select id_Proveedor_Pr as ID,Cod_Proveedor_Pr AS COD,RazonSocial_Pr AS [R.S],Direccion_Pr AS DIRECCION," +
+				"Ciudad_Pr AS CIUDAD, PROVINCIA, CUIT_Pr AS CUIT, Telefono_Pr AS TELEFONO, Contacto_Pr AS CONTACTO," +
+				"Email_Pr AS EMAIL,Activo_Pr AS AC FROM Proveedores";
+		}
+
+		public void setConsultaInsertP()
+		{
+			consultasP[2] = "INSERT INTO Proveedores(Cod_Proveedor_Pr, RazonSocial_Pr, Direccion_Pr,Ciudad_Pr,Provincia,CUIT_Pr," +
+				"Telefono_Pr,Contacto_Pr,Email_Pr,Activo_Pr)" +
+				"SELECT '" + cod_pr + "', '" + razon_social_pr + "', '" + direc_pr + "', '" + ciudad_pr + "'," +
+				" '" + prov_pr + "', '" + cuit_pr + "', '" +telefono_pr + "', '" + contacto_pr + "', '" + email_pr + "', '" +estado_pr + "'";
+		}
+
+		public void setMostrar_WhereP(string campo, string valor)
+		{
+			consultasP[1] = "select id_Proveedor_Pr as ID,Cod_Proveedor_Pr AS COD,RazonSocial_Pr AS [R.S],Direccion_Pr AS DIRECCION," +
+				"Ciudad_Pr AS CIUDAD, PROVINCIA, CUIT_Pr AS CUIT, Telefono_Pr AS TELEFONO, Contacto_Pr AS CONTACTO," +
+				"Email_Pr AS EMAIL,Activo_Pr AS AC FROM Proveedores WHERE " + campo + " = " + valor;
+		}
+
+		public void setMostrar_WhereP(int campo)
+		{
+			string campo_string = "";
+			string valor = "";
+
+			switch (campo)
+			{
+
+				case 0:
+					campo_string = "Cod_Proveedor_Pr";
+					valor = cod_pr;
+					break;
+				case 1:
+					campo_string = "RazonSocial_Pr";
+					valor = razon_social_pr;
+					break;
+				case 2:
+					campo_string = "Direccion_Pr";
+					valor = direc_pr;
+					break;
+				case 3:
+					campo_string = "Ciudad_Pr";
+					valor = ciudad_pr;
+					break;
+				case 4:
+					campo_string = "Provincia";
+					valor = prov_pr;
+					break;
+				case 5:
+					campo_string = "CUIT_Pr";
+					valor = cuit_pr;
+					break;
+				case 6:
+					campo_string = "Telefono_Pr";
+					valor = telefono_pr;
+					break;
+				case 7:
+					campo_string = "Contacto_Pr";
+					valor = contacto_pr;
+					break;
+				case 8:
+					campo_string = "Email_Pr";
+					valor = email_pr;
+					break;
+				case 9:
+					campo_string = "Activo_Pr";
+					valor = estado_pr;
+					break;
+
+				default:
+					break;
+			}
+
+			consultasP[1] = "select id_Proveedor_Pr as ID,Cod_Proveedor_Pr AS COD,RazonSocial_Pr AS [R.S],Direccion_Pr AS DIRECCION," +
+				"Ciudad_Pr AS CIUDAD, PROVINCIA, CUIT_Pr AS CUIT, Telefono_Pr AS TELEFONO, Contacto_Pr AS CONTACTO," +
+				"Email_Pr AS EMAIL,Activo_Pr AS AC FROM Proveedores WHERE " + campo_string + " = " + valor;
+		}
+
+		public string getConsultaP(int indice)
+		{
+			return consultasP[indice];
+		}
+
 	}
 }
