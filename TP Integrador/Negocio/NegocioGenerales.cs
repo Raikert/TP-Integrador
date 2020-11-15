@@ -26,7 +26,7 @@ namespace Negocio
             return obj.Consulta_DataTable(consulta);
         }
 
-        public void modificarCampo(string codigo, string campo, string valor, string tabla, bool int_value)
+        public void modificarCampo(string campocodigo,string codigo, string campo, string valor, string tabla, bool int_value)
         {
             string formatoVal;
             if (!int_value)
@@ -38,7 +38,8 @@ namespace Negocio
                 formatoVal = valor;
             }
 
-            obj.Command("Update " + tabla + " set " + campo + " = " + formatoVal + " where Cod_Libro_Lb = '" + codigo + "'");
+            obj.Command("Update " + tabla + " set " + campo + " = " + formatoVal + " where "+ campocodigo +" = '" + codigo + "'");
+            
         }
 
         public void cerrarConexion()

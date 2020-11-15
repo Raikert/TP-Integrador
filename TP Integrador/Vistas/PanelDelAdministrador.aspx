@@ -71,13 +71,10 @@
                 <asp:RequiredFieldValidator ID="rfvDescripcionLibro" runat="server" ControlToValidate="Descripcion_lb" Display="None" ErrorMessage="No ingreso la descripcion del libro" ValidationGroup="1"></asp:RequiredFieldValidator>
                 <asp:RequiredFieldValidator ID="rfvCategoriaLibro" runat="server" ControlToValidate="Categoria_Lb" Display="None" ErrorMessage="No selecciono la categoria del libro" ValidationGroup="1" InitialValue="Seleccionar"></asp:RequiredFieldValidator>
                 <br />
-                <asp:RequiredFieldValidator ID="rfvCategoriaLibro0" runat="server" ControlToValidate="Categoria_Lb" Display="None" ErrorMessage="No selecciono la categoria del libro" ValidationGroup="0" InitialValue="Seleccionar"></asp:RequiredFieldValidator>
                 <asp:RequiredFieldValidator ID="rfvEditorialLibro" runat="server" ControlToValidate="Editorial_Lb" Display="None" ErrorMessage="No selecciono la editorial del libro" ValidationGroup="1" InitialValue="Seleccionar"></asp:RequiredFieldValidator>
                 <br />
-                <asp:RequiredFieldValidator ID="rfvEditorialLibro0" runat="server" ControlToValidate="Editorial_Lb" Display="None" ErrorMessage="No selecciono la editorial del libro" ValidationGroup="0" InitialValue="Seleccionar"></asp:RequiredFieldValidator>
                 <asp:RequiredFieldValidator ID="rfvEstadoLibro" runat="server" ControlToValidate="Activo_Lb" Display="None" ErrorMessage="No selecciono el estado del libro" ValidationGroup="1" InitialValue="Seleccionar"></asp:RequiredFieldValidator>
                 <br />
-                <asp:RequiredFieldValidator ID="rfvEstadoLibro0" runat="server" ControlToValidate="Activo_Lb" Display="None" ErrorMessage="No selecciono el estado del libro" ValidationGroup="0" InitialValue="Seleccionar"></asp:RequiredFieldValidator>
                 <br />
                 <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="Errores" ShowMessageBox="True" ShowSummary="False" ValidationGroup="0" Width="233px" />
                 <asp:ValidationSummary ID="ValidationSummary2" runat="server" HeaderText="Errores" ShowMessageBox="True" ShowSummary="False" ValidationGroup="1" Width="233px" />
@@ -274,6 +271,7 @@
                         <asp:TextBox ID="Nombre_Ca" runat="server" Width="122px"></asp:TextBox>
 &nbsp;&nbsp;
                         <asp:DropDownList ID="Activo_Ca" runat="server">
+                            <asp:ListItem>Seleccionar</asp:ListItem>
                             <asp:ListItem Value="1">Activo</asp:ListItem>
                             <asp:ListItem Value="0">Inactivo</asp:ListItem>
                     </asp:DropDownList>
@@ -289,14 +287,18 @@
                         <br />
                     <br />
 &nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnMostrarCategorias" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Mostrar categorias" Width="140px" />
-&nbsp;<asp:Button ID="btnBuscarCategoria" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar por nombre" Width="139px" />
-&nbsp;<asp:Button ID="btnAgregarCategoria" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Agregar" ValidationGroup="3" />
+                        <asp:Button ID="btnMostrarCategorias" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Mostrar categorias" Width="140px" OnClick="btnMostrarCategorias_Click" />
+&nbsp;<asp:Button ID="btnBuscarCategoria" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar :" Width="85px" OnClick="btnBuscarCategoria_Click" />
+&nbsp; <asp:DropDownList ID="ddlCampoBuscarCa" runat="server">
+                            <asp:ListItem Value="0">Nombre/Titulo</asp:ListItem>
+                            <asp:ListItem Value="1">Estado</asp:ListItem>
+                            <asp:ListItem Value="2">Descripcion</asp:ListItem>
+                        </asp:DropDownList>
+&nbsp; <asp:Button ID="btnAgregarCategoria" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Agregar" ValidationGroup="3" OnClick="btnAgregarCategoria_Click" />
 &nbsp;<asp:Button ID="btnModificarCategoria" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Modificar" />
-&nbsp;<asp:Button ID="btnBorrarCategoria" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Borrar" ValidationGroup="2" />
-                    &nbsp;<br />
+&nbsp;&nbsp;<br />
                         <br />
-                    <asp:GridView ID="grdCategoria" runat="server" CssClass="auto-style11" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5">
+                    <asp:GridView ID="grdCategoria" runat="server" CssClass="auto-style11" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5" AllowPaging="True" OnPageIndexChanging="grdCategoria_PageIndexChanging">
                         <AlternatingRowStyle BackColor="White" />
                         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#990000" Font-Bold="True" Font-Names="Javanese Text" ForeColor="White" />
