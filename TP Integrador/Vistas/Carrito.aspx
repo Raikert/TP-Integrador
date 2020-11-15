@@ -36,12 +36,6 @@
         .auto-style6 {
             width: 369px;
         }
-        .auto-style8 {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 13px;
-            color: rgb(230, 39, 65);
-            letter-spacing: normal;
-        }
         .auto-style9 {
             width: 371px;
         }
@@ -106,15 +100,7 @@
             background-color: white;
          }
          
-}
 
-        .auto-style22 {
-            width: 381px;
-        }
-        .auto-style23 {
-            width: 100%;
-            margin-bottom: 0px;
-        }
 
         .auto-style24 {
             justify-content: center;
@@ -139,6 +125,15 @@
             width: 92px;
         }
 
+        .auto-style29 {
+            height: 45px;
+        }
+
+        .auto-style4 {
+            font-size: large;
+            font-weight: bold;
+        }
+        
         </style>
 </head>
 <body class="centrado">
@@ -172,17 +167,22 @@
         <table style="background-color:white" class="auto-style1">
             <tr>
                 <td class="auto-style12">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtBuscar" runat="server" Width="400px" CssClass="auto-style11"></asp:TextBox>
-&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:DropDownList ID="ddlBuscar" runat="server" Height="16px" Width="101px">
-                    </asp:DropDownList>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnBuscar" runat="server" BackColor="#3399FF" CssClass="auto-style11" ForeColor="White" Height="23px" Text="Buscar" Width="75px" />
-&nbsp; </td>
+                    <asp:TextBox ID="txtBuscar" runat="server" Font-Overline="False" TextMode="Search" Width="359px" placeholder="Titulo, Autor, Categoria"></asp:TextBox>
+            <asp:DropDownList ID="ddlFiltro" runat="server">
+                <asp:ListItem>Todos</asp:ListItem>
+                <asp:ListItem>Titulo</asp:ListItem>
+                <asp:ListItem>Autor</asp:ListItem>
+                <asp:ListItem>Categoria</asp:ListItem>
+            </asp:DropDownList>
+            <strong>
+                <asp:Button ID="btnBuscar" runat="server" BackColor="#4375C7" CssClass="auto-style4" Font-Bold="True" Font-Names="Trebuchet MS" ForeColor="White" Height="31px" Text="Buscar" Width="82px" />
+                    </strong> </td>
                 <td>
-                    <asp:Label ID="lblNumeroCarro" runat="server"></asp:Label>
-&nbsp;productos <span class="auto-style10">AR$ </span>
-                    <asp:Label ID="lblTotal" runat="server"></asp:Label>
+            <strong>
+                <asp:Label ID="CantidadProductosCarrito" runat="server" ForeColor="#009933" Text="0"></asp:Label>
+                &nbsp;</strong><asp:Label ID="lblTexto" runat="server" CssClass="auto-style3" Text="producto  AR$"></asp:Label>
+            &nbsp;<strong><asp:Label ID="MontoCarrito" runat="server" ForeColor="#CC3300" Text="0,00"></asp:Label>
+            </strong>
                 </td>
             </tr>
         </table>
@@ -214,147 +214,51 @@
             </tr>
         </table>
         <br />
-        <table class="auto-style23">
-            <tr>
-                <td class="auto-style22">
-                    <asp:ListView ID="ListView1" runat="server" DataKeyNames="Cod_Libro_Lb" DataSourceID="SqlDataSource1">
-                        <AlternatingItemTemplate>
-                            <span style="">Precio_Lb:
-                            <asp:Label ID="Precio_LbLabel" runat="server" Text='<%# Eval("Precio_Lb") %>' />
+        <asp:DataList ID="DataList1" runat="server">
+            <ItemTemplate>
+                <table class="auto-style1">
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>Codigo:
+                            <asp:Label ID="lblCodigo" runat="server" Text='<%# Eval("Cod_Libro_Lb") %>'></asp:Label>
+                        </td>
+                        <td>Titulo:
+                            <asp:Label ID="lblTitulo" runat="server" Text='<%# Eval("NombreLibro_Lb") %>'></asp:Label>
+                        </td>
+                        <td>Editorial
+                            <asp:Label ID="lblEditorial" runat="server" Text='<%# Eval("Editorial_Lb") %>'></asp:Label>
+                        </td>
+                        <td>AR$
+                            <asp:Label ID="lblPrecio" runat="server" Text='<%# Eval("Precio_Lb") %>'></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style29">
+                            <asp:Image ID="Image2" runat="server" ImageUrl='<%# Eval("ImagenURL_Lb") %>' />
+                        </td>
+                        <td class="auto-style29"></td>
+                        <td class="auto-style29">
+                            <asp:DropDownList ID="ddlCantidad" runat="server" Height="16px" Width="62px">
+                                <asp:ListItem>1</asp:ListItem>
+                                <asp:ListItem>2</asp:ListItem>
+                                <asp:ListItem>3</asp:ListItem>
+                                <asp:ListItem>4</asp:ListItem>
+                                <asp:ListItem>5</asp:ListItem>
+                                <asp:ListItem>6</asp:ListItem>
+                                <asp:ListItem>7</asp:ListItem>
+                                <asp:ListItem>8</asp:ListItem>
+                                <asp:ListItem>9</asp:ListItem>
+                                <asp:ListItem>10</asp:ListItem>
+                            </asp:DropDownList>
                             <br />
-                            NombreLibro_Lb:
-                            <asp:Label ID="NombreLibro_LbLabel" runat="server" Text='<%# Eval("NombreLibro_Lb") %>' />
-                            <br />
-                            Cod_Libro_Lb:
-                            <asp:Label ID="Cod_Libro_LbLabel" runat="server" Text='<%# Eval("Cod_Libro_Lb") %>' />
-                            <br />
-                            ImagenURL_Lb:
-                            <asp:Label ID="ImagenURL_LbLabel" runat="server" Text='<%# Eval("ImagenURL_Lb") %>' />
-                            <br />
-                            Categoria_Lb:
-                            <asp:Label ID="Categoria_LbLabel" runat="server" Text='<%# Eval("Categoria_Lb") %>' />
-<br />Editorial_Lb:
-                            <asp:Label ID="Editorial_LbLabel" runat="server" Text='<%# Eval("Editorial_Lb") %>' />
-                            <br />
-                            <br />
-                            </span>
-                        </AlternatingItemTemplate>
-                        <EditItemTemplate>
-                            <span style="">Precio_Lb:
-                            <asp:TextBox ID="Precio_LbTextBox" runat="server" Text='<%# Bind("Precio_Lb") %>' />
-                            <br />
-                            NombreLibro_Lb:
-                            <asp:TextBox ID="NombreLibro_LbTextBox" runat="server" Text='<%# Bind("NombreLibro_Lb") %>' />
-                            <br />
-                            Cod_Libro_Lb:
-                            <asp:Label ID="Cod_Libro_LbLabel1" runat="server" Text='<%# Eval("Cod_Libro_Lb") %>' />
-                            <br />
-                            ImagenURL_Lb:
-                            <asp:TextBox ID="ImagenURL_LbTextBox" runat="server" Text='<%# Bind("ImagenURL_Lb") %>' />
-                            <br />
-                            Categoria_Lb:
-                            <asp:TextBox ID="Categoria_LbTextBox" runat="server" Text='<%# Bind("Categoria_Lb") %>' />
-                            <br />
-                            Editorial_Lb:
-                            <asp:TextBox ID="Editorial_LbTextBox" runat="server" Text='<%# Bind("Editorial_Lb") %>' />
-                            <br />
-                            <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar" />
-                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar" />
-                            <br /><br /></span>
-                        </EditItemTemplate>
-                        <EmptyDataTemplate>
-                            <span>No se han devuelto datos.</span>
-                        </EmptyDataTemplate>
-                        <InsertItemTemplate>
-                            <span style="">Precio_Lb:
-                            <asp:TextBox ID="Precio_LbTextBox" runat="server" Text='<%# Bind("Precio_Lb") %>' />
-                            <br />NombreLibro_Lb:
-                            <asp:TextBox ID="NombreLibro_LbTextBox" runat="server" Text='<%# Bind("NombreLibro_Lb") %>' />
-                            <br />Cod_Libro_Lb:
-                            <asp:TextBox ID="Cod_Libro_LbTextBox" runat="server" Text='<%# Bind("Cod_Libro_Lb") %>' />
-                            <br />ImagenURL_Lb:
-                            <asp:TextBox ID="ImagenURL_LbTextBox" runat="server" Text='<%# Bind("ImagenURL_Lb") %>' />
-                            <br />
-                            Categoria_Lb:
-                            <asp:TextBox ID="Categoria_LbTextBox" runat="server" Text='<%# Bind("Categoria_Lb") %>' />
-                            <br />
-                            Editorial_Lb:
-                            <asp:TextBox ID="Editorial_LbTextBox" runat="server" Text='<%# Bind("Editorial_Lb") %>' />
-                            <br />
-                            <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
-                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Borrar" />
-                            <br /><br /></span>
-                        </InsertItemTemplate>
-                        <ItemTemplate>
-                            <span style="">Precio_Lb:
-                            <asp:Label ID="Precio_LbLabel" runat="server" Text='<%# Eval("Precio_Lb") %>' />
-                            <br />
-                            NombreLibro_Lb:
-                            <asp:Label ID="NombreLibro_LbLabel" runat="server" Text='<%# Eval("NombreLibro_Lb") %>' />
-                            <br />
-                            Cod_Libro_Lb: <asp:Label ID="Cod_Libro_LbLabel" runat="server" Text='<%# Eval("Cod_Libro_Lb") %>' />
-                            <br />
-                            ImagenURL_Lb:
-                            <asp:Label ID="ImagenURL_LbLabel" runat="server" Text='<%# Eval("ImagenURL_Lb") %>' />
-                            <br />
-                            Categoria_Lb:
-                            <asp:Label ID="Categoria_LbLabel" runat="server" Text='<%# Eval("Categoria_Lb") %>' />
-                            <br />
-                            Editorial_Lb:
-                            <asp:Label ID="Editorial_LbLabel" runat="server" Text='<%# Eval("Editorial_Lb") %>' />
-                            <br />
-                            <br />
-                            </span>
-                        </ItemTemplate>
-                        <LayoutTemplate>
-                            <div id="itemPlaceholderContainer" runat="server" style="">
-                                <span runat="server" id="itemPlaceholder" />
-                            </div>
-                            <div style="">
-                            </div>
-                        </LayoutTemplate>
-                        <SelectedItemTemplate>
-                            <span style="">Precio_Lb:
-                            <asp:Label ID="Precio_LbLabel" runat="server" Text='<%# Eval("Precio_Lb") %>' />
-                            <br />
-                            NombreLibro_Lb:
-                            <asp:Label ID="NombreLibro_LbLabel" runat="server" Text='<%# Eval("NombreLibro_Lb") %>' />
-                            <br />
-                            Cod_Libro_Lb:
-                            <asp:Label ID="Cod_Libro_LbLabel" runat="server" Text='<%# Eval("Cod_Libro_Lb") %>' />
-                            <br />
-                            ImagenURL_Lb:
-                            <asp:Label ID="ImagenURL_LbLabel" runat="server" Text='<%# Eval("ImagenURL_Lb") %>' />
-                            <br />
-                            Categoria_Lb:
-                            <asp:Label ID="Categoria_LbLabel" runat="server" Text='<%# Eval("Categoria_Lb") %>' />
-<br />Editorial_Lb:
-                            <asp:Label ID="Editorial_LbLabel" runat="server" Text='<%# Eval("Editorial_Lb") %>' />
-                            <br />
-                            <br />
-                            </span>
-                        </SelectedItemTemplate>
-                    </asp:ListView>
-                </td>
-                <td>
-                    <asp:DropDownList ID="DropDownList1" runat="server" Height="16px" Width="62px">
-                        <asp:ListItem>1</asp:ListItem>
-                    </asp:DropDownList>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AR$ 150
-                    <asp:Label ID="lblPrecio" runat="server"></asp:Label>
-                    <br />
-                    <asp:LinkButton ID="lbEliminar" runat="server">Eliminar</asp:LinkButton>
-                </td>
-            </tr>
-        </table>
-        <br />
-        <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+                            <asp:LinkButton ID="lbEliminar" runat="server">Eliminar</asp:LinkButton>
+                        </td>
+                        <td class="auto-style29"></td>
+                        <td class="auto-style29"></td>
+                    </tr>
+                </table>
+            </ItemTemplate>
+        </asp:DataList>
         <br />
         <br />
         <div style="background-color:gray" class="auto-style21">       </div>
@@ -383,39 +287,13 @@
                 </td>
             </tr>
         </table>
-&nbsp;
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <%--  <table style="background-color:gray" class="auto-style15">
-            <tr>
-                <td><span style="color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">Copyright © 2019-2020<span>&nbsp;</span></span><span class="auto-style8" style="border-style: none; border-color: inherit; border-width: 0px; margin: 0px; padding: 0px; font-variant-ligatures: normal; font-variant-caps: normal; orphans: 2; text-align: left; text-indent: 0px; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Libra</span><span style="color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;"><span>&nbsp;</span>S.A.</span></td>
-                <td class="auto-style9">&nbsp;</td>
-                <td><strong><em>Email: Libros.Libra@gmail.com</em></strong></td>
-            </tr>
-            <tr>
-                <td><span style="color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">TODOS LOS DERECHOS RESERVADOS.</span></td>
-                <td class="auto-style9">&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td><span style="color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">JURAMENTO 2052 (D4499CNN CABA - CUIT Nº: 25-14909745-7</span></td>
-                <td class="auto-style9">&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-        </table>--%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <br />
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Precio_Lb], [NombreLibro_Lb], [Cod_Libro_Lb], [ImagenURL_Lb], [Categoria_Lb], [Editorial_Lb] FROM [Libros]"></asp:SqlDataSource>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </form>
     <br />
     
     <footer class="centrado">  <table>
             <tr>
-                <td><span style="color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">Copyright © 2019-2020<span>&nbsp;</span></span><span class="auto-style8" style="border-style: none; border-color: inherit; border-width: 0px; margin: 0px; padding: 0px; font-variant-ligatures: normal; font-variant-caps: normal; orphans: 2; text-align: left; text-indent: 0px; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Libra</span><span style="color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;"><span>&nbsp;</span>S.A.</span></td>
+                <td><span style="color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">Copyright © 2019-2020ndent: 0px; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Libra</span><span style="color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;"><span>&nbsp;</span>S.A.</span></td>
                 <td class="auto-style9">&nbsp;</td>
                 <td><strong><em>Email: Libros.Libra@gmail.com</em></strong></td>
             </tr>

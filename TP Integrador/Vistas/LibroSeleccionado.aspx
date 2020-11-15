@@ -47,9 +47,6 @@
         .auto-style10 {
             color: #00FF00;
         }
-        .auto-style11 {
-            margin-left: 0px;
-        }
         .auto-style12 {
             width: 689px;
         }
@@ -114,6 +111,11 @@
             width: 291px;
         }
 
+        .auto-style4 {
+            font-size: large;
+            font-weight: bold;
+        }
+        
     </style>
 </head>
 <body class="centrado">
@@ -146,17 +148,22 @@
         <table style="background-color:white" class="auto-style1">
             <tr>
                 <td class="auto-style12">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtBuscar" runat="server" Width="400px" CssClass="auto-style11"></asp:TextBox>
-&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:DropDownList ID="ddlBuscar" runat="server" Height="16px" Width="101px">
-                    </asp:DropDownList>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnBuscar" runat="server" BackColor="#3399FF" CssClass="auto-style11" ForeColor="White" Height="23px" Text="Buscar" Width="75px" />
-&nbsp; </td>
+                    <asp:TextBox ID="txtBuscar" runat="server" Font-Overline="False" TextMode="Search" Width="359px" placeholder="Titulo, Autor, Categoria"></asp:TextBox>
+            <asp:DropDownList ID="ddlFiltro" runat="server">
+                <asp:ListItem>Todos</asp:ListItem>
+                <asp:ListItem>Titulo</asp:ListItem>
+                <asp:ListItem>Autor</asp:ListItem>
+                <asp:ListItem>Categoria</asp:ListItem>
+            </asp:DropDownList>
+            <strong>
+                <asp:Button ID="btnBuscar" runat="server" BackColor="#4375C7" CssClass="auto-style4" Font-Bold="True" Font-Names="Trebuchet MS" ForeColor="White" Height="31px" Text="Buscar" Width="82px" />
+                    </strong> </td>
                 <td>
-                    <asp:Label ID="lblNumeroCarro" runat="server"></asp:Label>
-&nbsp;productos <span class="auto-style10">AR$ </span>
-                    <asp:Label ID="lblTotal" runat="server"></asp:Label>
+            <strong>
+                <asp:Label ID="CantidadProductosCarrito" runat="server" ForeColor="#009933" Text="0"></asp:Label>
+                &nbsp;</strong><asp:Label ID="lblTexto" runat="server" CssClass="auto-style3" Text="producto  AR$"></asp:Label>
+            &nbsp;<strong><asp:Label ID="MontoCarrito" runat="server" ForeColor="#CC3300" Text="0,00"></asp:Label>
+            </strong>&nbsp;<asp:ImageButton ID="ImageButton1" runat="server" Height="54px" ImageUrl="~/Imagenes/carrito logo.jpg" Width="49px" PostBackUrl="~/Carrito.aspx" />
                 </td>
             </tr>
         </table>
@@ -184,22 +191,25 @@
         <br />
         <table class="auto-style1">
             <tr>
-                <td class="auto-style22"><em>TITULO DEL LIBRO:&nbsp;&nbsp;&nbsp; </em> </td>
-                <td><em>&nbsp;&nbsp;&nbsp; &nbsp; CATEGORIA:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EDITORIAL:&nbsp;&nbsp; </em> </td>
+                <td class="auto-style22"><em>TITULO DEL LIBRO: <asp:Label ID="NombreLibro_Lb" runat="server"></asp:Label>
+                    </em> </td>
+                <td><em>&nbsp;&nbsp;&nbsp; &nbsp; CATEGORIA:
+                    <asp:Label ID="Categoria_Lb" runat="server"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EDITORIAL:&nbsp;<asp:Label ID="Editorial_Lb" runat="server"></asp:Label>
+                    </em> </td>
             </tr>
             <tr>
                 <td class="auto-style22">
-                    <asp:Image ID="Image1" runat="server" Height="289px" Width="297px" />
+                    <asp:Image ID="ImagenURL_Lb" runat="server"/>
                 </td>
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AR$
-                    <asp:Label ID="lblprecio" runat="server"></asp:Label>
+                    <asp:Label ID="Precio_Lb" runat="server"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnComprar" runat="server" CssClass="auto-style23" OnClick="Button1_Click" Text="Añadir al carro" Width="128px" />
+                    <asp:Button ID="btnComprar" runat="server" CssClass="auto-style23" OnClick="btnComprar_Click" Text="Añadir al carro" Width="128px" />
+                &nbsp;<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                 </td>
             </tr>
         </table>
-        <br />
-        <br />
         <br />
         <br />
         <br />

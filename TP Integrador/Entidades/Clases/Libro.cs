@@ -16,13 +16,15 @@ namespace Entidades.Clases
 		private String edit_Libro;
 		private String prec_Libro;
 		private String estado_Libro;
+		private String ImagenURL_Lb;
 		private string[] consultas;
+		
 		public Libro()
 		{
 			Consultas();
 		}
 
-		public Libro(String idLibro, String codLibro, String nombreLibro, String descLibro, String catLibro, String editLibro, String precLibro, String estadoLibro)
+		public Libro(String idLibro, String codLibro, String nombreLibro, String descLibro, String catLibro, String editLibro, String precLibro, String estadoLibro, String ImagenURL_Lb)
 		{
 			this.id_Libro = idLibro;
 			this.cod_Libro = codLibro;
@@ -32,6 +34,7 @@ namespace Entidades.Clases
 			this.edit_Libro = editLibro;
 			this.prec_Libro = precLibro;
 			this.estado_Libro = estadoLibro;
+			this.ImagenURL_Lb = ImagenURL_Lb;
 
 			Consultas();
 		}
@@ -76,6 +79,12 @@ namespace Entidades.Clases
 		{
 			get { return estado_Libro; }
 			set { estado_Libro = value; }
+		}
+
+		public String ImagenURL
+		{
+			get { return ImagenURL_Lb; }
+			set { ImagenURL_Lb = value; }
 		}
 
 		public void Consultas()
