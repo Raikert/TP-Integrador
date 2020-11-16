@@ -121,48 +121,56 @@ namespace Vistas
         }
         public void agregarLibro()
         {
-            lib.codLibro = Cod_Libro_Lb.Text;
-            lib.nombreLibro = NombreLibro_Lb.Text;
-            lib.catLibro = Categoria_Lb.Text;
-            lib.editLibro = Editorial_Lb.Text;
-            lib.precioLibro = Precio_Lb.Text;
-            lib.estadoLibro = Activo_Lb.SelectedValue;
-            lib.descLibro = Descripcion_lb.Text;
+            if (validacionesL()) {
 
-            lib.setConsultaInsert();
+                lib.codLibro = Cod_Libro_Lb.Text;
+                lib.nombreLibro = NombreLibro_Lb.Text;
+                lib.catLibro = Categoria_Lb.Text;
+                lib.editLibro = Editorial_Lb.Text;
+                lib.precioLibro = Precio_Lb.Text;
+                lib.estadoLibro = Activo_Lb.SelectedValue;
+                lib.descLibro = Descripcion_lb.Text;
 
-            obj.Consulta(lib.getConsulta(2));
+                lib.setConsultaInsert();
 
-            lib.setMostrar_Where(Cod_Libro_Lb.ID, "'" + Cod_Libro_Lb.Text + "'");
+                obj.Consulta(lib.getConsulta(2));
 
-            util.Bindear(ref grdLibro, lib.getConsulta(1));
+                lib.setMostrar_Where(Cod_Libro_Lb.ID, "'" + Cod_Libro_Lb.Text + "'");
 
-            obj.cerrarConexion();
+                util.Bindear(ref grdLibro, lib.getConsulta(1));
 
-            limpiarCamposL();
+                obj.cerrarConexion();
 
-            lblEstadoABM_Libro.Text = "Registro de libro agregado exitosamente";
+                limpiarCamposL();
+
+                lblEstadoABM_Libro.Text = "Registro de libro agregado exitosamente";
+            }
+         
         }
         public void modificarLibro()
         {
-            string tabla = "Libros";
 
-            util.modificar(ref Cod_Libro_Lb, ref NombreLibro_Lb, tabla);
-            util.modificar(ref Cod_Libro_Lb, ref Categoria_Lb, tabla);
-            util.modificar(ref Cod_Libro_Lb, ref Editorial_Lb, tabla);
-            util.modificar(ref Cod_Libro_Lb, ref Precio_Lb, tabla, true);
-            util.modificar(ref Cod_Libro_Lb, ref Activo_Lb, tabla, true, true);
-            util.modificar(ref Cod_Libro_Lb, ref Descripcion_lb, tabla);
+            
+                string tabla = "Libros";
 
-            lib.setMostrar_Where(Cod_Libro_Lb.ID, "'" + Cod_Libro_Lb.Text + "'");
+                util.modificar(ref Cod_Libro_Lb, ref NombreLibro_Lb, tabla);
+                util.modificar(ref Cod_Libro_Lb, ref Categoria_Lb, tabla);
+                util.modificar(ref Cod_Libro_Lb, ref Editorial_Lb, tabla);
+                util.modificar(ref Cod_Libro_Lb, ref Precio_Lb, tabla, true);
+                util.modificar(ref Cod_Libro_Lb, ref Activo_Lb, tabla, true, true);
+                util.modificar(ref Cod_Libro_Lb, ref Descripcion_lb, tabla);
 
-            util.Bindear(ref grdLibro, lib.getConsulta(1));
+                lib.setMostrar_Where(Cod_Libro_Lb.ID, "'" + Cod_Libro_Lb.Text + "'");
 
-            obj.cerrarConexion();
+                util.Bindear(ref grdLibro, lib.getConsulta(1));
 
-            limpiarCamposL();
+                obj.cerrarConexion();
 
-            lblEstadoABM_Libro.Text = "Registro de libro modificado exitosamente";
+                limpiarCamposL();
+
+                lblEstadoABM_Libro.Text = "Registro de libro modificado exitosamente";
+            
+            
         }
 
 
@@ -196,6 +204,20 @@ namespace Vistas
             util.Bindear(ref grdLibro, (string)Session["consulta_actual"], true);
 
             obj.cerrarConexion();
+        }
+
+
+       public bool validacionesL()
+        {
+            bool validador = true;
+
+            if (util.buscarIgualdad(ref Cod_Libro_Lb, "Libros"))
+            {
+                validador = false;
+                lblEstadoABM_Libro.Text = "El codigo que ingreso ya existe en la base de datos";
+            }
+
+            return validador;
         }
 
 
@@ -253,42 +275,48 @@ namespace Vistas
         }
         public void agregarCategoria()
         {
-            cat.nombreCategoria = Nombre_Ca.Text;
-            cat.descCategoria = Descripcion_Ca.Text;
-            cat.estadoCategoria = Activo_Ca.Text;
+            if (validacionesC())
+            {
+                cat.nombreCategoria = Nombre_Ca.Text;
+                cat.descCategoria = Descripcion_Ca.Text;
+                cat.estadoCategoria = Activo_Ca.Text;
 
 
-            cat.setConsultaInsertC();
+                cat.setConsultaInsertC();
 
-            obj.Consulta(cat.getConsultaC(2));
+                obj.Consulta(cat.getConsultaC(2));
 
-            cat.setMostrar_WhereC(Nombre_Ca.ID, "'" + Nombre_Ca.Text + "'");
+                cat.setMostrar_WhereC(Nombre_Ca.ID, "'" + Nombre_Ca.Text + "'");
 
-            util.Bindear(ref grdCategoria, cat.getConsultaC(1));
+                util.Bindear(ref grdCategoria, cat.getConsultaC(1));
 
-            obj.cerrarConexion();
+                obj.cerrarConexion();
 
-            limpiarCamposC();
+                limpiarCamposC();
 
-            lblEstadoABM_Categoria.Text = "Registro de categoria agregado exitosamente";
+                lblEstadoABM_Categoria.Text = "Registro de categoria agregado exitosamente";
+            }
         }
         public void modificarCategoria()
         {
-            string tabla = "Categorias";
 
-            util.modificar(ref Nombre_Ca, ref Descripcion_Ca, tabla);
-            util.modificar(ref Nombre_Ca, ref Activo_Ca, tabla, true, true);
+            
+                string tabla = "Categorias";
+
+                util.modificar(ref Nombre_Ca, ref Descripcion_Ca, tabla);
+                util.modificar(ref Nombre_Ca, ref Activo_Ca, tabla, true, true);
 
 
-            cat.setMostrar_WhereC(Nombre_Ca.ID, "'" + Nombre_Ca.Text + "'");
+                cat.setMostrar_WhereC(Nombre_Ca.ID, "'" + Nombre_Ca.Text + "'");
 
-            util.Bindear(ref grdCategoria, cat.getConsultaC(1));
+                util.Bindear(ref grdCategoria, cat.getConsultaC(1));
 
-            obj.cerrarConexion();
+                obj.cerrarConexion();
 
-            limpiarCamposC();
+                limpiarCamposC();
 
-            lblEstadoABM_Categoria.Text = "Registro de categoria modificado exitosamente";
+                lblEstadoABM_Categoria.Text = "Registro de categoria modificado exitosamente";
+            
         }
 
         public void limpiarCamposC()
@@ -306,6 +334,22 @@ namespace Vistas
 
             obj.cerrarConexion();
         }
+
+
+        public bool validacionesC()
+        {
+            bool validador = true;
+
+            if (util.buscarIgualdad(ref Nombre_Ca, "Categorias"))
+            {
+                validador = false;
+                lblEstadoABM_Categoria.Text = "El Nombre que ingreso ya existe en la base de datos";
+            }
+
+            return validador;
+        }
+
+
 
         ///7////////////////////////////// INICIO DE MODULO EDITORIALES /////////////////////////////////////////
 
@@ -365,42 +409,50 @@ namespace Vistas
         }
         public void agregarEditoriales()
         {
-            edit.nombreEditorial = Nombre_E.Text;
-            edit.codEditorial = Cod_Editorial_E.Text;
-            edit.estadoEditorial = Activo_E.Text;
+            if (validacionesE())
+            {
+
+                edit.nombreEditorial = Nombre_E.Text;
+                edit.codEditorial = Cod_Editorial_E.Text;
+                edit.estadoEditorial = Activo_E.Text;
 
 
-            edit.setConsultaInsertE();
+                edit.setConsultaInsertE();
 
-            obj.Consulta(edit.getConsultaE(2));
+                obj.Consulta(edit.getConsultaE(2));
 
-            edit.setMostrar_WhereE(Nombre_E.ID, "'" + Nombre_E.Text + "'");
+                edit.setMostrar_WhereE(Nombre_E.ID, "'" + Nombre_E.Text + "'");
 
-            util.Bindear(ref grdEditorial, edit.getConsultaE(1));
+                util.Bindear(ref grdEditorial, edit.getConsultaE(1));
 
-            obj.cerrarConexion();
+                obj.cerrarConexion();
 
-            limpiarCamposE();
+                limpiarCamposE();
 
-            lblEstadoABM_Editorial.Text = "Registro de editorial agregado exitosamente";
+                lblEstadoABM_Editorial.Text = "Registro de editorial agregado exitosamente";
+            }
         }
         public void modificarEditoriales()
         {
-            string tabla = "Editoriales";
 
-            util.modificar(ref Nombre_E, ref Cod_Editorial_E, tabla);
-            util.modificar(ref Nombre_E, ref Activo_E, tabla, true, true);
+            if (validacionesEM())
+            {
+                string tabla = "Editoriales";
+
+                util.modificar(ref Nombre_E, ref Cod_Editorial_E, tabla);
+                util.modificar(ref Nombre_E, ref Activo_E, tabla, true, true);
 
 
-            edit.setMostrar_WhereE(Nombre_E.ID, "'" + Nombre_E.Text + "'");
+                edit.setMostrar_WhereE(Nombre_E.ID, "'" + Nombre_E.Text + "'");
 
-            util.Bindear(ref grdEditorial, edit.getConsultaE(1));
+                util.Bindear(ref grdEditorial, edit.getConsultaE(1));
 
-            obj.cerrarConexion();
+                obj.cerrarConexion();
 
-            limpiarCamposE();
+                limpiarCamposE();
 
-            lblEstadoABM_Editorial.Text = "Registro de editorial modificado exitosamente";
+                lblEstadoABM_Editorial.Text = "Registro de editorial modificado exitosamente";
+            }
         }
 
 
@@ -418,6 +470,37 @@ namespace Vistas
             util.Bindear(ref grdEditorial, (string)Session["consulta_actual_editorial"], true);
 
             obj.cerrarConexion();
+        }
+
+
+        public bool validacionesE()
+        {
+            bool validador = true;
+
+            if (util.buscarIgualdad(ref Nombre_E, "Editoriales"))
+            {
+                validador = false;
+               lblEstadoABM_Editorial.Text = "El Nombre que ingreso ya existe en la base de datos";
+            }
+            if (util.buscarIgualdad(ref Cod_Editorial_E, "Editoriales"))
+            {
+                validador = false;
+                lblEstadoABM_Editorial.Text = "El codigo que ingreso ya existe en la base de datos";
+            }
+
+            return validador;
+        }
+
+        public bool validacionesEM()
+        {
+            bool validador = true;
+
+            if (util.buscarIgualdad(ref Cod_Editorial_E, "Editoriales"))
+            {
+                validador = false;
+                lblEstadoABM_Editorial.Text = "El codigo que ingreso ya existe en la base de datos";
+            }
+            return validador;
         }
 
 
@@ -485,57 +568,62 @@ namespace Vistas
         } 
         public void agregarProveedores()
         {
-            pro.codProveedor = Cod_Proveedor_Pr.Text;
-            pro.RSocialProveedor = RazonSocial_Pr.Text;
-            pro.DirecProveedor = Direccion_Pr.Text;
-            pro.ciudadProveedor = Ciudad_Pr.Text;
-            pro.provProveedor = Provincia.Text;
-            pro.cuitProveedor = CUIT_Pr.Text;
-            pro.telProveedor = Telefono_Pr.Text;
-            pro.contactoProveedor = Contacto_Pr.Text;
-            pro.emailProveedor = Email_Pr.Text;
-            pro.EstProveedor = Activo_Pr.Text;
+            if (validacionesP())
+            {
+                pro.codProveedor = Cod_Proveedor_Pr.Text;
+                pro.RSocialProveedor = RazonSocial_Pr.Text;
+                pro.DirecProveedor = Direccion_Pr.Text;
+                pro.ciudadProveedor = Ciudad_Pr.Text;
+                pro.provProveedor = Provincia.Text;
+                pro.cuitProveedor = CUIT_Pr.Text;
+                pro.telProveedor = Telefono_Pr.Text;
+                pro.contactoProveedor = Contacto_Pr.Text;
+                pro.emailProveedor = Email_Pr.Text;
+                pro.EstProveedor = Activo_Pr.Text;
 
 
+                pro.setConsultaInsertP();
 
-            pro.setConsultaInsertP();
+                obj.Consulta(pro.getConsultaP(2));
 
-            obj.Consulta(pro.getConsultaP(2));
+                pro.setMostrar_WhereP(Cod_Proveedor_Pr.ID, "'" + Cod_Proveedor_Pr.Text + "'");
 
-            pro.setMostrar_WhereP(Cod_Proveedor_Pr.ID, "'" + Cod_Proveedor_Pr.Text + "'");
+                util.Bindear(ref grdProveedor, pro.getConsultaP(1));
 
-            util.Bindear(ref grdProveedor, pro.getConsultaP(1));
+                obj.cerrarConexion();
 
-            obj.cerrarConexion();
+                limpiarCamposP();
 
-            limpiarCamposP();
-
-            lblEstadoABM_Proveedor.Text = "Registro de proveedor agregado exitosamente";
+                lblEstadoABM_Proveedor.Text = "Registro de proveedor agregado exitosamente";
+            }
         }
         public void modificarProveedores()
         {
-            string tabla = "Proveedores";
+           if(validacionesPM())
+           {
+                string tabla = "Proveedores";
 
-            util.modificar(ref Cod_Proveedor_Pr, ref RazonSocial_Pr, tabla);
-            util.modificar(ref Cod_Proveedor_Pr, ref Direccion_Pr, tabla);
-            util.modificar(ref Cod_Proveedor_Pr, ref Ciudad_Pr, tabla);
-            util.modificar(ref Cod_Proveedor_Pr, ref Provincia, tabla);
-            util.modificar(ref Cod_Proveedor_Pr, ref CUIT_Pr, tabla);
-            util.modificar(ref Cod_Proveedor_Pr, ref Telefono_Pr, tabla);
-            util.modificar(ref Cod_Proveedor_Pr, ref Contacto_Pr, tabla);
-            util.modificar(ref Cod_Proveedor_Pr, ref Email_Pr, tabla);
-            util.modificar(ref Cod_Proveedor_Pr, ref Activo_Pr, tabla, true, true);
+                util.modificar(ref Cod_Proveedor_Pr, ref RazonSocial_Pr, tabla);
+                util.modificar(ref Cod_Proveedor_Pr, ref Direccion_Pr, tabla);
+                util.modificar(ref Cod_Proveedor_Pr, ref Ciudad_Pr, tabla);
+                util.modificar(ref Cod_Proveedor_Pr, ref Provincia, tabla);
+                util.modificar(ref Cod_Proveedor_Pr, ref CUIT_Pr, tabla);
+                util.modificar(ref Cod_Proveedor_Pr, ref Telefono_Pr, tabla);
+                util.modificar(ref Cod_Proveedor_Pr, ref Contacto_Pr, tabla);
+                util.modificar(ref Cod_Proveedor_Pr, ref Email_Pr, tabla);
+                util.modificar(ref Cod_Proveedor_Pr, ref Activo_Pr, tabla, true, true);
 
 
-            pro.setMostrar_WhereP(Cod_Proveedor_Pr.ID, "'" + Cod_Proveedor_Pr.Text + "'");
+                pro.setMostrar_WhereP(Cod_Proveedor_Pr.ID, "'" + Cod_Proveedor_Pr.Text + "'");
 
-            util.Bindear(ref grdProveedor, pro.getConsultaP(1));
+                util.Bindear(ref grdProveedor, pro.getConsultaP(1));
 
-            obj.cerrarConexion();
+                obj.cerrarConexion();
 
-            limpiarCamposP();
+                limpiarCamposP();
 
-            lblEstadoABM_Proveedor.Text = "Registro de proveedores modificado exitosamente";
+                lblEstadoABM_Proveedor.Text = "Registro de proveedores modificado exitosamente";
+           }
         }
 
         public void limpiarCamposP()
@@ -562,7 +650,55 @@ namespace Vistas
         }
 
 
+        public bool validacionesP()
+        {
+            bool validador = true;
 
+            if (util.buscarIgualdad(ref Cod_Proveedor_Pr, "Proveedores"))
+            {
+                validador = false;
+                lblEstadoABM_Proveedor.Text = "El codigo que ingreso ya existe en la base de datos";
+            }
+            if (util.buscarIgualdad(ref RazonSocial_Pr, "Proveedores"))
+            {
+                validador = false;
+                lblEstadoABM_Proveedor.Text = "La razon social que ingreso ya existe en la base de datos";
+            }
+            if (util.buscarIgualdad(ref CUIT_Pr, "Proveedores"))
+            {
+                validador = false;
+                lblEstadoABM_Proveedor.Text = "El CUIT que ingreso ya existe en la base de datos";
+            }
+            if (util.buscarIgualdad(ref Email_Pr, "Proveedores"))
+            {
+                validador = false;
+                lblEstadoABM_Proveedor.Text = "El email que ingreso ya existe en la base de datos";
+            }
+
+            return validador;
+        }
+        public bool validacionesPM()
+        {
+            bool validador = true;
+
+            if (util.buscarIgualdad(ref RazonSocial_Pr, "Proveedores"))
+            {
+                validador = false;
+                lblEstadoABM_Proveedor.Text = "La razon social que ingreso ya existe en la base de datos";
+            }
+            if (util.buscarIgualdad(ref CUIT_Pr, "Proveedores"))
+            {   
+                validador = false;
+                lblEstadoABM_Proveedor.Text = "El CUIT que ingreso ya existe en la base de datos";
+            }
+            if (util.buscarIgualdad(ref Email_Pr, "Proveedores"))
+            {
+                validador = false;
+                lblEstadoABM_Proveedor.Text = "El email que ingreso ya existe en la base de datos";
+            }
+
+            return validador;
+        }
 
         ///7////////////////////////////// INICIO DE MODULO LIBROS POR PROVEEDORES /////////////////////////////////////////
 
@@ -620,23 +756,26 @@ namespace Vistas
         }
         public void agregarLibrosPorProveedor()
         {
-            lxp.codLibLxP = Cod_Libro_LxP.Text;
-            lxp.codProvLxP = Cod_Proovedor_LxP.Text;
-            lxp.EstadoLxP = Activo_LxP.Text;
+            if (validacioneslxp()) {
 
-            lxp.setConsultaInsertlxp();
+                lxp.codLibLxP = Cod_Libro_LxP.Text;
+                lxp.codProvLxP = Cod_Proovedor_LxP.Text;
+                lxp.EstadoLxP = Activo_LxP.Text;
 
-            obj.Consulta(lxp.getConsultalxp(2));
+                lxp.setConsultaInsertlxp();
 
-            lxp.setMostrar_Wherelxp(Cod_Libro_LxP.ID, "'" + Cod_Libro_LxP.Text + "'");
+                obj.Consulta(lxp.getConsultalxp(2));
 
-            util.Bindear(ref grdLibrosXProveedores, lxp.getConsultalxp(1));
+                lxp.setMostrar_Wherelxp(Cod_Libro_LxP.ID, "'" + Cod_Libro_LxP.Text + "'");
 
-            obj.cerrarConexion();
+                util.Bindear(ref grdLibrosXProveedores, lxp.getConsultalxp(1));
 
-            limpiarCamposlxp();
+                obj.cerrarConexion();
 
-            lblEstadoLibrosXProveedores.Text = "Registro de libros por proveedor agregado exitosamente";
+                limpiarCamposlxp();
+
+                lblEstadoLibrosXProveedores.Text = "Registro de libros por proveedor agregado exitosamente";
+            }
         }
         public void borrarLibrosXProveedor()
         {
@@ -673,6 +812,28 @@ namespace Vistas
             obj.cerrarConexion();
 
         }
+
+        public bool validacioneslxp()
+        {
+            bool validador = true;
+            bool validador1 = true;
+
+            if (util.buscarIgualdad(ref Cod_Libro_LxP, "LibrosPorProveedor"))
+            {
+                validador = false;
+            }        
+            if (util.buscarIgualdad(ref Cod_Proovedor_LxP, "LibrosPorProveedor"))
+            {
+                validador1 = false;
+            }
+            if(validador1 == false && validador == false)
+            {
+                validador = false;
+                lblEstadoLibrosXProveedores.Text = "El conjunto de codigos que ingreso ya existe en la base de datos";
+            }
+            
+            return validador;
+           }
 
 
 
@@ -735,24 +896,28 @@ namespace Vistas
 
         public void agregarStock()
         {
-            ST.codlibroStock = Cod_Libro_S.Text;
-            ST.cantStock = Cantidad_S.Text;
-            ST.precStock = PrecioUnitario_S.Text;
-            ST.estadoStock = Activo_S.Text;
+            if (validacionesStock())
+            {
 
-            ST.setConsultaInsertST();
+                ST.codlibroStock = Cod_Libro_S.Text;
+                ST.cantStock = Cantidad_S.Text;
+                ST.precStock = PrecioUnitario_S.Text;
+                ST.estadoStock = Activo_S.Text;
 
-            obj.Consulta(ST.getConsultaST(2));
+                ST.setConsultaInsertST();
 
-            ST.setMostrar_WhereST(Cod_Libro_S.ID, "'" + Cod_Libro_S.Text + "'");
+                obj.Consulta(ST.getConsultaST(2));
 
-            util.Bindear(ref grdStock, ST.getConsultaST(1));
+                ST.setMostrar_WhereST(Cod_Libro_S.ID, "'" + Cod_Libro_S.Text + "'");
 
-            obj.cerrarConexion();
+                util.Bindear(ref grdStock, ST.getConsultaST(1));
 
-            limpiarCamposST();
+                obj.cerrarConexion();
 
-            lblEstadoStock.Text = "Registro de stock agregado exitosamente";
+                limpiarCamposST();
+
+                lblEstadoStock.Text = "Registro de stock agregado exitosamente";
+            }
         }
 
         public void modificarStock()
@@ -776,6 +941,7 @@ namespace Vistas
         }
 
 
+
         protected void grdStock_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grdStock.PageIndex = e.NewPageIndex;
@@ -794,7 +960,20 @@ namespace Vistas
             Activo_S.SelectedIndex = 0;
         }
 
+       public bool validacionesStock()
+        {
+            bool validador = true;
 
+            if (util.buscarIgualdad(ref Cod_Libro_S, "Stock"))
+            {
+                validador = false;
+                lblEstadoStock.Text = "El codigo de libro que ingreso ya existe en la base de datos";
+            }
+  
+            
+
+            return validador;
+        }
 
         ///7////////////////////////////// INICIO DE MODULO CLIENTE /////////////////////////////////////////
 

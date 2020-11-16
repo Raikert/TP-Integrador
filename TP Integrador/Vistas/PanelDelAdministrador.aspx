@@ -22,7 +22,6 @@
         .auto-style9 {
             float: left;
             width: 60%;
-            height: 5000px;
         }
         .auto-style10 {
             color: #000000;

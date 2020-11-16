@@ -17,10 +17,11 @@ namespace Vistas.Clases
             obj = new NegocioGenerales();
         }
 
+        
         public int Bindear(ref GridView grid, string consulta, bool reiniciar_paginas = false)
         {
             DataTable tabla = obj.DataTable_Query(consulta);
-
+            
             grid.DataSource = tabla;
             grid.DataBind();
 
@@ -94,7 +95,7 @@ namespace Vistas.Clases
 
             foreach (DataRow registro in tabla.Rows)
             {
-                if (registro[campo].ToString() == valor_a_comparar)
+                if (registro[campo].ToString() == valor_a_comparar.Trim())
                     repeticion = true;
             }
 
@@ -113,7 +114,7 @@ namespace Vistas.Clases
 
             foreach (DataRow registro in tabla.Rows)
             {
-                if (registro[campo].ToString() == valor)
+                if (registro[campo].ToString() == valor.Trim())
                     repeticion = true;
             }
 

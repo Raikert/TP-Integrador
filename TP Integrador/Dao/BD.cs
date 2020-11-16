@@ -18,10 +18,18 @@ namespace ClaseBD
             cn.Open();
         }
 
+
+        ~BD()
+        {
+            cn.Close();
+        }
+
         public void Cerrar()
         {
             cn.Close();
         }
+
+
 
         public int Command(string consulta)
         {
