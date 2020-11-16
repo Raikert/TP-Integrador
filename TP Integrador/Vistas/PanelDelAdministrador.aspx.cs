@@ -27,6 +27,16 @@ namespace Vistas
 
         private Proveedor pro;
 
+        private LibrosXProveedor lxp;
+
+        private Stock ST;
+
+        private Cliente cl;
+
+        private Venta ven;
+
+        private DetalleVenta dv;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             this.UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
@@ -38,6 +48,11 @@ namespace Vistas
             util = new Utilidades();
             edit = new Editorial();
             pro = new Proveedor();
+            lxp = new LibrosXProveedor();
+            ST = new Stock();
+            cl = new Cliente();
+            ven = new Venta();
+            dv = new DetalleVenta();
 
             limpiarEstados();
 
@@ -542,6 +557,424 @@ namespace Vistas
             grdProveedor.PageIndex = e.NewPageIndex;
 
             util.Bindear(ref grdProveedor, (string)Session["consulta_actual_proveedor"], true);
+
+            obj.cerrarConexion();
+        }
+
+
+
+
+        ///7////////////////////////////// INICIO DE MODULO LIBROS POR PROVEEDORES /////////////////////////////////////////
+
+        protected void btnMostrarResultados_Click(object sender, EventArgs e)
+        {
+            mostrarLibrosXProveedor();
+        }
+
+        protected void btnBuscarLibrosXProveedores_Click(object sender, EventArgs e)
+        {
+            buscarLibrosXProveedor();
+        }
+
+        protected void btnAgregarLibroXProveedor_Click(object sender, EventArgs e)
+        {
+            agregarLibrosPorProveedor();
+        }
+
+        protected void btnBorrarLibrosXProveedor_Click(object sender, EventArgs e)
+        {
+            borrarLibrosXProveedor();
+        }
+
+
+        public void mostrarLibrosXProveedor()
+        {
+            int filas_afectadas = util.Bindear(ref grdLibrosXProveedores, lxp.getConsultalxp(0));
+
+            obj.cerrarConexion();
+
+            Session["consulta_actual_LibrosXProveedor"] = lxp.getConsultalxp(0);
+
+            lblEstadoLibrosXProveedores.Text = "Se encontraron " + filas_afectadas + " registros de libros por proveedor";
+
+            limpiarCamposlxp();
+        }
+        public void buscarLibrosXProveedor()
+        {
+            lxp.codLibLxP = "'" + Cod_Libro_LxP.Text + "'";
+            lxp.codProvLxP = "'" + Cod_Proovedor_LxP.Text + "'";
+            lxp.EstadoLxP = "'" + Activo_LxP.Text + "'";
+
+
+            lxp.setMostrar_Wherelxp(Convert.ToInt32(ddlCampoBuscarlxp.SelectedValue));
+
+            int filas_afectadas = util.Bindear(ref grdLibrosXProveedores, lxp.getConsultalxp(1));
+
+            obj.cerrarConexion();
+
+            Session["consulta_actual_LibrosXProveedor"] = lxp.getConsultalxp(1);
+
+            limpiarCamposlxp();
+
+            lblEstadoLibrosXProveedores.Text = "Se encontraron " + filas_afectadas + " registros de libros por proveedor";
+        }
+        public void agregarLibrosPorProveedor()
+        {
+            lxp.codLibLxP = Cod_Libro_LxP.Text;
+            lxp.codProvLxP = Cod_Proovedor_LxP.Text;
+            lxp.EstadoLxP = Activo_LxP.Text;
+
+            lxp.setConsultaInsertlxp();
+
+            obj.Consulta(lxp.getConsultalxp(2));
+
+            lxp.setMostrar_Wherelxp(Cod_Libro_LxP.ID, "'" + Cod_Libro_LxP.Text + "'");
+
+            util.Bindear(ref grdLibrosXProveedores, lxp.getConsultalxp(1));
+
+            obj.cerrarConexion();
+
+            limpiarCamposlxp();
+
+            lblEstadoLibrosXProveedores.Text = "Registro de libros por proveedor agregado exitosamente";
+        }
+        public void borrarLibrosXProveedor()
+        {
+            string tabla = "LibrosPorProveedor";
+
+            util.modificar(ref Cod_Libro_LxP, ref Activo_LxP, tabla, true, true);
+
+
+            lxp.setMostrar_Wherelxp(Cod_Libro_LxP.ID, "'" + Cod_Libro_LxP.Text + "'");
+
+            util.Bindear(ref grdLibrosXProveedores, lxp.getConsultalxp(1));
+
+            obj.cerrarConexion();
+
+            limpiarCamposlxp();
+
+            lblEstadoLibrosXProveedores.Text = "Registro de libros por proveedor dado de baja exitosamente";
+        }
+
+
+        public void limpiarCamposlxp()
+        {
+            util.limpiar(ref Cod_Libro_LxP);
+            util.limpiar(ref Cod_Proovedor_LxP);
+            Activo_LxP.SelectedIndex = 0;
+        }
+
+        protected void grdLibrosXProveedores_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdLibrosXProveedores.PageIndex = e.NewPageIndex;
+
+            util.Bindear(ref grdLibrosXProveedores, (string)Session["consulta_actual_LibrosXProveedor"], true);
+
+            obj.cerrarConexion();
+
+        }
+
+
+
+        ///7////////////////////////////// INICIO DE MODULO STOCK /////////////////////////////////////////
+
+        protected void btnMostrarStock_Click(object sender, EventArgs e)
+        {
+            mostrarStock();
+        }
+
+        protected void btnBuscarStock_Click(object sender, EventArgs e)
+        {
+            buscarStock();
+        }
+
+        protected void btnAgregarStock_Click(object sender, EventArgs e)
+        {
+            agregarStock();
+        }
+
+        protected void btnModificarStock_Click(object sender, EventArgs e)
+        {
+            modificarStock();
+        }
+
+
+        public void mostrarStock()
+        {
+            int filas_afectadas = util.Bindear(ref grdStock, ST.getConsultaST(0));
+
+            obj.cerrarConexion();
+
+            Session["consulta_actual_Stock"] = ST.getConsultaST(0);
+
+            lblEstadoStock.Text = "Se encontraron " + filas_afectadas + " registros de stocks";
+
+            limpiarCamposST();
+        }
+
+        public void buscarStock()
+        {
+            ST.codlibroStock = "'" + Cod_Libro_S.Text + "'";
+            ST.cantStock = "'" + Cantidad_S.Text + "'";
+            ST.precStock = "'" + PrecioUnitario_S.Text + "'";
+            ST.estadoStock = "'" + Activo_S.Text + "'";
+
+
+            ST.setMostrar_WhereST(Convert.ToInt32(ddlCampoBuscarST.SelectedValue));
+
+            int filas_afectadas = util.Bindear(ref grdStock, ST.getConsultaST(1));
+
+            obj.cerrarConexion();
+
+            Session["consulta_actual_Stock"] = ST.getConsultaST(1);
+
+            limpiarCamposST();
+
+            lblEstadoStock.Text = "Se encontraron " + filas_afectadas + " registros de STOCK";
+        }
+
+        public void agregarStock()
+        {
+            ST.codlibroStock = Cod_Libro_S.Text;
+            ST.cantStock = Cantidad_S.Text;
+            ST.precStock = PrecioUnitario_S.Text;
+            ST.estadoStock = Activo_S.Text;
+
+            ST.setConsultaInsertST();
+
+            obj.Consulta(ST.getConsultaST(2));
+
+            ST.setMostrar_WhereST(Cod_Libro_S.ID, "'" + Cod_Libro_S.Text + "'");
+
+            util.Bindear(ref grdStock, ST.getConsultaST(1));
+
+            obj.cerrarConexion();
+
+            limpiarCamposST();
+
+            lblEstadoStock.Text = "Registro de stock agregado exitosamente";
+        }
+
+        public void modificarStock()
+        {
+            string tabla = "Stock";
+
+            util.modificar(ref Cod_Libro_S, ref Cantidad_S, tabla);
+            util.modificar(ref Cod_Libro_S, ref PrecioUnitario_S, tabla);
+            util.modificar(ref Cod_Libro_S, ref Activo_S, tabla, true, true);
+
+
+            ST.setMostrar_WhereST(Cod_Libro_S.ID, "'" + Cod_Libro_S.Text + "'");
+
+            util.Bindear(ref grdStock, ST.getConsultaST(1));
+
+            obj.cerrarConexion();
+
+            limpiarCamposST();
+
+            lblEstadoStock.Text = "Registro de stock modificado exitosamente";
+        }
+
+
+        protected void grdStock_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdStock.PageIndex = e.NewPageIndex;
+
+            util.Bindear(ref grdStock, (string)Session["consulta_actual_Stock"], true);
+
+            obj.cerrarConexion();
+        }
+
+        public void limpiarCamposST()
+        {
+            util.limpiar(ref Cod_Libro_S);
+            util.limpiar(ref Cantidad_S);
+            util.limpiar(ref PrecioUnitario_S);
+
+            Activo_S.SelectedIndex = 0;
+        }
+
+
+
+        ///7////////////////////////////// INICIO DE MODULO CLIENTE /////////////////////////////////////////
+
+
+        protected void btnMostrarCliente_Click(object sender, EventArgs e)
+        {
+            mostrarClientes();
+        }
+
+        protected void btnBuscarCliente_Click(object sender, EventArgs e)
+        {
+            buscarClientes();
+        }
+
+
+        public void mostrarClientes()
+        {
+            int filas_afectadas = util.Bindear(ref grdCliente, cl.getConsulta(0));
+
+            obj.cerrarConexion();
+
+            Session["consulta_actual_Cliente"] = cl.getConsulta(0);
+
+            lblEstadoCliente.Text = "Se encontraron " + filas_afectadas + " registros de clientes";
+
+            limpiarCamposcl();
+        }
+
+        public void buscarClientes()
+        {
+            cl.codCliente = "'" + Cod_Cliente_Cl.Text + "'";
+
+            cl.setMostrar_Where(Convert.ToInt32(8));
+
+            int filas_afectadas = util.Bindear(ref grdCliente, cl.getConsulta(1));
+
+            obj.cerrarConexion();
+
+            Session["consulta_actual_Cliente"] = cl.getConsulta(1);
+
+            limpiarCamposcl();
+
+            lblEstadoCliente.Text = "Se encontraron " + filas_afectadas + " registros de clientes";
+        }
+
+
+        public void limpiarCamposcl()
+        {
+            util.limpiar(ref Cod_Cliente_Cl);
+        }
+
+        protected void grdCliente_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdCliente.PageIndex = e.NewPageIndex;
+
+            util.Bindear(ref grdCliente, (string)Session["consulta_actual_Cliente"], true);
+
+            obj.cerrarConexion();
+        }
+
+
+        ///7////////////////////////////// INICIO DE MODULO VENTAS /////////////////////////////////////////
+
+
+        protected void btnMostrarVentas_Click(object sender, EventArgs e)
+        {
+            mostrarVentas();
+        }
+
+        protected void btnBuscarVentas_Click(object sender, EventArgs e)
+        {
+            buscarVentas();
+        }
+
+
+        public void mostrarVentas()
+        {
+            int filas_afectadas = util.Bindear(ref grdVentas, ven.getConsulta(0));
+
+            obj.cerrarConexion();
+
+            Session["consulta_actual_Venta"] = ven.getConsulta(0);
+
+            lblEstadoVentas.Text = "Se encontraron " + filas_afectadas + " registros de ventas";
+
+            limpiarCamposven();
+        }
+        public void buscarVentas()
+        {
+            ven.codVenta = "'" + Cod_Venta_V.Text + "'";
+            ven.codClienteVenta = "'" + Cod_Cliente_V.Text +"'";
+
+            ven.setMostrar_Where(Convert.ToInt32(ddlCampoBuscarven.SelectedValue));
+
+            int filas_afectadas = util.Bindear(ref grdVentas, ven.getConsulta(1));
+
+            obj.cerrarConexion();
+
+            Session["consulta_actual_Venta"] = ven.getConsulta(1);
+
+            limpiarCamposven();
+
+            lblEstadoVentas.Text = "Se encontraron " + filas_afectadas + " registros de ventas";
+        }
+ 
+
+        public void limpiarCamposven()
+        {
+            util.limpiar(ref Cod_Venta_V);
+        }
+
+        protected void grdVentas_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdVentas.PageIndex = e.NewPageIndex;
+
+            util.Bindear(ref grdVentas, (string)Session["consulta_actual_Venta"], true);
+
+            obj.cerrarConexion();
+        }
+
+
+        ///7////////////////////////////// INICIO DE MODULO DETALLE VENTAS /////////////////////////////////////////
+
+        protected void btnMostrarDetalleVentas_Click(object sender, EventArgs e)
+        {
+            mostrarDetalleVentas();
+        }
+
+        protected void btnBuscarDetalleVentas_Click(object sender, EventArgs e)
+        {
+            buscarDetalleVentas();
+        }
+
+
+
+        public void mostrarDetalleVentas()
+        {
+            int filas_afectadas = util.Bindear(ref grdDetalleVentas, dv.getConsulta(0));
+
+            obj.cerrarConexion();
+
+            Session["consulta_actual_DetalleVenta"] = dv.getConsulta(0);
+
+            lblEstadoDetalleVentas.Text = "Se encontraron " + filas_afectadas + " registros de detalle ventas";
+
+            limpiarCamposDV();
+        }
+
+        public void buscarDetalleVentas()
+        {
+            dv.codVentaDV = "'" + Cod_Venta_Dv.Text + "'";
+            dv.codLibDV = "'" + Cod_Libro_Dv.Text + "'";
+            dv.codProvDV = "'" + Cod_Proveedor_Dv.Text + "'";
+
+            dv.setMostrar_Where(Convert.ToInt32(ddlCampoBuscarvenDV.SelectedValue));
+
+            int filas_afectadas = util.Bindear(ref grdDetalleVentas, dv.getConsulta(1));
+
+            obj.cerrarConexion();
+
+            Session["consulta_actual_DetalleVenta"] = dv.getConsulta(1);
+
+            limpiarCamposDV();
+
+            lblEstadoDetalleVentas.Text = "Se encontraron " + filas_afectadas + " registros de detalle ventas";
+        }
+
+
+        public void limpiarCamposDV()
+        {
+            util.limpiar(ref Cod_Venta_Dv);
+            util.limpiar(ref Cod_Proveedor_Dv);
+            util.limpiar(ref Cod_Libro_Dv);
+        }
+
+        protected void grdDetalleVentas_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdDetalleVentas.PageIndex = e.NewPageIndex;
+
+            util.Bindear(ref grdDetalleVentas, (string)Session["consulta_actual_DetalleVenta"], true);
 
             obj.cerrarConexion();
         }

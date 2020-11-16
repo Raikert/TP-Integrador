@@ -149,9 +149,11 @@ namespace Entidades.Clases
 					break;
             }
 
+
 			consultas[1] = "SELECT id_libro_lb AS ID, Cod_Libro_Lb AS CODIGO, NombreLibro_Lb AS NOMBRE, " +
 				"Descripcion_lb AS DESCRIPCION, Categoria_Lb AS CATEGORIA, Editorial_Lb AS EDITORIAL, Precio_Lb AS PRECIO, " +
 				"Activo_Lb AS ACTIVO FROM Libros WHERE " + campo_string + " = " + valor;
+
 		}
 
 		public string getConsulta(int indice)

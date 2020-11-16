@@ -87,15 +87,6 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEditorialLibro;
 
         /// <summary>
-        /// Control rfvEstadoLibro.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEstadoLibro;
-
-        /// <summary>
         /// Control ValidationSummary1.
         /// </summary>
         /// <remarks>
@@ -1230,6 +1221,15 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnBuscarLibrosXProveedores;
 
         /// <summary>
+        /// Control ddlCampoBuscarlxp.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCampoBuscarlxp;
+
+        /// <summary>
         /// Control btnAgregarLibroXProveedor.
         /// </summary>
         /// <remarks>
@@ -1365,6 +1365,15 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnBuscarStock;
 
         /// <summary>
+        /// Control ddlCampoBuscarST.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCampoBuscarST;
+
+        /// <summary>
         /// Control btnAgregarStock.
         /// </summary>
         /// <remarks>
@@ -1381,15 +1390,6 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnModificarStock;
-
-        /// <summary>
-        /// Control btnBorrarStock.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBorrarStock;
 
         /// <summary>
         /// Control grdStock.
@@ -1518,6 +1518,15 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.TextBox Cod_Cliente_V;
 
         /// <summary>
+        /// Control ddlCampoBuscarven.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCampoBuscarven;
+
+        /// <summary>
         /// Control btnMostrarVentas.
         /// </summary>
         /// <remarks>
@@ -1615,6 +1624,15 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Cod_Libro_Dv;
+
+        /// <summary>
+        /// Control ddlCampoBuscarvenDV.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCampoBuscarvenDV;
 
         /// <summary>
         /// Control btnMostrarDetalleVentas.

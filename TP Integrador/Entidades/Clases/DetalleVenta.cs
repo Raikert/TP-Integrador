@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace Entidades.Clases
 {
-    class DetalleVenta
+   public class DetalleVenta
     {
-        private int id_DV;
+        private String id_DV;
         private String cod_Venta_DV;
         private String cod_Libro_DV;
         private String cod_Prov_DV;
-        private decimal prec_DV;
-        private int cant_DV;
-        private bool estado_DV;
-
+        private String prec_DV;
+        private String cant_DV;
+        private String estado_DV;
+        private string[] consultas;
 
         public DetalleVenta()
         {
-
+            Consultas();
         }
-        public DetalleVenta(int idDV, String codVentaDV, String codLibDV, String codProvDV, decimal precDV, int cantDV, bool estadoDV)
+        public DetalleVenta(String idDV, String codVentaDV, String codLibDV, String codProvDV, String precDV, String cantDV, String estadoDV)
         {
             this.id_DV = idDV;
             this.cod_Venta_DV = codVentaDV;
@@ -30,9 +30,11 @@ namespace Entidades.Clases
             this.prec_DV = precDV;
             this.cant_DV = cantDV;
             this.estado_DV = estadoDV;
+
+            Consultas();
         }
 
-        public int idDetalleVenta
+        public String idDetalleVenta
         {
             get { return id_DV; }
             set { id_DV = value; }
@@ -53,22 +55,90 @@ namespace Entidades.Clases
             get { return cod_Prov_DV; }
             set { cod_Prov_DV = value; }
         }
-        public decimal precioDV
+        public String precioDV
         {
             get { return prec_DV; }
             set { prec_DV = value; }
         }
-        public int cantDV
+        public String cantDV
         {
             get { return cant_DV; }
             set { cant_DV = value; }
         }
-        public bool estadoDV
+        public String estadoDV
         {
             get { return estado_DV; }
             set { estado_DV = value; }
         }
 
-        
+
+
+        public void Consultas()
+        {
+            consultas = new string[10];
+
+            consultas[0] = "SELECT Cod_Venta_Dv AS [CODIGO VENTA],Cod_Libro_Dv AS [CODIGO LIBRO],Cod_Proveedor_Dv AS [CODIGO PROVEEDOR]," +
+                "PrecioUnitario_Dv AS PRECIO,CantidadDeLibros_Dv AS CANTIDAD,Activo_Dv AS ACTIVO FROM DETALLEVENTAS";
+        }
+
+      /*  public void setAgregarVenta()
+        {
+            consultas[2] = "INSERT INTO VENTAS(Cod_Cliente_V, PrecioTotal_V, FormaDePago_V,Fecha_V)" +
+                "SELECT '" + cod_Cliente_Venta + "', '" + prec_Venta + "', '" + formaDP_Venta + "', '" + fecha_Venta + "'";
+        }*/
+
+
+        public void setMostrar_Where(string campo, string valor)
+        {
+            consultas[1] = "SELECT Cod_Venta_Dv AS [CODIGO VENTA],Cod_Libro_Dv AS [CODIGO LIBRO],Cod_Proveedor_Dv AS [CODIGO PROVEEDOR]," +
+                "PrecioUnitario_Dv AS PRECIO,CantidadDeLibros_Dv AS CANTIDAD,Activo_Dv AS ACTIVO FROM DETALLEVENTAS WHERE " + campo + " = " + valor;
+        }
+
+        public void setMostrar_Where(int campo)
+        {
+            string campo_string = "";
+            string valor = "";
+
+            switch (campo)
+            {
+                case 0:
+                    campo_string = "Cod_Venta_Dv";
+                    valor = cod_Venta_DV;
+                    break;
+                case 1:
+                    campo_string = "Cod_Libro_Dv";
+                    valor = cod_Libro_DV;
+                    break;
+                case 2:
+                    campo_string = "Cod_Proveedor_Dv";
+                    valor = cod_Prov_DV;
+                    break;
+                case 3:
+                    campo_string = "PrecioUnitario_Dv";
+                    valor = prec_DV;
+                    break;
+                case 4:
+                    campo_string = "CantidadDeLibros_Dv";
+                    valor = cant_DV;
+                    break;
+                case 5:
+                    campo_string = "Activo_Dv";
+                    valor = estado_DV;
+                    break;
+
+                default:
+                    break;
+            }
+
+            consultas[1] = "SELECT Cod_Venta_Dv AS [CODIGO VENTA],Cod_Libro_Dv AS [CODIGO LIBRO],Cod_Proveedor_Dv AS [CODIGO PROVEEDOR]," +
+                "PrecioUnitario_Dv AS PRECIO,CantidadDeLibros_Dv AS CANTIDAD,Activo_Dv AS ACTIVO FROM DETALLEVENTAS WHERE " + campo_string + " = " + valor;
+        }
+
+        public string getConsulta(int indice)
+        {
+            return consultas[indice];
+        }
+
+
     }
 }

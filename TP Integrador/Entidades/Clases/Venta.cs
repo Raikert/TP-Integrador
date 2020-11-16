@@ -6,21 +6,23 @@ using System.Threading.Tasks;
 
 namespace Entidades.Clases
 {
-    class Venta
+   public class Venta
     {
-        private int id_Venta;
+        private String id_Venta;
         private String cod_Venta;
         private String cod_Cliente_Venta;
-        private decimal prec_Venta;
+        private String prec_Venta;
         private String formaDP_Venta;
-        private Fecha fecha_Venta;
+        private String fecha_Venta;
+		private string[] consultas;
 
         public Venta()
         {
+			Consultas();
 
-        }
+		}
 
-        public Venta(int idVenta, String codVenta, String codClienteVenta, decimal precVenta, String formaDP, Fecha fechaVenta)
+        public Venta(String idVenta, String codVenta, String codClienteVenta, String precVenta, String formaDP, String fechaVenta)
         {
             this.id_Venta = idVenta;
             this.cod_Venta = codVenta;
@@ -28,9 +30,12 @@ namespace Entidades.Clases
             this.prec_Venta = precVenta;
             this.formaDP_Venta = formaDP;
             this.fecha_Venta = fechaVenta;
-        }
 
-        public int idVenta
+			Consultas();
+
+		}
+
+        public String idVenta
         {
             get { return id_Venta; }
             set { id_Venta = value; }
@@ -48,7 +53,7 @@ namespace Entidades.Clases
             set { cod_Cliente_Venta = value; }
 
         } 
-        public decimal precioVenta
+        public String precioVenta
         {
             get { return prec_Venta; }
             set { prec_Venta = value; }
@@ -60,14 +65,79 @@ namespace Entidades.Clases
             set { formaDP_Venta = value; }
 
         } 
-        public Fecha fechaVenta
+        public String fechaVenta
         {
             get { return fecha_Venta; }
             set { fecha_Venta = value; }
 
         }
 
-    }
+
+
+		public void Consultas()
+		{
+			consultas = new string[10];
+
+			consultas[0] = "SELECT COD_VENTA_V AS [CODIGO VENTA],COD_CLIENTE_V AS [CODIGO CLIENTE],PRECIOTOTAL_V AS [PRECIO TOTAL]," +
+				"FORMADEPAGO_V AS [FORMA DE PAGO],FECHA_V AS FECHA FROM VENTAS";
+		}
+
+		public void setAgregarVenta()
+		{
+			consultas[2] = "INSERT INTO VENTAS(Cod_Cliente_V, PrecioTotal_V, FormaDePago_V,Fecha_V)" +
+				"SELECT '" + cod_Cliente_Venta + "', '" + prec_Venta + "', '" + formaDP_Venta + "', '" + fecha_Venta+"'";
+		}
+
+
+		public void setMostrar_Where(string campo, string valor)
+		{
+			consultas[1] = "SELECT COD_VENTA_V AS [CODIGO VENTA],COD_CLIENTE_V AS [CODIGO CLIENTE],PRECIOTOTAL_V AS [PRECIO TOTAL]," +
+				"FORMADEPAGO_V AS [FORMA DE PAGO],FECHA_V AS FECHA FROM VENTAS WHERE " + campo + " = " + valor;
+		}
+
+		public void setMostrar_Where(int campo)
+		{
+			string campo_string = "";
+			string valor = "";
+
+			switch (campo)
+			{
+				case 0:
+					campo_string = "Cod_Venta_V";
+					valor = cod_Venta;
+					break;
+				case 1:
+					campo_string = "Cod_Cliente_V";
+					valor = cod_Cliente_Venta;
+					break;
+				case 2:
+					campo_string = "PrecioTotal_V";
+					valor = prec_Venta;
+					break;
+				case 3:
+					campo_string = "FormaDePago_V";
+					valor = formaDP_Venta;
+					break;
+				case 4:
+					campo_string = "Fecha_V";
+					valor = fecha_Venta;
+					break;
+
+				default:
+					break;
+			}
+
+			consultas[1] = "SELECT COD_VENTA_V AS [CODIGO VENTA],COD_CLIENTE_V AS [CODIGO CLIENTE],PRECIOTOTAL_V AS [PRECIO TOTAL]," +
+				"FORMADEPAGO_V AS [FORMA DE PAGO],FECHA_V AS FECHA FROM VENTAS WHERE " + campo_string + " = " + valor;
+		}
+
+		public string getConsulta(int indice)
+		{
+			return consultas[indice];
+		}
+
+
+	}
 
    
 }

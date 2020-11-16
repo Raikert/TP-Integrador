@@ -54,6 +54,9 @@
             margin-left: 19px;
             font-size: small;
         }
+        .auto-style19 {
+            font-size: medium;
+        }
     </style>
 </head>
 <body style="background-color: darkgray">
@@ -77,7 +80,6 @@
                 <br />
                 <asp:RequiredFieldValidator ID="rfvEditorialLibro" runat="server" ControlToValidate="Editorial_Lb" Display="None" ErrorMessage="No selecciono la editorial del libro" ValidationGroup="1" InitialValue="Seleccionar"></asp:RequiredFieldValidator>
                 <br />
-                <asp:RequiredFieldValidator ID="rfvEstadoLibro" runat="server" ControlToValidate="Activo_Lb" Display="None" ErrorMessage="No selecciono el estado del libro" ValidationGroup="1" InitialValue="Seleccionar"></asp:RequiredFieldValidator>
                 <br />
                 <br />
                 <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="Errores" ShowMessageBox="True" ShowSummary="False" ValidationGroup="0" Width="233px" />
@@ -205,7 +207,6 @@
                         <asp:TextBox ID="Precio_Lb" runat="server" Width="79px"></asp:TextBox>
                                 </td>
                                 <td><asp:DropDownList ID="Activo_Lb" runat="server">
-                                    <asp:ListItem>Seleccionar</asp:ListItem>
                         <asp:ListItem Value="1">Activo</asp:ListItem>
                         <asp:ListItem Value="0">Inactivo</asp:ListItem>
                     </asp:DropDownList>
@@ -275,7 +276,6 @@
                         <asp:TextBox ID="Nombre_Ca" runat="server" Width="122px"></asp:TextBox>
 &nbsp;&nbsp;
                         <asp:DropDownList ID="Activo_Ca" runat="server">
-                            <asp:ListItem>Seleccionar</asp:ListItem>
                             <asp:ListItem Value="1">Activo</asp:ListItem>
                             <asp:ListItem Value="0">Inactivo</asp:ListItem>
                     </asp:DropDownList>
@@ -483,13 +483,18 @@
                     <br />
                     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnMostrarResultados" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Mostrar resultados" Width="150px" />
-&nbsp;<asp:Button ID="btnBuscarLibrosXProveedores" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar por codigo " Width="134px" />
-&nbsp;<asp:Button ID="btnAgregarLibroXProveedor" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Agregar" ValidationGroup="8" />
-&nbsp;<asp:Button ID="btnBorrarLibroXProveedor" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Borrar" ValidationGroup="8" />
+                        <asp:Button ID="btnMostrarResultados" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Mostrar resultados" Width="150px" OnClick="btnMostrarResultados_Click" />
+&nbsp;<asp:Button ID="btnBuscarLibrosXProveedores" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar por :" Width="97px" OnClick="btnBuscarLibrosXProveedores_Click" />
+&nbsp; <asp:DropDownList ID="ddlCampoBuscarlxp" runat="server" Height="16px" Width="84px">
+                            <asp:ListItem Value="0">Codigo de libro</asp:ListItem>
+                            <asp:ListItem Value="1">Codigo de proveedor</asp:ListItem>
+                            <asp:ListItem Value="2">Estado</asp:ListItem>
+                        </asp:DropDownList>
+&nbsp; <asp:Button ID="btnAgregarLibroXProveedor" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Agregar" ValidationGroup="8" OnClick="btnAgregarLibroXProveedor_Click" />
+&nbsp;<asp:Button ID="btnBorrarLibroXProveedor" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Dar de baja/habilitar" ValidationGroup="8" OnClick="btnBorrarLibrosXProveedor_Click" Width="138px" />
                     <br />
                     <br />
-                    <asp:GridView ID="grdLibrosXProveedores" runat="server" CssClass="auto-style11" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5">
+                    <asp:GridView ID="grdLibrosXProveedores" runat="server" CssClass="auto-style11" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5" AllowPaging="True" OnPageIndexChanging="grdLibrosXProveedores_PageIndexChanging">
                         <AlternatingRowStyle BackColor="White" />
                         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#990000" Font-Bold="True" Font-Names="Javanese Text" ForeColor="White" />
@@ -514,9 +519,9 @@
                         <asp:Label ID="lblCodigoLibro0" runat="server" CssClass="auto-style3" Font-Names="Candara Light" Text="Codigo de Libro"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="lblCantidadStock" runat="server" CssClass="auto-style3" Font-Names="Candara Light" Text="Cantidad"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="lblPrecio0" runat="server" CssClass="auto-style3" Font-Names="Candara Light" Text="Precio"></asp:Label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="lblEstado4" runat="server" CssClass="auto-style3" Font-Names="Candara Light" Text="Estado"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="lblEstado4" runat="server" CssClass="auto-style3" Font-Names="Candara Light" Text="Estado"></asp:Label>
                     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:TextBox ID="Cod_Libro_S" runat="server" Width="136px"></asp:TextBox>
@@ -532,14 +537,19 @@
                     <br />
                     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnMostrarStock" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Mostrar stocks" Width="115px" />
-&nbsp;<asp:Button ID="btnBuscarStock" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar por codigo" Width="134px" />
-&nbsp;<asp:Button ID="btnAgregarStock" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Agregar" ValidationGroup="9" />
-&nbsp;<asp:Button ID="btnModificarStock" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Modificar" />
-&nbsp;<asp:Button ID="btnBorrarStock" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Borrar" ValidationGroup="10" />
+                        <asp:Button ID="btnMostrarStock" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Mostrar stocks" Width="115px" OnClick="btnMostrarStock_Click" />
+&nbsp;<asp:Button ID="btnBuscarStock" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar por :" Width="95px" OnClick="btnBuscarStock_Click" />
+&nbsp;<asp:DropDownList ID="ddlCampoBuscarST" runat="server" Height="16px" Width="137px">
+                            <asp:ListItem Value="0">Codigo de libro</asp:ListItem>
+                            <asp:ListItem Value="1">Cantidad de articulos</asp:ListItem>
+                            <asp:ListItem Value="2">Precio articulo</asp:ListItem>
+                            <asp:ListItem Value="3">Activo</asp:ListItem>
+                        </asp:DropDownList>
+&nbsp;<asp:Button ID="btnAgregarStock" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Agregar" ValidationGroup="9" OnClick="btnAgregarStock_Click" />
+&nbsp;<asp:Button ID="btnModificarStock" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Modificar" OnClick="btnModificarStock_Click" />
+&nbsp;<br />
                     <br />
-                    <br />
-                    <asp:GridView ID="grdStock" runat="server" CssClass="auto-style11" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5">
+                    <asp:GridView ID="grdStock" runat="server" CssClass="auto-style11" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5" AllowPaging="True" OnPageIndexChanging="grdStock_PageIndexChanging">
                         <AlternatingRowStyle BackColor="White" />
                         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#990000" Font-Bold="True" Font-Names="Javanese Text" ForeColor="White" />
@@ -568,11 +578,11 @@
                     <br />
                     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnMostrarCliente" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Mostrar clientes" Width="115px" />
-&nbsp;<asp:Button ID="btnBuscarCliente" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar por codigo" Width="134px" />
+                        <asp:Button ID="btnMostrarCliente" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Mostrar clientes" Width="115px" OnClick="btnMostrarCliente_Click" />
+&nbsp;<asp:Button ID="btnBuscarCliente" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar por codigo" Width="134px" OnClick="btnBuscarCliente_Click" />
                     <br />
                     <br />
-                    <asp:GridView ID="grdCliente" runat="server" CssClass="auto-style11" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5">
+                    <asp:GridView ID="grdCliente" runat="server" CssClass="auto-style18" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5" AllowPaging="True" OnPageIndexChanging="grdCliente_PageIndexChanging">
                         <AlternatingRowStyle BackColor="White" />
                         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#990000" Font-Bold="True" Font-Names="Javanese Text" ForeColor="White" />
@@ -589,8 +599,8 @@
                     <asp:Label ID="lblEstadoCliente" runat="server" Font-Names="Arial"></asp:Label>
                     <br />
                     <br />
-&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Label ID="lblVentas" runat="server" BackColor="#FFCC00" CssClass="auto-style10" Font-Names="Bahnschrift SemiBold" Text="Ventas" BorderColor="#FF6600" BorderWidth="5px"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblVentas" runat="server" BackColor="#FFCC00" CssClass="auto-style10" Font-Names="Bahnschrift SemiBold" Text="Ventas" BorderColor="#FF6600" BorderWidth="5px"></asp:Label>
+                        <br />
                     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;
                     <br />
@@ -603,14 +613,18 @@
                         <asp:TextBox ID="Cod_Venta_V" runat="server" Width="136px"></asp:TextBox>
 &nbsp;&nbsp;
                         <asp:TextBox ID="Cod_Cliente_V" runat="server" Width="136px"></asp:TextBox>
+                    &nbsp;<asp:DropDownList ID="ddlCampoBuscarven" runat="server" Height="16px" Width="137px">
+                            <asp:ListItem Value="0">Codigo de venta</asp:ListItem>
+                            <asp:ListItem Value="1">Codigo de cliente</asp:ListItem>
+                        </asp:DropDownList>
                     <br />
                     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnMostrarVentas" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Mostrar ventas" Width="115px" />
-&nbsp;<asp:Button ID="btnBuscarVentas" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar por codigo" Width="134px" />
+                        <asp:Button ID="btnMostrarVentas" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Mostrar ventas" Width="115px" OnClick="btnMostrarVentas_Click" />
+&nbsp;<asp:Button ID="btnBuscarVentas" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar por codigo" Width="134px" OnClick="btnBuscarVentas_Click" />
                     <br />
                     <br />
-                    <asp:GridView ID="grdVentas" runat="server" CssClass="auto-style11" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5">
+                    <asp:GridView ID="grdVentas" runat="server" CssClass="auto-style11" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5" AllowPaging="True" OnPageIndexChanging="grdVentas_PageIndexChanging">
                         <AlternatingRowStyle BackColor="White" />
                         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#990000" Font-Bold="True" Font-Names="Javanese Text" ForeColor="White" />
@@ -625,33 +639,38 @@
                     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="lblEstadoVentas" runat="server" Font-Names="Arial"></asp:Label>
-                    <br />
-                    <br />
-&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Label ID="lblDetalleVentas" runat="server" BackColor="#FFCC00" CssClass="auto-style10" Font-Names="Bahnschrift SemiBold" Text="Detalle Ventas" BorderColor="#FF6600" BorderWidth="5px"></asp:Label>
                         <br />
                     <br />
-&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Label ID="lblCodigoVenta0" runat="server" CssClass="auto-style3" Font-Names="Candara Light" Text="Codigo de Venta"></asp:Label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Label ID="lblCodigoCliente1" runat="server" CssClass="auto-style3" Font-Names="Candara Light" Text="Codigo de Proveedor"></asp:Label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Label ID="lblCodigoLibro1" runat="server" CssClass="auto-style3" Font-Names="Candara Light" Text="Codigo de Libro"></asp:Label>
+                    <br />
+&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblDetalleVentas" runat="server" BackColor="#FFCC00" CssClass="auto-style10" Font-Names="Bahnschrift SemiBold" Text="Detalle Ventas" BorderColor="#FF6600" BorderWidth="5px"></asp:Label>
+                        <br />
+                        <br />
+                    <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="lblCodigoVenta0" runat="server" CssClass="auto-style19" Font-Names="Candara Light" Text="Codigo de Venta"></asp:Label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<asp:Label ID="lblCodigoCliente1" runat="server" CssClass="auto-style19" Font-Names="Candara Light" Text="Codigo de Proveedor"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="lblCodigoLibro1" runat="server" CssClass="auto-style19" Font-Names="Candara Light" Text="Codigo de Libro"></asp:Label>
                     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:TextBox ID="Cod_Venta_Dv" runat="server" Width="136px"></asp:TextBox>
 &nbsp;&nbsp;
-                        <asp:TextBox ID="Cod_Proveedor_Dv" runat="server" Width="168px"></asp:TextBox>
+                        <asp:TextBox ID="Cod_Proveedor_Dv" runat="server" Width="144px"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;
-                        <asp:TextBox ID="Cod_Libro_Dv" runat="server" Width="136px"></asp:TextBox>
+                        <asp:TextBox ID="Cod_Libro_Dv" runat="server" Width="122px"></asp:TextBox>
+                    &nbsp; <asp:DropDownList ID="ddlCampoBuscarvenDV" runat="server" Height="22px" Width="123px">
+                            <asp:ListItem Value="0">Codigo de venta</asp:ListItem>
+                            <asp:ListItem Value="1">Codigo de libro</asp:ListItem>
+                            <asp:ListItem Value="2">Codigo de proveedor</asp:ListItem>
+                        </asp:DropDownList>
                     <br />
                     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnMostrarDetalleVentas" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Mostrar detalle ventas" Width="153px" />
-&nbsp;<asp:Button ID="btnBuscarDetalleVentas" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar por codigo" Width="134px" />
+                        <asp:Button ID="btnMostrarDetalleVentas" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Mostrar detalle ventas" Width="153px" OnClick="btnMostrarDetalleVentas_Click" />
+&nbsp;<asp:Button ID="btnBuscarDetalleVentas" runat="server" BackColor="Lime" BorderColor="Black" CssClass="auto-style5" Text="Buscar por :" Width="109px" OnClick="btnBuscarDetalleVentas_Click" />
                     <br />
                     <br />
-                    <asp:GridView ID="grdDetalleVentas" runat="server" CssClass="auto-style11" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5">
+                    <asp:GridView ID="grdDetalleVentas" runat="server" CssClass="auto-style11" CellPadding="4" Font-Names="Calibri Light" ForeColor="#333333" PageSize="5" AllowPaging="True" OnPageIndexChanging="grdDetalleVentas_PageIndexChanging">
                         <AlternatingRowStyle BackColor="White" />
                         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#990000" Font-Bold="True" Font-Names="Javanese Text" ForeColor="White" />

@@ -8,7 +8,7 @@ namespace Entidades.Clases
 {
 	public class Cliente
 	{
-		private int cod_Cliente;
+		private String cod_Cliente;
 		private String nombre_Cliente;
 		private String apellido_Cliente;
 		private String dni_Cliente;
@@ -24,7 +24,7 @@ namespace Entidades.Clases
 			Consultas();
 		}
 
-		public Cliente(int codCliente, String nombreCliente, String apellidoCliente, String dniCliente,
+		public Cliente(String codCliente, String nombreCliente, String apellidoCliente, String dniCliente,
 			String telCliente, String fechaCliente, String EmailCliente, String ContrasenaCliente, String estadoCliente)
 		{
 			this.cod_Cliente = codCliente;
@@ -40,7 +40,7 @@ namespace Entidades.Clases
 			Consultas();
 		}
 
-		public int codCliente
+		public String codCliente
         {
 			get { return cod_Cliente; }
 			set { cod_Cliente = value; }
@@ -153,6 +153,11 @@ namespace Entidades.Clases
 				case 7:
 					campo_string = "Activo_Cl";
 					valor = estado_Cliente;
+					break;
+
+				case 8:
+					campo_string = "Cod_Cliente_Cl";
+					valor = cod_Cliente;
 					break;
 				default:
 					break;
