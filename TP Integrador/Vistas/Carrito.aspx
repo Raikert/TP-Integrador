@@ -247,7 +247,7 @@
             <tr>
                 <td class="auto-style16"><span class="auto-style5">Mi carrito</span></td>
                 <td>
-                    <asp:Button ID="btnIniciarCompra1" runat="server" BorderStyle="Double" CssClass="auto-style11" ForeColor="Red" Text="Iniciar proceso de compra" Height="27px" Width="170px" />
+                    <asp:Button ID="btnIniciarCompra1" runat="server" BorderStyle="Double" CssClass="auto-style11" ForeColor="Red" Text="Iniciar proceso de compra" Height="27px" Width="170px" OnClick="btnIniciarCompra1_Click" />
                 </td>
             </tr>
         </table>
@@ -329,7 +329,7 @@
             <tr>
                 <td class="auto-style14">&nbsp;</td>
                 <td>
-                    <asp:Button ID="btnIniciarCompra0" runat="server" BorderStyle="Double" CssClass="auto-style11" ForeColor="Red" Text="Iniciar proceso de compra" Height="27px" Width="170px" />
+                    <asp:Button ID="btnIniciarCompra0" runat="server" BorderStyle="Double" CssClass="auto-style11" ForeColor="Red" Text="Iniciar proceso de compra" Height="27px" Width="170px" OnClick="btnIniciarCompra0_Click" />
                 </td>
             </tr>
         </table>

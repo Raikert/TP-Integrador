@@ -19,14 +19,24 @@ namespace vistas
             }
         }
 
-        protected void ListView1_SelectedIndexChanged(object sender, EventArgs e)
+        protected void btnIniciarCompra1_Click(object sender, EventArgs e)
         {
+            if (Session["ProcesoCarrito"] == null)
+            {
+                Session["ProcesoCarrito"] = (DataTable)Session["Carrito"];
 
+                Response.Redirect("ProcesoCompraCarro.aspx");
+            }
         }
 
-        protected void ListView1_SelectedIndexChanged1(object sender, EventArgs e)
+        protected void btnIniciarCompra0_Click(object sender, EventArgs e)
         {
+            if (Session["ProcesoCarrito"] == null)
+            {
+                Session["ProcesoCarrito"] = (DataTable)Session["Carrito"];
 
+                Response.Redirect("ProcesoCompraCarro.aspx");
+            }
         }
     }
 }

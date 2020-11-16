@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Carrito.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Imagenes\1.jpg" />
     <Content Include="Imagenes\10.jpg" />
@@ -97,13 +98,18 @@
     <Content Include="RegistroUsuario2.aspx" />
     <Content Include="RestablecerContraseña.aspx" />
     <Content Include="LibroSeleccionado.aspx" />
-    <Content Include="Carrito.aspx" />
     <Content Include="VistaCategorias.aspx" />
     <Content Include="VistaContacto.aspx" />
     <Content Include="VistaEditoriales.aspx" />
     <Content Include="vistaLibros.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Carrito.aspx.cs">
+      <DependentUpon>Carrito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Carrito.aspx.designer.cs">
+      <DependentUpon>Carrito.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Clases\Utilidades.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
@@ -132,7 +138,6 @@
     </Compile>
     <Compile Include="ProcesoCompraCarro.aspx.cs">
       <DependentUpon>ProcesoCompraCarro.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ProcesoCompraCarro.aspx.designer.cs">
       <DependentUpon>ProcesoCompraCarro.aspx</DependentUpon>
@@ -163,13 +168,6 @@
     </Compile>
     <Compile Include="LibroSeleccionado.aspx.designer.cs">
       <DependentUpon>LibroSeleccionado.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Carrito.aspx.cs">
-      <DependentUpon>Carrito.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Carrito.aspx.designer.cs">
-      <DependentUpon>Carrito.aspx</DependentUpon>
     </Compile>
     <Compile Include="VistaCategorias.aspx.cs">
       <DependentUpon>VistaCategorias.aspx</DependentUpon>

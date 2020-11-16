@@ -84,8 +84,8 @@ namespace Entidades.Clases
 
 		public void setAgregarVenta()
 		{
-			consultas[2] = "INSERT INTO VENTAS(Cod_Cliente_V, PrecioTotal_V, FormaDePago_V,Fecha_V)" +
-				"SELECT '" + cod_Cliente_Venta + "', '" + prec_Venta + "', '" + formaDP_Venta + "', '" + fecha_Venta+"'";
+			consultas[2] = "INSERT INTO VENTAS(Cod_Cliente_V,FormaDePago_V)" +
+				"SELECT '" + cod_Cliente_Venta + "', '" + formaDP_Venta + "'";
 		}
 
 

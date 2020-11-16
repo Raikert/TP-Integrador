@@ -31,9 +31,10 @@ namespace Vistas
                 {
                     string campo = "Nombre_CL";
 
-                    string nombreUsuario = util.valor_campo_Where(ref Email_Cl,campo,tabla);
+                    string nombreUsuario = util.valor_campo_Where(ref Email_Cl, campo, tabla);
 
                     Session["Usuario"] = "Bienvenido/a " + nombreUsuario;
+                    Session["Email"] = Email_Cl.Text;
                     Response.Redirect("Home.aspx");
                 }
                 else

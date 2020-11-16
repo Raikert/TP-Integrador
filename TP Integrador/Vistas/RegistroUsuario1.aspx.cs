@@ -32,8 +32,6 @@ namespace Vistas
             }
             else
                 lblEmailRepetido.Text = "El email ingresado ya se encuentra asociado a otra cuenta";
-
-            util.cerrarConexion();
         }
     }
 }

@@ -17,11 +17,10 @@ namespace Vistas.Clases
             obj = new NegocioGenerales();
         }
 
-        
         public int Bindear(ref GridView grid, string consulta, bool reiniciar_paginas = false)
         {
             DataTable tabla = obj.DataTable_Query(consulta);
-            
+
             grid.DataSource = tabla;
             grid.DataBind();
 
@@ -95,7 +94,7 @@ namespace Vistas.Clases
 
             foreach (DataRow registro in tabla.Rows)
             {
-                if (registro[campo].ToString() == valor_a_comparar.Trim())
+                if (registro[campo].ToString() == valor_a_comparar)
                     repeticion = true;
             }
 
@@ -114,7 +113,33 @@ namespace Vistas.Clases
 
             foreach (DataRow registro in tabla.Rows)
             {
-                if (registro[campo].ToString() == valor.Trim())
+                if (registro[campo].ToString() == valor)
+                    repeticion = true;
+            }
+
+            return repeticion;
+        }
+
+        public bool buscarIgualdad_Where(string campocodigo,string codigo,ref TextBox valor_a_comparar, string tabla_consulta,bool valor_especial = false)
+        {
+            string valorcodigo;
+
+            if (!valor_especial)
+                valorcodigo = "'" + codigo+ "'";
+            else
+                valorcodigo = codigo;
+
+            string campo = valor_a_comparar.ID;
+
+            string valor = valor_a_comparar.Text;
+
+            DataTable tabla = obj.DataTable_Query("select " + campo + " from " + tabla_consulta + " where " + campocodigo + " = " + valorcodigo);
+
+            bool repeticion = false;
+
+            foreach (DataRow registro in tabla.Rows)
+            {
+                if (registro[campo].ToString() == valor)
                     repeticion = true;
             }
 
@@ -131,6 +156,20 @@ namespace Vistas.Clases
                 valorcodigo = "'" + cod.Text + "'";
             else
                 valorcodigo = cod.Text;
+
+            DataTable tabla = obj.DataTable_Query("select " + campo + " from " + tabla_consulta + " where " + campocodigo + " = " + valorcodigo);
+
+            return tabla.Rows[0][campo].ToString();
+        }
+
+        public string valor_campo_Where(string campocodigo, string codigo, string campo, string tabla_consulta, bool valor_especial = false)
+        {
+            string valorcodigo;
+
+            if (!valor_especial)
+                valorcodigo = "'" + codigo + "'";
+            else
+                valorcodigo = codigo;
 
             DataTable tabla = obj.DataTable_Query("select " + campo + " from " + tabla_consulta + " where " + campocodigo + " = " + valorcodigo);
 

@@ -38,6 +38,7 @@ namespace Vistas
         protected void lbSalir_Click(object sender, EventArgs e)
         {
             Session["Usuario"] = "No esta logueado";
+            Session["Email"] = null;
             UsuarioConectado.Text = (string) Session["Usuario"];
             lbSalir.Visible = false;
 
