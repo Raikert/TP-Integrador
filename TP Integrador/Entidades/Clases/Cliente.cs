@@ -6,41 +6,41 @@ using System.Threading.Tasks;
 
 namespace Entidades.Clases
 {
-	class Cliente
+	public class Cliente
 	{
-		private int id_Cliente;
-		private String cod_Cliente;
+		private int cod_Cliente;
 		private String nombre_Cliente;
 		private String apellido_Cliente;
 		private String dni_Cliente;
 		private String telefono_Cliente;
-		private Fecha fecha_Cliente;
-		private bool estado_Cliente;
-
+		private String fecha_Cliente;
+		private String Email_Cliente;
+		private String Contrasena_Cliente;
+		private String estado_Cliente;
+		private string[] consultas;
 
 		public Cliente()
 		{
+			Consultas();
 		}
-		public Cliente(int idCliente, String codCliente, String nombreCliente, String apellidoCliente, String dniCliente,
-			String telCliente, Fecha fechaCliente, bool estadoCliente)
+
+		public Cliente(int codCliente, String nombreCliente, String apellidoCliente, String dniCliente,
+			String telCliente, String fechaCliente, String EmailCliente, String ContrasenaCliente, String estadoCliente)
 		{
-			this.id_Cliente = idCliente;
 			this.cod_Cliente = codCliente;
 			this.nombre_Cliente = nombreCliente;
 			this.apellido_Cliente = apellidoCliente;
 			this.dni_Cliente = dniCliente;
 			this.telefono_Cliente = telCliente;
 			this.fecha_Cliente = fechaCliente;
+			this.Email_Cliente = EmailCliente;
+			this.Contrasena_Cliente = ContrasenaCliente;
 			this.estado_Cliente = estadoCliente;
 
+			Consultas();
 		}
 
-		public int idCliente
-		{
-			get { return id_Cliente; }
-			set { id_Cliente = value; }
-		}
-		public String codCliente
+		public int codCliente
         {
 			get { return cod_Cliente; }
 			set { cod_Cliente = value; }
@@ -65,10 +65,107 @@ namespace Entidades.Clases
 			get { return telefono_Cliente; }
 			set { telefono_Cliente = value; }
         }
-		public Fecha fechaCliente
+		public String fechaCliente
         {
 			get { return fecha_Cliente; }
 			set { fecha_Cliente = value; }
         }
+		public String EmailCliente
+		{
+			get { return Email_Cliente; }
+			set { Email_Cliente = value; }
+		}
+		public String ContrasenaCliente
+		{
+			get { return Contrasena_Cliente; }
+			set { Contrasena_Cliente = value; }
+		}
+		public String EstadoCliente
+		{
+			get { return estado_Cliente; }
+			set { estado_Cliente = value; }
+		}
+
+		public void Consultas()
+		{
+			consultas = new string[10];
+
+			consultas[0] = "SELECT Cod_Cliente_Cl AS CODIGO, Nombre_Cl AS NOMBRE, Apellido_Cl AS APELLIDO, " +
+			   "DNI_Cl AS DNI, NumeroTelefono_Cl AS TELEFONO, FechaNacimiento_Cl AS FEC_NAC, Email_Cl AS EMAIL, " +
+			   "Contraseña_Cl AS CONTRASEÑA, Activo_Cl AS ACTIVO FROM Clientes";
+		}
+
+		public void setConsultaInsertUsuario()
+		{
+			consultas[2] = "INSERT INTO Clientes(Nombre_Cl, Apellido_Cl, Email_Cl, Contraseña_Cl, Activo_Cl)" +
+				"SELECT '" + nombre_Cliente + "', '" + apellido_Cliente + "', '" + Email_Cliente + "', '" + Contrasena_Cliente + 
+				"', 'true'";
+		}
+
+		public void AgregarCamposCarrito()
+        {
+			consultas[3] = "Update Clientes set DNI_Cl = '" + dni_Cliente + "', NumeroTelefono_Cl = '" + telefono_Cliente + "', FechaNacimiento_Cl = '" +
+				fecha_Cliente + "' where Cod_Cliente_Cl = '" + cod_Cliente + "'";
+		}
+
+		public void setMostrar_Where(string campo, string valor)
+		{
+			consultas[1] = "SELECT Cod_Cliente_Cl AS CODIGO, Nombre_Cl AS NOMBRE, Apellido_Cl AS APELLIDO, " +
+			   "DNI_Cl AS DNI, NumeroTelefono_Cl AS TELEFONO, FechaNacimiento_Cl AS FEC_NAC, Email_Cl AS EMAIL, " +
+			   "Contraseña_Cl AS CONTRASEÑA, Activo_Cl AS ACTIVO FROM Clientes WHERE " + campo + " = " + valor;
+		}
+
+		public void setMostrar_Where(int campo)
+		{
+			string campo_string = "";
+			string valor = "";
+
+			switch (campo)
+			{
+				case 0:
+					campo_string = "Nombre_Cl";
+					valor = nombre_Cliente;
+					break;
+				case 1:
+					campo_string = "Apellido_Cl";
+					valor = apellido_Cliente;
+					break;
+				case 2:
+					campo_string = "DNI_Cl";
+					valor = dni_Cliente;
+					break;
+				case 3:
+					campo_string = "NumeroTelefono_Cl";
+					valor = telefono_Cliente;
+					break;
+				case 4:
+					campo_string = "FechaNacimiento_Cl";
+					valor = fecha_Cliente;
+					break;
+				case 5:
+					campo_string = "Email_Cl";
+					valor = Email_Cliente;
+					break;
+				case 6:
+					campo_string = "Contraseña_Cl";
+					valor = Contrasena_Cliente;
+					break;
+				case 7:
+					campo_string = "Activo_Cl";
+					valor = estado_Cliente;
+					break;
+				default:
+					break;
+			}
+
+			consultas[1] = "SELECT Cod_Cliente_Cl AS CODIGO, Nombre_Cl AS NOMBRE, Apellido_Cl AS APELLIDO, " +
+			   "DNI_Cl AS DNI, NumeroTelefono_Cl AS TELEFONO, FechaNacimiento_Cl AS FEC_NAC, Email_Cl AS EMAIL, " +
+			   "Contraseña_Cl AS CONTRASEÑA, Activo_Cl AS ACTIVO FROM Clientes WHERE " + campo_string + " = " + valor;
+		}
+
+		public string getConsulta(int indice)
+		{
+			return consultas[indice];
+		}
 	}
 }

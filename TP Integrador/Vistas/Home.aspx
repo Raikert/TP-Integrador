@@ -7,11 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <style type="text/css">
-        .auto-style2 {
-            font-size: x-large;
-            color: #FFFFFF;
-        }
-
+        
         .auto-style3 {
             font-size: large;
         }
@@ -21,48 +17,29 @@
             font-weight: bold;
         }
         .auto-style5 {
-            width: 283px;
+            width: 350px;
             float: right;
-        }
-        .auto-style6 {
-            width: 106%;
-        }
-        .auto-style7 {
-            width: 246px;
+            text-align: left;
         }
         .auto-style8 {
             text-decoration: underline;
             font-size: x-large;
         }
-        .auto-style9 {
-            color: #3399FF;
-        }
         .auto-style10 {
             color: #3366FF;
-        }
-        .auto-style11 {
-            color: #3366FF;
-            font-size: x-large;
-        }
-        .auto-style12 {
-            text-align: center;
-            color: #000000;
-            background-color: deepskyblue;
         }
         .auto-style13 {
             color: #800000;
             font-size: large;
         }
-        .auto-style14 {
-            font-size: medium;
-        }
-        
+                
         .auto-style1 {
             width: 100%;
         }
         .auto-style27 {
             border: 2px groove black;
             background-color: gray;
+            text-align: center;
         }
 
         .hl2 td{
@@ -73,14 +50,97 @@
           
          }
 
+        .auto-style28 {
+            width: 15%;
+            height: 1200px;
+            float: left;
+        }
+        .auto-style11 {
+            color: #3366FF;
+            font-size: x-large;
+            text-align: center;
+        }
+        .auto-style12 {
+            text-align: center;
+            color: #000000;
+            background-color: deepskyblue;
+        }
+        .auto-style14 {
+            font-size: medium;
+        }
+        
+        .auto-style29 {
+            text-align: center;
+        }
+        
+        .auto-style32 {
+            float: left;
+            width: 25%;
+        }
+
+        .auto-style33 {
+            width: 740px;
+            text-align: center;
+        }
+        .auto-style34 {
+            text-align: right;
+        }
+
+        .auto-style35 {
+            text-align: left;
+        }
+        .auto-style36 {
+            width: 178px;
+            text-align: center;
+        }
+
+        .auto-style37 {
+            margin-left: 0px;
+        }
+
         </style>
 </head>
 <body style="background-color:darkgray">
     <form id="form1" runat="server">
-        <div style="background-color: darkgray; width: 15%; height: 1200px; float: left"></div>
-        <div style="background-color:white;width: 70%; float: left">
-            <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/Biblioteca Libra logo.png" />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div style="background-color: darkgray; " class="auto-style28">
+            <asp:SqlDataSource ID="ConexionParaDataListYListView" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Cod_Libro_Lb], [ImagenURL_Lb] FROM [Libros]"></asp:SqlDataSource>
+            <br />
+            <asp:SqlDataSource ID="dsCategorias" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Nombre_Ca] FROM [Categorias]"></asp:SqlDataSource>
+            <br />
+            <asp:SqlDataSource ID="dsEditoriales" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Nombre_E] FROM [Editoriales]"></asp:SqlDataSource>
+            </div>
+        <div style="background-color:white;width: 70%; float: left; height:1000px">
+            <div style="float:left;width:25%"> 
+            <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/Biblioteca Libra logo.png" Height="100px" />
+            </div>
+            <div style="float:left;width:75%" class="auto-style35"> 
+                <div style="background-color: rgb(67,117,199); " class="auto-style5">
+                    <table class="auto-style1">
+                        <tr>
+                            <td class="auto-style29">
+                    <asp:HyperLink ID="hlInicioSesion" runat="server" CssClass="auto-style3" Font-Names="Ebrima" ForeColor="White" NavigateUrl="InicioSesion1.aspx">Iniciar Sesion</asp:HyperLink>
+                            </td>
+                            <td class="auto-style29"> <asp:HyperLink ID="hlRegistrarse" runat="server" CssClass="auto-style3" Font-Names="Ebrima" ForeColor="White" NavigateUrl="RegistroUsuario1.aspx">Registrarse</asp:HyperLink>
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                    <table class="auto-style1">
+                        <tr>
+                            <td class="auto-style36"><strong><asp:Label style="text-align: center" ID="UsuarioConectado" runat="server" BackColor="White" BorderColor="#993333" BorderWidth="5px" CssClass="auto-style13" Font-Italic="True" Text="No esta logueado" Height="24px" Width="151px"></asp:Label>
+                                </strong></td>
+                            <td>&nbsp;<asp:LinkButton ID="lbSalir" runat="server" CssClass="auto-style3" Font-Names="Swis721 BlkCn BT" ForeColor="#F5ED41" OnClick="lbSalir_Click" Visible="False">Cerrar Sesion</asp:LinkButton>
+                            </td>
+                        </tr>
+                    </table>
+            </div>
+                <br />
+                <br />
+            </div>
+            <br />
+            <table class="auto-style1">
+                <tr>
+                    <td class="auto-style33">
             <asp:TextBox ID="txtBuscar" runat="server" Font-Overline="False" TextMode="Search" Width="359px" placeholder="Titulo, Autor, Categoria"></asp:TextBox>
             <asp:DropDownList ID="ddlFiltro" runat="server">
                 <asp:ListItem>Todos</asp:ListItem>
@@ -90,75 +150,88 @@
             </asp:DropDownList>
             <strong>
                 <asp:Button ID="btnBuscar" runat="server" BackColor="#4375C7" CssClass="auto-style4" Font-Bold="True" Font-Names="Trebuchet MS" ForeColor="White" Height="31px" Text="Buscar" Width="82px" />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </strong></td>
+                    <td class="auto-style34"><strong>
                 <asp:Label ID="CantidadProductosCarrito" runat="server" ForeColor="#009933" Text="0"></asp:Label>
                 &nbsp;</strong><asp:Label ID="lblTexto" runat="server" CssClass="auto-style3" Text="producto | AR$"></asp:Label>
             &nbsp;<strong><asp:Label ID="MontoCarrito" runat="server" ForeColor="#CC3300" Text="0,00"></asp:Label>
             </strong>&nbsp;<asp:ImageButton ID="ImageButton1" runat="server" Height="54px" ImageUrl="~/Imagenes/carrito logo.jpg" Width="49px" PostBackUrl="~/Carrito.aspx" />
+                    </td>
+                </tr>
+            </table>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <strong>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </strong>
             <br />
                     <table  class="auto-style1">
                         <tr class="hl2">
                             <td class="auto-style27" style="justify-content: center; align-items: center;">
-                                <asp:HyperLink ID="hlLibros" runat="server" NavigateUrl="~/vistaLibros.aspx">Libros</asp:HyperLink>
+                                <asp:HyperLink ID="hlLibros" runat="server" NavigateUrl="~/vistaLibros.aspx" Font-Names="Constantia">Libros</asp:HyperLink>
                             </td>
-                            <td>
-                                <asp:HyperLink ID="hlCategorias" runat="server" NavigateUrl="~/VistaCategorias.aspx">Categorias</asp:HyperLink>
+                            <td class="auto-style29">
+                                <asp:HyperLink ID="hlCategorias" runat="server" NavigateUrl="~/VistaCategorias.aspx" Font-Names="Constantia">Categorias</asp:HyperLink>
                             </td>
-                            <td>
-                                <asp:HyperLink ID="hlEditoriales" runat="server" NavigateUrl="~/VistaEditoriales.aspx">Editoriales</asp:HyperLink>
+                            <td class="auto-style29">
+                                <asp:HyperLink ID="hlEditoriales" runat="server" NavigateUrl="~/VistaEditoriales.aspx" Font-Names="Constantia">Editoriales</asp:HyperLink>
                             </td>
                         </tr>
                     </table>
             <br />
-            <table class="auto-style6">
-                <tr>
-                    <td class="auto-style7">
-                        <div style="border:groove; border-color:cornflowerblue; width:250px; height:500px;" class="auto-style11"><em>
+            <div class="auto-style32"> 
+                        <div style="border:groove; border-color:cornflowerblue; width:250px;" class="auto-style11">
+                            <div class="auto-style29">
+                                <em>
                             <br />
                             Filtrar por...<br />
                             <br />
-                            </em><div class="auto-style12"> <strong><em>Categoria</em></strong></div>
-                            <asp:DataList ID="dlCategorias" runat="server" Height="217px" DataKeyField="Nombre_Ca" DataSourceID="dsCategorias">
+                            </em>
+                            </div>
+                            <div class="auto-style12"> <strong><em>Categoria</em></strong></div>
+                            <div>
+                            <asp:DataList ID="dlCategorias" runat="server" Height="217px" DataKeyField="Nombre_Ca" DataSourceID="dsCategorias" CssClass="auto-style37" Width="247px">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="LinkButton1" runat="server" CssClass="auto-style14" Text='<%# Eval("Nombre_Ca") %>'></asp:LinkButton>
-                                    <br />
+                                    <asp:LinkButton ID="LinkButton1" runat="server" CssClass="auto-style14" Text='<%# Eval("Nombre_Ca") %>' Font-Names="Arial" ForeColor="#CC0000"></asp:LinkButton>
 <br />
                                 </ItemTemplate>
                             </asp:DataList>
-                            <br />
+                                <br />
+                            </div>
                             <div class="auto-style12"> <strong><em>Editorial</em></strong></div>
-                            <asp:DataList ID="dlEditoriales" runat="server" DataKeyField="Nombre_E" DataSourceID="dsEditoriales">
+                            <div class="auto-style29">
+                            <asp:DataList ID="dlEditoriales" runat="server" DataKeyField="Nombre_E" DataSourceID="dsEditoriales" CssClass="auto-style37" Width="246px">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="LinkButton2" runat="server" CssClass="auto-style14" Text='<%# Eval("Nombre_E") %>'></asp:LinkButton>
-                                    <br />
+                                    <asp:LinkButton ID="LinkButton2" runat="server" CssClass="auto-style3" Text='<%# Eval("Nombre_E") %>' Font-Bold="False" Font-Italic="True" Font-Names="Calibri" ForeColor="#3333FF"></asp:LinkButton>
 <br />
                                 </ItemTemplate>
                             </asp:DataList>
-                            <br />
+                                <br />
+                            </div>
                             <div class="auto-style12"> <strong><em>Precio</em></strong></div>
-                            <br />
-                            <div style="background-color:goldenrod"> &nbsp;
+                            <div style="background-color:goldenrod"> 
                                 <asp:TextBox style="text-align: center" ID="txtMinimo" runat="server" Height="25px" Width="75px" placeholder="Minimo"></asp:TextBox>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;
                                 <asp:TextBox style="text-align: center" ID="txtMaximo" runat="server" Height="25px" Width="75px" placeholder="Máximo"></asp:TextBox>
                             </div>
                         </div>
-                    </td>
-                    <td>
+            </div>
+            <div style="float:left;width:75%"> 
                         <span class="auto-style8">
+                        <span class="auto-style10">&nbsp;Mas Vendidos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; </span></span>
                         <br />
-                        <span class="auto-style10">Mas Vendidos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="auto-style9">&nbsp; </span></span>
-                        <asp:HyperLink ID="hlVerMas" runat="server" CssClass="auto-style8" ForeColor="#CC0066">Ver mas...</asp:HyperLink>
-                        <br />
-            <asp:ListView ID="lvLibrosMasVendidos" runat="server" DataSourceID="ConexionParaDataListYListView" GroupItemCount="5">
+            <asp:ListView ID="lvLibrosMasVendidos" runat="server" DataSourceID="ConexionParaDataListYListView" GroupItemCount="5" DataKeyNames="Cod_Libro_Lb">
                 <EditItemTemplate>
-                    <td runat="server" style="">ImagenURL:
-                        <asp:TextBox ID="ImagenURLTextBox" runat="server" Text='<%# Bind("ImagenURL") %>' />
+                    <td runat="server" style="">Cod_Libro_Lb:
+                        <asp:Label ID="Cod_Libro_LbLabel1" runat="server" Text='<%# Eval("Cod_Libro_Lb") %>' />
+                        <br />
+                        ImagenURL_Lb:
+                        <asp:TextBox ID="ImagenURL_LbTextBox" runat="server" Text='<%# Bind("ImagenURL_Lb") %>' />
                         <br />
                         <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar" />
                         <br />
                         <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar" />
-                        <br /></td>
+                        <br />
+                    </td>
                 </EditItemTemplate>
                 <EmptyDataTemplate>
                     <table runat="server" style="">
@@ -176,18 +249,21 @@
                     </tr>
                 </GroupTemplate>
                 <InsertItemTemplate>
-                    <td runat="server" style="">ImagenURL:
-                        <asp:TextBox ID="ImagenURLTextBox0" runat="server" Text='<%# Bind("ImagenURL") %>' />
+                    <td runat="server" style="">Cod_Libro_Lb:
+                        <asp:TextBox ID="Cod_Libro_LbTextBox" runat="server" Text='<%# Bind("Cod_Libro_Lb") %>' />
+                        <br />
+                        ImagenURL_Lb:
+                        <asp:TextBox ID="ImagenURL_LbTextBox" runat="server" Text='<%# Bind("ImagenURL_Lb") %>' />
                         <br />
                         <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
                         <br />
-                        <asp:Button ID="CancelButton0" runat="server" CommandName="Cancel" Text="Borrar" />
-                        <br /></td>
+                        <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Borrar" />
+                        <br />
+                    </td>
                 </InsertItemTemplate>
                 <ItemTemplate>
                     <td runat="server" style="">
-                        &nbsp;<br />
-                        <asp:ImageButton ID="ImagenLibro" runat="server" ImageUrl='<%# Eval("ImagenURL_Lb") %>' Height="223px" Width="143px" CommandArgument='<%# Eval("Cod_Libro_Lb") %>' CommandName="SeleccionarLibro" OnCommand="ImagenLibro_Command" />
+                        <asp:ImageButton ID="ImagenLibro" runat="server" CommandArgument='<%# Eval("Cod_Libro_Lb") %>' CommandName="SeleccionarLibro" Height="223px" ImageUrl='<%# Eval("ImagenURL_Lb") %>' OnCommand="ImagenLibro_Command" Width="143px" />
                         <br /></td>
                 </ItemTemplate>
                 <LayoutTemplate>
@@ -201,39 +277,38 @@
                             </td>
                         </tr>
                         <tr runat="server">
-                            <td runat="server" style=""></td>
+                            <td runat="server" style="" class="auto-style29">
+                                <asp:DataPager ID="DataPager2" runat="server" PageSize="15">
+                                    <Fields>
+                                        <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
+                                        <asp:NumericPagerField />
+                                        <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
+                                    </Fields>
+                                </asp:DataPager>
+                            </td>
                         </tr>
                     </table>
                 </LayoutTemplate>
                 <SelectedItemTemplate>
-                    <td runat="server" style="">ImagenURL:
-                        <asp:Label ID="ImagenURLLabel" runat="server" Text='<%# Eval("ImagenURL") %>' />
-                        <br /></td>
+                    <td runat="server" style="">Cod_Libro_Lb:
+                        <asp:Label ID="Cod_Libro_LbLabel" runat="server" Text='<%# Eval("Cod_Libro_Lb") %>' />
+                        <br />ImagenURL_Lb:
+                        <asp:Label ID="ImagenURL_LbLabel" runat="server" Text='<%# Eval("ImagenURL_Lb") %>' />
+                        <br />
+                    </td>
                 </SelectedItemTemplate>
             </asp:ListView>
-                    </td>
-                </tr>
-            </table>
+            </div>
             <br />
-            <asp:SqlDataSource ID="ConexionParaDataListYListView" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Cod_Libro_Lb], [ImagenURL_Lb] FROM [Libros]"></asp:SqlDataSource>
-            <asp:SqlDataSource ID="dsCategorias" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Nombre_Ca] FROM [Categorias]"></asp:SqlDataSource>
-            <asp:SqlDataSource ID="dsEditoriales" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Nombre_E] FROM [Editoriales]"></asp:SqlDataSource>
             <br />
         </div>
         <div style="background-color: darkgray; width: 15%; height: 1200px; float: left">
-            <div style="background-color: rgb(67,117,199); " class="auto-style5">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:HyperLink ID="hlInicioSesion" runat="server" CssClass="auto-style3" Font-Names="Ebrima" ForeColor="White" NavigateUrl="InicioSesion1.aspx">Iniciar Sesion</asp:HyperLink>
-                &nbsp; &nbsp;<span class="auto-style2">|</span>&nbsp;&nbsp;&nbsp;&nbsp;<asp:HyperLink ID="hlRegistrarse" runat="server" CssClass="auto-style3" Font-Names="Ebrima" ForeColor="White" NavigateUrl="RegistroUsuario1.aspx">Registrarse</asp:HyperLink>
-            </div>
+            
             <br />
             <br />
             <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label style="text-align: center" ID="UsuarioConectado" runat="server" BackColor="White" BorderColor="#993333" BorderWidth="5px" CssClass="auto-style13" Font-Italic="True" Text="No esta logueado" Height="24px" Width="151px"></asp:Label>
-            &nbsp;</strong><asp:LinkButton ID="lbSalir" runat="server" CssClass="auto-style3" Font-Names="Tahoma" ForeColor="Black" OnClick="lbSalir_Click"></asp:LinkButton>
-            <strong>
-            <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong><br />
             <br />
             </strong>
             </div>

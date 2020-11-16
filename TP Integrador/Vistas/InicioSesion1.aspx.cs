@@ -20,12 +20,14 @@ namespace Vistas
             string pass;
 
             cuenta = txtEmail.Text;
-            pass = txtPass.Text;
+            pass = txtContraseña.Text;
 
             if(cuenta == "admin@admin.com" && pass == "admin")
             {
                 Response.Redirect("PanelDelAdministrador.aspx");
-            }else {
+            }
+            else 
+            {
                 Session["Usuario"] = "Bienvenido/a X";
                 Response.Redirect("Home.aspx");
             }

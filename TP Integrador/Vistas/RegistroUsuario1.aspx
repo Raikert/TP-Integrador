@@ -46,6 +46,10 @@
                 <br />
                 <asp:TextBox style="text-align: center" ID="txtEmail" runat="server" Width="280px" placeholder="Ingrese aqui su email" BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" Font-Names="Comic Sans MS" Height="22px"></asp:TextBox>
                 <br />
+                <strong>
+                <asp:Label ID="lblEmailRepetido" runat="server" Font-Names="Calibri Light"></asp:Label>
+                </strong>
+                <br />
                 <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail" CssClass="auto-style3" ErrorMessage="Campo obligatorio" Font-Names="Bahnschrift" ForeColor="Red"></asp:RequiredFieldValidator>
 &nbsp;<asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="txtEmail" CssClass="auto-style3" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Font-Names="Bahnschrift">No ha ingresado email correcto</asp:RegularExpressionValidator>
                 <br />
@@ -60,7 +64,7 @@
                 <br />
                 <br />
                 </strong>
-                <asp:Label ID="lblMensaje" runat="server" Font-Names="Calibri Light" Text="Si usted ya ha creado una cuenta anteriormente, asegurese de utilizar la misma dirección de email para recuperar los datos de su cuenta"></asp:Label>
+                <asp:Label ID="lblMensaje" runat="server" Font-Names="Calibri Light" Text="Si usted ya ha creado una cuenta anteriormente, asegurese de utilizar la misma dirección de email para recuperar los datos de su cuenta" Width="350px"></asp:Label>
             </div>
             <div style="float:left; width:35%"> </div>
         </div>

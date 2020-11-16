@@ -24,7 +24,10 @@ namespace Vistas
             else if ((string) Session["Usuario"] != "No esta logueado")
             {
                 UsuarioConectado.Text = (string)Session["Usuario"];
-                lbSalir.Text = "Salir";
+                lbSalir.Visible = true;
+
+                hlInicioSesion.Visible = false;
+                hlRegistrarse.Visible = false;
             }
 
             obj = new NegocioGenerales();
@@ -36,7 +39,10 @@ namespace Vistas
         {
             Session["Usuario"] = "No esta logueado";
             UsuarioConectado.Text = (string) Session["Usuario"];
-            lbSalir.Text = "";
+            lbSalir.Visible = false;
+
+            hlInicioSesion.Visible = true;
+            hlRegistrarse.Visible = true;
         }
 
         protected void ImagenLibro_Command(object sender, CommandEventArgs e)

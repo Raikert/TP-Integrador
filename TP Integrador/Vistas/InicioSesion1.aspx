@@ -11,10 +11,6 @@
             text-align: center;
             float: left;
             width: 30%;
-            height: 593px;
-        }
-        .auto-style6 {
-            font-size: medium;
         }
         .auto-style3 {
             font-size: small;
@@ -38,8 +34,10 @@
                 <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/Biblioteca Libra logo.png" />
                 <br />
                 <br />
-                <asp:Label ID="lblMensaje" runat="server" CssClass="auto-style6" Font-Names="Segoe UI" ForeColor="#0033CC" Text="Ingrese su dirección de e-mail para poder realizar esta accion:"></asp:Label>
+                <asp:Label ID="lblMensaje" runat="server" Font-Names="Bahnschrift" Text="Por favor, complete los siguientes datos para iniciar sesion:"></asp:Label>
                 <br />
+                <br />
+                <asp:Label ID="lblMensaje3" runat="server" Font-Names="Sitka Subheading" Text="E-mail"></asp:Label>
                 <br />
                 <asp:TextBox style="text-align: center" ID="txtEmail" runat="server" Width="280px" placeholder="Ingrese aqui su email" BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" Font-Names="Comic Sans MS" Height="22px"></asp:TextBox>
                 <br />
@@ -47,9 +45,12 @@
 &nbsp;<asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="txtEmail" CssClass="auto-style3" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Font-Names="Bahnschrift">No ha ingresado email correcto</asp:RegularExpressionValidator>
                 <br />
                 <br />
-                <asp:TextBox style="text-align: center" ID="txtPass" runat="server" Width="280px" placeholder="Ingrese aqui su email" BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" Font-Names="Comic Sans MS" Height="22px" TextMode="Password"></asp:TextBox>
+                <asp:Label ID="lblMensaje2" runat="server" Font-Names="Sitka Subheading" Text="Contraseña"></asp:Label>
                 <br />
-                <asp:RequiredFieldValidator ID="rfvEmail0" runat="server" ControlToValidate="txtEmail" CssClass="auto-style3" ErrorMessage="Campo obligatorio" Font-Names="Bahnschrift" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:TextBox style="text-align: center" ID="txtContraseña" runat="server" Width="280px" placeholder="Ingrese aqui su contraseña" BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" Font-Names="Comic Sans MS" Height="22px" TextMode="Password"></asp:TextBox>
+                <br />
+                <asp:RequiredFieldValidator ID="rfvContraseña" runat="server" ControlToValidate="txtContraseña" CssClass="auto-style3" ErrorMessage="Campo obligatorio" Font-Names="Bahnschrift" ForeColor="Red"></asp:RequiredFieldValidator>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <br />
                 <br />
                 <strong>
@@ -65,7 +66,9 @@
                 <br />
                 <br />
                 </strong>
-                <asp:Label ID="lblMensaje1" runat="server" Font-Names="Calibri Light" Text="Si usted ya ha creado una cuenta anteriormente, asegurese de utilizar la misma dirección de email para recuperar los datos de su cuenta"></asp:Label>
+                <asp:Label ID="lblMensaje1" runat="server" Font-Names="Calibri Light" Text="Si usted ya ha creado una cuenta anteriormente, asegurese de utilizar la misma dirección de email para recuperar los datos de su cuenta" Width="350px"></asp:Label>
+                <br />
+                <br />
             </div>
         </div>
     </form>
