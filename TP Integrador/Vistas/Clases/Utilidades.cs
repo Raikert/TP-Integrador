@@ -17,8 +17,6 @@ namespace Vistas.Clases
             obj = new NegocioGenerales();
         }
 
-
-
         public int Bindear(ref GridView grid, string consulta, bool reiniciar_paginas = false)
         {
             DataTable tabla = obj.DataTable_Query(consulta);
@@ -60,6 +58,17 @@ namespace Vistas.Clases
             obj.modificarCampo(cod.ID, codigo, campo, valor, tabla, int_value);
         }
 
+        public void modificar(string campocodigo,string codigo, ref TextBox value, string tabla, bool int_value = false)
+        {
+            if (value.Text != "")
+            {
+                string campo = value.ID;
+                string valor = value.Text;
+
+                obj.modificarCampo(campocodigo, codigo, campo, valor, tabla, int_value);
+            }
+        }
+
         public void modificar(ref TextBox cod, ref DropDownList value, string tabla, bool int_value = false, bool estado = false)
         {
             if (value.Text != "Seleccionar")
@@ -77,6 +86,56 @@ namespace Vistas.Clases
             }
         }
 
+        public bool buscarIgualdad(string valor_a_comparar, string campo, string tabla_consulta)
+        {
+            DataTable tabla = obj.DataTable_Query("select " + campo + " from " + tabla_consulta);
+
+            bool repeticion = false;
+
+            foreach (DataRow registro in tabla.Rows)
+            {
+                if (registro[campo].ToString() == valor_a_comparar)
+                    repeticion = true;
+            }
+
+            return repeticion;
+        }
+
+        public bool buscarIgualdad(ref TextBox valor_a_comparar, string tabla_consulta)
+        {
+            string campo = valor_a_comparar.ID;
+
+            string valor = valor_a_comparar.Text;
+
+            DataTable tabla = obj.DataTable_Query("select " + campo + " from " + tabla_consulta);
+
+            bool repeticion = false;
+
+            foreach (DataRow registro in tabla.Rows)
+            {
+                if (registro[campo].ToString() == valor)
+                    repeticion = true;
+            }
+
+            return repeticion;
+        }
+
+        public string valor_campo_Where(ref TextBox cod,string campo, string tabla_consulta,bool valor_especial = false)
+        {
+            string campocodigo = cod.ID;
+
+            string valorcodigo;
+
+            if (!valor_especial)
+                valorcodigo = "'" + cod.Text + "'";
+            else
+                valorcodigo = cod.Text;
+
+            DataTable tabla = obj.DataTable_Query("select " + campo + " from " + tabla_consulta + " where " + campocodigo + " = " + valorcodigo);
+
+            return tabla.Rows[0][campo].ToString();
+        }
+
         public void limpiar(ref TextBox textBox)
         {
             textBox.Text = "";
@@ -87,15 +146,9 @@ namespace Vistas.Clases
             label.Text = "";
         }
 
-
-
-
-
-
-
-
-
-
-
+        public void cerrarConexion()
+        {
+            obj.cerrarConexion();
+        }
     }
 }

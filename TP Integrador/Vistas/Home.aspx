@@ -127,7 +127,7 @@
                     <br />
                     <table class="auto-style1">
                         <tr>
-                            <td class="auto-style36"><strong><asp:Label style="text-align: center" ID="UsuarioConectado" runat="server" BackColor="White" BorderColor="#993333" BorderWidth="5px" CssClass="auto-style13" Font-Italic="True" Text="No esta logueado" Height="24px" Width="151px"></asp:Label>
+                            <td class="auto-style36"><strong><asp:Label style="text-align: center" ID="UsuarioConectado" runat="server" BackColor="White" BorderColor="#993333" BorderWidth="5px" CssClass="auto-style13" Font-Italic="True" Text="No esta logueado" Width="151px"></asp:Label>
                                 </strong></td>
                             <td>&nbsp;<asp:LinkButton ID="lbSalir" runat="server" CssClass="auto-style3" Font-Names="Swis721 BlkCn BT" ForeColor="#F5ED41" OnClick="lbSalir_Click" Visible="False">Cerrar Sesion</asp:LinkButton>
                             </td>

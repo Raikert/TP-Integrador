@@ -4,20 +4,30 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Vistas.Clases;
 
 namespace Vistas
 {
     public partial class RestablecerContraseña : System.Web.UI.Page
     {
+        private Utilidades util;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
+            util = new Utilidades();
         }
 
-        protected void lbSalir_Click(object sender, EventArgs e)
+        protected void btnContinuar_Click(object sender, EventArgs e)
         {
-            Session["Usuario"] = "No esta logueado";
-            Response.Redirect("Home.aspx");
+            string tabla = "Clientes";
+            string campocodigo = "Email_Cl";
+            string codigo = (string) Session["Email"];
+
+            util.modificar(campocodigo, codigo, ref Contraseña_Cl, tabla);
+
+            util.cerrarConexion();
+
+            Response.Redirect("InicioSesion1.aspx");
         }
     }
 }

@@ -39,25 +39,29 @@
                 <br />
                 <asp:Label ID="lblMensaje3" runat="server" Font-Names="Sitka Subheading" Text="E-mail"></asp:Label>
                 <br />
-                <asp:TextBox style="text-align: center" ID="txtEmail" runat="server" Width="280px" placeholder="Ingrese aqui su email" BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" Font-Names="Comic Sans MS" Height="22px"></asp:TextBox>
+                <asp:TextBox style="text-align: center" ID="Email_Cl" runat="server" Width="280px" placeholder="Ingrese aqui su email" BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" Font-Names="Comic Sans MS" Height="22px"></asp:TextBox>
                 <br />
-                <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail" CssClass="auto-style3" ErrorMessage="Campo obligatorio" Font-Names="Bahnschrift" ForeColor="Red"></asp:RequiredFieldValidator>
-&nbsp;<asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="txtEmail" CssClass="auto-style3" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Font-Names="Bahnschrift">No ha ingresado email correcto</asp:RegularExpressionValidator>
+                <asp:Label ID="lblEmailNoCoincide" runat="server" CssClass="auto-style3" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red"></asp:Label>
+                <br />
+                <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="Email_Cl" CssClass="auto-style3" ErrorMessage="Campo obligatorio" Font-Names="Bahnschrift" ForeColor="Red" Font-Size="10.5pt"></asp:RequiredFieldValidator>
+                <br />
+                <asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="Email_Cl" CssClass="auto-style3" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Font-Names="Bahnschrift" Font-Size="10.5pt">No ha ingresado email correcto</asp:RegularExpressionValidator>
                 <br />
                 <br />
                 <asp:Label ID="lblMensaje2" runat="server" Font-Names="Sitka Subheading" Text="Contraseña"></asp:Label>
                 <br />
-                <asp:TextBox style="text-align: center" ID="txtContraseña" runat="server" Width="280px" placeholder="Ingrese aqui su contraseña" BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" Font-Names="Comic Sans MS" Height="22px" TextMode="Password"></asp:TextBox>
+                <asp:TextBox style="text-align: center" ID="Contraseña_Cl" runat="server" Width="280px" placeholder="Ingrese aqui su contraseña" BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" Font-Names="Comic Sans MS" Height="22px" TextMode="Password"></asp:TextBox>
                 <br />
-                <asp:RequiredFieldValidator ID="rfvContraseña" runat="server" ControlToValidate="txtContraseña" CssClass="auto-style3" ErrorMessage="Campo obligatorio" Font-Names="Bahnschrift" ForeColor="Red"></asp:RequiredFieldValidator>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Label ID="lblContraseñaNoCoincide" runat="server" CssClass="auto-style3" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red"></asp:Label>
+                <br />
+                <asp:RequiredFieldValidator ID="rfvContraseña" runat="server" ControlToValidate="Contraseña_Cl" CssClass="auto-style3" ErrorMessage="Campo obligatorio" Font-Names="Bahnschrift" ForeColor="Red" Font-Size="10.5pt"></asp:RequiredFieldValidator>
                 <br />
                 <br />
                 <strong>
                 <asp:Button ID="btnContinuar" runat="server" BackColor="#33CC33" BorderColor="Black" CssClass="auto-style2" ForeColor="Black" Text="Continuar &gt;" OnClick="btnContinuar_Click" />
                 <br />
                 <br />
-                <asp:LinkButton ID="lbRestablecerContraseña" runat="server" ForeColor="#CC6600" OnClick="lbRestablecerContraseña_Click">¿Olvidó su contraseña?</asp:LinkButton>
+                <asp:LinkButton ID="lbRestablecerContraseña" runat="server" ForeColor="#CC6600" OnClick="lbRestablecerContraseña_Click" CausesValidation="False" ValidationGroup="0">¿Olvidó su contraseña?</asp:LinkButton>
                 <br />
                 <br />
                 </strong>

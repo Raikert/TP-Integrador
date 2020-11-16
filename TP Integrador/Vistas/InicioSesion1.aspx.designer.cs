@@ -51,13 +51,22 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label lblMensaje3;
 
         /// <summary>
-        /// Control txtEmail.
+        /// Control Email_Cl.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.WebControls.TextBox Email_Cl;
+
+        /// <summary>
+        /// Control lblEmailNoCoincide.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEmailNoCoincide;
 
         /// <summary>
         /// Control rfvEmail.
@@ -87,13 +96,22 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label lblMensaje2;
 
         /// <summary>
-        /// Control txtContraseña.
+        /// Control Contraseña_Cl.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContraseña;
+        protected global::System.Web.UI.WebControls.TextBox Contraseña_Cl;
+
+        /// <summary>
+        /// Control lblContraseñaNoCoincide.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblContraseñaNoCoincide;
 
         /// <summary>
         /// Control rfvContraseña.

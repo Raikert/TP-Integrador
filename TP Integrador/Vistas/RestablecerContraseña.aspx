@@ -7,14 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <style type="text/css">
-        .auto-style1 {
-            text-align: right;
-        }
-
-        .auto-style3 {
-            font-size: large;
-        }
-
+        
         .auto-style4 {
             text-align: left;
         }
@@ -27,19 +20,17 @@
         .auto-style7 {
             text-align: center;
         }
+        .auto-style8 {
+            float: left;
+            width: 40%;
+        }
     </style>
 </head>
 <body style="background-color:darkgray">
     <form id="form1" runat="server">
         <div style="background-color:darkgray;height:500px" class="auto-style4"> 
             <div style="float:left;width:30%"> &nbsp;</div>
-            <div style="background-color:white;float:left;width:40%;height:500px">
-                <div class="auto-style1">
-                    <asp:Label ID="lblMensaje" runat="server" Text="Hola, "></asp:Label>
-                    <strong>
-                    <asp:Label ID="lblUsuario" runat="server" Text="&quot;Nombre de Usuario&quot;"></asp:Label>
-                    </strong>&nbsp;<asp:LinkButton ID="lbSalir" runat="server" CssClass="auto-style3" Font-Names="Tahoma" ForeColor="Black" OnClick="lbSalir_Click">(Salir)</asp:LinkButton>
-                </div>
+            <div style="background-color:white;" class="auto-style8">
                 <div class="auto-style7"> 
                     <br />
                     <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/Biblioteca Libra logo.png" />
@@ -53,28 +44,27 @@
                     </strong>
                 <asp:Label ID="lblMensaje3" runat="server" Font-Names="Sitka Subheading" Text="Nueva Contraseña:"></asp:Label>
                     <br />
-                <asp:TextBox style="text-align: center" ID="txtNuevaContraseña" runat="server" Height="20px" Width="300px" CssClass="auto-style4" Font-Names="Calibri"></asp:TextBox>
+                <asp:TextBox style="text-align: center" ID="Contraseña_Cl" runat="server" Height="20px" Width="300px" CssClass="auto-style4" Font-Names="Calibri" TextMode="Password"></asp:TextBox>
                 <br />
-                <asp:RequiredFieldValidator ID="rfvNuevaContraseña" runat="server" ControlToValidate="txtNuevaContraseña" CssClass="auto-style5" ErrorMessage="Campo obligatorio" Font-Names="Bahnschrift" ForeColor="Red" ValidationGroup="0"></asp:RequiredFieldValidator>
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <br />
-                <asp:Label ID="lblMensaje4" runat="server" Font-Names="Sitka Subheading" Text="Repetir nueva contraseña:"></asp:Label>
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox style="text-align: center" ID="txtRepetirNuevaContraseña" runat="server" Height="20px" Width="300px" CssClass="auto-style4" Font-Names="Calibri"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvNuevaContraseña" runat="server" ControlToValidate="Contraseña_Cl" CssClass="auto-style5" ErrorMessage="Campo obligatorio" Font-Names="Bahnschrift" ForeColor="Red" ValidationGroup="0" Font-Size="10.5pt"></asp:RequiredFieldValidator>
+                    <br />
+                    <br />
+                    <asp:Label ID="lblMensaje4" runat="server" Font-Names="Sitka Subheading" Text="Repetir nueva contraseña:"></asp:Label>
+                    <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:TextBox style="text-align: center" ID="txtRepetirNuevaContraseña" runat="server" Height="20px" Width="300px" CssClass="auto-style4" Font-Names="Calibri" TextMode="Password"></asp:TextBox>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <br />
-                <asp:RequiredFieldValidator ID="rfvRepetirNuevaContraseña" runat="server" ControlToValidate="txtRepetirNuevaContraseña" CssClass="auto-style5" ErrorMessage="Campo obligatorio" Font-Names="Bahnschrift" ForeColor="Red" ValidationGroup="0"></asp:RequiredFieldValidator>
-&nbsp;<asp:CompareValidator ID="cvRepetirNuevaContraseña" runat="server" ControlToCompare="txtNuevaContraseña" ControlToValidate="txtRepetirNuevaContraseña" CssClass="auto-style5" Font-Names="Bahnschrift" ForeColor="Red" ValidationGroup="0">La contraseña ingresada no coincide</asp:CompareValidator>
+                    <br />
+                    <asp:RequiredFieldValidator ID="rfvRepetirNuevaContraseña" runat="server" ControlToValidate="txtRepetirNuevaContraseña" CssClass="auto-style5" ErrorMessage="Campo obligatorio" Font-Names="Bahnschrift" ForeColor="Red" ValidationGroup="0" Font-Size="10.5pt"></asp:RequiredFieldValidator>
+                    <br />
+                    <asp:CompareValidator ID="cvRepetirNuevaContraseña" runat="server" ControlToCompare="Contraseña_Cl" ControlToValidate="txtRepetirNuevaContraseña" CssClass="auto-style5" Font-Names="Bahnschrift" ForeColor="Red" ValidationGroup="0" Font-Size="10.5pt">La contraseña ingresada no coincide</asp:CompareValidator>
+                    <br />
+                    <br /><strong>
+                    <asp:Button ID="btnContinuar" runat="server" BackColor="#33CC33" BorderColor="Black" CssClass="auto-style6" Text="Continuar &gt;" ValidationGroup="0" OnClick="btnContinuar_Click" />
                     <br />
                     <br />
-                    <strong>
-                <asp:Button ID="btnContinuar" runat="server" BackColor="#33CC33" BorderColor="Black" CssClass="auto-style6" Text="Continuar &gt;" ValidationGroup="0" />
-                </strong>
-                    <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>
-                &nbsp;</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </div>
+                <asp:HyperLink ID="hlVolver" runat="server" ForeColor="#CC6600" NavigateUrl="RegistroUsuario1.aspx">Volver</asp:HyperLink>
+                    </strong>
+                    <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>&nbsp;</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </div>
             </div>
             <br />
         </div>
