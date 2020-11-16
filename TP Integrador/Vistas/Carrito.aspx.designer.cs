@@ -141,13 +141,13 @@ namespace vistas
         protected global::System.Web.UI.WebControls.HyperLink hlEditoriales;
 
         /// <summary>
-        /// Control btnIniciarCompra.
+        /// Control btnIniciarCompra1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnIniciarCompra;
+        protected global::System.Web.UI.WebControls.Button btnIniciarCompra1;
 
         /// <summary>
         /// Control DataList1.

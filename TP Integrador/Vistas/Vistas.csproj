@@ -91,6 +91,7 @@
     <Content Include="Imagenes\youtube.png" />
     <Content Include="InicioSesion1.aspx" />
     <Content Include="PanelDelAdministrador.aspx" />
+    <Content Include="ProcesoCompraCarro.aspx" />
     <Content Include="RegistroUsuario1.aspx" />
     <Content Include="RegistroUsuario2.aspx" />
     <Content Include="RestablecerContraseña.aspx" />
@@ -120,6 +121,13 @@
     </Compile>
     <Compile Include="PanelDelAdministrador.aspx.designer.cs">
       <DependentUpon>PanelDelAdministrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProcesoCompraCarro.aspx.cs">
+      <DependentUpon>ProcesoCompraCarro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProcesoCompraCarro.aspx.designer.cs">
+      <DependentUpon>ProcesoCompraCarro.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistroUsuario1.aspx.cs">

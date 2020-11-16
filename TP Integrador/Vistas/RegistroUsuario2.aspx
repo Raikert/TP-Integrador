@@ -46,6 +46,7 @@
                 <br />
                 <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="txtNombre" CssClass="auto-style3" ErrorMessage="Campo obligatorio" Font-Names="Bahnschrift" ForeColor="Red" Font-Size="10.5pt"></asp:RequiredFieldValidator>
                 <br />
+                <asp:Label ID="lblErrorNombre" runat="server" CssClass="auto-style3" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red"></asp:Label>
                 <br />
                 <br />
                 <asp:Label ID="lblMensaje4" runat="server" Font-Names="Sitka Subheading" Text="Apellido"></asp:Label>
@@ -54,11 +55,14 @@
                 <br />
                 <asp:RequiredFieldValidator ID="rfvApellido" runat="server" ControlToValidate="txtApellido" CssClass="auto-style3" ErrorMessage="Campo obligatorio" Font-Names="Bahnschrift" ForeColor="Red" Font-Size="10.5pt"></asp:RequiredFieldValidator>
                 <br />
+                <asp:Label ID="lblErrorApellido" runat="server" CssClass="auto-style3" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red"></asp:Label>
                 <br />
                 <br />
                 <asp:Label ID="lblMensaje7" runat="server" Font-Names="Sitka Subheading" Text="DNI"></asp:Label>
                 <br />
-                <asp:TextBox style="text-align: center" placeholder="Campo opcional" ID="DNI_Cl" runat="server" Height="20px" Width="300px" CssClass="auto-style4" Font-Names="Calibri"></asp:TextBox>
+                <asp:TextBox style="text-align: center" ID="DNI_Cl" runat="server" Height="20px" Width="300px" CssClass="auto-style4" Font-Names="Calibri"></asp:TextBox>
+                <br />
+                <asp:RequiredFieldValidator ID="rfvDNI" runat="server" ControlToValidate="DNI_Cl" CssClass="auto-style3" ErrorMessage="Campo obligatorio" Font-Names="Bahnschrift" ForeColor="Red" Font-Size="10.5pt"></asp:RequiredFieldValidator>
                 <br />
                 <asp:RegularExpressionValidator ID="revDNI" runat="server" ControlToValidate="DNI_Cl" CssClass="auto-style3" ErrorMessage="Solo puede ingresar numeros" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red" ValidationExpression="^\d+$"></asp:RegularExpressionValidator>
                 <br />
@@ -67,7 +71,9 @@
                 <br />
                 <asp:Label ID="lblMensaje8" runat="server" Font-Names="Sitka Subheading" Text="Telefono"></asp:Label>
                 <br />
-                <asp:TextBox style="text-align: center" placeholder="Campo opcional" ID="NumeroTelefono_Cl" runat="server" Height="20px" Width="300px" CssClass="auto-style4" Font-Names="Calibri"></asp:TextBox>
+                <asp:TextBox style="text-align: center" ID="NumeroTelefono_Cl" runat="server" Height="20px" Width="300px" CssClass="auto-style4" Font-Names="Calibri"></asp:TextBox>
+                <br />
+                <asp:RequiredFieldValidator ID="rfvTelefono" runat="server" ControlToValidate="NumeroTelefono_Cl" CssClass="auto-style3" ErrorMessage="Campo obligatorio" Font-Names="Bahnschrift" ForeColor="Red" Font-Size="10.5pt"></asp:RequiredFieldValidator>
                 <br />
                 <asp:RegularExpressionValidator ID="revTelefono" runat="server" ControlToValidate="NumeroTelefono_Cl" CssClass="auto-style3" ErrorMessage="Solo puede ingresar numeros" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red" ValidationExpression="^\d+$"></asp:RegularExpressionValidator>
 &nbsp;<br />
@@ -77,6 +83,8 @@
                 <asp:Label ID="lblMensaje9" runat="server" Font-Names="Sitka Subheading" Text="Fecha de Nacimiento"></asp:Label>
                 <br />
                 <asp:TextBox style="text-align: center" ID="FechaNacimiento_Cl" runat="server" Height="20px" Width="300px" CssClass="auto-style4" Font-Names="Calibri" TextMode="Date" max="9999-12-31"></asp:TextBox>
+                <br />
+                <asp:RequiredFieldValidator ID="rfvFecha" runat="server" ControlToValidate="FechaNacimiento_Cl" CssClass="auto-style3" ErrorMessage="Campo obligatorio" Font-Names="Bahnschrift" ForeColor="Red" Font-Size="10.5pt"></asp:RequiredFieldValidator>
                 <br />
                 <br />
                 <br />
@@ -88,6 +96,7 @@
                 &nbsp;&nbsp;
                 <asp:RequiredFieldValidator ID="rfvContraseña" runat="server" ControlToValidate="txtContraseña" CssClass="auto-style3" ErrorMessage="Campo obligatorio" Font-Names="Bahnschrift" ForeColor="Red" Font-Size="10.5pt"></asp:RequiredFieldValidator>
                 <br />
+                <asp:Label ID="lblErrorContraseña" runat="server" CssClass="auto-style3" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red"></asp:Label>
                 <br />
                 <br />
                 <asp:Label ID="lblMensaje6" runat="server" Font-Names="Sitka Subheading" Text="Repetir Contraseña"></asp:Label>

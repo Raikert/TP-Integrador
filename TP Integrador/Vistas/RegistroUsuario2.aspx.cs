@@ -33,6 +33,9 @@ namespace Vistas
             {
                 cli.nombreCliente = txtNombre.Text;
                 cli.apellidoCliente = txtApellido.Text;
+                cli.dniCliente = DNI_Cl.Text;
+                cli.telCliente = NumeroTelefono_Cl.Text;
+                cli.fechaCliente = FechaNacimiento_Cl.Text;
                 cli.EmailCliente = (String)Session["Email"];
                 cli.ContrasenaCliente = txtContraseña.Text;
 
@@ -40,25 +43,9 @@ namespace Vistas
 
                 obj.Consulta(cli.getConsulta(2));
 
-                string tabla = "Clientes";
-                string campocodigo = "Email_Cl";
-                string codigo = cli.EmailCliente;
-
-                util.modificar(campocodigo, codigo, ref DNI_Cl, tabla);
-                util.modificar(campocodigo, codigo, ref NumeroTelefono_Cl, tabla);
-                util.modificar(campocodigo, codigo, ref FechaNacimiento_Cl, tabla);
-
-                obj.cerrarConexion();
-
                 Session["Usuario"] = "Bienvenido/a " + txtNombre.Text;
                 Response.Redirect("Home.aspx");
             }
-            else
-            {
-                lblErrorDNI.Text = "hola amigos";
-            }
-
-            util.cerrarConexion();
         }
 
         public bool ValidacionesEspeciales()
@@ -66,21 +53,43 @@ namespace Vistas
             bool validador = true;
 
             if (txtNombre.Text.Length > 25)
+            {
+                lblErrorNombre.Text = "Ingreso un nombre de mas de 25 caracteres";
                 validador = false;
+            }
+
 
             if (txtApellido.Text.Length > 25)
+            {
+                lblErrorApellido.Text = "Ingreso un apellido de mas de 25 caracteres";
                 validador = false;
+            }
+
 
             if (DNI_Cl.Text.Length > 8)
+            {
+                lblErrorDNI.Text = "Ingreso un DNI de mas de 8 caracteres";
                 validador = false;
+            }
+
 
             if (NumeroTelefono_Cl.Text.Length > 10)
+            {
+                lblErrorTelefono.Text = "Ingreso un telefono de mas de 10 caracteres";
                 validador = false;
+            }
+
 
             if (txtContraseña.Text.Length > 50)
+            {
+                lblErrorContraseña.Text = "Ingreso una contraseña de mas de 50 caracteres";
                 validador = false;
+            }
+
 
             return validador;
         }
+
+
     }
 }

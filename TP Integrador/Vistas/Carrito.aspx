@@ -40,7 +40,8 @@
             width: 371px;
         }
         .auto-style10 {
-            color: #00FF00;
+            color: #009933;
+            text-decoration: underline;
         }
         .auto-style11 {
             margin-left: 0px;
@@ -134,6 +135,43 @@
             font-weight: bold;
         }
         
+        .auto-style30 {
+            width: 62px;
+        }
+        .auto-style31 {
+            height: 45px;
+            width: 62px;
+        }
+        .auto-style33 {
+            height: 45px;
+            width: 343px;
+        }
+        .auto-style35 {
+            width: 33px;
+        }
+        .auto-style36 {
+            height: 45px;
+            width: 33px;
+        }
+        .auto-style38 {
+            width: 343px;
+        }
+        .auto-style39 {
+            text-decoration: underline;
+        }
+        .auto-style40 {
+            text-decoration: underline;
+            color: #336600;
+        }
+        .auto-style41 {
+            text-decoration: underline;
+            color: #3333CC;
+        }
+        .auto-style42 {
+            text-decoration: underline;
+            color: #CC0000;
+        }
+        
         </style>
 </head>
 <body class="centrado">
@@ -208,9 +246,9 @@
         <table class="auto-style1">
             <tr>
                 <td class="auto-style16"><span class="auto-style5">Mi carrito</span></td>
-                <td><span class="auto-style5">
-                    <asp:Button ID="btnIniciarCompra" runat="server" BorderStyle="Double" ForeColor="Red" Text="Iniciar proceso de compra" />
-                    </span></td>
+                <td>
+                    <asp:Button ID="btnIniciarCompra1" runat="server" BorderStyle="Double" CssClass="auto-style11" ForeColor="Red" Text="Iniciar proceso de compra" Height="27px" Width="170px" />
+                </td>
             </tr>
         </table>
         <br />
@@ -219,25 +257,33 @@
                 <table class="auto-style1">
                     <tr>
                         <td>&nbsp;</td>
-                        <td>Codigo:
-                            <asp:Label ID="lblCodigo" runat="server" Text='<%# Eval("Cod_Libro_Lb") %>'></asp:Label>
-                        </td>
-                        <td>Titulo:
-                            <asp:Label ID="lblTitulo" runat="server" Text='<%# Eval("NombreLibro_Lb") %>'></asp:Label>
-                        </td>
-                        <td>Editorial
-                            <asp:Label ID="lblEditorial" runat="server" Text='<%# Eval("Editorial_Lb") %>'></asp:Label>
-                        </td>
-                        <td>AR$
-                            <asp:Label ID="lblPrecio" runat="server" Text='<%# Eval("Precio_Lb") %>'></asp:Label>
-                        </td>
+                        <td class="auto-style38">&nbsp;</td>
+                        <td class="auto-style30">&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td class="auto-style35">&nbsp;</td>
                     </tr>
                     <tr>
                         <td class="auto-style29">
                             <asp:Image ID="Image2" runat="server" ImageUrl='<%# Eval("ImagenURL_Lb") %>' />
                         </td>
-                        <td class="auto-style29"></td>
-                        <td class="auto-style29">
+                        <td class="auto-style33">&nbsp;&nbsp; <span class="auto-style39">Datos del libro</span><br />
+                            <br />
+                            &nbsp; Codigo:
+                            <asp:Label ID="lblCodigo" runat="server" Text='<%# Eval("Cod_Libro_Lb") %>'></asp:Label>
+                            <br />
+                            <br />
+                            &nbsp; Titulo:
+                            <asp:Label ID="lblTitulo" runat="server" Text='<%# Eval("NombreLibro_Lb") %>'></asp:Label>
+                            <br />
+                            <br />
+                            &nbsp; Editorial:
+                            <asp:Label ID="lblEditorial" runat="server" Text='<%# Eval("Editorial_Lb") %>'></asp:Label>
+                            <br />
+                            <br />
+                            &nbsp; AR$:
+                            <asp:Label ID="lblPrecio" runat="server" Text='<%# Eval("Precio_Lb") %>'></asp:Label>
+                        </td>
+                        <td class="auto-style31">
                             <asp:DropDownList ID="ddlCantidad" runat="server" Height="16px" Width="62px">
                                 <asp:ListItem>1</asp:ListItem>
                                 <asp:ListItem>2</asp:ListItem>
@@ -253,8 +299,8 @@
                             <br />
                             <asp:LinkButton ID="lbEliminar" runat="server">Eliminar</asp:LinkButton>
                         </td>
-                        <td class="auto-style29"></td>
-                        <td class="auto-style29"></td>
+                        <td class="auto-style29">&nbsp;</td>
+                        <td class="auto-style36"></td>
                     </tr>
                 </table>
             </ItemTemplate>
@@ -271,7 +317,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style6">Efectivo-Tarjeta Visa o Master Card- Rapi Pago</td>
+                <td class="auto-style6"><span class="auto-style40">Efectivo</span> - <span class="auto-style41">Tarjeta Visa o Master Card</span> - <span class="auto-style42">Rapi Pago</span></td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
@@ -303,7 +349,7 @@
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td><span style="color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">JURAMENTO 2052 (D4499CNN CABA - CUIT Nº: 25-14909745-7</span></td>
+                <td>Av. Hipólito Yrigoyen 288, B1617 Gral. Pacheco, Provincia de Buenos Aires</td>
                 <td class="auto-style9">&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>

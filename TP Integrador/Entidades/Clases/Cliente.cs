@@ -97,15 +97,9 @@ namespace Entidades.Clases
 
 		public void setConsultaInsertUsuario()
 		{
-			consultas[2] = "INSERT INTO Clientes(Nombre_Cl, Apellido_Cl, Email_Cl, Contraseña_Cl, Activo_Cl)" +
-				"SELECT '" + nombre_Cliente + "', '" + apellido_Cliente + "', '" + Email_Cliente + "', '" + Contrasena_Cliente + 
-				"', 'true'";
-		}
-
-		public void AgregarCamposCarrito()
-        {
-			consultas[3] = "Update Clientes set DNI_Cl = '" + dni_Cliente + "', NumeroTelefono_Cl = '" + telefono_Cliente + "', FechaNacimiento_Cl = '" +
-				fecha_Cliente + "' where Cod_Cliente_Cl = '" + cod_Cliente + "'";
+			consultas[2] = "INSERT INTO Clientes(Nombre_Cl, Apellido_Cl, DNI_Cl, NumeroTelefono_Cl, FechaNacimiento_Cl, Email_Cl, Contraseña_Cl, Activo_Cl)" +
+				"SELECT '" + nombre_Cliente + "', '" + apellido_Cliente + "', '" + dni_Cliente + "', '" + telefono_Cliente + "', '" + fecha_Cliente + "', '" +
+				Email_Cliente + "', '" + Contrasena_Cliente + "', 'true'";
 		}
 
 		public void setMostrar_Where(string campo, string valor)

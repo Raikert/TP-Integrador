@@ -47,12 +47,8 @@ namespace vistas
 
                     foreach (DataRow fila in tabla_carro.Rows)
                     {
-                        if (fila["Cod_Libro_Lb"] == registro.Rows[0]["Cod_Libro_Lb"])
-                        {
+                        if (fila["Cod_Libro_Lb"].ToString() == registro.Rows[0]["Cod_Libro_Lb"].ToString())
                             repeticion = true;
-
-                            Label1.Text = "Repetido";
-                        }
                     }
 
                     if (!repeticion)
