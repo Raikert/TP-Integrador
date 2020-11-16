@@ -19,10 +19,10 @@ namespace ClaseBD
         }
 
 
-        ~BD()
-        {
-            cn.Close();
-        }
+        //~BD()
+        //{
+        //    cn.Close();
+        //}
 
         public void Cerrar()
         {

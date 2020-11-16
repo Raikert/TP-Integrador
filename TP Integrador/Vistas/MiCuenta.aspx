@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LibroSeleccionado.aspx.cs" Inherits="vistas.vista1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MiCuenta.aspx.cs" Inherits="Vistas.MiCuenta" %>
 
 <!DOCTYPE html>
 
@@ -32,9 +32,6 @@
         .auto-style3 {
             width: 634px;
         }
-        .auto-style6 {
-            width: 369px;
-        }
         .auto-style8 {
             font-family: Arial, Helvetica, sans-serif;
             font-size: 13px;
@@ -44,16 +41,7 @@
         .auto-style9 {
             width: 371px;
         }
-        .auto-style10 {
-            color: #00FF00;
-        }
-        .auto-style12 {
-            width: 689px;
-        }
-        .auto-style14 {
-            width: 1022px;
-        }
-                
+                                
 
         #form1{
            /* margin-left: 150px;        
@@ -87,7 +75,7 @@
          .hl2 td{
            justify-content: center;
            align-items: center;
-           border: 2px groove red;
+           border: 2px groove pink;
            background-color:gray;
           
          }
@@ -101,31 +89,33 @@
          
 
 
-        .auto-style22 {
-            width: 262px;
-        }
-        .auto-style23 {
-            margin-top: 0px;
-        }
-        .auto-style24 {
+        .auto-style29 {
             width: 291px;
         }
 
-        .auto-style4 {
+        .auto-style30 {
+            font-size: xx-large;
+            text-decoration: underline;
+        }
+
+        .auto-style31 {
+            width: 447px;
             font-size: large;
-            font-weight: bold;
+            text-decoration: underline;
         }
-        
-        .auto-style25 {
-            font-size: larger;
+        .auto-style32 {
+            width: 302px;
         }
-        .auto-style26 {
-            font-size: x-large;
-        }
-        .auto-style27 {
+        .auto-style33 {
+            width: 447px;
             font-size: large;
+            text-decoration: underline;
+            height: 24px;
         }
-        
+        .auto-style34 {
+            height: 24px;
+        }
+
     </style>
 </head>
 <body class="centrado">
@@ -147,7 +137,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style2">
-                        <asp:Image ID="Image2" runat="server" Height="84px" ImageUrl="~/Imagenes/Biblioteca Libra logo.png" Width="104px" />
+                        <asp:Image ID="Image1" runat="server" Height="84px" ImageUrl="~/Imagenes/Biblioteca Libra logo.png" Width="104px" />
                     </td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
@@ -157,24 +147,8 @@
         </div>
         <table style="background-color:white" class="auto-style1">
             <tr>
-                <td class="auto-style12">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtBuscar" runat="server" Font-Overline="False" TextMode="Search" Width="359px" placeholder="Titulo, Autor, Categoria"></asp:TextBox>
-            <asp:DropDownList ID="ddlFiltro" runat="server">
-                <asp:ListItem>Todos</asp:ListItem>
-                <asp:ListItem>Titulo</asp:ListItem>
-                <asp:ListItem>Autor</asp:ListItem>
-                <asp:ListItem>Categoria</asp:ListItem>
-            </asp:DropDownList>
-            <strong>
-                <asp:Button ID="btnBuscar" runat="server" BackColor="#4375C7" CssClass="auto-style4" Font-Bold="True" Font-Names="Trebuchet MS" ForeColor="White" Height="31px" Text="Buscar" Width="82px" />
-                    </strong> </td>
                 <td>
-            <strong>
-                <asp:Label ID="CantidadProductosCarrito" runat="server" ForeColor="#009933" Text="0"></asp:Label>
-                &nbsp;</strong><asp:Label ID="lblTexto" runat="server" CssClass="auto-style3" Text="producto  AR$"></asp:Label>
-            &nbsp;<strong><asp:Label ID="MontoCarrito" runat="server" ForeColor="#CC3300" Text="0,00"></asp:Label>
-            </strong>&nbsp;<asp:ImageButton ID="ImageButton1" runat="server" Height="54px" ImageUrl="~/Imagenes/carrito logo.jpg" Width="49px" PostBackUrl="~/Carrito.aspx" />
-                </td>
+                    &nbsp;</td>
             </tr>
         </table>
         <table class="auto-style1">
@@ -182,7 +156,7 @@
                 <td>
                     <table  class="auto-style1">
                         <tr class="hl2">
-                            <td class="auto-style24">
+                            <td class="auto-style29">
                                 <asp:HyperLink ID="hlLibros" runat="server" NavigateUrl="~/vistaLibros.aspx">Libros</asp:HyperLink>
                             </td>
                             <td>
@@ -197,28 +171,62 @@
             </tr>
         </table>
         <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <table class="auto-style1">
+            <tr>
+                <td class="auto-style32">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
+                <td class="auto-style30">Datos personales</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
         <br />
         <br />
         <table class="auto-style1">
             <tr>
-                <td class="auto-style22"><em><span class="auto-style25">Titulo: </span> <asp:Label ID="NombreLibro_Lb" runat="server" CssClass="auto-style27"></asp:Label>
-                    </em> </td>
-                <td><em>&nbsp;&nbsp;&nbsp; &nbsp; <span class="auto-style25">Categoria: </span>
-                    <asp:Label ID="Categoria_Lb" runat="server" CssClass="auto-style27"></asp:Label>
-                    <span class="auto-style25">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style25">Editorial:&nbsp;</span><asp:Label ID="Editorial_Lb" runat="server" CssClass="auto-style27"></asp:Label>
-                    </em> </td>
+                <td class="auto-style31"><strong>Nombre y Apellido:<br />
+                    </strong></td>
+                <td>
+                    <asp:Label ID="lblNombre_Apellido_Micuenta" runat="server"></asp:Label>
+                </td>
             </tr>
             <tr>
-                <td class="auto-style22">
-                    <asp:Image ID="ImagenURL_Lb" runat="server"/>
+                <td class="auto-style33"><strong>DNI:<br />
+                    </strong></td>
+                <td class="auto-style34">
+                    <asp:Label ID="lbldniMicuenta" runat="server"></asp:Label>
                 </td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style25">AR$ </span>
-                    <asp:Label ID="Precio_Lb" runat="server" CssClass="auto-style26"></asp:Label>
-                    <span class="auto-style25">&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnComprar" runat="server" CssClass="auto-style23" OnClick="btnComprar_Click" Text="Añadir al carro" Width="128px" />
+            </tr>
+            <tr>
+                <td class="auto-style31"><strong>Email/Correo:<br />
+                    </strong></td>
+                <td>
+                    <asp:Label ID="EmailcorreoMicuenta" runat="server"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style31"><strong>Fecha de nacimiento:<br />
+                    </strong></td>
+                <td>
+                    <asp:Label ID="FechadenacimientoMicuenta" runat="server"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style31"><strong>Contraseña:<br />
+                    </strong></td>
+                <td>
+                    <asp:Label ID="Contraseña" runat="server"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style31"><strong>Telefono:</strong></td>
+                <td>
+                    <asp:Label ID="Telefono" runat="server"></asp:Label>
+                    <br />
                 </td>
             </tr>
         </table>
+        <br />
+        <br />
         <br />
         <br />
         <br />
@@ -227,37 +235,9 @@
         <br />
         <br />
         <div style="background-color:gray" class="auto-style21">       </div>
-        <table class="auto-style1">
-            <tr>
-                <td class="auto-style6">MEDIOS DE PAGO</td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
-                <td><span class="auto-style10">Subtotal AR$</span>
-                    <asp:Label ID="lblTotal0" runat="server"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style6">Efectivo-Tarjeta Visa o Master Card- Rapi Pago</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-        </table>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <table class="auto-style1">
-            <tr>
-                <td class="auto-style14">&nbsp;</td>
-                <td>
-                    &nbsp;</td>
-            </tr>
-        </table>
-&nbsp;
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;<br />
         <br />
     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -284,4 +264,3 @@
         </table></footer>
 </body>
 </html>
-

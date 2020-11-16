@@ -156,7 +156,7 @@
                         <asp:HyperLink ID="hlContacto" runat="server" NavigateUrl="~/VistaContacto.aspx">Contacto</asp:HyperLink>
                     </td>
                     <td class="hl1">
-                        <asp:HyperLink ID="hlMiCuenta" runat="server">Mi Cuenta</asp:HyperLink>
+                        <asp:HyperLink ID="hlMiCuenta" runat="server" NavigateUrl="~/MiCuenta.aspx">Mi Cuenta</asp:HyperLink>
                     </td>
                 </tr>
                 <tr>

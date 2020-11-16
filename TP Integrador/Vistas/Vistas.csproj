@@ -90,6 +90,7 @@
     <Content Include="Imagenes\twitter.png" />
     <Content Include="Imagenes\youtube.png" />
     <Content Include="InicioSesion1.aspx" />
+    <Content Include="MiCuenta.aspx" />
     <Content Include="PanelDelAdministrador.aspx" />
     <Content Include="ProcesoCompraCarro.aspx" />
     <Content Include="RegistroUsuario1.aspx" />
@@ -115,6 +116,13 @@
     </Compile>
     <Compile Include="InicioSesion1.aspx.designer.cs">
       <DependentUpon>InicioSesion1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MiCuenta.aspx.cs">
+      <DependentUpon>MiCuenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MiCuenta.aspx.designer.cs">
+      <DependentUpon>MiCuenta.aspx</DependentUpon>
     </Compile>
     <Compile Include="PanelDelAdministrador.aspx.cs">
       <DependentUpon>PanelDelAdministrador.aspx</DependentUpon>

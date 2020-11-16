@@ -117,6 +117,11 @@
             width: 291px;
         }
         
+        .auto-style4 {
+            font-size: large;
+            font-weight: bold;
+        }
+        
     </style>
 </head>
 <body class="centrado">
@@ -149,13 +154,16 @@
         <table style="background-color:white" class="auto-style1">
             <tr>
                 <td class="auto-style12">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtBuscar" runat="server" Width="400px" CssClass="auto-style11"></asp:TextBox>
-&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:DropDownList ID="ddlBuscar" runat="server" Height="16px" Width="101px">
-                    </asp:DropDownList>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnBuscar" runat="server" BackColor="#3399FF" CssClass="auto-style11" ForeColor="White" Height="23px" Text="Buscar" Width="75px" />
-&nbsp; </td>
+                    <asp:TextBox ID="txtBuscar" runat="server" Font-Overline="False" TextMode="Search" Width="359px" placeholder="Titulo, Autor, Categoria"></asp:TextBox>
+            <asp:DropDownList ID="ddlFiltro" runat="server">
+                <asp:ListItem>Todos</asp:ListItem>
+                <asp:ListItem>Titulo</asp:ListItem>
+                <asp:ListItem>Autor</asp:ListItem>
+                <asp:ListItem>Categoria</asp:ListItem>
+            </asp:DropDownList>
+            <strong>
+                <asp:Button ID="btnBuscar" runat="server" BackColor="#4375C7" CssClass="auto-style4" Font-Bold="True" Font-Names="Trebuchet MS" ForeColor="White" Height="31px" Text="Buscar" Width="82px" />
+                    </strong> </td>
                 <td>
                     <asp:Label ID="lblNumeroCarro" runat="server"></asp:Label>
 &nbsp;productos <span class="auto-style10">AR$ </span>
@@ -275,7 +283,7 @@
                 <br />
                 <em>Precio: </em>&nbsp;AR$<asp:Label ID="Precio_LbLabel" runat="server" Text='<%# Eval("Precio_Lb") %>' />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />
-                <asp:Image ID="Image1" runat="server" Height="120px" ImageUrl='<%# Eval("ImagenURL_Lb") %>' Width="163px" />
+                <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("ImagenURL_Lb") %>' />
                 &nbsp;<br />
                 <br />
                 <span class="auto-style26">-----------------------------------------------</span><br /></span>
