@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace Entidades.Clases
 {
@@ -84,6 +85,19 @@ namespace Entidades.Clases
 		{
 			get { return estado_Cliente; }
 			set { estado_Cliente = value; }
+		}
+
+		public void cargar(DataRow registro)
+        {
+			cod_Cliente = registro["CODIGO"].ToString();
+			nombre_Cliente = registro["NOMBRE"].ToString();
+			apellido_Cliente = registro["APELLIDO"].ToString();
+			dni_Cliente = registro["DNI"].ToString();
+			telefono_Cliente = registro["TELEFONO"].ToString();
+			fecha_Cliente = registro["FEC_NAC"].ToString();
+			Email_Cliente = registro["EMAIL"].ToString();
+			Contrasena_Cliente = registro["CONTRASEÑA"].ToString();
+			estado_Cliente = registro["ACTIVO"].ToString();
 		}
 
 		public void Consultas()

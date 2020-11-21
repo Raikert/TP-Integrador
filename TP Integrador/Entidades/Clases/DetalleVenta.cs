@@ -81,11 +81,11 @@ namespace Entidades.Clases
                 "PrecioUnitario_Dv AS PRECIO,CantidadDeLibros_Dv AS CANTIDAD,Activo_Dv AS ACTIVO FROM DETALLEVENTAS";
         }
 
-      /*  public void setAgregarVenta()
+        public void setAgregarDetalleVenta()
         {
-            consultas[2] = "INSERT INTO VENTAS(Cod_Cliente_V, PrecioTotal_V, FormaDePago_V,Fecha_V)" +
-                "SELECT '" + cod_Cliente_Venta + "', '" + prec_Venta + "', '" + formaDP_Venta + "', '" + fecha_Venta + "'";
-        }*/
+            consultas[2] = "INSERT INTO DETALLEVENTAS(Cod_Venta_Dv, Cod_Libro_Dv, Cod_Proveedor_Dv, PrecioUnitario_Dv, CantidadDeLibros_Dv, Activo_Dv)" +
+                "SELECT " + cod_Venta_DV + ", '" + cod_Libro_DV + "', '" + cod_Prov_DV + "', " + prec_DV + ", " + cant_DV + ", 'true'";
+        }
 
 
         public void setMostrar_Where(string campo, string valor)

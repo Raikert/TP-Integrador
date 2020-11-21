@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="Vistas.Home" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="Vistas.Home"  EnableEventValidation="false"%>
 
 <!DOCTYPE html>
 
@@ -21,13 +21,6 @@
             float: right;
             text-align: left;
         }
-        .auto-style8 {
-            text-decoration: underline;
-            font-size: x-large;
-        }
-        .auto-style10 {
-            color: #3366FF;
-        }
         .auto-style13 {
             color: #800000;
             font-size: large;
@@ -36,12 +29,7 @@
         .auto-style1 {
             width: 100%;
         }
-        .auto-style27 {
-            border: 2px groove black;
-            background-color: gray;
-            text-align: center;
-        }
-
+        
         .hl2 td{
            justify-content: center;
            align-items: center;
@@ -52,7 +40,6 @@
 
         .auto-style28 {
             width: 15%;
-            height: 1200px;
             float: left;
         }
         .auto-style11 {
@@ -75,7 +62,7 @@
         
         .auto-style32 {
             float: left;
-            width: 25%;
+            width: 27%;
         }
 
         .auto-style33 {
@@ -98,18 +85,63 @@
             margin-left: 0px;
         }
 
+        .auto-style38 {
+            font-size: x-large;
+            color: #3366FF;
+            border-bottom-style: groove;
+            border-bottom-color:crimson;
+        }
+        .auto-style39 {
+            float: left;
+        }
+
+        .auto-style40 {
+            font-size: medium;
+            color: #000000;
+        }
+        .auto-style42 {
+            font-size: large;
+            color: #000000;
+        }
+        .auto-style43 {
+            width: 70%;
+            float: left;
+        }
+
+        .auto-style44 {
+            color: #CCCCCC;
+            background-color: #000000;
+        }
+        .auto-style45 {
+            color: #C0C0C0;
+        }
+        .auto-style46 {
+            color: #FFCC00;
+            background-color: #000000;
+        }
+
+        .auto-style47 {
+            color: #C0C0C0;
+            font-size: x-large;
+        }
+
+        .auto-style48 {
+            font-size: large;
+            color: #FF9900;
+            text-decoration: none;
+            background-color: #000000;
+        }
+
         </style>
 </head>
 <body style="background-color:darkgray">
     <form id="form1" runat="server">
         <div style="background-color: darkgray; " class="auto-style28">
-            <asp:SqlDataSource ID="ConexionParaDataListYListView" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Cod_Libro_Lb], [ImagenURL_Lb] FROM [Libros]"></asp:SqlDataSource>
-            <br />
             <asp:SqlDataSource ID="dsCategorias" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Nombre_Ca] FROM [Categorias]"></asp:SqlDataSource>
             <br />
             <asp:SqlDataSource ID="dsEditoriales" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Nombre_E] FROM [Editoriales]"></asp:SqlDataSource>
             </div>
-        <div style="background-color:white;width: 70%; float: left; height:1000px">
+        <div style="background-color:white;" class="auto-style43">
             <div style="float:left;width:25%"> 
             <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/Biblioteca Libra logo.png" Height="100px" />
             </div>
@@ -137,6 +169,21 @@
                 <br />
                 <br />
             </div>
+            &nbsp;<br />
+            <br />
+                    <table  class="auto-style1">
+                        <tr class="hl2">
+                            <td class="auto-style29" style="justify-content: center; align-items: center;">
+                                <asp:HyperLink ID="hlLibros" runat="server" NavigateUrl="~/vistaLibros.aspx" Font-Names="Constantia">Libros</asp:HyperLink>
+                            </td>
+                            <td class="auto-style29">
+                                <asp:HyperLink ID="hlCategorias" runat="server" NavigateUrl="~/VistaCategorias.aspx" Font-Names="Constantia">Categorias</asp:HyperLink>
+                            </td>
+                            <td class="auto-style29">
+                                <asp:HyperLink ID="hlEditoriales" runat="server" NavigateUrl="~/VistaEditoriales.aspx" Font-Names="Constantia">Editoriales</asp:HyperLink>
+                            </td>
+                        </tr>
+                    </table>
             <br />
             <table class="auto-style1">
                 <tr>
@@ -149,7 +196,7 @@
                 <asp:ListItem>Categoria</asp:ListItem>
             </asp:DropDownList>
             <strong>
-                <asp:Button ID="btnBuscar" runat="server" BackColor="#4375C7" CssClass="auto-style4" Font-Bold="True" Font-Names="Trebuchet MS" ForeColor="White" Height="31px" Text="Buscar" Width="82px" />
+                <asp:Button ID="btnBuscar" runat="server" BackColor="#4375C7" CssClass="auto-style4" Font-Bold="True" Font-Names="Trebuchet MS" ForeColor="White" Height="31px" Text="Buscar" Width="82px" OnClick="btnBuscar_Click" />
                         </strong></td>
                     <td class="auto-style34"><strong>
                 <asp:Label ID="CantidadProductosCarrito" runat="server" ForeColor="#009933" Text="0"></asp:Label>
@@ -159,150 +206,162 @@
                     </td>
                 </tr>
             </table>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <strong>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </strong>
             <br />
-                    <table  class="auto-style1">
-                        <tr class="hl2">
-                            <td class="auto-style27" style="justify-content: center; align-items: center;">
-                                <asp:HyperLink ID="hlLibros" runat="server" NavigateUrl="~/vistaLibros.aspx" Font-Names="Constantia">Libros</asp:HyperLink>
-                            </td>
-                            <td class="auto-style29">
-                                <asp:HyperLink ID="hlCategorias" runat="server" NavigateUrl="~/VistaCategorias.aspx" Font-Names="Constantia">Categorias</asp:HyperLink>
-                            </td>
-                            <td class="auto-style29">
-                                <asp:HyperLink ID="hlEditoriales" runat="server" NavigateUrl="~/VistaEditoriales.aspx" Font-Names="Constantia">Editoriales</asp:HyperLink>
-                            </td>
-                        </tr>
-                    </table>
             <br />
             <div class="auto-style32"> 
                         <div style="border:groove; border-color:cornflowerblue; width:250px;" class="auto-style11">
                             <div class="auto-style29">
                                 <em>
                             <br />
-                            Filtrar por...<br />
-                            <br />
+                                <span class="auto-style46">&nbsp;<asp:Label ID="Label2" runat="server" Font-Names="Arial" Text="Explore por..."></asp:Label>
+&nbsp;</span><br />
+                                <br />
                             </em>
-                            </div>
-                            <div class="auto-style12"> <strong><em>Categoria</em></strong></div>
-                            <div>
-                            <asp:DataList ID="dlCategorias" runat="server" Height="217px" DataKeyField="Nombre_Ca" DataSourceID="dsCategorias" CssClass="auto-style37" Width="247px">
-                                <ItemTemplate>
-                                    <asp:LinkButton ID="LinkButton1" runat="server" CssClass="auto-style14" Text='<%# Eval("Nombre_Ca") %>' Font-Names="Arial" ForeColor="#CC0000"></asp:LinkButton>
-<br />
-                                </ItemTemplate>
-                            </asp:DataList>
+                                <asp:LinkButton ID="lbTopVentas" runat="server" CssClass="auto-style42" Font-Names="Bahnschrift Light" OnClick="lbTopVentas_Click">Top ventas</asp:LinkButton>
+                                <span class="auto-style40">
                                 <br />
-                            </div>
-                            <div class="auto-style12"> <strong><em>Editorial</em></strong></div>
-                            <div class="auto-style29">
-                            <asp:DataList ID="dlEditoriales" runat="server" DataKeyField="Nombre_E" DataSourceID="dsEditoriales" CssClass="auto-style37" Width="246px">
-                                <ItemTemplate>
-                                    <asp:LinkButton ID="LinkButton2" runat="server" CssClass="auto-style3" Text='<%# Eval("Nombre_E") %>' Font-Bold="False" Font-Italic="True" Font-Names="Calibri" ForeColor="#3333FF"></asp:LinkButton>
-<br />
-                                </ItemTemplate>
-                            </asp:DataList>
                                 <br />
-                            </div>
-                            <div class="auto-style12"> <strong><em>Precio</em></strong></div>
-                            <div style="background-color:goldenrod"> 
-                                <asp:TextBox style="text-align: center" ID="txtMinimo" runat="server" Height="25px" Width="75px" placeholder="Minimo"></asp:TextBox>
+                                <asp:LinkButton ID="lbMejoresOfertas" runat="server" CssClass="auto-style42" Font-Names="Bahnschrift Light">Mejores ofertas</asp:LinkButton>
+                                <br />
+                                <br />
+                                <asp:LinkButton ID="lbUltimosDeLaSemana" runat="server" CssClass="auto-style42" Font-Names="Bahnschrift Light">Los ultimos de la semana</asp:LinkButton>
+                                <br />
+                                <br />
+                                <asp:LinkButton ID="lbMasVotados" runat="server" CssClass="auto-style42" Font-Names="Bahnschrift Light">Los mas votados del año</asp:LinkButton>
+                                <br />
+                                &nbsp;<br />
+                                </span>
+                                <div class="auto-style12"> <strong><em><span class="auto-style44">
+                                <asp:Label ID="Label5" runat="server" BackColor="Black" BorderStyle="Outset" CssClass="auto-style47" Font-Bold="True" Font-Italic="False" Font-Names="Ink Free" Text="Precio" Width="85px"></asp:Label>
+                                </span></em></strong></div>
+                                <br />
+                                <asp:TextBox style="text-align: center" ID="txtPrecioMinimo" runat="server" Height="25px" Width="75px" placeholder="Minimo" BorderStyle="Double"></asp:TextBox>
                                 &nbsp;&nbsp;&nbsp;
-                                <asp:TextBox style="text-align: center" ID="txtMaximo" runat="server" Height="25px" Width="75px" placeholder="Máximo"></asp:TextBox>
+                                <asp:TextBox style="text-align: center" ID="txtPrecioMaximo" runat="server" Height="25px" Width="75px" placeholder="Máximo" BorderStyle="Double"></asp:TextBox>
+                                    <br />
+                <asp:Label ID="lblErrorPrecios" runat="server" CssClass="auto-style3" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red"></asp:Label>
+                                <br />
+                                    <br />
+                                <asp:LinkButton ID="lbBuscaPrecio" runat="server" BorderStyle="Solid" CssClass="auto-style48" Font-Bold="True" Font-Italic="True" Font-Names="Microsoft JhengHei Light" Font-Overline="False" ForeColor="#33CC33" Width="104px" OnClick="lbBuscaPrecio_Click" ValidationGroup="0">Filtrar por precio</asp:LinkButton>
+                                <br />
+                                <br />
+                            </div>
+                            <div class="auto-style12"> <strong><em><span class="auto-style44">
+                                <asp:Label ID="Label1" runat="server" BackColor="Black" BorderStyle="Outset" CssClass="auto-style45" Font-Bold="True" Font-Italic="False" Font-Names="Ink Free" Text="Categorias" Width="125px"></asp:Label>
+                                </span></em></strong></div>
+                            <div>
+                            <asp:DataList ID="dlCategorias" runat="server" Height="217px" DataKeyField="Nombre_Ca" DataSourceID="dsCategorias" CssClass="auto-style37" Width="247px" OnItemCommand="dlCategorias_ItemCommand">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="LinkButton1" runat="server" CssClass="auto-style14" Text='<%# Eval("Nombre_Ca") %>' Font-Names="Yu Gothic Medium" ForeColor="#CC0000" CommandName="FiltroCategoria"></asp:LinkButton>
+<br />
+                                </ItemTemplate>
+                            </asp:DataList>
+                                <br />
+                            </div>
+                            <div class="auto-style12"> <strong><em><span class="auto-style44">
+                                <asp:Label ID="Label3" runat="server" BackColor="Black" BorderStyle="Outset" CssClass="auto-style45" Font-Bold="True" Font-Italic="False" Font-Names="Ink Free" Text="Editoriales" Width="125px"></asp:Label>
+                                </span></em></strong></div>
+                            <div class="auto-style29">
+                            <asp:DataList ID="dlEditoriales" runat="server" DataKeyField="Nombre_E" DataSourceID="dsEditoriales" CssClass="auto-style37" Width="246px" OnItemCommand="dlEditoriales_ItemCommand">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="LinkButton2" runat="server" CssClass="auto-style3" Text='<%# Eval("Nombre_E") %>' Font-Bold="False" Font-Italic="True" Font-Names="Calibri" ForeColor="#3333FF" CommandName="FiltroEditorial" CommandArgument='<%# Eval("Nombre_E") %>'></asp:LinkButton>
+<br />
+                                </ItemTemplate>
+                            </asp:DataList>
+                                <br />
                             </div>
                         </div>
             </div>
-            <div style="float:left;width:75%"> 
-                        <span class="auto-style8">
-                        <span class="auto-style10">&nbsp;Mas Vendidos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; </span></span>
-                        <br />
-            <asp:ListView ID="lvLibrosMasVendidos" runat="server" DataSourceID="ConexionParaDataListYListView" GroupItemCount="5" DataKeyNames="Cod_Libro_Lb">
-                <EditItemTemplate>
-                    <td runat="server" style="">Cod_Libro_Lb:
-                        <asp:Label ID="Cod_Libro_LbLabel1" runat="server" Text='<%# Eval("Cod_Libro_Lb") %>' />
-                        <br />
+            <div class="auto-style39"> 
+                <div class="auto-style38">
+                    <asp:Label style="float:left;text-align: center;" ID="MensajeListado" runat="server" Text="Mas vendidos" BackColor="#FF99CC" BorderColor="#FF99CC" Font-Overline="False" ForeColor="Black" Height="27px" BorderStyle="Ridge" BorderWidth="2px"></asp:Label>
+        </div>
+                <asp:ListView ID="lvLibrosMasVendidos" runat="server" GroupItemCount="4" DataKeyNames="Cod_Libro_Lb">
+                    <EditItemTemplate>
+                        <td runat="server" style="">Cod_Libro_Lb:
+                                    <asp:Label ID="Cod_Libro_LbLabel1" runat="server" Text='<%# Eval("Cod_Libro_Lb") %>' />
+                            <br />
                         ImagenURL_Lb:
-                        <asp:TextBox ID="ImagenURL_LbTextBox" runat="server" Text='<%# Bind("ImagenURL_Lb") %>' />
-                        <br />
-                        <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar" />
-                        <br />
-                        <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar" />
-                        <br />
-                    </td>
-                </EditItemTemplate>
-                <EmptyDataTemplate>
-                    <table runat="server" style="">
-                        <tr>
-                            <td>No se han devuelto datos.</td>
+                                    <asp:TextBox ID="ImagenURL_LbTextBox" runat="server" Text='<%# Bind("ImagenURL_Lb") %>' />
+                            <br />
+                            <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar" />
+                            <br />
+                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar" />
+                            <br />
+                        </td>
+                    </EditItemTemplate>
+                    <EmptyDataTemplate>
+                        <table runat="server" style="">
+                            <tr>
+                                <td>No se han devuelto datos.</td>
+                            </tr>
+                        </table>
+                    </EmptyDataTemplate>
+                    <EmptyItemTemplate>
+                        <td runat="server" />
+                    </EmptyItemTemplate>
+                    <GroupTemplate>
+                        <tr id="itemPlaceholderContainer" runat="server">
+                            <td id="itemPlaceholder" runat="server"></td>
                         </tr>
-                    </table>
-                </EmptyDataTemplate>
-                <EmptyItemTemplate>
-<td runat="server" />
-                </EmptyItemTemplate>
-                <GroupTemplate>
-                    <tr id="itemPlaceholderContainer" runat="server">
-                        <td id="itemPlaceholder" runat="server"></td>
-                    </tr>
-                </GroupTemplate>
-                <InsertItemTemplate>
-                    <td runat="server" style="">Cod_Libro_Lb:
-                        <asp:TextBox ID="Cod_Libro_LbTextBox" runat="server" Text='<%# Bind("Cod_Libro_Lb") %>' />
-                        <br />
+                    </GroupTemplate>
+                    <InsertItemTemplate>
+                        <td runat="server" style="">Cod_Libro_Lb:
+                                    <asp:TextBox ID="Cod_Libro_LbTextBox" runat="server" Text='<%# Bind("Cod_Libro_Lb") %>' />
+                            <br />
                         ImagenURL_Lb:
-                        <asp:TextBox ID="ImagenURL_LbTextBox" runat="server" Text='<%# Bind("ImagenURL_Lb") %>' />
-                        <br />
-                        <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
-                        <br />
-                        <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Borrar" />
-                        <br />
-                    </td>
-                </InsertItemTemplate>
-                <ItemTemplate>
-                    <td runat="server" style="">
-                        <asp:ImageButton ID="ImagenLibro" runat="server" CommandArgument='<%# Eval("Cod_Libro_Lb") %>' CommandName="SeleccionarLibro" Height="223px" ImageUrl='<%# Eval("ImagenURL_Lb") %>' OnCommand="ImagenLibro_Command" Width="143px" />
-                        <br /></td>
-                </ItemTemplate>
-                <LayoutTemplate>
-                    <table runat="server">
-                        <tr runat="server">
-                            <td runat="server">
-                                <table id="groupPlaceholderContainer" runat="server" border="0" style="">
-                                    <tr id="groupPlaceholder" runat="server">
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr runat="server">
-                            <td runat="server" style="" class="auto-style29">
-                                <asp:DataPager ID="DataPager2" runat="server" PageSize="15">
-                                    <Fields>
-                                        <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                                        <asp:NumericPagerField />
-                                        <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                                    </Fields>
-                                </asp:DataPager>
-                            </td>
-                        </tr>
-                    </table>
-                </LayoutTemplate>
-                <SelectedItemTemplate>
-                    <td runat="server" style="">Cod_Libro_Lb:
-                        <asp:Label ID="Cod_Libro_LbLabel" runat="server" Text='<%# Eval("Cod_Libro_Lb") %>' />
-                        <br />ImagenURL_Lb:
-                        <asp:Label ID="ImagenURL_LbLabel" runat="server" Text='<%# Eval("ImagenURL_Lb") %>' />
-                        <br />
-                    </td>
-                </SelectedItemTemplate>
-            </asp:ListView>
+                                    <asp:TextBox ID="ImagenURL_LbTextBox" runat="server" Text='<%# Bind("ImagenURL_Lb") %>' />
+                            <br />
+                            <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
+                            <br />
+                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Borrar" />
+                            <br />
+                        </td>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <td runat="server" style="">
+                            <asp:ImageButton ID="ImagenLibro" runat="server" CommandArgument='<%# Eval("Cod_Libro_Lb") %>' CommandName="SeleccionarLibro" Height="223px" ImageUrl='<%# Eval("ImagenURL_Lb") %>' OnCommand="ImagenLibro_Command" Width="143px" BorderColor="#FFFF99" BorderStyle="Groove" />
+                            <br />
+                        </td>
+                    </ItemTemplate>
+                    <LayoutTemplate>
+                        <table runat="server">
+                            <tr runat="server">
+                                <td runat="server">
+                                    <table id="groupPlaceholderContainer" runat="server" border="0" style="">
+                                        <tr id="groupPlaceholder" runat="server">
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr runat="server">
+                                <td runat="server" style="" class="auto-style29">
+                                    <asp:DataPager ID="DataPager2" runat="server" PageSize="15">
+                                        <Fields>
+                                            <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
+                                            <asp:NumericPagerField />
+                                            <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
+                                        </Fields>
+                                    </asp:DataPager>
+                                </td>
+                            </tr>
+                        </table>
+                    </LayoutTemplate>
+                    <SelectedItemTemplate>
+                        <td runat="server" style="">Cod_Libro_Lb:
+                                    <asp:Label ID="Cod_Libro_LbLabel" runat="server" Text='<%# Eval("Cod_Libro_Lb") %>' />
+                            <br />
+                                    ImagenURL_Lb:
+                                    <asp:Label ID="ImagenURL_LbLabel" runat="server" Text='<%# Eval("ImagenURL_Lb") %>' />
+                            <br />
+                        </td>
+                    </SelectedItemTemplate>
+                </asp:ListView>
             </div>
             <br />
             <br />
         </div>
-        <div style="background-color: darkgray; width: 15%; height: 1200px; float: left">
+        <div style="background-color: darkgray; " class="auto-style28">
             
             <br />
             <br />

@@ -110,6 +110,13 @@ namespace Entidades.Clases
 				"Activo_Lb AS ACTIVO FROM Libros WHERE " + campo + " = " + valor;
 		}
 
+		public void setMostrar_Where(string formato_where)
+		{
+			consultas[1] = "SELECT id_libro_lb AS ID, Cod_Libro_Lb AS CODIGO, NombreLibro_Lb AS NOMBRE, " +
+				"Descripcion_lb AS DESCRIPCION, Categoria_Lb AS CATEGORIA, Editorial_Lb AS EDITORIAL, Precio_Lb AS PRECIO, " +
+				"Activo_Lb AS ACTIVO FROM Libros WHERE " + formato_where;
+		}
+
 		public void setMostrar_Where(int campo)
         {
 			string campo_string = "";

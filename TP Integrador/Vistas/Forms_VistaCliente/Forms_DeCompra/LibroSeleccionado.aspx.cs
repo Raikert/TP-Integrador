@@ -13,17 +13,17 @@ namespace vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Libro"] != null)
+            if (Session["Libro_Tabla"] != null)
             {
-                Libro lib = new Libro();
+                DataTable tabla = (DataTable)Session["Libro_Tabla"];
 
-                lib = (Libro)Session["Libro"];
+                DataRow registro = tabla.Rows[0];
 
-                NombreLibro_Lb.Text = lib.nombreLibro;
-                Categoria_Lb.Text = lib.catLibro;
-                Editorial_Lb.Text = lib.editLibro;
-                ImagenURL_Lb.ImageUrl = lib.ImagenURL;
-                Precio_Lb.Text = lib.precioLibro;
+                NombreLibro_Lb.Text = registro["NombreLibro_Lb"].ToString();
+                Categoria_Lb.Text = registro["Categoria_Lb"].ToString();
+                Editorial_Lb.Text = registro["Editorial_Lb"].ToString();
+                ImagenURL_Lb.ImageUrl = registro["ImagenURL_Lb"].ToString();
+                Precio_Lb.Text = registro["Precio_Lb"].ToString();
             }
         }
 
@@ -53,6 +53,11 @@ namespace vistas
 
                     if (!repeticion)
                     {
+                        int cantidad_libros = tabla_carro.Rows.Count;
+
+                        int id_carrito = Convert.ToInt32(tabla_carro.Rows[cantidad_libros-1]["id_carrito"]);
+
+                        fila_nueva["id_carrito"] = Convert.ToString(id_carrito + 1);
                         fila_nueva["ImagenURL_Lb"] = registro.Rows[0]["ImagenURL_Lb"];
                         fila_nueva["Cod_Libro_Lb"] = registro.Rows[0]["Cod_Libro_Lb"];
                         fila_nueva["NombreLibro_Lb"] = registro.Rows[0]["NombreLibro_Lb"];

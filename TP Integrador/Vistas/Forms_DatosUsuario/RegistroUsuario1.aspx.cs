@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Negocio;
 using System.Data;
 using Vistas.Clases;
+using Entidades.Clases;
 
 namespace Vistas
 {
@@ -14,9 +15,13 @@ namespace Vistas
     {
         private Utilidades util;
 
+        private Cliente cli;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             util = new Utilidades();
+
+            cli = new Cliente();
         }
 
         protected void btnContinuar_Click(object sender, EventArgs e)
@@ -27,7 +32,8 @@ namespace Vistas
 
             if (!util.buscarIgualdad(txtEmail.Text,campo,tabla))
             {
-                Session["Email"] = txtEmail.Text;
+                cli.EmailCliente = txtEmail.Text;
+                Session["Usuario"] = cli;
                 Response.Redirect("RegistroUsuario2.aspx");
             }
             else

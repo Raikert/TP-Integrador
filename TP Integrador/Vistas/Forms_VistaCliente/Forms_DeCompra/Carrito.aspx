@@ -1,13 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LibroSeleccionado.aspx.cs" Inherits="vistas.vista1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Carrito.aspx.cs" Inherits="vistas.vista2_carrito_" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
-   <%-- <meta name="viewport" content="width=1, initial-scale=1.0">--%>
-
+    <meta name="viewport" content="width=1, initial-scale=1.0"/>
     <title></title>
     <style type="text/css">
 
@@ -27,25 +25,26 @@
         }
         .auto-style2 {
             font-size: xx-large;
-            width: 634px;
+            width: 585px;
         }
         .auto-style3 {
-            width: 634px;
+            width: 585px;
+        }
+        .auto-style5 {
+            font-size: x-large;
         }
         .auto-style6 {
             width: 369px;
-        }
-        .auto-style8 {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 13px;
-            color: rgb(230, 39, 65);
-            letter-spacing: normal;
         }
         .auto-style9 {
             width: 371px;
         }
         .auto-style10 {
-            color: #00FF00;
+            color: #009933;
+            text-decoration: underline;
+        }
+        .auto-style11 {
+            margin-left: 0px;
         }
         .auto-style12 {
             width: 689px;
@@ -53,7 +52,10 @@
         .auto-style14 {
             width: 1022px;
         }
-                
+        .auto-style16 {
+            width: 812px;
+        }
+        
 
         #form1{
            /* margin-left: 150px;        
@@ -87,7 +89,7 @@
          .hl2 td{
            justify-content: center;
            align-items: center;
-           border: 2px groove red;
+           border: 2px groove black;
            background-color:gray;
           
          }
@@ -101,14 +103,31 @@
          
 
 
-        .auto-style22 {
-            width: 262px;
-        }
-        .auto-style23 {
-            margin-top: 0px;
-        }
         .auto-style24 {
+            justify-content: center;
+            align-items: center;
+            border: 2px groove gray;
+            width: 120px;
+        }
+        .auto-style25 {
+            width: 120px;
+        }
+
+        .auto-style26 {
             width: 291px;
+        }
+        .auto-style27 {
+            justify-content: center;
+            align-items: center;
+            border: 2px groove gray;
+            width: 92px;
+        }
+        .auto-style28 {
+            width: 92px;
+        }
+
+        .auto-style29 {
+            height: 45px;
         }
 
         .auto-style4 {
@@ -116,17 +135,48 @@
             font-weight: bold;
         }
         
-        .auto-style25 {
-            font-size: larger;
+        .auto-style30 {
+            width: 62px;
         }
-        .auto-style26 {
-            font-size: x-large;
+        .auto-style31 {
+            height: 45px;
+            width: 62px;
         }
-        .auto-style27 {
-            font-size: large;
+        .auto-style33 {
+            height: 45px;
+            width: 343px;
+        }
+        .auto-style35 {
+            width: 33px;
+        }
+        .auto-style36 {
+            height: 45px;
+            width: 33px;
+        }
+        .auto-style38 {
+            width: 343px;
+        }
+        .auto-style39 {
+            text-decoration: underline;
+        }
+        .auto-style40 {
+            text-decoration: underline;
+            color: #336600;
+        }
+        .auto-style41 {
+            text-decoration: underline;
+            color: #3333CC;
+        }
+        .auto-style42 {
+            text-decoration: underline;
+            color: #CC0000;
         }
         
-    </style>
+        .auto-style43 {
+            text-align: center;
+        }
+        
+        </style>
 </head>
 <body class="centrado">
    
@@ -135,22 +185,23 @@
             <table class="auto-style1">
                 <tr id="hl1">
                     <td class="auto-style3">&nbsp;</td>
-                    <td class="hl1">
+                    <td class="auto-style27">
                         <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/Home.aspx">HOME</asp:HyperLink>
                     </td>
-                    <td class="hl1">
+                    <td class="auto-style24">
                         <asp:HyperLink ID="hlContacto" runat="server" NavigateUrl="~/VistaContacto.aspx">Contacto</asp:HyperLink>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </td>
                     <td class="hl1">
-                        <asp:HyperLink ID="hlMiCuenta" runat="server" NavigateUrl="~/MiCuenta.aspx">Mi Cuenta</asp:HyperLink>
+                        <asp:HyperLink ID="hlMiCuenta" runat="server">Mi Cuenta</asp:HyperLink>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style2">
-                        <asp:Image ID="Image2" runat="server" Height="84px" ImageUrl="~/Imagenes/Biblioteca Libra logo.png" Width="104px" />
+                        <asp:Image ID="Image1" runat="server" Height="84px" ImageUrl="~/Imagenes/Biblioteca Libra logo.png" Width="104px" />
                     </td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style28">&nbsp;</td>
+                    <td class="auto-style25">&nbsp;</td>
                     <td class="auto-style20">&nbsp;</td>
                 </tr>
             </table>
@@ -173,7 +224,7 @@
                 <asp:Label ID="CantidadProductosCarrito" runat="server" ForeColor="#009933" Text="0"></asp:Label>
                 &nbsp;</strong><asp:Label ID="lblTexto" runat="server" CssClass="auto-style3" Text="producto  AR$"></asp:Label>
             &nbsp;<strong><asp:Label ID="MontoCarrito" runat="server" ForeColor="#CC3300" Text="0,00"></asp:Label>
-            </strong>&nbsp;<asp:ImageButton ID="ImageButton1" runat="server" Height="54px" ImageUrl="~/Imagenes/carrito logo.jpg" Width="49px" PostBackUrl="~/Carrito.aspx" />
+            </strong>
                 </td>
             </tr>
         </table>
@@ -182,7 +233,7 @@
                 <td>
                     <table  class="auto-style1">
                         <tr class="hl2">
-                            <td class="auto-style24">
+                            <td class="auto-style26">
                                 <asp:HyperLink ID="hlLibros" runat="server" NavigateUrl="~/vistaLibros.aspx">Libros</asp:HyperLink>
                             </td>
                             <td>
@@ -196,34 +247,70 @@
                 </td>
             </tr>
         </table>
-        <br />
-        <br />
-        <br />
         <table class="auto-style1">
             <tr>
-                <td class="auto-style22"><em><span class="auto-style25">Titulo: </span> <asp:Label ID="NombreLibro_Lb" runat="server" CssClass="auto-style27"></asp:Label>
-                    </em> </td>
-                <td><em>&nbsp;&nbsp;&nbsp; &nbsp; <span class="auto-style25">Categoria: </span>
-                    <asp:Label ID="Categoria_Lb" runat="server" CssClass="auto-style27"></asp:Label>
-                    <span class="auto-style25">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style25">Editorial:&nbsp;</span><asp:Label ID="Editorial_Lb" runat="server" CssClass="auto-style27"></asp:Label>
-                    </em> </td>
-            </tr>
-            <tr>
-                <td class="auto-style22">
-                    <asp:Image ID="ImagenURL_Lb" runat="server"/>
-                </td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style25">AR$ </span>
-                    <asp:Label ID="Precio_Lb" runat="server" CssClass="auto-style26"></asp:Label>
-                    <span class="auto-style25">&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnComprar" runat="server" CssClass="auto-style23" OnClick="btnComprar_Click" Text="Añadir al carro" Width="128px" />
+                <td class="auto-style16"><span class="auto-style5">Mi carrito</span></td>
+                <td>
+                    <asp:Button ID="btnIniciarCompra1" runat="server" BorderStyle="Double" CssClass="auto-style11" ForeColor="Red" Text="Iniciar proceso de compra" Height="27px" Width="170px" OnClick="btnIniciarCompra1_Click" />
                 </td>
             </tr>
         </table>
         <br />
-        <br />
-        <br />
-        <br />
-        <br />
+        <asp:DataList ID="DataList1" runat="server">
+            <ItemTemplate>
+                <table class="auto-style1">
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td class="auto-style38">&nbsp;</td>
+                        <td class="auto-style30">&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td class="auto-style35">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style29">
+                            <asp:Image ID="Image2" runat="server" ImageUrl='<%# Eval("ImagenURL_Lb") %>' />
+                        </td>
+                        <td class="auto-style33">&nbsp;&nbsp;<span class="auto-style39">Datos del libro</span><br />
+                            <br />
+                            &nbsp; Codigo:
+                            <asp:Label ID="lblCodigo" runat="server" Text='<%# Eval("Cod_Libro_Lb") %>'></asp:Label>
+                            <br />
+                            <br />
+                            &nbsp; Titulo:
+                            <asp:Label ID="lblTitulo" runat="server" Text='<%# Eval("NombreLibro_Lb") %>'></asp:Label>
+                            <br />
+                            <br />
+                            &nbsp; Editorial:
+                            <asp:Label ID="lblEditorial" runat="server" Text='<%# Eval("Editorial_Lb") %>'></asp:Label>
+                            <br />
+                            <br />
+                            &nbsp; AR$:
+                            <asp:Label ID="lblPrecio" runat="server" Text='<%# Eval("Precio_Lb") %>'></asp:Label>
+                        </td>
+                        <td class="auto-style31">
+                            <asp:DropDownList ID="ddlCantidad" runat="server" Height="16px" Width="62px">
+                                <asp:ListItem>1</asp:ListItem>
+                                <asp:ListItem>2</asp:ListItem>
+                                <asp:ListItem>3</asp:ListItem>
+                                <asp:ListItem>4</asp:ListItem>
+                                <asp:ListItem>5</asp:ListItem>
+                                <asp:ListItem>6</asp:ListItem>
+                                <asp:ListItem>7</asp:ListItem>
+                                <asp:ListItem>8</asp:ListItem>
+                                <asp:ListItem>9</asp:ListItem>
+                                <asp:ListItem>10</asp:ListItem>
+                            </asp:DropDownList>
+                            <br />
+                            <asp:LinkButton ID="lbEliminar" runat="server" CommandName="EliminarLibro" OnCommand="lbEliminar_Command" CommandArgument='<%# Eval("id_carrito") %>'>Eliminar</asp:LinkButton>
+                        </td>
+                        <td class="auto-style29">&nbsp;</td>
+                        <td class="auto-style36"></td>
+                    </tr>
+                </table>
+                <div class="auto-style43">
+                    ----- o -----</div>
+            </ItemTemplate>
+        </asp:DataList>
         <br />
         <br />
         <div style="background-color:gray" class="auto-style21">       </div>
@@ -236,7 +323,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style6">Efectivo-Tarjeta Visa o Master Card- Rapi Pago</td>
+                <td class="auto-style6"><span class="auto-style40">Efectivo</span> - <span class="auto-style41">Tarjeta Visa o Master Card</span> - <span class="auto-style42">Rapi Pago</span></td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
@@ -248,26 +335,17 @@
             <tr>
                 <td class="auto-style14">&nbsp;</td>
                 <td>
-                    &nbsp;</td>
+                    <asp:Button ID="btnIniciarCompra0" runat="server" BorderStyle="Double" CssClass="auto-style11" ForeColor="Red" Text="Iniciar proceso de compra" Height="27px" Width="170px" OnClick="btnIniciarCompra0_Click" />
+                </td>
             </tr>
         </table>
-&nbsp;
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-    
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </form>
     <br />
     
     <footer class="centrado">  <table>
             <tr>
-                <td><span style="color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">Copyright © 2019-2020<span>&nbsp;</span></span><span class="auto-style8" style="border-style: none; border-color: inherit; border-width: 0px; margin: 0px; padding: 0px; font-variant-ligatures: normal; font-variant-caps: normal; orphans: 2; text-align: left; text-indent: 0px; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Libra</span><span style="color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;"><span>&nbsp;</span>S.A.</span></td>
+                <td><span style="color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">Copyright © 2019-2020ndent: 0px; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Libra</span><span style="color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;"><span>&nbsp;</span>S.A.</span></td>
                 <td class="auto-style9">&nbsp;</td>
                 <td><strong><em>Email: Libros.Libra@gmail.com</em></strong></td>
             </tr>
@@ -284,4 +362,3 @@
         </table></footer>
 </body>
 </html>
-

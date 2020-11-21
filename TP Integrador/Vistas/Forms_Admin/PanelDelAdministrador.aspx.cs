@@ -39,8 +39,6 @@ namespace Vistas
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
-
             obj = new NegocioGenerales();
 
             lib = new Libro();

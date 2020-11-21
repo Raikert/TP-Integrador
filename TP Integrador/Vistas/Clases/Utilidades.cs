@@ -30,6 +30,26 @@ namespace Vistas.Clases
             return tabla.Rows.Count;
         }
 
+        public int Bindear(ref ListView lv, string consulta, bool reiniciar_paginas = false)
+        {
+            DataTable tabla = obj.DataTable_Query(consulta);
+
+            int filas_afectadas = tabla.Rows.Count;
+
+            if (filas_afectadas != 0)
+            {
+                lv.DataSource = tabla;
+                lv.DataBind();
+            }
+            else
+            {
+                lv.DataSource = null;
+                lv.DataBind();
+            }
+
+            return filas_afectadas;
+        }
+
         public void Bindear(ref DropDownList ddl, string consulta, string campo)
         {
             DataTable tabla = obj.DataTable_Query(consulta);
@@ -56,6 +76,11 @@ namespace Vistas.Clases
         {
             string codigo = cod.Text;
             obj.modificarCampo(cod.ID, codigo, campo, valor, tabla, int_value);
+        }
+
+        public void modificar(string campo, string valor, string tabla,string campocodigo, string codigo, bool valor_especial = false)
+        {
+            obj.modificarCampo(campocodigo, codigo, campo, valor, tabla, valor_especial);
         }
 
         public void modificar(string campocodigo,string codigo, ref TextBox value, string tabla, bool int_value = false)
@@ -162,7 +187,7 @@ namespace Vistas.Clases
             return tabla.Rows[0][campo].ToString();
         }
 
-        public string valor_campo_Where(string campocodigo, string codigo, string campo, string tabla_consulta, bool valor_especial = false)
+        public string valor_campo_Where(string campo, string tabla_consulta, string campocodigo, string codigo, bool valor_especial = false)
         {
             string valorcodigo;
 
@@ -174,6 +199,121 @@ namespace Vistas.Clases
             DataTable tabla = obj.DataTable_Query("select " + campo + " from " + tabla_consulta + " where " + campocodigo + " = " + valorcodigo);
 
             return tabla.Rows[0][campo].ToString();
+        }
+
+        public string valor_campo_Where(string campo,string consulta)
+        {
+            DataTable tabla = obj.DataTable_Query(consulta);
+
+            return tabla.Rows[0][campo].ToString();
+        }
+
+        public bool validaciones_precio(ref TextBox txt, string tipo_precio, ref Label lbl)
+        {
+            bool validador = true;
+
+            if (txt.Text == "")
+            {
+                validador = false;
+                return validador;
+            }
+                
+            string[] caracteres_aceptables = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "," };
+
+            bool cadena_valida = false;
+
+            foreach (char caracter in txt.Text)
+            {
+                cadena_valida = false;
+
+                foreach (string caracter_aceptado in caracteres_aceptables)
+                {
+                    if (caracter == caracter_aceptado[0])
+                    {
+                        cadena_valida = true;
+                        break;
+                    }
+                }
+
+                if (!cadena_valida)
+                    break;
+            }
+
+            string[] mensajes_error = { "el precio " + tipo_precio + " es invalido", "el precio " + tipo_precio + " tiene mas de 2 decimales" };
+
+            if (!cadena_valida)
+            {
+                lbl.Text = mensajes_error[0];
+                validador = false;
+                return validador;
+            }
+            else
+                lbl.Text = "";
+
+            if (txt.Text.Contains("."))
+            {
+                string[] cadenas = txt.Text.Split('.');
+
+                if (cadenas.Length > 2)
+                {
+                    lbl.Text = mensajes_error[0];
+                    validador = false;
+                    return validador;
+                }
+                else
+                {
+                    if (cadenas[0] == "" || cadenas[1] == "")
+                    {
+                        lbl.Text = mensajes_error[0];
+                        validador = false;
+                        return validador;
+                    }
+
+                    if (cadenas[1].Length > 2)
+                    {
+                        lbl.Text = mensajes_error[1];
+                        validador = false;
+                        return validador;
+                    }
+                }
+
+                if (cadenas[1].Length == 1)
+                    txt.Text += "0";
+            }
+            else if (txt.Text.Contains(","))
+            {
+                string[] cadenas = txt.Text.Split(',');
+
+                if (cadenas.Length > 2)
+                {
+                    lbl.Text = mensajes_error[0];
+                    validador = false;
+                    return validador;
+                }
+                else
+                {
+                    if (cadenas[0] == "" || cadenas[1] == "")
+                    {
+                        lbl.Text = mensajes_error[0];
+                        validador = false;
+                        return validador;
+                    }
+
+                    if (cadenas[1].Length > 2)
+                    {
+                        lbl.Text = mensajes_error[1];
+                        validador = false;
+                        return validador;
+                    }
+                }
+
+                txt.Text = cadenas[0] + "." + cadenas[1];
+
+                if (cadenas[1].Length == 1)
+                    txt.Text += "0";
+            }
+
+            return validador;
         }
 
         public void limpiar(ref TextBox textBox)

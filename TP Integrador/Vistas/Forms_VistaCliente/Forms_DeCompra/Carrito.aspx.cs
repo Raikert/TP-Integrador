@@ -1,0 +1,96 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+
+namespace vistas
+{
+    public partial class vista2_carrito_ : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                if (Session["Carrito"] != null)
+                {
+                    DataList1.DataSource = (DataTable)Session["Carrito"];
+                    DataList1.DataBind();
+                }
+            }
+        }
+
+        protected void btnIniciarCompra1_Click(object sender, EventArgs e)
+        {
+            if (Session["Carrito"] != null)
+            {
+                DataTable tabla_carro = (DataTable)Session["Carrito"];
+
+                int registro = 0;
+
+                foreach(DataListItem item in DataList1.Items)
+                {
+                    tabla_carro.Rows[registro]["cantidad_items"] = ((DropDownList)item.FindControl("ddlCantidad")).Text;
+
+                    registro++;
+                }
+
+                Response.Redirect("ProcesoCompraCarro.aspx");
+            }
+        }
+
+        protected void btnIniciarCompra0_Click(object sender, EventArgs e)
+        {
+            if (Session["Carrito"] != null)
+            {
+                DataTable tabla_carro = (DataTable)Session["Carrito"];
+
+                int registro = 0;
+
+                foreach (DataList item in DataList1.Items)
+                {
+                    tabla_carro.Rows[registro]["cantidad_items"] = ((DropDownList)item.FindControl("ddlCantidad")).Text;
+
+                    registro++;
+                }
+
+                Response.Redirect("ProcesoCompraCarro.aspx");
+            }
+        }
+
+        protected void lbEliminar_Command(object sender, CommandEventArgs e)
+        {           
+            if(e.CommandName == "EliminarLibro")
+            {
+                DataTable tabla_carro = (DataTable)Session["Carrito"];
+
+                DataRow libro_eliminado = tabla_carro.Rows[Convert.ToInt32(e.CommandArgument)];
+
+                tabla_carro.Rows.Remove(libro_eliminado);
+
+                if (tabla_carro.Rows.Count != 0)
+                {
+                    int id_carrito = 0;
+
+                    foreach (DataRow registro in tabla_carro.Rows)
+                    {
+                        registro["id_carrito"] = Convert.ToString(id_carrito);
+
+                        id_carrito++;
+
+                        tabla_carro.AcceptChanges();
+                    }
+
+                    Session["Carrito"] = tabla_carro;
+                }
+                else
+                    Session["Carrito"] = null;
+
+                DataList1.DataSource = tabla_carro;
+                DataList1.DataBind();
+            }
+        }
+    }
+}

@@ -16,34 +16,24 @@ namespace Vistas
 
         private Cliente cli;
 
-        private Utilidades util;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             obj = new NegocioGenerales();
 
             cli = new Cliente();
-
-            util = new Utilidades();
         }
 
         protected void btnContinuar_Click(object sender, EventArgs e)
         {
             if (ValidacionesEspeciales())
             {
-                cli.nombreCliente = txtNombre.Text;
-                cli.apellidoCliente = txtApellido.Text;
-                cli.dniCliente = DNI_Cl.Text;
-                cli.telCliente = NumeroTelefono_Cl.Text;
-                cli.fechaCliente = FechaNacimiento_Cl.Text;
-                cli.EmailCliente = (String)Session["Email"];
-                cli.ContrasenaCliente = txtContraseña.Text;
+                prepararUsuario();
 
                 cli.setConsultaInsertUsuario();
 
                 obj.Consulta(cli.getConsulta(2));
 
-                Session["Usuario"] = "Bienvenido/a " + txtNombre.Text;
+                Session["Usuario"] = cli;
                 Response.Redirect("Home.aspx");
             }
         }
@@ -90,6 +80,15 @@ namespace Vistas
             return validador;
         }
 
-
+        public void prepararUsuario()
+        {
+            cli.nombreCliente = txtNombre.Text;
+            cli.apellidoCliente = txtApellido.Text;
+            cli.dniCliente = DNI_Cl.Text;
+            cli.telCliente = NumeroTelefono_Cl.Text;
+            cli.fechaCliente = FechaNacimiento_Cl.Text;
+            cli.EmailCliente = ((Cliente)Session["Usuario"]).EmailCliente;
+            cli.ContrasenaCliente = txtContraseña.Text;
+        }
     }
 }
