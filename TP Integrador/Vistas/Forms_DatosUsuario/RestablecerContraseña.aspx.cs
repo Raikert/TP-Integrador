@@ -27,6 +27,8 @@ namespace Vistas
 
             util.cerrarConexion();
 
+            Session["Email"] = null;
+
             Response.Redirect("InicioSesion1.aspx");
         }
     }

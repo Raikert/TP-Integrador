@@ -56,6 +56,9 @@
         .auto-style19 {
             font-size: medium;
         }
+        .auto-style20 {
+            margin-right: 0px;
+        }
     </style>
 </head>
 <body style="background-color: darkgray">
@@ -148,7 +151,9 @@
             </div>
             <div style="background-color:white; " class="auto-style9">
                 <div class="auto-style8"> 
-                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/Panel del Administrador logo.png" />
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/Panel del Administrador logo.png" CssClass="auto-style20" />
+                    <br />
+                <asp:HyperLink ID="hlVolver" runat="server" ForeColor="#CC6600" NavigateUrl="~/Home.aspx">Volver al Home</asp:HyperLink>
                 </div>
                 <div class="auto-style7"> 
                         <br />

@@ -45,6 +45,9 @@
             width: 371px;
         }
 
+        .auto-style29 {
+            text-align: center;
+        }
 
         #form1 {
             /* margin-left: 150px;        
@@ -77,8 +80,8 @@
         .hl2 td {
             justify-content: center;
             align-items: center;
-            border: 2px groove pink;
-            background-color: gray;
+            border: 2px groove black;
+            background-color: antiquewhite;
         }
 
         footer {
@@ -89,10 +92,6 @@
         }
 
 
-
-        .auto-style29 {
-            width: 291px;
-        }
 
         .auto-style30 {
             font-size: xx-large;
@@ -112,13 +111,35 @@
         .auto-style36 {
             height: 45px;
         }
+
         .auto-style37 {
             width: 166px;
             font-size: large;
             height: 44px;
         }
+
         .auto-style38 {
             height: 44px;
+        }
+
+        .auto-style42 {
+            justify-content: center;
+            align-items: center;
+            border: 2px groove gray;
+            text-align: center;
+        }
+        .auto-style43 {
+            justify-content: center;
+            align-items: center;
+            border: 2px groove gray;
+            text-align: center;
+            width: 129px;
+        }
+        .auto-style45 {
+            width: 21px;
+        }
+        .auto-style46 {
+            width: 129px;
         }
     </style>
 </head>
@@ -129,22 +150,19 @@
             <table class="auto-style1">
                 <tr id="hl1">
                     <td class="auto-style3">&nbsp;</td>
-                    <td class="hl1">
-                        <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/Home.aspx">HOME</asp:HyperLink>
+                    <td class="auto-style45"></td>
+                    <td class="auto-style43">
+                        <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/Home.aspx">Volver al Home</asp:HyperLink>
                     </td>
-                    <td class="hl1">
-                        <asp:HyperLink ID="hlContacto" runat="server" NavigateUrl="~/VistaContacto.aspx">Contacto</asp:HyperLink>
-                    </td>
-                    <td class="hl1">
-                        <asp:HyperLink ID="hlMiCuenta" runat="server" NavigateUrl="~/MiCuenta.aspx">Mi Cuenta</asp:HyperLink>
+                    <td class="auto-style42"><asp:HyperLink ID="hlContacto" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaContacto.aspx">Contacto</asp:HyperLink>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style2">
                         <asp:Image ID="Image1" runat="server" Height="84px" ImageUrl="~/Imagenes/Biblioteca Libra logo.png" Width="104px" />
                     </td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style45">&nbsp;</td>
+                    <td class="auto-style46">&nbsp;</td>
                     <td class="auto-style20">&nbsp;</td>
                 </tr>
             </table>
@@ -154,25 +172,19 @@
                 <td>&nbsp;</td>
             </tr>
         </table>
-        <table class="auto-style1">
-            <tr>
-                <td>
-                    <table class="auto-style1">
+                    <table  class="auto-style1">
                         <tr class="hl2">
+                            <td class="auto-style29" style="justify-content: center; align-items: center;">
+                                <asp:HyperLink ID="hlLibros" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/vistaLibros.aspx" Font-Names="Constantia">Libros</asp:HyperLink>
+                            </td>
                             <td class="auto-style29">
-                                <asp:HyperLink ID="hlLibros" runat="server" NavigateUrl="~/vistaLibros.aspx">Libros</asp:HyperLink>
+                                <asp:HyperLink ID="hlCategorias" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaCategorias.aspx" Font-Names="Constantia">Categorias</asp:HyperLink>
                             </td>
-                            <td>
-                                <asp:HyperLink ID="hlCategorias" runat="server" NavigateUrl="~/VistaCategorias.aspx">Categorias</asp:HyperLink>
-                            </td>
-                            <td>
-                                <asp:HyperLink ID="hlEditoriales" runat="server" NavigateUrl="~/VistaEditoriales.aspx">Editoriales</asp:HyperLink>
+                            <td class="auto-style29">
+                                <asp:HyperLink ID="hlEditoriales" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaEditoriales.aspx" Font-Names="Constantia">Editoriales</asp:HyperLink>
                             </td>
                         </tr>
                     </table>
-                </td>
-            </tr>
-        </table>
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <table class="auto-style1">
@@ -187,7 +199,7 @@
         <table class="auto-style1">
             <tr>
                 <td class="auto-style37"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nombre:<br />
-                    </strong></td>
+                </strong></td>
                 <td class="auto-style38">
                     <asp:TextBox ID="Nombre_Cl" runat="server" Visible="False" Width="150px"></asp:TextBox>
                     <asp:Label ID="lblNombre_Micuenta" runat="server"></asp:Label>
@@ -197,7 +209,7 @@
             </tr>
             <tr>
                 <td class="auto-style35"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Apellido:<br />
-                    </strong></td>
+                </strong></td>
                 <td class="auto-style36">
                     <asp:TextBox ID="Apellido_Cl" runat="server" Visible="False" Width="150px"></asp:TextBox>
                     <asp:Label ID="lblApellido_Micuenta" runat="server"></asp:Label>
@@ -208,36 +220,36 @@
             </tr>
             <tr>
                 <td class="auto-style35"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DNI:<br />
-                    </strong></td>
+                </strong></td>
                 <td class="auto-style36">
                     <asp:TextBox ID="DNI_Cl" runat="server" Visible="False" Width="150px"></asp:TextBox>
                     <asp:Label ID="lbldniMicuenta" runat="server"></asp:Label>
                     &nbsp;<asp:LinkButton ID="hlCambiarDNI" runat="server" ForeColor="#CC6600" OnClick="hlCambiarDNI_Click" ValidationGroup="0">cambiar</asp:LinkButton>
                     &nbsp;<asp:RegularExpressionValidator ID="revDNI" runat="server" ControlToValidate="DNI_Cl" CssClass="auto-style3" ErrorMessage="Solo puede ingresar numeros" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red" ValidationExpression="^\d+$" ValidationGroup="0"></asp:RegularExpressionValidator>
-                <asp:Label ID="lblErrorDNI" runat="server" CssClass="auto-style3" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red"></asp:Label>
+                    <asp:Label ID="lblErrorDNI" runat="server" CssClass="auto-style3" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red"></asp:Label>
                     <br />
                 </td>
             </tr>
             <tr>
                 <td class="auto-style35"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Email/Correo:<br />
-                    </strong></td>
+                </strong></td>
                 <td class="auto-style36">
                     <asp:TextBox ID="Email_Cl" runat="server" Visible="False" Width="232px"></asp:TextBox>
                     <asp:Label ID="EmailcorreoMicuenta" runat="server"></asp:Label>
-                &nbsp;<asp:LinkButton ID="hlCambiarEmail" runat="server" ForeColor="#CC6600" OnClick="hlCambiarEmail_Click" ValidationGroup="1">cambiar</asp:LinkButton>
+                    &nbsp;<asp:LinkButton ID="hlCambiarEmail" runat="server" ForeColor="#CC6600" OnClick="hlCambiarEmail_Click" ValidationGroup="1">cambiar</asp:LinkButton>
                     &nbsp;<asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="Email_Cl" CssClass="auto-style3" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Font-Names="Bahnschrift" Font-Size="10.5pt" ValidationGroup="1">No ha ingresado email correcto</asp:RegularExpressionValidator>
                     <br />
-                <asp:Label ID="lblEmailRepetido" runat="server" CssClass="auto-style3" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red"></asp:Label>
+                    <asp:Label ID="lblEmailRepetido" runat="server" CssClass="auto-style3" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red" Visible="False"></asp:Label>
                     <br />
                 </td>
             </tr>
             <tr>
                 <td class="auto-style35"><strong>Fecha de nacimiento:<br />
-                    </strong></td>
+                </strong></td>
                 <td class="auto-style36">
                     <asp:TextBox ID="FechaNacimiento_Cl" runat="server" TextMode="Date" max="9999-12-31" Visible="False" Width="150px"></asp:TextBox>
                     <asp:Label ID="FechadenacimientoMicuenta" runat="server"></asp:Label>
-                &nbsp;<asp:LinkButton ID="hlCambiarFec" runat="server" ForeColor="#CC6600" OnClick="hlCambiarFec_Click">cambiar</asp:LinkButton>
+                    &nbsp;<asp:LinkButton ID="hlCambiarFec" runat="server" ForeColor="#CC6600" OnClick="hlCambiarFec_Click">cambiar</asp:LinkButton>
                     &nbsp;<br />
                 </td>
             </tr>
@@ -246,19 +258,18 @@
                 <td class="auto-style36">
                     <asp:TextBox ID="Contraseña_Cl" runat="server" Visible="False" Width="150px"></asp:TextBox>
                     <asp:Label ID="Contraseña" runat="server"></asp:Label>
-                &nbsp;<asp:LinkButton ID="hlCambiarContraseña" runat="server" ForeColor="#CC6600" OnClick="hlCambiarContraseña_Click">cambiar</asp:LinkButton>
+                    &nbsp;<asp:LinkButton ID="hlCambiarContraseña" runat="server" ForeColor="#CC6600" OnClick="hlCambiarContraseña_Click">cambiar</asp:LinkButton>
                     &nbsp;<asp:RequiredFieldValidator ID="rfvContraseña" runat="server" ControlToValidate="Contraseña_Cl" CssClass="auto-style3" ErrorMessage="Campo obligatorio" Font-Names="Bahnschrift" ForeColor="Red" Font-Size="10.5pt"></asp:RequiredFieldValidator>
                     <br />
                 </td>
             </tr>
             <tr>
                 <td class="auto-style35"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Telefono:</strong></td>
-                <td class="auto-style36">
-                    &nbsp;<asp:TextBox ID="NumeroTelefono_Cl" runat="server" Visible="False" Width="150px"></asp:TextBox>
+                <td class="auto-style36"><asp:TextBox ID="NumeroTelefono_Cl" runat="server" Visible="False" Width="150px"></asp:TextBox>
                     <asp:Label ID="Telefono" runat="server"></asp:Label>
                     &nbsp;<asp:LinkButton ID="hlCambiarTelefono" runat="server" ForeColor="#CC6600" OnClick="hlCambiarTelefono_Click" ValidationGroup="2">cambiar</asp:LinkButton>
                     &nbsp;<asp:RegularExpressionValidator ID="revTelefono" runat="server" ControlToValidate="NumeroTelefono_Cl" CssClass="auto-style3" ErrorMessage="Solo puede ingresar numeros" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red" ValidationExpression="^\d+$" ValidationGroup="2"></asp:RegularExpressionValidator>
-                <asp:Label ID="lblErrorTelefono" runat="server" CssClass="auto-style3" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red"></asp:Label>
+                    <asp:Label ID="lblErrorTelefono" runat="server" CssClass="auto-style3" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red"></asp:Label>
                 </td>
             </tr>
         </table>

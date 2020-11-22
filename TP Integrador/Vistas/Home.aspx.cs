@@ -64,6 +64,7 @@ namespace Vistas
             UsuarioConectado.Text = "No esta logueado";
 
             lbSalir.Visible = false;
+            hlMiCuenta.Visible = false;
             hlInicioSesion.Visible = true;
             hlRegistrarse.Visible = true;
         }

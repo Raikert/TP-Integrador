@@ -76,10 +76,12 @@ namespace Vistas
                 Email_Cl.Text = "";
 
                 lblEmailRepetido.Text = "";
+                lblEmailRepetido.Visible = false;
             }
             else
             {
                 revEmail.Visible = false;
+                lblEmailRepetido.Visible = true;
 
                 lblEmailRepetido.Text = "El email ingresado ya se encuentra asociado a otra cuenta";
             }
