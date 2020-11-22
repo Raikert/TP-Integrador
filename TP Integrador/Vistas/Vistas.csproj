@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Forms_DatosUsuario\IngresoMiCuenta.aspx" />
     <Content Include="Forms_VistaCliente\Forms_DeCompra\Carrito.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Imagenes\1.jpg" />
@@ -105,6 +106,13 @@
     <Content Include="Forms_VistaCliente\Forms_ParaNavegar\vistaLibros.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms_DatosUsuario\IngresoMiCuenta.aspx.cs">
+      <DependentUpon>IngresoMiCuenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms_DatosUsuario\IngresoMiCuenta.aspx.designer.cs">
+      <DependentUpon>IngresoMiCuenta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms_VistaCliente\Forms_DeCompra\Carrito.aspx.cs">
       <DependentUpon>Carrito.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

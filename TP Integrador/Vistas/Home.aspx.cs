@@ -38,6 +38,7 @@ namespace Vistas
 
                 hlInicioSesion.Visible = false;
                 hlRegistrarse.Visible = false;
+                hlMiCuenta.Visible = true;
             }
 
             if (Session["Carrito"] != null)
@@ -86,7 +87,7 @@ namespace Vistas
 
                 Session["Libro_Tabla"] = tabla;
 
-                Response.Redirect("LibroSeleccionado.aspx");
+                Response.Redirect("~/Forms_VistaCliente/Forms_DeCompra/LibroSeleccionado.aspx");
             }
         }
 
@@ -135,14 +136,17 @@ namespace Vistas
 
                 MensajeListado.Text = "Por mas de $" + precioMinimo;
             }
-                
+
             if(precioMinimo_valido && precioMaximo_valido)
             {
                 util.Bindear(ref lvLibrosMasVendidos, consulta + "Precio_Lb >= " + precioMinimo + " and " + " Precio_Lb <= " + precioMaximo);
 
                 MensajeListado.Text = "Por mas de $" + precioMinimo + " y menos de $" + precioMaximo;
             }
-                
+
+            if (!precioMinimo_valido && !precioMaximo_valido)
+                MensajeListado.Text = "Por mas de $" + precioMinimo;
+
             util.cerrarConexion();
         }
 

@@ -34,7 +34,7 @@ namespace Vistas
                 obj.Consulta(cli.getConsulta(2));
 
                 Session["Usuario"] = cli;
-                Response.Redirect("Home.aspx");
+                Response.Redirect("~/Home.aspx");
             }
         }
 

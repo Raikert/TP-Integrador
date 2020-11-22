@@ -137,22 +137,25 @@
 <body style="background-color:darkgray">
     <form id="form1" runat="server">
         <div style="background-color: darkgray; " class="auto-style28">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Cod_Libro_Lb], [ImagenURL_Lb] FROM [Libros]"></asp:SqlDataSource>
             <asp:SqlDataSource ID="dsCategorias" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Nombre_Ca] FROM [Categorias]"></asp:SqlDataSource>
-            <br />
             <asp:SqlDataSource ID="dsEditoriales" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Nombre_E] FROM [Editoriales]"></asp:SqlDataSource>
-            </div>
+            &nbsp;</div>
         <div style="background-color:white;" class="auto-style43">
             <div style="float:left;width:25%"> 
             <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/Biblioteca Libra logo.png" Height="100px" />
+                <br />
+&nbsp;&nbsp;&nbsp; <asp:HyperLink ID="hlContacto" runat="server" CssClass="auto-style3" Font-Names="Ebrima" ForeColor="Black" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaContacto.aspx">Contacto</asp:HyperLink>
             </div>
             <div style="float:left;width:75%" class="auto-style35"> 
                 <div style="background-color: rgb(67,117,199); " class="auto-style5">
                     <table class="auto-style1">
                         <tr>
                             <td class="auto-style29">
-                    <asp:HyperLink ID="hlInicioSesion" runat="server" CssClass="auto-style3" Font-Names="Ebrima" ForeColor="White" NavigateUrl="InicioSesion1.aspx">Iniciar Sesion</asp:HyperLink>
+                    <asp:HyperLink ID="hlMiCuenta" runat="server" CssClass="auto-style3" Font-Names="Ebrima" ForeColor="White" NavigateUrl="~/Forms_DatosUsuario/IngresoMiCuenta.aspx" Visible="False">Mi Cuenta</asp:HyperLink>
+                    <asp:HyperLink ID="hlInicioSesion" runat="server" CssClass="auto-style3" Font-Names="Ebrima" ForeColor="White" NavigateUrl="~/Forms_DatosUsuario/InicioSesion1.aspx">Iniciar Sesion</asp:HyperLink>
                             </td>
-                            <td class="auto-style29"> <asp:HyperLink ID="hlRegistrarse" runat="server" CssClass="auto-style3" Font-Names="Ebrima" ForeColor="White" NavigateUrl="RegistroUsuario1.aspx">Registrarse</asp:HyperLink>
+                            <td class="auto-style29"> <asp:HyperLink ID="hlRegistrarse" runat="server" CssClass="auto-style3" Font-Names="Ebrima" ForeColor="White" NavigateUrl="~/Forms_DatosUsuario/RegistroUsuario1.aspx">Registrarse</asp:HyperLink>
                             </td>
                         </tr>
                     </table>
@@ -293,7 +296,7 @@
                     <EmptyDataTemplate>
                         <table runat="server" style="">
                             <tr>
-                                <td>No se han devuelto datos.</td>
+                                <td>No hay libros para esa seleccion.</td>
                             </tr>
                         </table>
                     </EmptyDataTemplate>

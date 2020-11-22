@@ -24,66 +24,68 @@ namespace Vistas
         protected void btnContinuar_Click(object sender, EventArgs e)
         {
             if (Email_Cl.Text == "admin@admin.com" && Contraseña_Cl.Text == "admin")
-                Response.Redirect("PanelDelAdministrador.aspx");
+                Response.Redirect("~/Forms_Admin/PanelDelAdministrador.aspx");
 
-                cli = nc.registro_cliente(Email_Cl.ID, "'" + Email_Cl.Text + "'");
+            cli = nc.registro_cliente(Email_Cl.ID, "'" + Email_Cl.Text + "'");
 
-                bool validador_email = validarEmail(ref Email_Cl, ref cli);
+            bool validador_email = validarEmail(ref Email_Cl, ref cli);
 
-                bool validador_contraseña = validarContrasena(ref Contraseña_Cl, ref cli);
+            bool validador_contraseña = validarContrasena(ref Contraseña_Cl, ref cli);
 
-                if (validador_email && validador_contraseña)
+            if (validador_email && validador_contraseña)
+            {
+                Session["Usuario"] = cli;
+
+                Response.Redirect("~/Home.aspx");
+            }
+            else
+            {
+                if (!validador_email)
                 {
-                    Session["Usuario"] = cli;
-
-                    Response.Redirect("Home.aspx");
+                    lblEmailNoCoincide.Text = "No se encuentra una cuenta registrada con ese email";
+                    Email_Cl.Text = "";
                 }
                 else
                 {
-                    if (!validador_email)
-                    {
-                        lblEmailNoCoincide.Text = "No se encuentra una cuenta registrada con ese email";
-                        Email_Cl.Text = "";
-                    }
-                    else
-                        lblEmailNoCoincide.Text = "";
+                    lblEmailNoCoincide.Text = "";
 
                     if (!validador_contraseña)
                         lblContraseñaNoCoincide.Text = "No se encuentra una cuenta registrada con esa contraseña";
                     else
                         lblContraseñaNoCoincide.Text = "";
                 }
-        }
-
-        public bool validarEmail(ref TextBox email, ref Cliente cli)
-        {
-            if (email.Text == cli.EmailCliente)
-                return true;
-            else
-                return false;
-        }
-
-        public bool validarContrasena(ref TextBox contrasena, ref Cliente cli)
-        {
-            if (contrasena.Text == cli.ContrasenaCliente)
-                return true;
-            else
-                return false;
-        }
-
-        protected void lbRestablecerContraseña_Click(object sender, EventArgs e)
-        {
-            cli = nc.registro_cliente(Email_Cl.ID, "'" + Email_Cl.Text + "'");
-
-            bool validador_email = validarEmail(ref Email_Cl, ref cli);
-
-            if (validador_email)
-            {
-                Session["Usuario"] = cli;
-                Response.Redirect("RestablecerContraseña.aspx");
             }
-            else if(!validador_email)
-                lblEmailNoCoincide.Text = "No se encuentra una cuenta registrada con ese email";
+        }
+
+            public bool validarEmail(ref TextBox email, ref Cliente cli)
+            {
+                if (email.Text == cli.EmailCliente)
+                    return true;
+                else
+                    return false;
+            }
+
+            public bool validarContrasena(ref TextBox contrasena, ref Cliente cli)
+            {
+                if (contrasena.Text == cli.ContrasenaCliente)
+                    return true;
+                else
+                    return false;
+            }
+
+            protected void lbRestablecerContraseña_Click(object sender, EventArgs e)
+            {
+                cli = nc.registro_cliente(Email_Cl.ID, "'" + Email_Cl.Text + "'");
+
+                bool validador_email = validarEmail(ref Email_Cl, ref cli);
+
+                if (validador_email)
+                {
+                    Session["Usuario"] = cli;
+                    Response.Redirect("RestablecerContraseña.aspx");
+                }
+                else if (!validador_email)
+                    lblEmailNoCoincide.Text = "No se encuentra una cuenta registrada con ese email";
+            }
         }
     }
-}

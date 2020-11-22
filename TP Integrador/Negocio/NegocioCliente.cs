@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entidades.Clases;
+using System.Data;
 
 namespace Negocio
 {
@@ -24,7 +25,10 @@ namespace Negocio
         {
             cli.setMostrar_Where(campo, valor);
 
-            cli.cargar(ng.DataTable_Query(cli.getConsulta(1)).Rows[0]);
+            DataTable registro = ng.DataTable_Query(cli.getConsulta(1));
+
+            if (registro.Rows.Count != 0)
+                cli.cargar(registro.Rows[0]);
 
             return cli;
         }

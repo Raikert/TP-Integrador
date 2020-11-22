@@ -23,7 +23,17 @@ namespace Entidades.Clases
 		public Cliente()
 		{
 			Consultas();
-		}
+
+			codCliente = "";
+			nombre_Cliente = "";
+			apellido_Cliente = "";
+			dni_Cliente = "";
+			telefono_Cliente = "";
+			fecha_Cliente = "";
+			Email_Cliente = "";
+			Contrasena_Cliente = "";
+			estado_Cliente = "";
+	}
 
 		public Cliente(String codCliente, String nombreCliente, String apellidoCliente, String dniCliente,
 			String telCliente, String fechaCliente, String EmailCliente, String ContrasenaCliente, String estadoCliente)
@@ -180,5 +190,7 @@ namespace Entidades.Clases
 		{
 			return consultas[indice];
 		}
+
+
 	}
 }

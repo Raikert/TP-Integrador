@@ -58,7 +58,7 @@
                 <br />
                 <br />
                 </strong>
-                <asp:HyperLink ID="hlVolver" runat="server" ForeColor="#CC6600" NavigateUrl="Home.aspx">Volver</asp:HyperLink>
+                <asp:HyperLink ID="hlVolver" runat="server" ForeColor="#CC6600" NavigateUrl="~/Home.aspx">Volver</asp:HyperLink>
                 <strong>
                 <br />
                 <br />
