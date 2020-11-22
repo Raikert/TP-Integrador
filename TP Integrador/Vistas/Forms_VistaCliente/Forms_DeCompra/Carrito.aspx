@@ -252,6 +252,9 @@
                 <td class="auto-style16"><span class="auto-style5">Mi carrito</span></td>
                 <td>
                     <asp:Button ID="btnIniciarCompra1" runat="server" BorderStyle="Double" CssClass="auto-style11" ForeColor="Red" Text="Iniciar proceso de compra" Height="27px" Width="170px" OnClick="btnIniciarCompra1_Click" />
+                    <br />
+                    <br />
+                <asp:Label ID="lblErrorCompra" runat="server" CssClass="auto-style3" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red"></asp:Label>
                 </td>
             </tr>
         </table>

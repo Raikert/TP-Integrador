@@ -36,7 +36,7 @@ namespace Vistas
         {
             if (ValidacionesEspeciales())
             {
-                ven.codClienteVenta = util.valor_campo_Where("Cod_Cliente_Cl", "Clientes", "Email_CL", (string)Session["Email"]);
+                ven.codClienteVenta = util.valor_campo_Where("Cod_Cliente_Cl", "Clientes", "Email_CL", ((Cliente)Session["Usuario"]).EmailCliente);
 
                 ven.fDPVenta = ddlFormaDePago.Text;
 
@@ -70,7 +70,17 @@ namespace Vistas
                     dv.setAgregarDetalleVenta();
 
                     obj.Consulta(dv.getConsulta(2));
+
+                    string StockLibros = util.valor_campo_Where("Cantidad_S", "Stock", "Cod_Libro_S", dv.codLibDV);
+
+                    int StockLibrosint = Convert.ToInt32(StockLibros);
+
+                    int NuevoStock = StockLibrosint - Convert.ToInt32(dv.cantDV);
+
+                    util.modificar("Cantidad_S",Convert.ToString(NuevoStock),"Stock", "Cod_Libro_S",dv.codLibDV);
                 }
+
+                Session["Carrito"] = null;
 
                 campo = "PrecioUnitario_Dv";
 
@@ -84,6 +94,7 @@ namespace Vistas
                 util.modificar("PrecioTotal_V", monto_total, "Ventas", "Cod_Venta_V", dv.codVentaDV,true);
 
                 obj.cerrarConexion();
+           
             }
         }
 
@@ -95,7 +106,7 @@ namespace Vistas
 
             string campocodigo = "Email_CL";
 
-            string EmailUsuario = (string)Session["Email"];
+            string EmailUsuario = ((Cliente)Session["Usuario"]).EmailCliente;
 
             if (!util.buscarIgualdad_Where(campocodigo, EmailUsuario, ref DNI_Cl, tabla))
             {
@@ -112,6 +123,14 @@ namespace Vistas
             }
             else
                 lblErrorTelefono.Text = "";
+
+            if (!util.buscarIgualdad_Where(campocodigo, EmailUsuario, ref FechaNacimiento_Cl, tabla))
+            {
+                lblErrorFecha.Text = "La fecha ingresada no coincide con la fecha registrada en su cuenta";
+                validador = false;
+            }
+            else
+                lblErrorFecha.Text = "";
 
             return validador;
         }

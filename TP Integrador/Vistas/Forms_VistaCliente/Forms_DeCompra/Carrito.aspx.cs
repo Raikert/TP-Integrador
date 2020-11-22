@@ -24,7 +24,7 @@ namespace vistas
 
         protected void btnIniciarCompra1_Click(object sender, EventArgs e)
         {
-            if (Session["Carrito"] != null)
+            if (Session["Carrito"] != null && Session["Usuario"]!= null)
             {
                 DataTable tabla_carro = (DataTable)Session["Carrito"];
 
@@ -39,11 +39,24 @@ namespace vistas
 
                 Response.Redirect("ProcesoCompraCarro.aspx");
             }
+            else
+            {
+                if (Session["Carrito"] == null)
+                {
+                    lblErrorCompra.Text = "El carrito no esta cargado";
+                }
+           
+                if (Session["Usuario"] == null)
+                {
+                    lblErrorCompra.Text = "No ha iniciado session";
+                }
+                         
+            }
         }
 
         protected void btnIniciarCompra0_Click(object sender, EventArgs e)
         {
-            if (Session["Carrito"] != null)
+            if (Session["Carrito"] != null && Session["Usuario"] != null)
             {
                 DataTable tabla_carro = (DataTable)Session["Carrito"];
 

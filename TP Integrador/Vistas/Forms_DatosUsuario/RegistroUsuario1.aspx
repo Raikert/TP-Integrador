@@ -11,7 +11,6 @@
             text-align: center;
             float: left;
             width: 30%;
-            height: 500px;
         }
         .auto-style2 {
             font-weight: bold;
@@ -64,6 +63,7 @@
                 <br />
                 </strong>
                 <asp:Label ID="lblMensaje" runat="server" Font-Names="Calibri Light" Text="Si usted ya ha creado una cuenta anteriormente, asegurese de utilizar la misma dirección de email para recuperar los datos de su cuenta" Width="350px"></asp:Label>
+                <br />
             </div>
             <div style="float:left; width:35%"> </div>
         </div>
