@@ -11,6 +11,7 @@
             text-align: center;
             float: left;
             width: 30%;
+            background-color:#FAE8BF;
         }
         .auto-style2 {
             font-weight: bold;
@@ -24,11 +25,16 @@
         .auto-style6 {
             font-size: medium;
         }
+
+        body{
+             background-image: url("/Imagenes/libros.jpg");
+        }
+
     </style>
 </head>
 <body style="background-color:darkgray">
     <form id="form1" runat="server">
-        <div style="background-color:darkgray; height:955px">
+        <div style="height:955px">
             <br />
             <br />
             <br />
@@ -36,7 +42,7 @@
             <br />
             <br />
             <div style="float:left; width:35%"> &nbsp;</div>
-            <div style="background-color:white;" class="auto-style1"> 
+            <div class="auto-style1"> 
             <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/Biblioteca Libra logo.png" />
                 <br />
                 <br />

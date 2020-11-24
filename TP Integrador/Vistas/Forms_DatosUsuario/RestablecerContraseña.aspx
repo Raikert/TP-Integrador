@@ -23,14 +23,20 @@
         .auto-style8 {
             float: left;
             width: 40%;
+            background-color:#FAE8BF;
         }
+
+        body{
+             background-image: url("/Imagenes/libros.jpg");
+        }
+
     </style>
 </head>
-<body style="background-color:darkgray">
+<body>
     <form id="form1" runat="server">
-        <div style="background-color:darkgray;height:500px" class="auto-style4"> 
+        <div style="height:500px" class="auto-style4"> 
             <div style="float:left;width:30%"> &nbsp;</div>
-            <div style="background-color:white;" class="auto-style8">
+            <div class="auto-style8">
                 <div class="auto-style7"> 
                     <br />
                     <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/Biblioteca Libra logo.png" />

@@ -53,7 +53,7 @@
             /* margin-left: 150px;        
             margin-right: 150px;
             padding: 0 1em;*/
-            background-color: white;
+             background-color:#FAE8BF;
         }
 
         body {
@@ -146,12 +146,24 @@
             height: 30px;
             width: 611px;
         }
+
+         body{
+            background-image: url("/Imagenes/libros.jpg");
+         }
+
+         #top{
+           background-color:#FBD88C;
+            width: 100%;
+            height: 117px;
+            
+         }
+
     </style>
 </head>
 <body class="centrado">
 
     <form class="centrado" id="form1" runat="server">
-        <div>
+        <div id="top">
             <table class="auto-style1">
                 <tr id="hl1">
                     <td class="auto-style3">&nbsp;</td>
@@ -172,7 +184,7 @@
                 </tr>
             </table>
         </div>
-        <table style="background-color: white" class="auto-style1">
+        <table class="auto-style1">
             <tr>
                 <td>&nbsp;</td>
             </tr>

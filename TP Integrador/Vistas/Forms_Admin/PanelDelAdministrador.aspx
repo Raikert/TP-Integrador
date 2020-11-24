@@ -59,9 +59,14 @@
         .auto-style20 {
             margin-right: 0px;
         }
+
+        body{
+            background-image:url("/Imagenes/librosadmin.jpg")
+        }
+
     </style>
 </head>
-<body style="background-color: darkgray">
+<body>
     <form id="form1" runat="server">
         <div>
             <br />
@@ -521,11 +526,11 @@
                     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="lblCodigoLibro0" runat="server" CssClass="auto-style3" Font-Names="Candara Light" Text="Codigo de Libro"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="lblCantidadStock" runat="server" CssClass="auto-style3" Font-Names="Candara Light" Text="Cantidad"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                         <asp:Label ID="lblPrecio0" runat="server" CssClass="auto-style3" Font-Names="Candara Light" Text="Precio"></asp:Label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="lblEstado4" runat="server" CssClass="auto-style3" Font-Names="Candara Light" Text="Estado"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <asp:Label ID="lblEstado4" runat="server" CssClass="auto-style3" Font-Names="Candara Light" Text="Estado"></asp:Label>
                     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:TextBox ID="Cod_Libro_S" runat="server" Width="136px"></asp:TextBox>

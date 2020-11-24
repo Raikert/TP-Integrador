@@ -94,7 +94,8 @@ namespace Vistas
                 util.modificar("PrecioTotal_V", monto_total, "Ventas", "Cod_Venta_V", dv.codVentaDV,true);
 
                 obj.cerrarConexion();
-           
+
+                Response.Redirect("~/Home.aspx");
             }
         }
 

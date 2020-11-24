@@ -90,6 +90,8 @@
     <Content Include="Imagenes\Biblioteca Libra logo.png" />
     <Content Include="Imagenes\carrito logo.jpg" />
     <Content Include="Imagenes\facebook.png" />
+    <Content Include="Imagenes\libros.jpg" />
+    <Content Include="Imagenes\librosadmin.jpg" />
     <Content Include="Imagenes\Panel del Administrador logo.png" />
     <Content Include="Imagenes\twitter.png" />
     <Content Include="Imagenes\youtube.png" />

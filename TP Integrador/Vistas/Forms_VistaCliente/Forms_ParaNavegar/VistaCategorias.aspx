@@ -62,11 +62,11 @@
            /* margin-left: 150px;        
             margin-right: 150px;
             padding: 0 1em;*/
-            background-color: white;
+            background-color:#FAE8BF;
         }
 
-        body{
-            background-color:gray;
+       body{
+             background-image: url("/Imagenes/libros.jpg");
         }
 
 
@@ -104,14 +104,19 @@
          
 
 
-        .auto-style25 {
+       .auto-style25 {
             text-align: center;
             text-decoration: underline;
+            font-size:large;
         }
         .auto-style26 {
             text-align: center;
             width: 237px;
             height: 7px;
+            background-color: #5B230B;
+            text-decoration: underline;
+            color: white;
+            text-shadow:1px 1px #fff;
         }
         .auto-style27 {
             width: 247px;
@@ -135,12 +140,21 @@
             width: 291px;
         }
 
+         #top{
+           background-color:#FBD88C;
+            width: 100%;
+            height: 117px;
+            
+         }
+
+
+
     </style>
 </head>
 <body class="centrado">
    
     <form class="centrado" id="form1" runat="server">
-        <div >
+        <div id="top">
             <table class="auto-style1">
                 <tr id="hl1">
                     <td class="auto-style3">&nbsp;</td>
@@ -148,10 +162,10 @@
                         <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/Home.aspx">HOME</asp:HyperLink>
                     </td>
                     <td class="hl1">
-                        <asp:HyperLink ID="hlContacto" runat="server" NavigateUrl="~/VistaContacto.aspx">Contacto</asp:HyperLink>
+                        <asp:HyperLink ID="hlContacto" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaContacto.aspx">Contacto</asp:HyperLink>
                     </td>
                     <td class="hl1">
-                        <asp:HyperLink ID="hlMiCuenta" runat="server">Mi Cuenta</asp:HyperLink>
+                        <asp:HyperLink ID="hlMiCuenta" runat="server" NavigateUrl="~/Forms_DatosUsuario/MiCuenta.aspx">Mi Cuenta</asp:HyperLink>
                     </td>
                 </tr>
                 <tr>
@@ -164,7 +178,7 @@
                 </tr>
             </table>
         </div>
-        <table style="background-color:white" class="auto-style1">
+        <table class="auto-style1">
             <tr>
                 <td class="auto-style12">&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtBuscar" runat="server" Width="400px" CssClass="auto-style11"></asp:TextBox>
@@ -187,13 +201,13 @@
                     <table  class="auto-style1">
                         <tr class="hl2">
                             <td class="auto-style33">
-                                <asp:HyperLink ID="hlLibros" runat="server" NavigateUrl="~/vistaLibros.aspx">Libros</asp:HyperLink>
+                                <asp:HyperLink ID="hlLibros" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/vistaLibros.aspx">Libros</asp:HyperLink>
                             </td>
                             <td>
-                                <asp:HyperLink ID="hlCategorias" runat="server" NavigateUrl="~/VistaCategorias.aspx">Categorias</asp:HyperLink>
+                                <asp:HyperLink ID="hlCategorias" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaCategorias.aspx">Categorias</asp:HyperLink>
                             </td>
                             <td>
-                                <asp:HyperLink ID="hlEditoriales" runat="server" NavigateUrl="~/VistaEditoriales.aspx">Editoriales</asp:HyperLink>
+                                <asp:HyperLink ID="hlEditoriales" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaEditoriales.aspx">Editoriales</asp:HyperLink>
                             </td>
                         </tr>
                     </table>
@@ -212,12 +226,13 @@
             <tr>
                 <td class="auto-style27"></td>
                 <td class="auto-style26">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <br />
                     <asp:DataList ID="DataList1" runat="server" CssClass="auto-style31" DataKeyField="Nombre_Ca" DataSourceID="dsCategoriasC" Width="316px">
                         <ItemTemplate>
                             <em>
                             <asp:Label ID="Label1" runat="server" CssClass="auto-style28" Text='<%# Eval("Nombre_Ca") %>'></asp:Label>
                             </em><br />
-<br />
                         </ItemTemplate>
                     </asp:DataList>
                     &nbsp;&nbsp;&nbsp;
@@ -234,8 +249,6 @@
                 <asp:Parameter DefaultValue="true" Name="Activo_Ca" Type="Boolean" />
             </SelectParameters>
         </asp:SqlDataSource>
-        <br />
-        <br />
         <br />
         <br />
         <br />

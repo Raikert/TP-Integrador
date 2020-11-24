@@ -62,7 +62,7 @@ namespace vistas
 
                 int registro = 0;
 
-                foreach (DataList item in DataList1.Items)
+                foreach (DataListItem item in DataList1.Items)
                 {
                     tabla_carro.Rows[registro]["cantidad_items"] = ((DropDownList)item.FindControl("ddlCantidad")).Text;
 

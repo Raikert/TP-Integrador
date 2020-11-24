@@ -104,6 +104,7 @@
             color: #000000;
         }
         .auto-style43 {
+            background-color:#FAE8BF;
             width: 70%;
             float: left;
         }
@@ -132,16 +133,32 @@
             background-color: #000000;
         }
 
+         body{
+            background-image: url("/Imagenes/libros.jpg");
+           /*background-color:darkgray*/
+         }
+
+         #top {
+            background-color:#FBD88C;
+            width: 100%;
+            height: 100px;
+         }
+
+
         </style>
 </head>
-<body style="background-color:darkgray">
+<body>
     <form id="form1" runat="server">
-        <div style="background-color: darkgray; " class="auto-style28">
+        <div class="auto-style28">
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Cod_Libro_Lb], [ImagenURL_Lb] FROM [Libros]"></asp:SqlDataSource>
             <asp:SqlDataSource ID="dsCategorias" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Nombre_Ca] FROM [Categorias]"></asp:SqlDataSource>
             <asp:SqlDataSource ID="dsEditoriales" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Nombre_E] FROM [Editoriales]"></asp:SqlDataSource>
             &nbsp;</div>
-        <div style="background-color:white;" class="auto-style43">
+
+        <div class="auto-style43">
+
+            <div id="top">
+
             <div style="float:left;width:25%"> 
             <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/Biblioteca Libra logo.png" Height="100px" />
                 <br />
@@ -172,6 +189,9 @@
                 <br />
                 <br />
             </div>
+
+                </div>
+
             &nbsp;<br />
             <br />
                     <table  class="auto-style1">
@@ -364,7 +384,7 @@
             <br />
             <br />
         </div>
-        <div style="background-color: darkgray; " class="auto-style28">
+        <div class="auto-style28">
             
             <br />
             <br />
