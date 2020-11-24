@@ -65,7 +65,7 @@
                 <br />
                 <asp:Label ID="lblMensaje9" runat="server" Font-Names="Sitka Subheading" Text="Fecha de Nacimiento"></asp:Label>
                 <br />
-                <asp:TextBox style="text-align: center" ID="FechaNacimiento_Cl" runat="server" Height="20px" Width="300px" CssClass="auto-style4" Font-Names="Calibri" TextMode="Date" max="9999-12-31" ViewStateMode="Enabled"></asp:TextBox>
+                <asp:TextBox style="text-align: center" ID="FechaNacimiento_Cl" runat="server" Height="20px" Width="300px" CssClass="auto-style4" Font-Names="Calibri" TextMode="Date" min="1850-01-01" max="2140-12-31" ViewStateMode="Enabled"></asp:TextBox>
                 <br />
                 <asp:RequiredFieldValidator ID="rfvNombre1" runat="server" ControlToValidate="FechaNacimiento_Cl" CssClass="auto-style3" ErrorMessage="Campo obligatorio" Font-Names="Bahnschrift" ForeColor="Red" Font-Size="10.5pt"></asp:RequiredFieldValidator>
                 <br />

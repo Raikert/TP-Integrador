@@ -33,7 +33,7 @@ namespace Entidades.Clases
 			Email_Cliente = "";
 			Contrasena_Cliente = "";
 			estado_Cliente = "";
-	}
+	    }
 
 		public Cliente(String codCliente, String nombreCliente, String apellidoCliente, String dniCliente,
 			String telCliente, String fechaCliente, String EmailCliente, String ContrasenaCliente, String estadoCliente)
@@ -124,6 +124,15 @@ namespace Entidades.Clases
 			consultas[2] = "INSERT INTO Clientes(Nombre_Cl, Apellido_Cl, DNI_Cl, NumeroTelefono_Cl, FechaNacimiento_Cl, Email_Cl, Contraseña_Cl, Activo_Cl)" +
 				"SELECT '" + nombre_Cliente + "', '" + apellido_Cliente + "', '" + dni_Cliente + "', '" + telefono_Cliente + "', '" + fecha_Cliente + "', '" +
 				Email_Cliente + "', '" + Contrasena_Cliente + "', 'true'";
+		}
+
+		public void setConsultaModificarUsuario()
+        {
+			consultas[3] = "UPDATE Clientes SET Nombre_Cl = '" + nombre_Cliente + "', Apellido_Cl = '" + apellido_Cliente + "'" +
+				", DNI_Cl = '" + dni_Cliente + "', NumeroTelefono_Cl = '" + telefono_Cliente +
+				"', FechaNacimiento_Cl = '" + fecha_Cliente + "', Email_Cl = '" + Email_Cliente +
+				"', Contraseña_Cl = '" + Contrasena_Cliente + "', Activo_Cl = '" + estado_Cliente +
+				"' WHERE Cod_Cliente_Cl = '" + cod_Cliente + "'";
 		}
 
 		public void setMostrar_Where(string campo, string valor)

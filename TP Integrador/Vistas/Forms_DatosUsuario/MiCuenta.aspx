@@ -66,11 +66,6 @@
         }
 
 
-        .auto-style21 {
-            width: 100%;
-            height: 10px;
-        }
-
         .hl1 {
             justify-content: center;
             align-items: center;
@@ -141,6 +136,16 @@
         .auto-style46 {
             width: 129px;
         }
+        .auto-style47 {
+            font-weight: bold;
+        }
+        .auto-style48 {
+            height: 30px;
+        }
+        .auto-style49 {
+            height: 30px;
+            width: 611px;
+        }
     </style>
 </head>
 <body class="centrado">
@@ -198,97 +203,90 @@
         <br />
         <table class="auto-style1">
             <tr>
-                <td class="auto-style37"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nombre:<br />
-                </strong></td>
+                <td class="auto-style37"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nombre:</strong></td>
                 <td class="auto-style38">
-                    <asp:TextBox ID="Nombre_Cl" runat="server" Visible="False" Width="150px"></asp:TextBox>
                     <asp:Label ID="lblNombre_Micuenta" runat="server"></asp:Label>
-                    &nbsp;<asp:LinkButton ID="hlCambiarNombre" runat="server" ForeColor="#CC6600" OnClick="hlCambiar_Click">cambiar</asp:LinkButton>
-                    &nbsp;<asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="Nombre_Cl" CssClass="auto-style3" ErrorMessage="Campo obligatorio" Font-Names="Bahnschrift" ForeColor="Red" Font-Size="10.5pt"></asp:RequiredFieldValidator>
+                    <asp:TextBox ID="Nombre_Cl" runat="server" Visible="False" Width="150px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style35"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Apellido:<br />
-                </strong></td>
+                <td class="auto-style35"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Apellido:</strong></td>
                 <td class="auto-style36">
-                    <asp:TextBox ID="Apellido_Cl" runat="server" Visible="False" Width="150px"></asp:TextBox>
                     <asp:Label ID="lblApellido_Micuenta" runat="server"></asp:Label>
-                    &nbsp;<asp:LinkButton ID="hlCambiarApellido" runat="server" ForeColor="#CC6600" OnClick="hlCambiarApellido_Click">cambiar</asp:LinkButton>
-                    &nbsp;<asp:RequiredFieldValidator ID="rfvApellido" runat="server" ControlToValidate="Apellido_Cl" CssClass="auto-style3" ErrorMessage="Campo obligatorio" Font-Names="Bahnschrift" ForeColor="Red" Font-Size="10.5pt"></asp:RequiredFieldValidator>
-                    <br />
+                    <asp:TextBox ID="Apellido_Cl" runat="server" Visible="False" Width="150px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style35"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DNI:<br />
-                </strong></td>
+                <td class="auto-style35"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DNI:</strong></td>
                 <td class="auto-style36">
-                    <asp:TextBox ID="DNI_Cl" runat="server" Visible="False" Width="150px"></asp:TextBox>
                     <asp:Label ID="lbldniMicuenta" runat="server"></asp:Label>
-                    &nbsp;<asp:LinkButton ID="hlCambiarDNI" runat="server" ForeColor="#CC6600" OnClick="hlCambiarDNI_Click" ValidationGroup="0">cambiar</asp:LinkButton>
-                    &nbsp;<asp:RegularExpressionValidator ID="revDNI" runat="server" ControlToValidate="DNI_Cl" CssClass="auto-style3" ErrorMessage="Solo puede ingresar numeros" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red" ValidationExpression="^\d+$" ValidationGroup="0"></asp:RegularExpressionValidator>
-                    <asp:Label ID="lblErrorDNI" runat="server" CssClass="auto-style3" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red"></asp:Label>
+                    <asp:TextBox ID="DNI_Cl" runat="server" Visible="False" Width="150px"></asp:TextBox>
+                    &nbsp;<asp:Label ID="lblErrorDNI" runat="server" CssClass="auto-style3" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red"></asp:Label>
                     <br />
                 </td>
             </tr>
             <tr>
-                <td class="auto-style35"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Email/Correo:<br />
-                </strong></td>
+                <td class="auto-style35"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Email/Correo:</strong></td>
                 <td class="auto-style36">
-                    <asp:TextBox ID="Email_Cl" runat="server" Visible="False" Width="232px"></asp:TextBox>
                     <asp:Label ID="EmailcorreoMicuenta" runat="server"></asp:Label>
-                    &nbsp;<asp:LinkButton ID="hlCambiarEmail" runat="server" ForeColor="#CC6600" OnClick="hlCambiarEmail_Click" ValidationGroup="1">cambiar</asp:LinkButton>
-                    &nbsp;<asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="Email_Cl" CssClass="auto-style3" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Font-Names="Bahnschrift" Font-Size="10.5pt" ValidationGroup="1">No ha ingresado email correcto</asp:RegularExpressionValidator>
-                    <br />
-                    <asp:Label ID="lblEmailRepetido" runat="server" CssClass="auto-style3" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red" Visible="False"></asp:Label>
+                    <asp:TextBox ID="Email_Cl" runat="server" Visible="False" Width="232px"></asp:TextBox>
+                    &nbsp;<asp:Label ID="lblErrorEmail" runat="server" CssClass="auto-style3" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red"></asp:Label>
                     <br />
                 </td>
             </tr>
             <tr>
-                <td class="auto-style35"><strong>Fecha de nacimiento:<br />
-                </strong></td>
+                <td class="auto-style35"><strong>Fecha de nacimiento:</strong></td>
                 <td class="auto-style36">
-                    <asp:TextBox ID="FechaNacimiento_Cl" runat="server" TextMode="Date" max="9999-12-31" Visible="False" Width="150px"></asp:TextBox>
                     <asp:Label ID="FechadenacimientoMicuenta" runat="server"></asp:Label>
-                    &nbsp;<asp:LinkButton ID="hlCambiarFec" runat="server" ForeColor="#CC6600" OnClick="hlCambiarFec_Click">cambiar</asp:LinkButton>
-                    &nbsp;<br />
+                    <asp:TextBox ID="FechaNacimiento_Cl" runat="server" TextMode="Date" min="1850-01-01" max="2140-12-31" Visible="False" Width="150px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style35"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Contraseña:</strong></td>
                 <td class="auto-style36">
-                    <asp:TextBox ID="Contraseña_Cl" runat="server" Visible="False" Width="150px"></asp:TextBox>
                     <asp:Label ID="Contraseña" runat="server"></asp:Label>
-                    &nbsp;<asp:LinkButton ID="hlCambiarContraseña" runat="server" ForeColor="#CC6600" OnClick="hlCambiarContraseña_Click">cambiar</asp:LinkButton>
-                    &nbsp;<asp:RequiredFieldValidator ID="rfvContraseña" runat="server" ControlToValidate="Contraseña_Cl" CssClass="auto-style3" ErrorMessage="Campo obligatorio" Font-Names="Bahnschrift" ForeColor="Red" Font-Size="10.5pt"></asp:RequiredFieldValidator>
-                    <br />
+                    <asp:TextBox ID="Contraseña_Cl" runat="server" Visible="False" Width="150px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style35"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Telefono:</strong></td>
-                <td class="auto-style36"><asp:TextBox ID="NumeroTelefono_Cl" runat="server" Visible="False" Width="150px"></asp:TextBox>
+                <td class="auto-style36">
                     <asp:Label ID="Telefono" runat="server"></asp:Label>
-                    &nbsp;<asp:LinkButton ID="hlCambiarTelefono" runat="server" ForeColor="#CC6600" OnClick="hlCambiarTelefono_Click" ValidationGroup="2">cambiar</asp:LinkButton>
-                    &nbsp;<asp:RegularExpressionValidator ID="revTelefono" runat="server" ControlToValidate="NumeroTelefono_Cl" CssClass="auto-style3" ErrorMessage="Solo puede ingresar numeros" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red" ValidationExpression="^\d+$" ValidationGroup="2"></asp:RegularExpressionValidator>
-                    <asp:Label ID="lblErrorTelefono" runat="server" CssClass="auto-style3" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red"></asp:Label>
+                    <asp:TextBox ID="NumeroTelefono_Cl" runat="server" Visible="False" Width="150px"></asp:TextBox>
+                    &nbsp;<asp:Label ID="lblErrorTelefono" runat="server" CssClass="auto-style3" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red"></asp:Label>
                 </td>
             </tr>
         </table>
+        <table class="auto-style1">
+            <tr>
+                <td class="auto-style49"></td>
+                <td class="auto-style48">
+                <strong>
+                <asp:Button ID="btnModificarDatos" runat="server" BackColor="#33CC33" BorderColor="Black" CssClass="auto-style47" ForeColor="Black" Text="Modificar datos personales" OnClick="btnModificarDatos_Click" Width="190px" />
+                <asp:Button ID="btnGuardarDatos" runat="server" BackColor="#33CC33" BorderColor="Black" CssClass="auto-style47" ForeColor="Black" Text="Guardar datos personales" OnClick="btnGuardarDatos_Click" ValidationGroup="0" Visible="False" Width="190px" />
+                    <br />
+                    <br />
+                <asp:Button ID="btnModificarEmail" runat="server" BackColor="#33CC33" BorderColor="Black" CssClass="auto-style47" ForeColor="Black" Text="Modificar email" OnClick="btnModificarEmail_Click" Width="119px" />
+                <asp:Button ID="btnGuardarEmail" runat="server" BackColor="#33CC33" BorderColor="Black" CssClass="auto-style47" ForeColor="Black" Text="Guardar email" OnClick="btnGuardarEmail_Click" Width="112px" ValidationGroup="1" Visible="False" />
+                </strong>
+                </td>
+            </tr>
+        </table>
+                <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="Errores" ShowMessageBox="True" ShowSummary="False" ValidationGroup="0" Width="233px" />
+                <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="Nombre_Cl" Display="None" ErrorMessage="No hay ingreso en el campo &quot;Nombre&quot;" ValidationGroup="0"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="rfvApellido" runat="server" ControlToValidate="Apellido_Cl" Display="None" ErrorMessage="No hay ingreso en el campo &quot;Apellido&quot;" ValidationGroup="0"></asp:RequiredFieldValidator>
         <br />
+        <asp:RequiredFieldValidator ID="rfvDNI" runat="server" ControlToValidate="DNI_Cl" Display="None" ErrorMessage="No hay ingreso en el campo &quot;DNI&quot;" ValidationGroup="0"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="rfvContraseña" runat="server" ControlToValidate="Contraseña_Cl" Display="None" ErrorMessage="No hay ingreso en el campo &quot;Contraseña&quot;" ValidationGroup="0"></asp:RequiredFieldValidator>
         <br />
+        <asp:RequiredFieldValidator ID="rfvTelefono" runat="server" ControlToValidate="NumeroTelefono_Cl" Display="None" ErrorMessage="No hay ingreso en el campo &quot;Telefono&quot;" ValidationGroup="0"></asp:RequiredFieldValidator>
+        <asp:RegularExpressionValidator ID="revDNI" runat="server" ControlToValidate="DNI_Cl" Display="None" ErrorMessage="Ha ingresado un DNI con letras o espacios" ValidationExpression="^\d+$" ValidationGroup="0"></asp:RegularExpressionValidator>
         <br />
+        <asp:RegularExpressionValidator ID="revTelefono" runat="server" ControlToValidate="NumeroTelefono_Cl" Display="None" ErrorMessage="Ha ingresado un telefono con letras o espacios" ValidationExpression="^\d+$" ValidationGroup="0"></asp:RegularExpressionValidator>
         <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <div style="background-color: gray" class="auto-style21"></div>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;<br />
-        <br />
-
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:ValidationSummary ID="ValidationSummary2" runat="server" HeaderText="Errores" ShowMessageBox="True" ShowSummary="False" ValidationGroup="1" Width="233px" />
+        <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="Email_Cl" Display="None" ErrorMessage="No hay ingreso en el campo &quot;Email&quot;" ValidationGroup="1"></asp:RequiredFieldValidator>
+        <asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="Email_Cl" Display="None" ErrorMessage="No ha ingresado un email correcto, compruebe si esta bien escrito y que no tenga espacios en blanco" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="1"></asp:RegularExpressionValidator>
         <br />
     </form>
     <br />

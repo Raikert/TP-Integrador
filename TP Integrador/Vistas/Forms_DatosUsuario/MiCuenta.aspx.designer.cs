@@ -78,15 +78,6 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.HyperLink hlEditoriales;
 
         /// <summary>
-        /// Control Nombre_Cl.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Nombre_Cl;
-
-        /// <summary>
         /// Control lblNombre_Micuenta.
         /// </summary>
         /// <remarks>
@@ -96,31 +87,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label lblNombre_Micuenta;
 
         /// <summary>
-        /// Control hlCambiarNombre.
+        /// Control Nombre_Cl.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton hlCambiarNombre;
-
-        /// <summary>
-        /// Control rfvNombre.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNombre;
-
-        /// <summary>
-        /// Control Apellido_Cl.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Apellido_Cl;
+        protected global::System.Web.UI.WebControls.TextBox Nombre_Cl;
 
         /// <summary>
         /// Control lblApellido_Micuenta.
@@ -132,31 +105,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label lblApellido_Micuenta;
 
         /// <summary>
-        /// Control hlCambiarApellido.
+        /// Control Apellido_Cl.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton hlCambiarApellido;
-
-        /// <summary>
-        /// Control rfvApellido.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvApellido;
-
-        /// <summary>
-        /// Control DNI_Cl.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DNI_Cl;
+        protected global::System.Web.UI.WebControls.TextBox Apellido_Cl;
 
         /// <summary>
         /// Control lbldniMicuenta.
@@ -168,22 +123,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label lbldniMicuenta;
 
         /// <summary>
-        /// Control hlCambiarDNI.
+        /// Control DNI_Cl.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton hlCambiarDNI;
-
-        /// <summary>
-        /// Control revDNI.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revDNI;
+        protected global::System.Web.UI.WebControls.TextBox DNI_Cl;
 
         /// <summary>
         /// Control lblErrorDNI.
@@ -195,15 +141,6 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label lblErrorDNI;
 
         /// <summary>
-        /// Control Email_Cl.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Email_Cl;
-
-        /// <summary>
         /// Control EmailcorreoMicuenta.
         /// </summary>
         /// <remarks>
@@ -213,40 +150,22 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label EmailcorreoMicuenta;
 
         /// <summary>
-        /// Control hlCambiarEmail.
+        /// Control Email_Cl.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton hlCambiarEmail;
+        protected global::System.Web.UI.WebControls.TextBox Email_Cl;
 
         /// <summary>
-        /// Control revEmail.
+        /// Control lblErrorEmail.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revEmail;
-
-        /// <summary>
-        /// Control lblEmailRepetido.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmailRepetido;
-
-        /// <summary>
-        /// Control FechaNacimiento_Cl.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FechaNacimiento_Cl;
+        protected global::System.Web.UI.WebControls.Label lblErrorEmail;
 
         /// <summary>
         /// Control FechadenacimientoMicuenta.
@@ -258,22 +177,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label FechadenacimientoMicuenta;
 
         /// <summary>
-        /// Control hlCambiarFec.
+        /// Control FechaNacimiento_Cl.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton hlCambiarFec;
-
-        /// <summary>
-        /// Control Contraseña_Cl.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Contraseña_Cl;
+        protected global::System.Web.UI.WebControls.TextBox FechaNacimiento_Cl;
 
         /// <summary>
         /// Control Contraseña.
@@ -285,31 +195,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label Contraseña;
 
         /// <summary>
-        /// Control hlCambiarContraseña.
+        /// Control Contraseña_Cl.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton hlCambiarContraseña;
-
-        /// <summary>
-        /// Control rfvContraseña.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvContraseña;
-
-        /// <summary>
-        /// Control NumeroTelefono_Cl.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NumeroTelefono_Cl;
+        protected global::System.Web.UI.WebControls.TextBox Contraseña_Cl;
 
         /// <summary>
         /// Control Telefono.
@@ -321,13 +213,121 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label Telefono;
 
         /// <summary>
-        /// Control hlCambiarTelefono.
+        /// Control NumeroTelefono_Cl.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton hlCambiarTelefono;
+        protected global::System.Web.UI.WebControls.TextBox NumeroTelefono_Cl;
+
+        /// <summary>
+        /// Control lblErrorTelefono.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErrorTelefono;
+
+        /// <summary>
+        /// Control btnModificarDatos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnModificarDatos;
+
+        /// <summary>
+        /// Control btnGuardarDatos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGuardarDatos;
+
+        /// <summary>
+        /// Control btnModificarEmail.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnModificarEmail;
+
+        /// <summary>
+        /// Control btnGuardarEmail.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGuardarEmail;
+
+        /// <summary>
+        /// Control ValidationSummary1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+
+        /// <summary>
+        /// Control rfvNombre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNombre;
+
+        /// <summary>
+        /// Control rfvApellido.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvApellido;
+
+        /// <summary>
+        /// Control rfvDNI.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDNI;
+
+        /// <summary>
+        /// Control rfvContraseña.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvContraseña;
+
+        /// <summary>
+        /// Control rfvTelefono.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTelefono;
+
+        /// <summary>
+        /// Control revDNI.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revDNI;
 
         /// <summary>
         /// Control revTelefono.
@@ -339,12 +339,30 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.RegularExpressionValidator revTelefono;
 
         /// <summary>
-        /// Control lblErrorTelefono.
+        /// Control ValidationSummary2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblErrorTelefono;
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary2;
+
+        /// <summary>
+        /// Control rfvEmail.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmail;
+
+        /// <summary>
+        /// Control revEmail.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revEmail;
     }
 }

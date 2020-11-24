@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Entidades.Clases;
 using Vistas.Clases;
+using Negocio;
 
 namespace Vistas
 {
@@ -15,14 +16,18 @@ namespace Vistas
 
         private Cliente cli;
 
+        private NegocioGenerales ng;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             util = new Utilidades();
 
-            if (Session["Usuario"] != null)
-            {
-                cli = (Cliente) Session["Usuario"];
+            cli = (Cliente)Session["Usuario"];
 
+            ng = new NegocioGenerales();
+
+            if (!IsPostBack && Session["Usuario"] != null)
+            {
                 lblNombre_Micuenta.Text = cli.nombreCliente;
 
                 lblApellido_Micuenta.Text = cli.apellidoCliente;
@@ -41,123 +46,159 @@ namespace Vistas
             }
         }
 
-        protected void hlCambiar_Click(object sender, EventArgs e)
+        protected void btnModificarDatos_Click(object sender, EventArgs e)
         {
-            cli.nombreCliente = modificarDato(ref Nombre_Cl,ref lblNombre_Micuenta);
+            estadoModificando();
+
+            btnGuardarDatos.Visible = true;
+
+            btnModificarDatos.Visible = false;
         }
 
-        protected void hlCambiarApellido_Click(object sender, EventArgs e)
+        public void estadoModificando()
         {
-            cli.apellidoCliente = modificarDato(ref Apellido_Cl, ref lblApellido_Micuenta);
+            estadoModificando(ref lblNombre_Micuenta, ref Nombre_Cl);
+
+            estadoModificando(ref lblApellido_Micuenta, ref Apellido_Cl);
+
+            estadoModificando(ref lbldniMicuenta, ref DNI_Cl);
+
+            estadoModificando(ref FechadenacimientoMicuenta, ref FechaNacimiento_Cl,cli.fechaCliente);
+
+            estadoModificando(ref Contraseña, ref Contraseña_Cl);
+
+            estadoModificando(ref Telefono, ref NumeroTelefono_Cl);
         }
 
-        protected void hlCambiarDNI_Click(object sender, EventArgs e)
+        public void estadoModificando(ref Label lblCampo, ref TextBox txt, string otroTexto = "")
         {
-            if (DNI_Cl.Text.Length <= 8)
+            lblCampo.Visible = false;
+            txt.Visible = true;
+
+            if (otroTexto == "")
+                txt.Text = lblCampo.Text;
+            else
+                txt.Text = otroTexto;
+        }
+
+        protected void btnGuardarDatos_Click(object sender, EventArgs e)
+        {
+            if(Validaciones())
             {
-                cli.dniCliente = modificarDato(ref DNI_Cl, ref lbldniMicuenta, ref revDNI);
+                cargarDatos();
 
+                cli.setConsultaModificarUsuario();
+
+                ng.Consulta(cli.getConsulta(3));
+
+                estadoGuardando();
+
+                btnModificarDatos.Visible = true;
+
+                btnGuardarDatos.Visible = false;
+            }
+        }
+
+        public bool Validaciones()
+        {
+            bool validador = true;
+
+            if (!(DNI_Cl.Text.Length == 8))
+            {
+                lblErrorDNI.Text = "Ingreso un DNI erroneo (Debe contener 8 números)";
+                validador = false;
+            }
+            else
                 lblErrorDNI.Text = "";
+
+            if (!(NumeroTelefono_Cl.Text.Length == 10))
+            {
+                lblErrorTelefono.Text = "Ingreso un telefono erroneo (Debe contener 10 números)";
+                validador = false;
             }
             else
-            {
-                revDNI.Visible = false;
-
-                lblErrorDNI.Text = "Ingreso un DNI de mas de 8 caracteres";
-            }
-        }
-
-        protected void hlCambiarEmail_Click(object sender, EventArgs e)
-        {
-            if (!util.buscarIgualdad(ref Email_Cl,"Clientes"))
-            {
-                cli.EmailCliente = modificarDato(ref Email_Cl, ref EmailcorreoMicuenta, ref revEmail);
-
-                Email_Cl.Text = "";
-
-                lblEmailRepetido.Text = "";
-                lblEmailRepetido.Visible = false;
-            }
-            else
-            {
-                revEmail.Visible = false;
-                lblEmailRepetido.Visible = true;
-
-                lblEmailRepetido.Text = "El email ingresado ya se encuentra asociado a otra cuenta";
-            }
-        }
-
-        protected void hlCambiarFec_Click(object sender, EventArgs e)
-        {
-            cli.fechaCliente = modificarDato(ref FechaNacimiento_Cl, ref FechadenacimientoMicuenta);
-        }
-
-        protected void hlCambiarContraseña_Click(object sender, EventArgs e)
-        {
-            cli.ContrasenaCliente = modificarDato(ref Contraseña_Cl, ref Contraseña);
-        }
-
-        protected void hlCambiarTelefono_Click(object sender, EventArgs e)
-        {
-            if (NumeroTelefono_Cl.Text.Length <= 10)
-            {
-                cli.telCliente = modificarDato(ref NumeroTelefono_Cl, ref Telefono, ref revTelefono);
-
                 lblErrorTelefono.Text = "";
-            }
-            else
-            {
-                revTelefono.Visible = false;
 
-                lblErrorTelefono.Text = "Ingreso un telefono de mas de 10 caracteres";
-            }
+            return validador;
         }
 
-        public string modificarDato(ref TextBox txt, ref Label lbl)
+        public void cargarDatos()
         {
-            if (!txt.Visible)
-            {
-                lbl.Visible = false;
-                txt.Visible = true;
-            }
-            else
-            {
-                util.modificar("Cod_Cliente_Cl", cli.codCliente, ref txt, "Clientes");
+            cli.nombreCliente = Nombre_Cl.Text;
+            lblNombre_Micuenta.Text = cli.nombreCliente;
 
-                util.cerrarConexion();
+            cli.apellidoCliente = Apellido_Cl.Text;
+            lblApellido_Micuenta.Text = cli.apellidoCliente;
 
-                lbl.Text = txt.Text;
+            cli.dniCliente = DNI_Cl.Text;
+            lbldniMicuenta.Text = cli.dniCliente;
 
-                txt.Visible = false;
-                lbl.Visible = true;
-            }
+            cli.fechaCliente = FechaNacimiento_Cl.Text;
 
-            return txt.Text;
+            string[] cadenas = cli.fechaCliente.Split('-');
+
+            FechadenacimientoMicuenta.Text = cadenas[2] + "/" + cadenas[1] + "/" + cadenas[0];
+
+            cli.ContrasenaCliente = Contraseña_Cl.Text;
+            Contraseña.Text = cli.ContrasenaCliente;
+
+            cli.telCliente = NumeroTelefono_Cl.Text;
+            Telefono.Text = cli.telCliente;
         }
 
-        public string modificarDato(ref TextBox txt, ref Label lbl, ref RegularExpressionValidator rev, bool buscar_igualdad = false)
+        public void estadoGuardando()
         {
-            if (!txt.Visible)
-            {
-                lbl.Visible = false;
-                txt.Visible = true;
-            }
-            else
-            {
-                util.modificar("Cod_Cliente_Cl", cli.codCliente, ref txt, "Clientes");
-                
-                util.cerrarConexion();
+            estadoGuardando(ref lblNombre_Micuenta, ref Nombre_Cl);
 
-                lbl.Text = txt.Text;
+            estadoGuardando(ref lblApellido_Micuenta, ref Apellido_Cl);
 
-                txt.Visible = false;
-                lbl.Visible = true;
-                rev.Visible = true;
-            }
+            estadoGuardando(ref lbldniMicuenta, ref DNI_Cl);
 
-            return txt.Text;
+            estadoGuardando(ref FechadenacimientoMicuenta, ref FechaNacimiento_Cl);
+
+            estadoGuardando(ref Contraseña, ref Contraseña_Cl);
+
+            estadoGuardando(ref Telefono, ref NumeroTelefono_Cl);
         }
 
+        public void estadoGuardando(ref Label lblCampo, ref TextBox txt)
+        {
+            txt.Visible = false;
+            lblCampo.Visible = true;
+        }
+
+        protected void btnModificarEmail_Click(object sender, EventArgs e)
+        {
+            estadoModificando(ref EmailcorreoMicuenta, ref Email_Cl);
+
+            btnGuardarEmail.Visible = true;
+
+            btnModificarEmail.Visible = false;
+        }
+
+        protected void btnGuardarEmail_Click(object sender, EventArgs e)
+        {
+            if (util.buscarIgualdad(ref Email_Cl, "Clientes"))
+            {
+                lblErrorEmail.Text = "El email ingresado ya se encuentra asociado a otra cuenta";
+                return;
+            }
+            else
+                lblErrorEmail.Text = "";
+
+            cli.EmailCliente = Email_Cl.Text;
+            EmailcorreoMicuenta.Text = cli.EmailCliente;
+
+            cli.setConsultaModificarUsuario();
+
+            ng.Consulta(cli.getConsulta(3));
+
+            estadoGuardando(ref EmailcorreoMicuenta, ref Email_Cl);
+
+            btnModificarEmail.Visible = true;
+
+            btnGuardarEmail.Visible = false;
+        }
 
     }
 }

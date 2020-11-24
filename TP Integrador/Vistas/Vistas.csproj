@@ -68,6 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Forms_DatosUsuario\IngresoMiCuenta.aspx" />
+    <Content Include="Forms_DatosUsuario\MiCuenta.aspx" />
+    <Content Include="Forms_DatosUsuario\RegistroUsuario2.aspx" />
     <Content Include="Forms_VistaCliente\Forms_DeCompra\Carrito.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Imagenes\1.jpg" />
@@ -92,12 +94,10 @@
     <Content Include="Imagenes\twitter.png" />
     <Content Include="Imagenes\youtube.png" />
     <Content Include="Forms_DatosUsuario\InicioSesion1.aspx" />
-    <Content Include="Forms_DatosUsuario\MiCuenta.aspx" />
     <Content Include="Forms_Admin\PanelDelAdministrador.aspx" />
     <Content Include="Forms_VistaCliente\Forms_DeCompra\ProcesoCompraCarro.aspx" />
     <Content Include="Forms_Tests\Pruebas.aspx" />
     <Content Include="Forms_DatosUsuario\RegistroUsuario1.aspx" />
-    <Content Include="Forms_DatosUsuario\RegistroUsuario2.aspx" />
     <Content Include="Forms_DatosUsuario\RestablecerContraseña.aspx" />
     <Content Include="Forms_VistaCliente\Forms_DeCompra\LibroSeleccionado.aspx" />
     <Content Include="Forms_VistaCliente\Forms_ParaNavegar\VistaCategorias.aspx" />
@@ -112,6 +112,20 @@
     </Compile>
     <Compile Include="Forms_DatosUsuario\IngresoMiCuenta.aspx.designer.cs">
       <DependentUpon>IngresoMiCuenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_DatosUsuario\MiCuenta.aspx.cs">
+      <DependentUpon>MiCuenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms_DatosUsuario\MiCuenta.aspx.designer.cs">
+      <DependentUpon>MiCuenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_DatosUsuario\RegistroUsuario2.aspx.cs">
+      <DependentUpon>RegistroUsuario2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms_DatosUsuario\RegistroUsuario2.aspx.designer.cs">
+      <DependentUpon>RegistroUsuario2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms_VistaCliente\Forms_DeCompra\Carrito.aspx.cs">
       <DependentUpon>Carrito.aspx</DependentUpon>
@@ -134,13 +148,6 @@
     </Compile>
     <Compile Include="Forms_DatosUsuario\InicioSesion1.aspx.designer.cs">
       <DependentUpon>InicioSesion1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Forms_DatosUsuario\MiCuenta.aspx.cs">
-      <DependentUpon>MiCuenta.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms_DatosUsuario\MiCuenta.aspx.designer.cs">
-      <DependentUpon>MiCuenta.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms_Admin\PanelDelAdministrador.aspx.cs">
       <DependentUpon>PanelDelAdministrador.aspx</DependentUpon>
@@ -170,13 +177,6 @@
     </Compile>
     <Compile Include="Forms_DatosUsuario\RegistroUsuario1.aspx.designer.cs">
       <DependentUpon>RegistroUsuario1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Forms_DatosUsuario\RegistroUsuario2.aspx.cs">
-      <DependentUpon>RegistroUsuario2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms_DatosUsuario\RegistroUsuario2.aspx.designer.cs">
-      <DependentUpon>RegistroUsuario2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms_DatosUsuario\RestablecerContraseña.aspx.cs">
       <DependentUpon>RestablecerContraseña.aspx</DependentUpon>
