@@ -699,15 +699,6 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.TextBox Descripcion_Ca;
 
         /// <summary>
-        /// Control Label1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-
-        /// <summary>
         /// Control btnMostrarCategorias.
         /// </summary>
         /// <remarks>
@@ -753,15 +744,6 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnModificarCategoria;
 
         /// <summary>
-        /// Control grdCategoria.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdCategoria;
-
-        /// <summary>
         /// Control lblEstadoABM_Categoria.
         /// </summary>
         /// <remarks>
@@ -769,6 +751,15 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEstadoABM_Categoria;
+
+        /// <summary>
+        /// Control grdCategoria.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdCategoria;
 
         /// <summary>
         /// Control lblABM_Editorial.
@@ -879,15 +870,6 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnModificarEditorial;
 
         /// <summary>
-        /// Control grdEditorial.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdEditorial;
-
-        /// <summary>
         /// Control lblEstadoABM_Editorial.
         /// </summary>
         /// <remarks>
@@ -895,6 +877,15 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEstadoABM_Editorial;
+
+        /// <summary>
+        /// Control grdEditorial.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdEditorial;
 
         /// <summary>
         /// Control lblABM_Proveedores.
@@ -1131,15 +1122,6 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnModificarProveedor;
 
         /// <summary>
-        /// Control grdProveedor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdProveedor;
-
-        /// <summary>
         /// Control lblEstadoABM_Proveedor.
         /// </summary>
         /// <remarks>
@@ -1147,6 +1129,15 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEstadoABM_Proveedor;
+
+        /// <summary>
+        /// Control grdProveedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdProveedor;
 
         /// <summary>
         /// Control lblLibrosPorProveedores.
@@ -1257,15 +1248,6 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnBorrarLibroXProveedor;
 
         /// <summary>
-        /// Control grdLibrosXProveedores.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdLibrosXProveedores;
-
-        /// <summary>
         /// Control lblEstadoLibrosXProveedores.
         /// </summary>
         /// <remarks>
@@ -1273,6 +1255,15 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEstadoLibrosXProveedores;
+
+        /// <summary>
+        /// Control grdLibrosXProveedores.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdLibrosXProveedores;
 
         /// <summary>
         /// Control lblStock.
@@ -1401,15 +1392,6 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnModificarStock;
 
         /// <summary>
-        /// Control grdStock.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdStock;
-
-        /// <summary>
         /// Control lblEstadoStock.
         /// </summary>
         /// <remarks>
@@ -1417,6 +1399,15 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEstadoStock;
+
+        /// <summary>
+        /// Control grdStock.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdStock;
 
         /// <summary>
         /// Control lblCliente.
@@ -1464,15 +1455,6 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnBuscarCliente;
 
         /// <summary>
-        /// Control grdCliente.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdCliente;
-
-        /// <summary>
         /// Control lblEstadoCliente.
         /// </summary>
         /// <remarks>
@@ -1480,6 +1462,15 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEstadoCliente;
+
+        /// <summary>
+        /// Control grdCliente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdCliente;
 
         /// <summary>
         /// Control lblVentas.
@@ -1527,15 +1518,6 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.TextBox Cod_Cliente_V;
 
         /// <summary>
-        /// Control ddlCampoBuscarven.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCampoBuscarven;
-
-        /// <summary>
         /// Control btnMostrarVentas.
         /// </summary>
         /// <remarks>
@@ -1554,13 +1536,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnBuscarVentas;
 
         /// <summary>
-        /// Control grdVentas.
+        /// Control ddlCampoBuscarven.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdVentas;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCampoBuscarven;
 
         /// <summary>
         /// Control lblEstadoVentas.
@@ -1570,6 +1552,15 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEstadoVentas;
+
+        /// <summary>
+        /// Control grdVentas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdVentas;
 
         /// <summary>
         /// Control lblDetalleVentas.
@@ -1635,15 +1626,6 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.TextBox Cod_Libro_Dv;
 
         /// <summary>
-        /// Control ddlCampoBuscarvenDV.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCampoBuscarvenDV;
-
-        /// <summary>
         /// Control btnMostrarDetalleVentas.
         /// </summary>
         /// <remarks>
@@ -1662,13 +1644,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnBuscarDetalleVentas;
 
         /// <summary>
-        /// Control grdDetalleVentas.
+        /// Control ddlCampoBuscarvenDV.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdDetalleVentas;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCampoBuscarvenDV;
 
         /// <summary>
         /// Control lblEstadoDetalleVentas.
@@ -1678,5 +1660,14 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEstadoDetalleVentas;
+
+        /// <summary>
+        /// Control grdDetalleVentas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdDetalleVentas;
     }
 }
