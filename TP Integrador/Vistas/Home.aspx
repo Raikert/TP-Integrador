@@ -46,11 +46,13 @@
             color: #3366FF;
             font-size: x-large;
             text-align: center;
+            background-color: #FFD67B;
         }
         .auto-style12 {
             text-align: center;
             color: #000000;
-            background-color: deepskyblue;
+            background-color: #FFC300;
+            border-style:double;
         }
         .auto-style14 {
             font-size: medium;
@@ -141,8 +143,21 @@
          #top {
             background-color:#FBD88C;
             width: 100%;
-            height: 100px;
+            height: 130px;
          }
+
+
+        .auto-style49 {
+            width: 99%;
+            height: 89px;
+            margin-right: 0px;
+        }
+
+
+        .auto-style50 {
+            width: 100%;
+            height: 58px;
+        }
 
 
         </style>
@@ -157,7 +172,7 @@
 
         <div class="auto-style43">
 
-            <div id="top">
+            <div id="top" class="auto-style49">
 
             <div style="float:left;width:25%"> 
             <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/Biblioteca Libra logo.png" Height="100px" />
@@ -165,14 +180,14 @@
 &nbsp;&nbsp;&nbsp; <asp:HyperLink ID="hlContacto" runat="server" CssClass="auto-style3" Font-Names="Ebrima" ForeColor="Black" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaContacto.aspx">Contacto</asp:HyperLink>
             </div>
             <div style="float:left;width:75%" class="auto-style35"> 
-                <div style="background-color: rgb(67,117,199); " class="auto-style5">
+                <div style="background-color: rgb(153,217,234); " class="auto-style5">
                     <table class="auto-style1">
                         <tr>
                             <td class="auto-style29">
-                    <asp:HyperLink ID="hlMiCuenta" runat="server" CssClass="auto-style3" Font-Names="Ebrima" ForeColor="White" NavigateUrl="~/Forms_DatosUsuario/IngresoMiCuenta.aspx" Visible="False">Mi Cuenta</asp:HyperLink>
-                    <asp:HyperLink ID="hlInicioSesion" runat="server" CssClass="auto-style3" Font-Names="Ebrima" ForeColor="White" NavigateUrl="~/Forms_DatosUsuario/InicioSesion1.aspx">Iniciar Sesion</asp:HyperLink>
+                    <asp:HyperLink ID="hlMiCuenta" runat="server" CssClass="auto-style3" Font-Names="Constantia" ForeColor="Black" NavigateUrl="~/Forms_DatosUsuario/IngresoMiCuenta.aspx" Visible="False">Mi Cuenta</asp:HyperLink>
+                    <asp:HyperLink ID="hlInicioSesion" runat="server" CssClass="auto-style3" Font-Names="Constantia" ForeColor="Black" NavigateUrl="~/Forms_DatosUsuario/InicioSesion1.aspx">Iniciar Sesion</asp:HyperLink>
                             </td>
-                            <td class="auto-style29"> <asp:HyperLink ID="hlRegistrarse" runat="server" CssClass="auto-style3" Font-Names="Ebrima" ForeColor="White" NavigateUrl="~/Forms_DatosUsuario/RegistroUsuario1.aspx">Registrarse</asp:HyperLink>
+                            <td class="auto-style29"> <asp:HyperLink ID="hlRegistrarse" runat="server" CssClass="auto-style3" Font-Names="Constantia" ForeColor="Black" NavigateUrl="~/Forms_DatosUsuario/RegistroUsuario1.aspx">Registrarse</asp:HyperLink>
                             </td>
                         </tr>
                     </table>
@@ -181,7 +196,7 @@
                         <tr>
                             <td class="auto-style36"><strong><asp:Label style="text-align: center" ID="UsuarioConectado" runat="server" BackColor="White" BorderColor="#993333" BorderWidth="5px" CssClass="auto-style13" Font-Italic="True" Text="No esta logueado" Width="151px"></asp:Label>
                                 </strong></td>
-                            <td>&nbsp;<asp:LinkButton ID="lbSalir" runat="server" CssClass="auto-style3" Font-Names="Swis721 BlkCn BT" ForeColor="#F5ED41" OnClick="lbSalir_Click" Visible="False">Cerrar Sesion</asp:LinkButton>
+                            <td>&nbsp;<asp:LinkButton style="text-align:center" ID="lbSalir" runat="server" CssClass="auto-style3" Font-Names="Swis721 BlkCn BT" ForeColor="#F5ED41" OnClick="lbSalir_Click" Visible="False" BackColor="Black" Width="110px">Cerrar Sesion</asp:LinkButton>
                             </td>
                         </tr>
                     </table>
@@ -208,7 +223,7 @@
                         </tr>
                     </table>
             <br />
-            <table class="auto-style1">
+            <table class="auto-style50">
                 <tr>
                     <td class="auto-style33">
             <asp:TextBox ID="txtBuscar" runat="server" Font-Overline="False" TextMode="Search" Width="359px" placeholder="Titulo, Autor, Categoria"></asp:TextBox>
@@ -225,7 +240,7 @@
                 <asp:Label ID="CantidadProductosCarrito" runat="server" ForeColor="#009933" Text="0"></asp:Label>
                 &nbsp;</strong><asp:Label ID="lblTexto" runat="server" CssClass="auto-style3" Text="producto | AR$"></asp:Label>
             &nbsp;<strong><asp:Label ID="MontoCarrito" runat="server" ForeColor="#CC3300" Text="0,00"></asp:Label>
-            </strong>&nbsp;<asp:ImageButton ID="ImageButton1" runat="server" Height="54px" ImageUrl="~/Imagenes/carrito logo.jpg" Width="49px" PostBackUrl="~/Forms_VistaCliente/Forms_DeCompra/Carrito.aspx" />
+            </strong>&nbsp;<asp:ImageButton ID="ImageButton1" runat="server" Height="54px" ImageUrl="~/Imagenes/carrito logo.png" Width="49px" PostBackUrl="~/Forms_VistaCliente/Forms_DeCompra/Carrito.aspx" />
                     </td>
                 </tr>
             </table>
@@ -255,14 +270,16 @@
                                 &nbsp;<br />
                                 </span>
                                 <div class="auto-style12"> <strong><em><span class="auto-style44">
-                                <asp:Label ID="Label5" runat="server" BackColor="Black" BorderStyle="Outset" CssClass="auto-style47" Font-Bold="True" Font-Italic="False" Font-Names="Ink Free" Text="Precio" Width="85px"></asp:Label>
+                                <asp:Label ID="Label5" runat="server" BackColor="Black" BorderStyle="Outset" CssClass="auto-style47" Font-Bold="True" Font-Italic="False" Font-Names="Ink Free" Text="Precio" Width="85px" ForeColor="White"></asp:Label>
                                 </span></em></strong></div>
                                 <br />
                                 <asp:TextBox style="text-align: center" ID="txtPrecioMinimo" runat="server" Height="25px" Width="75px" placeholder="Minimo" BorderStyle="Double"></asp:TextBox>
                                 &nbsp;&nbsp;&nbsp;
                                 <asp:TextBox style="text-align: center" ID="txtPrecioMaximo" runat="server" Height="25px" Width="75px" placeholder="Máximo" BorderStyle="Double"></asp:TextBox>
                                     <br />
-                <asp:Label ID="lblErrorPrecios" runat="server" CssClass="auto-style3" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red"></asp:Label>
+                                <strong>
+                <asp:Label ID="lblErrorPrecios" runat="server" CssClass="auto-style3" Font-Names="Sitka Text" Font-Size="10.5pt" ForeColor="#CC0000"></asp:Label>
+                                </strong>
                                 <br />
                                     <br />
                                 <asp:LinkButton ID="lbBuscaPrecio" runat="server" BorderStyle="Solid" CssClass="auto-style48" Font-Bold="True" Font-Italic="True" Font-Names="Microsoft JhengHei Light" Font-Overline="False" ForeColor="#33CC33" Width="104px" OnClick="lbBuscaPrecio_Click" ValidationGroup="0">Filtrar por precio</asp:LinkButton>
@@ -270,27 +287,32 @@
                                 <br />
                             </div>
                             <div class="auto-style12"> <strong><em><span class="auto-style44">
-                                <asp:Label ID="Label1" runat="server" BackColor="Black" BorderStyle="Outset" CssClass="auto-style45" Font-Bold="True" Font-Italic="False" Font-Names="Ink Free" Text="Categorias" Width="125px"></asp:Label>
+                                <asp:Label ID="Label1" runat="server" BackColor="Black" BorderStyle="Outset" CssClass="auto-style45" Font-Bold="True" Font-Italic="False" Font-Names="Ink Free" Text="Categorias" Width="125px" ForeColor="White"></asp:Label>
                                 </span></em></strong></div>
                             <div>
+                                <strong>
+                                <br />
                             <asp:DataList ID="dlCategorias" runat="server" Height="217px" DataKeyField="Nombre_Ca" DataSourceID="dsCategorias" CssClass="auto-style37" Width="247px" OnItemCommand="dlCategorias_ItemCommand">
                                 <ItemTemplate>
                                     <asp:LinkButton ID="LinkButton1" runat="server" CssClass="auto-style14" Text='<%# Eval("Nombre_Ca") %>' Font-Names="Yu Gothic Medium" ForeColor="#CC0000" CommandName="FiltroCategoria"></asp:LinkButton>
 <br />
                                 </ItemTemplate>
                             </asp:DataList>
+                                </strong>
                                 <br />
                             </div>
                             <div class="auto-style12"> <strong><em><span class="auto-style44">
-                                <asp:Label ID="Label3" runat="server" BackColor="Black" BorderStyle="Outset" CssClass="auto-style45" Font-Bold="True" Font-Italic="False" Font-Names="Ink Free" Text="Editoriales" Width="125px"></asp:Label>
+                                <asp:Label ID="Label3" runat="server" BackColor="Black" BorderStyle="Outset" CssClass="auto-style45" Font-Bold="True" Font-Italic="False" Font-Names="Ink Free" Text="Editoriales" Width="125px" ForeColor="White"></asp:Label>
                                 </span></em></strong></div>
                             <div class="auto-style29">
+                                <strong>
+                                <br />
                             <asp:DataList ID="dlEditoriales" runat="server" DataKeyField="Nombre_E" DataSourceID="dsEditoriales" CssClass="auto-style37" Width="246px" OnItemCommand="dlEditoriales_ItemCommand">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="LinkButton2" runat="server" CssClass="auto-style3" Text='<%# Eval("Nombre_E") %>' Font-Bold="False" Font-Italic="True" Font-Names="Calibri" ForeColor="#3333FF" CommandName="FiltroEditorial" CommandArgument='<%# Eval("Nombre_E") %>'></asp:LinkButton>
-<br />
+                                    <asp:LinkButton ID="LinkButton2" runat="server" CssClass="auto-style3" Text='<%# Eval("Nombre_E") %>' Font-Bold="False" Font-Italic="False" Font-Names="Microsoft YaHei" ForeColor="#0000CC" CommandName="FiltroEditorial" CommandArgument='<%# Eval("Nombre_E") %>' Font-Size="Medium" Font-Underline="True"></asp:LinkButton>
                                 </ItemTemplate>
                             </asp:DataList>
+                                </strong>
                                 <br />
                             </div>
                         </div>

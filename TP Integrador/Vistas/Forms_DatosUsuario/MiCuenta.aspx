@@ -152,10 +152,10 @@
          }
 
          #top{
-           background-color:#FBD88C;
+            background-color:#FBD88C;
             width: 100%;
             height: 117px;
-            
+            border-style:groove
          }
 
     </style>
@@ -213,25 +213,25 @@
         </table>
         <br />
         <br />
-        <table class="auto-style1">
+        <table style="background-color:khaki; border-style:groove;">
             <tr>
                 <td class="auto-style37"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nombre:</strong></td>
                 <td class="auto-style38">
-                    <asp:Label ID="lblNombre_Micuenta" runat="server"></asp:Label>
+                    <asp:Label ID="lblNombre_Micuenta" runat="server" Font-Names="Yu Gothic UI"></asp:Label>
                     <asp:TextBox ID="Nombre_Cl" runat="server" Visible="False" Width="150px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style35"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Apellido:</strong></td>
                 <td class="auto-style36">
-                    <asp:Label ID="lblApellido_Micuenta" runat="server"></asp:Label>
+                    <asp:Label ID="lblApellido_Micuenta" runat="server" Font-Names="Yu Gothic UI"></asp:Label>
                     <asp:TextBox ID="Apellido_Cl" runat="server" Visible="False" Width="150px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style35"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DNI:</strong></td>
                 <td class="auto-style36">
-                    <asp:Label ID="lbldniMicuenta" runat="server"></asp:Label>
+                    <asp:Label ID="lbldniMicuenta" runat="server" Font-Names="Yu Gothic UI"></asp:Label>
                     <asp:TextBox ID="DNI_Cl" runat="server" Visible="False" Width="150px"></asp:TextBox>
                     &nbsp;<asp:Label ID="lblErrorDNI" runat="server" CssClass="auto-style3" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red"></asp:Label>
                     <br />
@@ -240,7 +240,7 @@
             <tr>
                 <td class="auto-style35"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Email/Correo:</strong></td>
                 <td class="auto-style36">
-                    <asp:Label ID="EmailcorreoMicuenta" runat="server"></asp:Label>
+                    <asp:Label ID="EmailcorreoMicuenta" runat="server" Font-Names="Yu Gothic UI"></asp:Label>
                     <asp:TextBox ID="Email_Cl" runat="server" Visible="False" Width="232px"></asp:TextBox>
                     &nbsp;<asp:Label ID="lblErrorEmail" runat="server" CssClass="auto-style3" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red"></asp:Label>
                     <br />
@@ -249,21 +249,21 @@
             <tr>
                 <td class="auto-style35"><strong>Fecha de nacimiento:</strong></td>
                 <td class="auto-style36">
-                    <asp:Label ID="FechadenacimientoMicuenta" runat="server"></asp:Label>
+                    <asp:Label ID="FechadenacimientoMicuenta" runat="server" Font-Names="Yu Gothic UI"></asp:Label>
                     <asp:TextBox ID="FechaNacimiento_Cl" runat="server" TextMode="Date" min="1850-01-01" max="2140-12-31" Visible="False" Width="150px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style35"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Contraseña:</strong></td>
                 <td class="auto-style36">
-                    <asp:Label ID="Contraseña" runat="server"></asp:Label>
+                    <asp:Label ID="Contraseña" runat="server" Font-Names="Yu Gothic UI"></asp:Label>
                     <asp:TextBox ID="Contraseña_Cl" runat="server" Visible="False" Width="150px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style35"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Telefono:</strong></td>
                 <td class="auto-style36">
-                    <asp:Label ID="Telefono" runat="server"></asp:Label>
+                    <asp:Label ID="Telefono" runat="server" Font-Names="Yu Gothic UI"></asp:Label>
                     <asp:TextBox ID="NumeroTelefono_Cl" runat="server" Visible="False" Width="150px"></asp:TextBox>
                     &nbsp;<asp:Label ID="lblErrorTelefono" runat="server" CssClass="auto-style3" Font-Names="Bahnschrift" Font-Size="10.5pt" ForeColor="Red"></asp:Label>
                 </td>
@@ -273,14 +273,14 @@
             <tr>
                 <td class="auto-style49"></td>
                 <td class="auto-style48">
-                <strong>
+                    <strong>
                 <asp:Button ID="btnModificarDatos" runat="server" BackColor="#33CC33" BorderColor="Black" CssClass="auto-style47" ForeColor="Black" Text="Modificar datos personales" OnClick="btnModificarDatos_Click" Width="190px" />
                 <asp:Button ID="btnGuardarDatos" runat="server" BackColor="#33CC33" BorderColor="Black" CssClass="auto-style47" ForeColor="Black" Text="Guardar datos personales" OnClick="btnGuardarDatos_Click" ValidationGroup="0" Visible="False" Width="190px" />
                     <br />
                     <br />
                 <asp:Button ID="btnModificarEmail" runat="server" BackColor="#33CC33" BorderColor="Black" CssClass="auto-style47" ForeColor="Black" Text="Modificar email" OnClick="btnModificarEmail_Click" Width="119px" />
                 <asp:Button ID="btnGuardarEmail" runat="server" BackColor="#33CC33" BorderColor="Black" CssClass="auto-style47" ForeColor="Black" Text="Guardar email" OnClick="btnGuardarEmail_Click" Width="112px" ValidationGroup="1" Visible="False" />
-                </strong>
+                    </strong>
                 </td>
             </tr>
         </table>
