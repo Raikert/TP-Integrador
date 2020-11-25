@@ -63,12 +63,13 @@
                 <br />
                 <br />
                 </strong>
-                <asp:HyperLink ID="hlVolver" runat="server" ForeColor="#CC6600" NavigateUrl="~/Home.aspx">Volver</asp:HyperLink>
+                <asp:LinkButton ID="lbVolver" runat="server" ForeColor="#CC6600" OnClick="lbVolver_Click" ValidationGroup="0">Volver</asp:LinkButton>
                 <strong>
                 <br />
                 <br />
                 </strong>
                 <asp:Label ID="lblMensaje" runat="server" Font-Names="Calibri Light" Text="Si usted ya ha creado una cuenta anteriormente, asegurese de utilizar la misma dirección de email para recuperar los datos de su cuenta" Width="350px"></asp:Label>
+                <br />
                 <br />
             </div>
             <div style="float:left; width:35%"> </div>

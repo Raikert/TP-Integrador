@@ -87,13 +87,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnContinuar;
 
         /// <summary>
-        /// Control hlVolver.
+        /// Control lbVolver.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlVolver;
+        protected global::System.Web.UI.WebControls.LinkButton lbVolver;
 
         /// <summary>
         /// Control lblMensaje.

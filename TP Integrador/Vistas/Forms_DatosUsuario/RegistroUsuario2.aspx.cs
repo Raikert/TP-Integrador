@@ -56,16 +56,16 @@ namespace Vistas
             }
 
 
-            if (DNI_Cl.Text.Length > 8)
+            if (DNI_Cl.Text.Length != 8)
             {
-                lblErrorDNI.Text = "Ingreso un DNI de mas de 8 caracteres";
+                lblErrorDNI.Text = "Ingreso un DNI erroneo (Debe contener 8 números)";
                 validador = false;
             }
 
 
-            if (NumeroTelefono_Cl.Text.Length > 10)
+            if (NumeroTelefono_Cl.Text.Length != 10)
             {
-                lblErrorTelefono.Text = "Ingreso un telefono de mas de 10 caracteres";
+                lblErrorTelefono.Text = "Ingreso un telefono erroneo (Debe contener 10 números)";
                 validador = false;
             }
 

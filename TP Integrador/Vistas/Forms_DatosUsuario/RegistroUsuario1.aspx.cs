@@ -39,5 +39,11 @@ namespace Vistas
             else
                 lblEmailRepetido.Text = "El email ingresado ya se encuentra asociado a otra cuenta";
         }
+
+        protected void lbVolver_Click(object sender, EventArgs e)
+        {
+            Session["Usuario"] = null;
+            Response.Redirect("~/Home.aspx");
+        }
     }
 }
