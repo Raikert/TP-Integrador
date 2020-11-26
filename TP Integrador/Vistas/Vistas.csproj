@@ -71,6 +71,8 @@
     <Content Include="Forms_DatosUsuario\MiCuenta.aspx" />
     <Content Include="Forms_DatosUsuario\RegistroUsuario2.aspx" />
     <Content Include="Forms_VistaCliente\Forms_DeCompra\Carrito.aspx" />
+    <Content Include="Forms_VistaCliente\Forms_ParaNavegar\VistaCategorias.aspx" />
+    <Content Include="Forms_VistaCliente\Forms_ParaNavegar\VistaEditoriales.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Imagenes\1.jpg" />
     <Content Include="Imagenes\10.jpg" />
@@ -90,9 +92,18 @@
     <Content Include="Imagenes\Biblioteca Libra logo.png" />
     <Content Include="Imagenes\carrito logo.jpg" />
     <Content Include="Imagenes\carrito logo.png" />
+    <Content Include="Imagenes\Decoracion de vistas\librorojo.png" />
+    <Content Include="Imagenes\Decoracion de vistas\librosapilados.png" />
+    <Content Include="Imagenes\Decoracion de vistas\librotransparente.png" />
     <Content Include="Imagenes\facebook.png" />
     <Content Include="Imagenes\libros.jpg" />
     <Content Include="Imagenes\librosadmin.jpg" />
+    <Content Include="Imagenes\Medios de pago\billetes.png" />
+    <Content Include="Imagenes\Medios de pago\logomastercard.png" />
+    <Content Include="Imagenes\Medios de pago\logovisa.png" />
+    <Content Include="Imagenes\Medios de pago\mastercard.png" />
+    <Content Include="Imagenes\Medios de pago\rapipago.png" />
+    <Content Include="Imagenes\Medios de pago\visa.png" />
     <Content Include="Imagenes\Panel del Administrador logo.png" />
     <Content Include="Imagenes\twitter.png" />
     <Content Include="Imagenes\youtube.png" />
@@ -103,9 +114,7 @@
     <Content Include="Forms_DatosUsuario\RegistroUsuario1.aspx" />
     <Content Include="Forms_DatosUsuario\RestablecerContraseña.aspx" />
     <Content Include="Forms_VistaCliente\Forms_DeCompra\LibroSeleccionado.aspx" />
-    <Content Include="Forms_VistaCliente\Forms_ParaNavegar\VistaCategorias.aspx" />
     <Content Include="Forms_VistaCliente\Forms_ParaNavegar\VistaContacto.aspx" />
-    <Content Include="Forms_VistaCliente\Forms_ParaNavegar\VistaEditoriales.aspx" />
     <Content Include="Forms_VistaCliente\Forms_ParaNavegar\vistaLibros.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +147,18 @@
       <DependentUpon>Carrito.aspx</DependentUpon>
     </Compile>
     <Compile Include="Clases\Utilidades.cs" />
+    <Compile Include="Forms_VistaCliente\Forms_ParaNavegar\VistaCategorias.aspx.cs">
+      <DependentUpon>VistaCategorias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_VistaCliente\Forms_ParaNavegar\VistaCategorias.aspx.designer.cs">
+      <DependentUpon>VistaCategorias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_VistaCliente\Forms_ParaNavegar\VistaEditoriales.aspx.cs">
+      <DependentUpon>VistaEditoriales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_VistaCliente\Forms_ParaNavegar\VistaEditoriales.aspx.designer.cs">
+      <DependentUpon>VistaEditoriales.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -195,26 +216,12 @@
     <Compile Include="Forms_VistaCliente\Forms_DeCompra\LibroSeleccionado.aspx.designer.cs">
       <DependentUpon>LibroSeleccionado.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms_VistaCliente\Forms_ParaNavegar\VistaCategorias.aspx.cs">
-      <DependentUpon>VistaCategorias.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms_VistaCliente\Forms_ParaNavegar\VistaCategorias.aspx.designer.cs">
-      <DependentUpon>VistaCategorias.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Forms_VistaCliente\Forms_ParaNavegar\VistaContacto.aspx.cs">
       <DependentUpon>VistaContacto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Forms_VistaCliente\Forms_ParaNavegar\VistaContacto.aspx.designer.cs">
       <DependentUpon>VistaContacto.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Forms_VistaCliente\Forms_ParaNavegar\VistaEditoriales.aspx.cs">
-      <DependentUpon>VistaEditoriales.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms_VistaCliente\Forms_ParaNavegar\VistaEditoriales.aspx.designer.cs">
-      <DependentUpon>VistaEditoriales.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms_VistaCliente\Forms_ParaNavegar\vistaLibros.aspx.cs">
       <DependentUpon>vistaLibros.aspx</DependentUpon>

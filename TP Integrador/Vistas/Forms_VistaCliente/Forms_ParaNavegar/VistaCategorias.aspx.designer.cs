@@ -69,13 +69,13 @@ namespace vistas
         protected global::System.Web.UI.WebControls.TextBox txtBuscar;
 
         /// <summary>
-        /// Control ddlBuscar.
+        /// Control ddlFiltro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlBuscar;
+        protected global::System.Web.UI.WebControls.DropDownList ddlFiltro;
 
         /// <summary>
         /// Control btnBuscar.
@@ -87,22 +87,40 @@ namespace vistas
         protected global::System.Web.UI.WebControls.Button btnBuscar;
 
         /// <summary>
-        /// Control lblNumeroCarro.
+        /// Control CantidadProductosCarrito.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNumeroCarro;
+        protected global::System.Web.UI.WebControls.Label CantidadProductosCarrito;
 
         /// <summary>
-        /// Control lblTotal.
+        /// Control lblTexto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotal;
+        protected global::System.Web.UI.WebControls.Label lblTexto;
+
+        /// <summary>
+        /// Control MontoCarrito.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label MontoCarrito;
+
+        /// <summary>
+        /// Control ImageButton1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ImageButton1;
 
         /// <summary>
         /// Control hlLibros.
@@ -132,6 +150,15 @@ namespace vistas
         protected global::System.Web.UI.WebControls.HyperLink hlEditoriales;
 
         /// <summary>
+        /// Control Image6.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image6;
+
+        /// <summary>
         /// Control DataList1.
         /// </summary>
         /// <remarks>
@@ -141,6 +168,15 @@ namespace vistas
         protected global::System.Web.UI.WebControls.DataList DataList1;
 
         /// <summary>
+        /// Control Image7.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image7;
+
+        /// <summary>
         /// Control dsCategoriasC.
         /// </summary>
         /// <remarks>
@@ -148,5 +184,41 @@ namespace vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource dsCategoriasC;
+
+        /// <summary>
+        /// Control Image2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image2;
+
+        /// <summary>
+        /// Control Image3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image3;
+
+        /// <summary>
+        /// Control Image4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image4;
+
+        /// <summary>
+        /// Control Image5.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image5;
     }
 }

@@ -20,6 +20,10 @@
             width: 350px;
             float: right;
             text-align: left;
+            border-left-style:groove;
+            border-bottom-style:groove;
+            border-left-color:saddlebrown;
+            border-bottom-color:saddlebrown;
         }
         .auto-style13 {
             color: #800000;
@@ -58,17 +62,19 @@
             font-size: medium;
         }
         
-        .auto-style29 {
-            text-align: center;
-        }
         
+         .auto-style29 {
+            text-align: center;
+
+        }
+
         .auto-style32 {
             float: left;
             width: 27%;
         }
 
         .auto-style33 {
-            width: 740px;
+            width: 702px;
             text-align: center;
         }
         .auto-style34 {
@@ -142,8 +148,13 @@
 
          #top {
             background-color:#FBD88C;
-            width: 100%;
+            width: 97.5%;
             height: 130px;
+            margin-left:10px;
+            /*margin-right:10px;*/
+            margin-top:10px;
+           border-style:groove;
+           border-color:saddlebrown;
          }
 
 
@@ -155,10 +166,39 @@
 
 
         .auto-style50 {
-            width: 100%;
-            height: 58px;
+            width: 98%;
+            height: 89px;
         }
 
+
+        .auto-style51 {
+            float: left;
+            width: 25%;
+        }
+
+
+        .auto-style52 {
+            width: 97%;
+            margin-left: 7px;
+        }
+
+
+
+
+        .auto-style54 {
+            width: 32%;
+            text-align: center;
+        }
+
+         .auto-style544 {
+            width: 32%;
+            text-align: center;
+        }
+
+        .auto-style545 {
+            text-align: center;
+            width:32%;
+        }
 
         </style>
 </head>
@@ -174,7 +214,7 @@
 
             <div id="top" class="auto-style49">
 
-            <div style="float:left;width:25%"> 
+            <div class="auto-style51"> 
             <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/Biblioteca Libra logo.png" Height="100px" />
                 <br />
 &nbsp;&nbsp;&nbsp; <asp:HyperLink ID="hlContacto" runat="server" CssClass="auto-style3" Font-Names="Ebrima" ForeColor="Black" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaContacto.aspx">Contacto</asp:HyperLink>
@@ -194,7 +234,7 @@
                     <br />
                     <table class="auto-style1">
                         <tr>
-                            <td class="auto-style36"><strong><asp:Label style="text-align: center" ID="UsuarioConectado" runat="server" BackColor="White" BorderColor="#993333" BorderWidth="5px" CssClass="auto-style13" Font-Italic="True" Text="No esta logueado" Width="151px"></asp:Label>
+                            <td class="auto-style36"><strong><asp:Label style="text-align: center" ID="UsuarioConectado" runat="server" BackColor="White" BorderColor="#0099FF" BorderWidth="5px" CssClass="auto-style13" Font-Italic="True" Text="No esta logueado" Width="151px" BorderStyle="Ridge" ForeColor="Black"></asp:Label>
                                 </strong></td>
                             <td>&nbsp;<asp:LinkButton style="text-align:center" ID="lbSalir" runat="server" CssClass="auto-style3" Font-Names="Swis721 BlkCn BT" ForeColor="#F5ED41" OnClick="lbSalir_Click" Visible="False" BackColor="Black" Width="110px">Cerrar Sesion</asp:LinkButton>
                             </td>
@@ -208,21 +248,6 @@
                 </div>
 
             &nbsp;<br />
-            <br />
-                    <table  class="auto-style1">
-                        <tr class="hl2">
-                            <td class="auto-style29" style="justify-content: center; align-items: center;">
-                                <asp:HyperLink ID="hlLibros" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/vistaLibros.aspx" Font-Names="Constantia">Libros</asp:HyperLink>
-                            </td>
-                            <td class="auto-style29">
-                                <asp:HyperLink ID="hlCategorias" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaCategorias.aspx" Font-Names="Constantia">Categorias</asp:HyperLink>
-                            </td>
-                            <td class="auto-style29">
-                                <asp:HyperLink ID="hlEditoriales" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaEditoriales.aspx" Font-Names="Constantia">Editoriales</asp:HyperLink>
-                            </td>
-                        </tr>
-                    </table>
-            <br />
             <table class="auto-style50">
                 <tr>
                     <td class="auto-style33">
@@ -245,6 +270,19 @@
                 </tr>
             </table>
             <br />
+                    <table  class="auto-style52" align="center">
+                        <tr class="hl2">
+                            <td class="auto-style54" style="justify-content: center; align-items: center;">
+                                <asp:HyperLink ID="hlLibros" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/vistaLibros.aspx" Font-Names="Constantia">Libros</asp:HyperLink>
+                            </td>
+                            <td class="auto-style545">
+                                <asp:HyperLink ID="hlCategorias" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaCategorias.aspx" Font-Names="Constantia">Categorias</asp:HyperLink>
+                            </td>
+                            <td class="auto-style544">
+                                <asp:HyperLink ID="hlEditoriales" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaEditoriales.aspx" Font-Names="Constantia">Editoriales</asp:HyperLink>
+                            </td>
+                        </tr>
+                    </table>
             <br />
             <div class="auto-style32"> 
                         <div style="border:groove; border-color:cornflowerblue; width:250px;" class="auto-style11">
