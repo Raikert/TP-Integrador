@@ -30,30 +30,18 @@
         .auto-style3 {
             width: 585px;
         }
-        .auto-style5 {
-            font-size: x-large;
-        }
         .auto-style6 {
             width: 369px;
         }
-        .auto-style9 {
-            width: 371px;
-        }
-        .auto-style10 {
-            color: #009933;
-            text-decoration: underline;
-        }
         .auto-style11 {
             margin-left: 0px;
-        }
-        .auto-style12 {
-            width: 689px;
         }
         .auto-style14 {
             width: 1022px;
         }
         .auto-style16 {
             width: 812px;
+            font-size: xx-large;
         }
         
 
@@ -86,11 +74,11 @@
            border: 2px groove gray;
         }
 
-         .hl2 td{
+          .hl2 td{
            justify-content: center;
            align-items: center;
            border: 2px groove black;
-           background-color:gray;
+           background-color:antiquewhite;
           
          }
 
@@ -113,9 +101,6 @@
             width: 120px;
         }
 
-        .auto-style26 {
-            width: 291px;
-        }
         .auto-style27 {
             justify-content: center;
             align-items: center;
@@ -156,21 +141,7 @@
         .auto-style38 {
             width: 343px;
         }
-        .auto-style39 {
-            text-decoration: underline;
-        }
-        .auto-style40 {
-            text-decoration: underline;
-            color: #336600;
-        }
-        .auto-style41 {
-            text-decoration: underline;
-            color: #3333CC;
-        }
-        .auto-style42 {
-            text-decoration: underline;
-            color: #CC0000;
-        }
+    
         
         .auto-style43 {
             text-align: center;
@@ -180,9 +151,86 @@
            background-color:#FBD88C;
             width: 100%;
             height: 117px;
-            
+            border-style:groove;
+            border-color:black;
          }
 
+
+          /*tabla de libros categorias y editoriales*/
+        .auto-style52 {
+            width: 97%;
+            margin-left: 7px;
+        }           
+        .auto-style53 {
+            text-align: center;
+            width:32%;
+        }
+        .auto-style54 {
+            text-align: center;
+            width:32%;
+        }
+        .auto-style55 {
+            text-align: center;
+            width:32%;
+        }
+        /*-------------------------*/
+
+           /*Metodos de pago*/
+        .auto-style34 {
+            width: 369px;
+            font-size: x-large;
+            text-decoration: underline;
+        }
+        .auto-style37 {
+            width: 121px;
+            height: 79px;
+        }
+        .auto-style38 {
+            color: #00CC00;
+        }
+        .auto-style39 {
+            color: #FF6600;
+        }
+        .auto-style40 {
+            color: #FF0000;
+        }
+        .auto-style41 {
+            color: #000000;
+        }
+         .auto-style46 {
+            color: #3333FF;
+            font-size: large;
+        }
+        /*----------------------*/
+
+           /*footer*/
+         .auto-style42 {
+            width: 556px;
+        }
+        .auto-style43 {
+            width: 163px;
+        }
+        .auto-style44 {
+            width: 248px;
+        }
+
+        /**/
+
+        .auto-style52 {
+            width: 97%;
+            margin-left: 7px;
+        }           
+        
+                                
+        .auto-style56 {
+            text-align: right;
+        }
+
+                        
+        .auto-style57 {
+            width: 564px;
+        }
+        
         </style>
 </head>
 <body class="centrado">
@@ -215,7 +263,7 @@
         </div>
         <table class="auto-style1">
             <tr>
-                <td class="auto-style12">&nbsp;&nbsp;&nbsp;&nbsp;
+                <td class="auto-style57">&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtBuscar" runat="server" Font-Overline="False" TextMode="Search" Width="359px" placeholder="Titulo, Autor, Categoria"></asp:TextBox>
             <asp:DropDownList ID="ddlFiltro" runat="server">
                 <asp:ListItem>Todos</asp:ListItem>
@@ -226,37 +274,36 @@
             <strong>
                 <asp:Button ID="btnBuscar" runat="server" BackColor="#4375C7" CssClass="auto-style4" Font-Bold="True" Font-Names="Trebuchet MS" ForeColor="White" Height="31px" Text="Buscar" Width="82px" />
                     </strong> </td>
-                <td>
-            <strong>
+                <td class="auto-style56">
+            <strong>&nbsp;
                 <asp:Label ID="CantidadProductosCarrito" runat="server" ForeColor="#009933" Text="0"></asp:Label>
                 &nbsp;</strong><asp:Label ID="lblTexto" runat="server" CssClass="auto-style3" Text="producto  AR$"></asp:Label>
             &nbsp;<strong><asp:Label ID="MontoCarrito" runat="server" ForeColor="#CC3300" Text="0,00"></asp:Label>
-            </strong>
+            </strong>&nbsp;<asp:ImageButton ID="ImageButton1" runat="server" Height="54px" ImageUrl="~/Imagenes/carrito logo.png" Width="49px" PostBackUrl="~/Forms_VistaCliente/Forms_DeCompra/Carrito.aspx" />
+                &nbsp;&nbsp;&nbsp;
                 </td>
             </tr>
         </table>
-        <table class="auto-style1">
-            <tr>
-                <td>
-                    <table  class="auto-style1">
-                        <tr class="hl2">
-                            <td class="auto-style26">
-                                <asp:HyperLink ID="hlLibros" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/vistaLibros.aspx">Libros</asp:HyperLink>
+      
+                    <table class="auto-style52">
+                        <tr class="hl2" >
+                            <td class="auto-style54" style="justify-content: center; align-items: center;">
+                                <asp:HyperLink ID="hlLibros" runat="server" Font-Names="Constantia" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/vistaLibros.aspx">Libros</asp:HyperLink>
                             </td>
-                            <td>
-                                <asp:HyperLink ID="hlCategorias" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaCategorias.aspx">Categorias</asp:HyperLink>
+                            <td class="auto-style55">
+                                <asp:HyperLink ID="hlCategorias" runat="server" Font-Names="Constantia" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaCategorias.aspx">Categorias</asp:HyperLink>
                             </td>
-                            <td>
-                                <asp:HyperLink ID="hlEditoriales" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaEditoriales.aspx">Editoriales</asp:HyperLink>
+                            <td class="auto-style53">
+                                <asp:HyperLink ID="hlEditoriales" runat="server" Font-Names="Constantia" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaEditoriales.aspx">Editoriales</asp:HyperLink>
                             </td>
                         </tr>
                     </table>
-                </td>
-            </tr>
-        </table>
+       
+        <br />
+       
         <table class="auto-style1">
             <tr>
-                <td class="auto-style16"><span class="auto-style5">Mi carrito</span></td>
+                <td class="auto-style16">Mi carrito</td>
                 <td>
                     <asp:Button ID="btnIniciarCompra1" runat="server" BorderStyle="Double" CssClass="auto-style11" ForeColor="Red" Text="Iniciar proceso de compra" Height="27px" Width="170px" OnClick="btnIniciarCompra1_Click" />
                     <br />
@@ -324,16 +371,16 @@
         <br />
         <br />
         <div style="background-color:gray" class="auto-style21">       </div>
-        <table class="auto-style1">
+          <table class="auto-style1">
             <tr>
-                <td class="auto-style6">MEDIOS DE PAGO</td>
+                <td class="auto-style34">MEDIOS DE PAGO</td>
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
-                <td><span class="auto-style10">Subtotal AR$</span>
-                    <asp:Label ID="lblTotal0" runat="server"></asp:Label>
-                </td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style6"><span class="auto-style40">Efectivo</span> - <span class="auto-style41">Tarjeta Visa o Master Card</span> - <span class="auto-style42">Rapi Pago</span></td>
+                <td class="auto-style6"><span class="auto-style38">
+                    <br />
+                    <span class="auto-style47">Efectivo</span></span><span class="auto-style46">-Tarjeta Visa </span> <span class="auto-style41">o</span> <span class="auto-style39">Master Card</span><span class="auto-style47">- </span> <span class="auto-style40">Rapi Pago</span></td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
@@ -341,6 +388,23 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <table class="auto-style1">
+            <tr>
+                <td class="auto-style37">
+                    <asp:Image ID="Image2" runat="server" ImageUrl="~/Imagenes/Medios de pago/billetes.png" Width="75px" />
+                </td>
+                <td class="auto-style37">
+                    <asp:Image ID="Image3" runat="server" ImageUrl="~/Imagenes/Medios de pago/logovisa.png" Width="75px" />
+                </td>
+                <td class="auto-style37">
+                    <asp:Image ID="Image4" runat="server" ImageUrl="~/Imagenes/Medios de pago/logomastercard.png" Width="75px" />
+                </td>
+                <td class="auto-style45">
+                    <asp:Image ID="Image5" runat="server" ImageUrl="~/Imagenes/Medios de pago/rapipago.png" Width="150px" />
+                </td>
+            </tr>
+        </table>
+
         <table class="auto-style1">
             <tr>
                 <td class="auto-style14">&nbsp;</td>
@@ -353,21 +417,21 @@
     </form>
     <br />
     
-    <footer class="centrado">  <table>
+      <footer class="centrado">  <table>
             <tr>
-                <td><span style="color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">Copyright © 2019-2020<span>&nbsp;</span></span><span class="auto-style8" style="border-style: none; border-color: inherit; border-width: 0px; margin: 0px; padding: 0px; font-variant-ligatures: normal; font-variant-caps: normal; orphans: 2; text-align: left; text-indent: 0px; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Libra</span><span style="color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;"><span>&nbsp;</span>S.A.</span></td>
-                <td class="auto-style9">&nbsp;</td>
-                <td><strong><em>Email: Libros.Libra@gmail.com</em></strong></td>
+                <td class="auto-style42"><span style="color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">Copyright © 2019-2020<span>&nbsp;</span></span><span class="auto-style8" style="border-style: none; border-color: inherit; border-width: 0px; margin: 0px; padding: 0px; font-variant-ligatures: normal; font-variant-caps: normal; orphans: 2; text-align: left; text-indent: 0px; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Libra</span><span style="color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;"><span>&nbsp;</span>S.A.</span></td>
+                <td class="auto-style43">&nbsp;</td>
+                <td class="auto-style44"><strong><em>Email: Libros.Libra@gmail.com</em></strong></td>
             </tr>
             <tr>
-                <td><span style="color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">TODOS LOS DERECHOS RESERVADOS.</span></td>
-                <td class="auto-style9">&nbsp;</td>
-                <td>&nbsp;</td>
+                <td class="auto-style42"><span style="color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">TODOS LOS DERECHOS RESERVADOS.</span></td>
+                <td class="auto-style43">&nbsp;</td>
+                <td class="auto-style44">&nbsp;</td>
             </tr>
             <tr>
-                <td>Av. Hipólito Yrigoyen 288, B1617 Gral. Pacheco, Provincia de Buenos Aires</td>
-                <td class="auto-style9">&nbsp;</td>
-                <td>&nbsp;</td>
+                <td class="auto-style42">Av. Hipólito Yrigoyen 288, B1617 Gral. Pacheco, Provincia de Buenos Aires</td>
+                <td class="auto-style43">&nbsp;</td>
+                <td class="auto-style44">&nbsp;</td>
             </tr>
         </table></footer>
 </body>

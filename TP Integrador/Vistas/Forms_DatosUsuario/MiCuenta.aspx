@@ -41,14 +41,6 @@
             letter-spacing: normal;
         }
 
-        .auto-style9 {
-            width: 371px;
-        }
-
-        .auto-style29 {
-            text-align: center;
-        }
-
         #form1 {
             /* margin-left: 150px;        
             margin-right: 150px;
@@ -91,10 +83,12 @@
         .auto-style30 {
             font-size: xx-large;
             text-decoration: underline;
+            text-align: left;
+            width: 377px;
         }
 
         .auto-style32 {
-            width: 302px;
+            width: 205px;
         }
 
         .auto-style35 {
@@ -158,6 +152,48 @@
             border-style:groove
          }
 
+        .auto-style52 {
+            width: 97%;
+            margin-left: 7px;
+        }           
+        
+         /*tabla de libros categorias y editoriales*/
+        .auto-style52 {
+            width: 97%;
+            margin-left: 7px;
+        }           
+        .auto-style53 {
+            text-align: center;
+            width:32%;
+        }
+        .auto-style54 {
+            text-align: center;
+            width:32%;
+        }
+        .auto-style55 {
+            text-align: center;
+            width:32%;
+        }
+        /*-------------------------*/
+
+         /*footer*/
+         .auto-style422 {
+            width: 556px;
+        }
+        .auto-style433 {
+            width: 163px;
+        }
+        .auto-style444 {
+            width: 248px;
+        }
+        /**/
+
+
+        .auto-style445 {
+            text-align: center;
+        }
+
+
     </style>
 </head>
 <body class="centrado">
@@ -189,26 +225,30 @@
                 <td>&nbsp;</td>
             </tr>
         </table>
-                    <table  class="auto-style1">
-                        <tr class="hl2">
-                            <td class="auto-style29" style="justify-content: center; align-items: center;">
-                                <asp:HyperLink ID="hlLibros" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/vistaLibros.aspx" Font-Names="Constantia">Libros</asp:HyperLink>
+      
+                    <table class="auto-style52">
+                        <tr class="hl2" >
+                            <td class="auto-style54" style="justify-content: center; align-items: center;">
+                                <asp:HyperLink ID="hlLibros" runat="server" Font-Names="Constantia" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/vistaLibros.aspx">Libros</asp:HyperLink>
                             </td>
-                            <td class="auto-style29">
-                                <asp:HyperLink ID="hlCategorias" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaCategorias.aspx" Font-Names="Constantia">Categorias</asp:HyperLink>
+                            <td class="auto-style55">
+                                <asp:HyperLink ID="hlCategorias" runat="server" Font-Names="Constantia" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaCategorias.aspx">Categorias</asp:HyperLink>
                             </td>
-                            <td class="auto-style29">
-                                <asp:HyperLink ID="hlEditoriales" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaEditoriales.aspx" Font-Names="Constantia">Editoriales</asp:HyperLink>
+                            <td class="auto-style53">
+                                <asp:HyperLink ID="hlEditoriales" runat="server" Font-Names="Constantia" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaEditoriales.aspx">Editoriales</asp:HyperLink>
                             </td>
                         </tr>
                     </table>
+       
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <table class="auto-style1">
             <tr>
                 <td class="auto-style32">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
-                <td class="auto-style30">Datos personales</td>
-                <td>&nbsp;</td>
+                <td class="auto-style30">Datos personales del usuario</td>
+                <td class="auto-style445">
+                    <asp:Image ID="Image2" runat="server" ImageUrl="~/Imagenes/Decoracion de vistas/user.png" Width="100px" />
+                </td>
             </tr>
         </table>
         <br />
@@ -303,24 +343,22 @@
     </form>
     <br />
 
-    <footer class="centrado">
-        <table>
+   <footer class="centrado">  <table>
             <tr>
-                <td><span style="color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">Copyright © 2019-2020<span>&nbsp;</span></span><span class="auto-style8" style="border-style: none; border-color: inherit; border-width: 0px; margin: 0px; padding: 0px; font-variant-ligatures: normal; font-variant-caps: normal; orphans: 2; text-align: left; text-indent: 0px; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Libra</span><span style="color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;"><span>&nbsp;</span>S.A.</span></td>
-                <td class="auto-style9">&nbsp;</td>
-                <td><strong><em>Email: Libros.Libra@gmail.com</em></strong></td>
+                <td class="auto-style422"><span style="color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">Copyright © 2019-2020<span>&nbsp;</span></span><span class="auto-style8" style="border-style: none; border-color: inherit; border-width: 0px; margin: 0px; padding: 0px; font-variant-ligatures: normal; font-variant-caps: normal; orphans: 2; text-align: left; text-indent: 0px; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Libra</span><span style="color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;"><span>&nbsp;</span>S.A.</span></td>
+                <td class="auto-style433">&nbsp;</td>
+                <td class="auto-style444"><strong><em>Email: Libros.Libra@gmail.com</em></strong></td>
             </tr>
             <tr>
-                <td><span style="color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">TODOS LOS DERECHOS RESERVADOS.</span></td>
-                <td class="auto-style9">&nbsp;</td>
-                <td>&nbsp;</td>
+                <td class="auto-style422"><span style="color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">TODOS LOS DERECHOS RESERVADOS.</span></td>
+                <td class="auto-style433">&nbsp;</td>
+                <td class="auto-style444">&nbsp;</td>
             </tr>
             <tr>
-                <td>Av. Hipólito Yrigoyen 288, B1617 Gral. Pacheco, Provincia de Buenos Aires</td>
-                <td class="auto-style9">&nbsp;</td>
-                <td>&nbsp;</td>
+                <td class="auto-style422">Av. Hipólito Yrigoyen 288, B1617 Gral. Pacheco, Provincia de Buenos Aires</td>
+                <td class="auto-style433">&nbsp;</td>
+                <td class="auto-style444">&nbsp;</td>
             </tr>
-        </table>
-    </footer>
+        </table></footer>
 </body>
 </html>

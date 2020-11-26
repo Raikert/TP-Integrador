@@ -95,6 +95,7 @@
     <Content Include="Imagenes\Decoracion de vistas\librorojo.png" />
     <Content Include="Imagenes\Decoracion de vistas\librosapilados.png" />
     <Content Include="Imagenes\Decoracion de vistas\librotransparente.png" />
+    <Content Include="Imagenes\Decoracion de vistas\user.png" />
     <Content Include="Imagenes\facebook.png" />
     <Content Include="Imagenes\libros.jpg" />
     <Content Include="Imagenes\librosadmin.jpg" />

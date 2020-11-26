@@ -144,6 +144,7 @@
         }
         .auto-style37 {
             width: 121px;
+            height: 79px;
         }
         .auto-style38 {
             color: #00CC00;
@@ -180,6 +181,7 @@
 
         .auto-style45 {
             width: 699px;
+            height: 79px;
         }
 
 
