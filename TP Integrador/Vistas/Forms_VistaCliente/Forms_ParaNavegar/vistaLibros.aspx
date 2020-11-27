@@ -95,10 +95,6 @@
              text-decoration: underline;
         }
         
-        .auto-style26 {
-            color: #FF3300;
-        }
-        
         .auto-style4 {
             font-size: large;
             font-weight: bold;
@@ -164,6 +160,7 @@
         .auto-style40 {
             color: #FF0000;
             font-size: large;
+            text-decoration: underline;
         }
         .auto-style41 {
             color: #000000;
@@ -172,13 +169,12 @@
         .auto-style46 {
             color: #3333FF;
             font-size: large;
-        }
-        .auto-style47 {
-            font-size: large;
+            text-decoration: underline;
         }
         .auto-style39 {
             color: #FF6600;
             font-size: large;
+            text-decoration: underline;
         }    
         .auto-style45 {
             width: 699px;
@@ -200,6 +196,46 @@
             width: 248px;
         }
         /**/
+
+        
+
+                
+        .auto-style58 {
+            font-size: large;
+            color: #006600;
+            text-decoration: underline;
+        }
+        .auto-style59 {
+            font-size: large;
+        }
+        .auto-style60 {
+            color: #3333FF;
+            font-size: large;
+        }
+
+        
+
+                
+        .auto-style61 {
+            text-align: center;
+        }
+        .auto-style62 {
+            color: #FFFFFF;
+        }
+
+        
+
+                
+        .auto-style63 {
+            color: #FFFFFF;
+            font-size: large;
+        }
+        .auto-style64 {
+            text-align: right;
+        }
+        .auto-style65 {
+            text-align: left;
+        }
 
         
 
@@ -257,6 +293,7 @@
                 </td>
             </tr>
         </table>
+                    <br />
                     <table  class="auto-style52">
                         <tr class="hl2">
                             <td class="auto-style54" style="justify-content: center; align-items: center;">
@@ -283,138 +320,60 @@
         </table>
         <br />
         <br />
+        <asp:Button ID="Anterior" runat="server" BackColor="#6600FF" BorderStyle="Ridge" Font-Names="Arial Black" ForeColor="White" OnClick="Button1_Click" Text="&lt; Anterior" />
+&nbsp;<asp:Button ID="Siguiente" runat="server" BackColor="#6600FF" BorderStyle="Ridge" Font-Names="Arial Black" ForeColor="White" OnClick="Button2_Click" Text="Siguiente &gt;" />
         <br />
         <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:ListView ID="ListView1" runat="server" DataSourceID="dsLibrosL">
-           <%-- <AlternatingItemTemplate>
-                <span style="">NombreLibro_Lb:
-                <asp:Label ID="NombreLibro_LbLabel" runat="server" Text='<%# Eval("NombreLibro_Lb") %>' />
-                <br />
-                Descripcion_lb:
-                <asp:Label ID="Descripcion_lbLabel" runat="server" Text='<%# Eval("Descripcion_lb") %>' />
-                <br />
-                Categoria_Lb:
-                <asp:Label ID="Categoria_LbLabel" runat="server" Text='<%# Eval("Categoria_Lb") %>' />
-                <br />
-                Editorial_Lb:
-                <asp:Label ID="Editorial_LbLabel" runat="server" Text='<%# Eval("Editorial_Lb") %>' />
-                <br />
-                Precio_Lb:
-                <asp:Label ID="Precio_LbLabel" runat="server" Text='<%# Eval("Precio_Lb") %>' />
-                <br />
-                ImagenURL_Lb:
-                <asp:Label ID="ImagenURL_LbLabel" runat="server" Text='<%# Eval("ImagenURL_Lb") %>' />
-                <br />
-<br /></span>
-            </AlternatingItemTemplate>--%>
-            <EditItemTemplate>
-                <span style="">NombreLibro_Lb:
-                <asp:TextBox ID="NombreLibro_LbTextBox" runat="server" Text='<%# Bind("NombreLibro_Lb") %>' />
-                <br />
-                Descripcion_lb:
-                <asp:TextBox ID="Descripcion_lbTextBox" runat="server" Text='<%# Bind("Descripcion_lb") %>' />
-                <br />
-                Categoria_Lb:
-                <asp:TextBox ID="Categoria_LbTextBox" runat="server" Text='<%# Bind("Categoria_Lb") %>' />
-                <br />
-                Editorial_Lb:
-                <asp:TextBox ID="Editorial_LbTextBox" runat="server" Text='<%# Bind("Editorial_Lb") %>' />
-                <br />
-                Precio_Lb:
-                <asp:TextBox ID="Precio_LbTextBox" runat="server" Text='<%# Bind("Precio_Lb") %>' />
-                <br />
-                ImagenURL_Lb:
-                <asp:TextBox ID="ImagenURL_LbTextBox" runat="server" Text='<%# Bind("ImagenURL_Lb") %>' />
-                <br />
-                <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar" />
-                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar" />
-                <br /><br /></span>
-            </EditItemTemplate>
-            <EmptyDataTemplate>
-                <span>No se han devuelto datos.</span>
-            </EmptyDataTemplate>
-            <InsertItemTemplate>
-                <span style="">NombreLibro_Lb:
-                <asp:TextBox ID="NombreLibro_LbTextBox" runat="server" Text='<%# Bind("NombreLibro_Lb") %>' />
-                <br />Descripcion_lb:
-                <asp:TextBox ID="Descripcion_lbTextBox" runat="server" Text='<%# Bind("Descripcion_lb") %>' />
-                <br />Categoria_Lb:
-                <asp:TextBox ID="Categoria_LbTextBox" runat="server" Text='<%# Bind("Categoria_Lb") %>' />
-                <br />Editorial_Lb:
-                <asp:TextBox ID="Editorial_LbTextBox" runat="server" Text='<%# Bind("Editorial_Lb") %>' />
-                <br />Precio_Lb:
-                <asp:TextBox ID="Precio_LbTextBox" runat="server" Text='<%# Bind("Precio_Lb") %>' />
-                <br />ImagenURL_Lb:
-                <asp:TextBox ID="ImagenURL_LbTextBox" runat="server" Text='<%# Bind("ImagenURL_Lb") %>' />
-                <br />
-                <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
-                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Borrar" />
-                <br /><br /></span>
-            </InsertItemTemplate>
+        <div class="auto-style61">
+&nbsp;&nbsp;&nbsp;
+        <asp:DataList ID="ListaLibros" runat="server" DataKeyField="Cod_Libro_Lb">
             <ItemTemplate>
-                <span style=""><em>Nombre:</em>
-                <asp:Label ID="NombreLibro_LbLabel" runat="server" Text='<%# Eval("NombreLibro_Lb") %>'></asp:Label>
-&nbsp;<br /><em>Descripcion: </em>
-                <asp:Label ID="Descripcion_lbLabel" runat="server" Text='<%# Eval("Descripcion_lb") %>' />
-                <br />
-                <em>Categoria: </em>
-                <asp:Label ID="Categoria_LbLabel" runat="server" Text='<%# Eval("Categoria_Lb") %>'></asp:Label>
-                <br />
-                <em>Editorial:</em>
-                <asp:Label ID="Editorial_LbLabel" runat="server" Text='<%# Eval("Editorial_Lb") %>'></asp:Label>
-                <br />
-                <em>Precio: </em>&nbsp;AR$<asp:Label ID="Precio_LbLabel" runat="server" Text='<%# Eval("Precio_Lb") %>' />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />
-                <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("ImagenURL_Lb") %>' />
-                &nbsp;<br />
-                <br />
-                <span class="auto-style26">-----------------------------------------------</span><br /></span>
+                <div style="background-color:brown; float:left; width:300px" class="auto-style61"> <em>
+                    <br />
+                    <table class="auto-style1">
+                        <tr>
+                            <td class="auto-style64"><span class="auto-style63">Nombre:</span></td>
+                            <td class="auto-style65">
+                                <asp:Label style="text-align:center" ID="NombreLibro_LbLabel" runat="server" BorderStyle="Ridge" CssClass="auto-style62" Font-Italic="False" Font-Names="Yu Gothic Medium" Text='<%# Eval("NombreLibro_Lb") %>' Width="150px" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style64"><span class="auto-style63"><em>Categoria:</em></span></td>
+                            <td class="auto-style65">
+                                <asp:Label style="text-align:center" ID="Categoria_LbLabel" runat="server" BorderStyle="Ridge" CssClass="auto-style62" Font-Italic="False" Font-Names="Yu Gothic Medium" Text='<%# Eval("Categoria_Lb") %>' Width="150px" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style64"><span class="auto-style63"><em>Editorial:</em></span></td>
+                            <td class="auto-style65">
+                                <asp:Label style="text-align:center" ID="Editorial_LbLabel" runat="server" BorderStyle="Ridge" CssClass="auto-style62" Font-Italic="False" Font-Names="Yu Gothic Medium" Text='<%# Eval("Editorial_Lb") %>' Width="150px" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style64"><span class="auto-style63"><em>Precio:</em></span></td>
+                            <td class="auto-style65">
+                                <asp:Label style="text-align:center" ID="Precio_LbLabel" runat="server" BorderStyle="Ridge" CssClass="auto-style62" Font-Italic="False" Font-Names="Yu Gothic Medium" Text='<%# Eval("Precio_Lb") %>' Width="150px" />
+                            </td>
+                        </tr>
+                    </table>
+                    </em>
+                    <br />
+                    <asp:ImageButton ID="ImageButton2" runat="server" CommandArgument='<%# Eval("Cod_Libro_Lb") %>' CommandName="SeleccionarLibro" ImageUrl='<%# Eval("ImagenURL_Lb") %>' OnCommand="ImageButton2_Command" BorderColor="#333333" BorderStyle="Ridge" />
+                    <br />
+                    <br />
+                    <asp:Label ID="Descripcion_lbLabel" runat="server" Text='<%# Eval("Descripcion_lb") %>' CssClass="auto-style62" BorderStyle="Ridge" Font-Names="Yu Gothic Medium" Width="163px" />
+                    <br />
+                    &nbsp;</div>
+
+<br />
             </ItemTemplate>
-            <LayoutTemplate>
-                <div id="itemPlaceholderContainer" runat="server" style="">
-                    <span runat="server" id="itemPlaceholder" />
-                </div>
-                <div style="">
-                    <asp:DataPager ID="DataPager1" runat="server">
-                        <Fields>
-                            <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                            <asp:NumericPagerField />
-                            <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                        </Fields>
-                    </asp:DataPager>
-                </div>
-            </LayoutTemplate>
-            <SelectedItemTemplate>
-                <span style="">NombreLibro_Lb:
-                <asp:Label ID="NombreLibro_LbLabel" runat="server" Text='<%# Eval("NombreLibro_Lb") %>' />
+            <SeparatorTemplate>
                 <br />
-                Descripcion_lb:
-                <asp:Label ID="Descripcion_lbLabel" runat="server" Text='<%# Eval("Descripcion_lb") %>' />
-                <br />
-                Categoria_Lb:
-                <asp:Label ID="Categoria_LbLabel" runat="server" Text='<%# Eval("Categoria_Lb") %>' />
-                <br />
-                Editorial_Lb:
-                <asp:Label ID="Editorial_LbLabel" runat="server" Text='<%# Eval("Editorial_Lb") %>' />
-                <br />
-                Precio_Lb:
-                <asp:Label ID="Precio_LbLabel" runat="server" Text='<%# Eval("Precio_Lb") %>' />
-                <br />
-                ImagenURL_Lb:
-                <asp:Label ID="ImagenURL_LbLabel" runat="server" Text='<%# Eval("ImagenURL_Lb") %>' />
-                <br />
-<br /></span>
-            </SelectedItemTemplate>
-        </asp:ListView>
+            </SeparatorTemplate>
+        </asp:DataList>
+        </div>
         <br />
-        <br />
-        <br />
-        <asp:SqlDataSource ID="dsLibrosL" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [NombreLibro_Lb], [Descripcion_lb], [Categoria_Lb], [Editorial_Lb], [Precio_Lb], [ImagenURL_Lb] FROM [Libros] WHERE ([Activo_Lb] = @Activo_Lb)">
-            <SelectParameters>
-                <asp:Parameter DefaultValue="true" Name="Activo_Lb" Type="Boolean" />
-            </SelectParameters>
-        </asp:SqlDataSource>
+        <asp:SqlDataSource ID="dsLibrosL" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT * FROM [Libros]"></asp:SqlDataSource>
         <br />
         <br />
         <br />
@@ -428,7 +387,8 @@
             <tr>
                 <td class="auto-style6"><span class="auto-style38">
                     <br />
-                    <span class="auto-style47">Efectivo</span></span><span class="auto-style46">-Tarjeta Visa </span> <span class="auto-style41">o</span> <span class="auto-style39">Master Card</span><span class="auto-style47">- </span> <span class="auto-style40">Rapi Pago</span></td>
+                    </span>
+                    <span class="auto-style58">Efectivo</span><span class="auto-style41"> - </span> <span class="auto-style46">Tarjeta Visa</span><span class="auto-style60"> </span> <span class="auto-style41">o</span> <span class="auto-style39">Master Card</span><span class="auto-style59"> - </span> <span class="auto-style40">Rapi Pago</span></td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>

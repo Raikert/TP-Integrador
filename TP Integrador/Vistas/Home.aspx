@@ -205,7 +205,6 @@
 <body>
     <form id="form1" runat="server">
         <div class="auto-style28">
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Cod_Libro_Lb], [ImagenURL_Lb] FROM [Libros]"></asp:SqlDataSource>
             <asp:SqlDataSource ID="dsCategorias" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Nombre_Ca] FROM [Categorias]"></asp:SqlDataSource>
             <asp:SqlDataSource ID="dsEditoriales" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Nombre_E] FROM [Editoriales]"></asp:SqlDataSource>
             &nbsp;</div>
@@ -269,8 +268,7 @@
                     </td>
                 </tr>
             </table>
-            <br />
-                    <table  class="auto-style52" align="center">
+                    <table  class="auto-style52">
                         <tr class="hl2">
                             <td class="auto-style54" style="justify-content: center; align-items: center;">
                                 <asp:HyperLink ID="hlLibros" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/vistaLibros.aspx" Font-Names="Constantia">Libros</asp:HyperLink>
@@ -283,6 +281,8 @@
                             </td>
                         </tr>
                     </table>
+            <br />
+            <br />
             <br />
             <div class="auto-style32"> 
                         <div style="border:groove; border-color:cornflowerblue; width:250px;" class="auto-style11">

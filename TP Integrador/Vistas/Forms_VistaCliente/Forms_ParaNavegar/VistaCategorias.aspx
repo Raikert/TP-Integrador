@@ -151,9 +151,11 @@
         }
         .auto-style39 {
             color: #FF6600;
+            text-decoration: underline;
         }
         .auto-style40 {
             color: #FF0000;
+            text-decoration: underline;
         }
         .auto-style41 {
             color: #000000;
@@ -226,6 +228,29 @@
             width:32%;
         }
         /*-------------------------*/
+          
+ 
+    
+                
+        .auto-style58 {
+            font-size: large;
+            color: #006600;
+            text-decoration: underline;
+        }
+        .auto-style60 {
+            color: #3333FF;
+            font-size: large;
+        }
+
+        
+
+                
+        .auto-style59 {
+            font-size: large;
+        }
+        .auto-style61 {
+            text-decoration: underline;
+        }
           
  
     </style>
@@ -354,7 +379,8 @@
             <tr>
                 <td class="auto-style6"><span class="auto-style38">
                     <br />
-                    Efectivo</span>-Tarjeta Visa <span class="auto-style41">o</span> <span class="auto-style39">Master Card</span>- <span class="auto-style40">Rapi Pago</span></td>
+                    </span>
+                    <span class="auto-style58">Efectivo</span><span class="auto-style41"> - </span> <span class="auto-style60"><span class="auto-style61">Tarjeta Visa</span> </span> <span class="auto-style41">o</span> <span class="auto-style39">Master Card</span><span class="auto-style59"> - </span> <span class="auto-style40">Rapi Pago</span></td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
