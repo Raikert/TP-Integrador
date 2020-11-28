@@ -33,9 +33,9 @@ namespace Vistas
 
             if (Session["Usuario"] != null)
             {
-                UsuarioConectado.Text = "Bienvenido/a " + ((Cliente)Session["Usuario"]).nombreCliente;
-                lbSalir.Visible = true;
+                UsuarioConectado.Text = "Hola, " + ((Cliente)Session["Usuario"]).nombreCliente;
 
+                lbSalir.Visible = true;
                 hlInicioSesion.Visible = false;
                 hlRegistrarse.Visible = false;
                 hlMiCuenta.Visible = true;
@@ -61,6 +61,7 @@ namespace Vistas
         protected void lbSalir_Click(object sender, EventArgs e)
         {
             Session["Usuario"] = null;
+
             UsuarioConectado.Text = "No esta logueado";
 
             lbSalir.Visible = false;
@@ -94,6 +95,28 @@ namespace Vistas
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
+            if(ddlFiltro.SelectedValue == "1-2-3")
+            {
+                lib.nombreLibro = ddlFiltro.Text;
+                lib.catLibro = ddlFiltro.Text;
+                lib.editLibro = ddlFiltro.Text;
+
+                string[] campos = ddlFiltro.Text.Split('-');
+
+                lib.setMostrar_Where(Convert.ToInt32(campos[0]));
+
+                int[] filas_afectadas = new int[3];
+
+                DataTable[] tabla = new DataTable[3];
+
+                tabla[0] = obj.DataTable_Query(lib.getConsulta(1));
+
+                lib.setMostrar_Where(Convert.ToInt32(campos[1]));
+
+                tabla[1] = obj.DataTable_Query(lib.getConsulta(1));
+
+                lib.setMostrar_Where(Convert.ToInt32(campos[1]));
+            }
 
         }
 

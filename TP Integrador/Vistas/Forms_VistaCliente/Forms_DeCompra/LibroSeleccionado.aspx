@@ -99,11 +99,6 @@
             margin-top: 0px;
         }
         
-        .auto-style4 {
-            font-size: large;
-            font-weight: bold;
-        }
-        
         .auto-style25 {
             font-size: larger;
         }
@@ -190,6 +185,23 @@
         }
 
                         
+        .auto-style57 {
+            width: 262px;
+            height: 24px;
+        }
+        .auto-style58 {
+            height: 24px;
+        }
+
+                        
+        .auto-style59 {
+            justify-content: center;
+            align-items: center;
+            border: 2px groove gray;
+            text-align: center;
+        }
+
+                        
     </style>
 </head>
 <body class="centrado">
@@ -199,14 +211,14 @@
             <table class="auto-style1">
                 <tr id="hl1">
                     <td class="auto-style3">&nbsp;</td>
-                    <td class="hl1">
-                        <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/Home.aspx">HOME</asp:HyperLink>
+                    <td class="auto-style59">
+                        <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/Home.aspx" ForeColor="Blue">HOME</asp:HyperLink>
                     </td>
-                    <td class="hl1">
-                        <asp:HyperLink ID="hlContacto" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaContacto.aspx">Contacto</asp:HyperLink>
+                    <td class="auto-style59">
+                        <asp:HyperLink ID="hlContacto" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaContacto.aspx" ForeColor="Blue">Contacto</asp:HyperLink>
                     </td>
-                    <td class="hl1">
-                        <asp:HyperLink ID="hlMiCuenta" runat="server" NavigateUrl="~/Forms_DatosUsuario/MiCuenta.aspx">Mi Cuenta</asp:HyperLink>
+                    <td class="auto-style59">
+                        <asp:LinkButton ID="lbMiCuenta" runat="server" OnClick="lbMiCuenta_Click">Mi Cuenta</asp:LinkButton>
                     </td>
                 </tr>
                 <tr>
@@ -222,16 +234,7 @@
         <table class="auto-style1">
             <tr>
                 <td class="auto-style12">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtBuscar" runat="server" Font-Overline="False" TextMode="Search" Width="359px" placeholder="Titulo, Autor, Categoria"></asp:TextBox>
-            <asp:DropDownList ID="ddlFiltro" runat="server">
-                <asp:ListItem>Todos</asp:ListItem>
-                <asp:ListItem>Titulo</asp:ListItem>
-                <asp:ListItem>Autor</asp:ListItem>
-                <asp:ListItem>Categoria</asp:ListItem>
-            </asp:DropDownList>
-            <strong>
-                <asp:Button ID="btnBuscar" runat="server" BackColor="#4375C7" CssClass="auto-style4" Font-Bold="True" Font-Names="Trebuchet MS" ForeColor="White" Height="31px" Text="Buscar" Width="82px" />
-                    </strong> </td>
+                    </td>
                 <td class="auto-style56">
             <strong>&nbsp;
                 <asp:Label ID="CantidadProductosCarrito" runat="server" ForeColor="#009933" Text="0"></asp:Label>
@@ -242,6 +245,8 @@
                 </td>
             </tr>
         </table>
+      
+                    <br />
       
                     <table class="auto-style52">
                         <tr class="hl2" >
@@ -262,9 +267,9 @@
         <br />
         <table class="auto-style1">
             <tr>
-                <td class="auto-style22"><em><span class="auto-style25">Titulo: </span> <asp:Label ID="NombreLibro_Lb" runat="server" CssClass="auto-style27"></asp:Label>
+                <td class="auto-style57"><em><span class="auto-style25">Titulo: </span> <asp:Label ID="NombreLibro_Lb" runat="server" CssClass="auto-style27"></asp:Label>
                     </em> </td>
-                <td><em>&nbsp;&nbsp;&nbsp; &nbsp; <span class="auto-style25">Categoria: </span>
+                <td class="auto-style58"><em>&nbsp;&nbsp;&nbsp; &nbsp; <span class="auto-style25">Categoria: </span>
                     <asp:Label ID="Categoria_Lb" runat="server" CssClass="auto-style27"></asp:Label>
                     <span class="auto-style25">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style25">Editorial:&nbsp;</span><asp:Label ID="Editorial_Lb" runat="server" CssClass="auto-style27"></asp:Label>
                     </em> </td>

@@ -181,6 +181,14 @@
         /*-------------------------*/
 
 
+        .auto-style445 {
+            justify-content: center;
+            align-items: center;
+            border: 2px groove gray;
+            text-align: center;
+        }
+
+
     </style>
 </head>
 <body class="centrado">
@@ -190,14 +198,14 @@
             <table class="auto-style1">
                 <tr id="hl1">
                     <td class="auto-style3">&nbsp;</td>
-                    <td class="hl1">
-                        <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/Home.aspx">HOME</asp:HyperLink>
+                    <td class="auto-style445">
+                        <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/Home.aspx" ForeColor="Blue">HOME</asp:HyperLink>
                     </td>
-                    <td class="hl1">
-                        <asp:HyperLink ID="hlContacto" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaContacto.aspx">Contacto</asp:HyperLink>
+                    <td class="auto-style445">
+                        <asp:HyperLink ID="hlContacto" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaContacto.aspx" ForeColor="Blue">Contacto</asp:HyperLink>
                     </td>
-                    <td class="hl1">
-                        <asp:HyperLink ID="hlMiCuenta" runat="server" NavigateUrl="~/Forms_DatosUsuario/MiCuenta.aspx">Mi Cuenta</asp:HyperLink>
+                    <td class="auto-style445">
+                        <asp:LinkButton ID="lbMiCuenta" runat="server" OnClick="lbMiCuenta_Click">Mi Cuenta</asp:LinkButton>
                     </td>
                 </tr>
                 <tr>
@@ -214,6 +222,7 @@
             <br />
         </div>
         <br />
+        <br />
 
                     <table class="auto-style52">
                         <tr class="hl2" >
@@ -228,6 +237,10 @@
                             </td>
                         </tr>
                     </table>
+       
+        <br />
+        <br />
+        <br />
        
         <br />
         <span class="auto-style42"><strong>CONTACTO</strong></span><br />
@@ -246,6 +259,9 @@
                 <td><strong><em>Libros.Libra@gmail.com</em></strong></td>
             </tr>
         </table>
+        <br />
+        <br />
+        <br />
         <br />
         <br />
         <div style="background-color:gray" class="auto-style21">       </div>

@@ -240,6 +240,16 @@
         
 
                 
+        .auto-style66 {
+            justify-content: center;
+            align-items: center;
+            border: 2px groove gray;
+            text-align: center;
+        }
+
+        
+
+                
     </style>
 </head>
 <body class="centrado">
@@ -249,14 +259,14 @@
             <table class="auto-style1">
                 <tr id="hl1">
                     <td class="auto-style3">&nbsp;</td>
-                    <td class="hl1">
-                        <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/Home.aspx">HOME</asp:HyperLink>
+                    <td class="auto-style66">
+                        <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/Home.aspx" ForeColor="Blue">HOME</asp:HyperLink>
                     </td>
-                    <td class="hl1">
-                        <asp:HyperLink ID="hlContacto" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaContacto.aspx">Contacto</asp:HyperLink>
+                    <td class="auto-style66">
+                        <asp:HyperLink ID="hlContacto" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaContacto.aspx" ForeColor="Blue">Contacto</asp:HyperLink>
                     </td>
-                    <td class="hl1">
-                        <asp:HyperLink ID="hlMiCuenta" runat="server" NavigateUrl="~/Forms_DatosUsuario/MiCuenta.aspx">Mi Cuenta</asp:HyperLink>
+                    <td class="auto-style66">
+                        <asp:LinkButton ID="lbMiCuenta" runat="server" OnClick="lbMiCuenta_Click">Mi Cuenta</asp:LinkButton>
                     </td>
                 </tr>
                 <tr>
@@ -265,12 +275,13 @@
                     </td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
-                    <td class="auto-style20">&nbsp;</td>
+                    <td class="auto-style20">
+                        &nbsp;</td>
                 </tr>
             </table>
         </div>
         <br />
-        <table class="auto-style1" align="center">
+        <table class="auto-style1">
             <tr>
                 <td class="auto-style56">&nbsp;&nbsp;
                     <asp:TextBox ID="txtBuscar" runat="server" Font-Overline="False" TextMode="Search" Width="359px" placeholder="Titulo, Autor, Categoria"></asp:TextBox>

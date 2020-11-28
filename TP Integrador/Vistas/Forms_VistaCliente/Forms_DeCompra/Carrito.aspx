@@ -96,6 +96,7 @@
             align-items: center;
             border: 2px groove gray;
             width: 120px;
+            text-align: center;
         }
         .auto-style25 {
             width: 120px;
@@ -106,6 +107,7 @@
             align-items: center;
             border: 2px groove gray;
             width: 92px;
+            text-align: center;
         }
         .auto-style28 {
             width: 92px;
@@ -115,11 +117,6 @@
             height: 45px;
         }
 
-        .auto-style4 {
-            font-size: large;
-            font-weight: bold;
-        }
-        
         .auto-style30 {
             width: 62px;
         }
@@ -231,6 +228,22 @@
             width: 564px;
         }
         
+        .auto-style58 {
+            justify-content: center;
+            align-items: center;
+            border: 2px groove gray;
+            text-align: center;
+        }
+        
+                                
+        .auto-style59 {
+            justify-content: center;
+            align-items: center;
+            border: 2px groove gray;
+            text-align: center;
+        }
+
+                        
         </style>
 </head>
 <body class="centrado">
@@ -240,23 +253,22 @@
             <table class="auto-style1">
                 <tr id="hl1">
                     <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style27">
-                        <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/Home.aspx">HOME</asp:HyperLink>
+                    <td class="auto-style59">
+                        <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/Home.aspx" ForeColor="Blue">HOME</asp:HyperLink>
                     </td>
-                    <td class="auto-style24">
-                        <asp:HyperLink ID="hlContacto" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaContacto.aspx">Contacto</asp:HyperLink>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <td class="auto-style59">
+                        <asp:HyperLink ID="hlContacto" runat="server" NavigateUrl="~/Forms_VistaCliente/Forms_ParaNavegar/VistaContacto.aspx" ForeColor="Blue">Contacto</asp:HyperLink>
                     </td>
-                    <td class="hl1">
-                        <asp:HyperLink ID="hlMiCuenta" runat="server" NavigateUrl="~/Forms_DatosUsuario/MiCuenta.aspx">Mi Cuenta</asp:HyperLink>
+                    <td class="auto-style59">
+                        <asp:LinkButton ID="lbMiCuenta" runat="server" OnClick="lbMiCuenta_Click">Mi Cuenta</asp:LinkButton>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style2">
-                        <asp:Image ID="Image1" runat="server" Height="84px" ImageUrl="~/Imagenes/Biblioteca Libra logo.png" Width="104px" />
+                        <asp:Image ID="Image6" runat="server" Height="84px" ImageUrl="~/Imagenes/Biblioteca Libra logo.png" Width="104px" />
                     </td>
-                    <td class="auto-style28">&nbsp;</td>
-                    <td class="auto-style25">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
                     <td class="auto-style20">&nbsp;</td>
                 </tr>
             </table>
@@ -264,16 +276,7 @@
         <table class="auto-style1">
             <tr>
                 <td class="auto-style57">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtBuscar" runat="server" Font-Overline="False" TextMode="Search" Width="359px" placeholder="Titulo, Autor, Categoria"></asp:TextBox>
-            <asp:DropDownList ID="ddlFiltro" runat="server">
-                <asp:ListItem>Todos</asp:ListItem>
-                <asp:ListItem>Titulo</asp:ListItem>
-                <asp:ListItem>Autor</asp:ListItem>
-                <asp:ListItem>Categoria</asp:ListItem>
-            </asp:DropDownList>
-            <strong>
-                <asp:Button ID="btnBuscar" runat="server" BackColor="#4375C7" CssClass="auto-style4" Font-Bold="True" Font-Names="Trebuchet MS" ForeColor="White" Height="31px" Text="Buscar" Width="82px" />
-                    </strong> </td>
+                    </td>
                 <td class="auto-style56">
             <strong>&nbsp;
                 <asp:Label ID="CantidadProductosCarrito" runat="server" ForeColor="#009933" Text="0"></asp:Label>
@@ -284,6 +287,8 @@
                 </td>
             </tr>
         </table>
+      
+                    <br />
       
                     <table class="auto-style52">
                         <tr class="hl2" >
@@ -298,6 +303,8 @@
                             </td>
                         </tr>
                     </table>
+       
+        <br />
        
         <br />
        

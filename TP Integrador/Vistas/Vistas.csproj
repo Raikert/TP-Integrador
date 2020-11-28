@@ -70,6 +70,7 @@
     <Content Include="Forms_DatosUsuario\IngresoMiCuenta.aspx" />
     <Content Include="Forms_DatosUsuario\MiCuenta.aspx" />
     <Content Include="Forms_DatosUsuario\RegistroUsuario2.aspx" />
+    <Content Include="Forms_DatosUsuario\SeccionLogueo.aspx" />
     <Content Include="Forms_VistaCliente\Forms_DeCompra\Carrito.aspx" />
     <Content Include="Forms_VistaCliente\Forms_ParaNavegar\VistaCategorias.aspx" />
     <Content Include="Forms_VistaCliente\Forms_ParaNavegar\VistaEditoriales.aspx" />
@@ -140,6 +141,13 @@
     <Compile Include="Forms_DatosUsuario\RegistroUsuario2.aspx.designer.cs">
       <DependentUpon>RegistroUsuario2.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms_DatosUsuario\SeccionLogueo.aspx.cs">
+      <DependentUpon>SeccionLogueo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms_DatosUsuario\SeccionLogueo.aspx.designer.cs">
+      <DependentUpon>SeccionLogueo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms_VistaCliente\Forms_DeCompra\Carrito.aspx.cs">
       <DependentUpon>Carrito.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -150,12 +158,14 @@
     <Compile Include="Clases\Utilidades.cs" />
     <Compile Include="Forms_VistaCliente\Forms_ParaNavegar\VistaCategorias.aspx.cs">
       <DependentUpon>VistaCategorias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Forms_VistaCliente\Forms_ParaNavegar\VistaCategorias.aspx.designer.cs">
       <DependentUpon>VistaCategorias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms_VistaCliente\Forms_ParaNavegar\VistaEditoriales.aspx.cs">
       <DependentUpon>VistaEditoriales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Forms_VistaCliente\Forms_ParaNavegar\VistaEditoriales.aspx.designer.cs">
       <DependentUpon>VistaEditoriales.aspx</DependentUpon>

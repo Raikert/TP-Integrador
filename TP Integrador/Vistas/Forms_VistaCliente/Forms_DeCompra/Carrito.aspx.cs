@@ -22,6 +22,18 @@ namespace vistas
             }
         }
 
+        protected void lbMiCuenta_Click(object sender, EventArgs e)
+        {
+            if (Session["Usuario"] != null)
+                Response.Redirect("~/Forms_DatosUsuario/IngresoMiCuenta.aspx");
+            else
+            {
+                Response.Redirect("~/Forms_DatosUsuario/SeccionLogueo.aspx");
+
+                Session["ruta_de_regreso"] = "~/Forms_VistaCliente/Forms_DeCompra/Carrito.aspx";
+            }
+        }
+
         protected void btnIniciarCompra1_Click(object sender, EventArgs e)
         {
             if (Session["Carrito"] != null && Session["Usuario"]!= null)

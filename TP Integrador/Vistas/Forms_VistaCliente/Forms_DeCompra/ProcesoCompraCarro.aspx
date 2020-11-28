@@ -104,6 +104,7 @@
                 <br />
                 <asp:Label ID="lblMensaje1" runat="server" Font-Names="Calibri Light" Text="Sepa que al pagar en efectivo, debera presentarse en la sucursal de la tienda ubicada en &quot;Av. Hipólito Yrigoyen 288, B1617 Gral. Pacheco, Provincia de Buenos Aires&quot;" Width="350px" CssClass="auto-style5"></asp:Label>
                 <br />
+                <br />
         </div>
     </form>
 </body>

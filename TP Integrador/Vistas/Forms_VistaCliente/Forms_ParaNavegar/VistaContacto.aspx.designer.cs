@@ -42,13 +42,13 @@ namespace vistas
         protected global::System.Web.UI.WebControls.HyperLink hlContacto;
 
         /// <summary>
-        /// Control hlMiCuenta.
+        /// Control lbMiCuenta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlMiCuenta;
+        protected global::System.Web.UI.WebControls.LinkButton lbMiCuenta;
 
         /// <summary>
         /// Control Image1.
