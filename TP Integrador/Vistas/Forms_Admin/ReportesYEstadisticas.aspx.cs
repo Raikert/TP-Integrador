@@ -16,11 +16,28 @@ namespace Vistas.Forms_Admin
         {
             util = new Utilidades();
 
-            string[] consultas = new string[5];
+            string[] consultas = new string[10];
 
-            consultas[0] = "select NombreLibro_Lb from Libros";
+            consultas[0] = "SELECT TOP 5 NombreLibro_Lb as Nombre, Precio_Lb as Precio FROM Libros ORDER BY Precio_Lb asc";
 
-            consultas[1] = "select NombreLibro_Lb, Precio_Lb from Libros";
+            consultas[1] = "SELECT TOP 5 NombreLibro_Lb as Nombre, Precio_Lb as Precio FROM Libros ORDER BY Precio_Lb desc";
+
+            consultas[2] = "SELECT NombreLibro_Lb as Nombre, Cantidad_S as Cantidad from Stock inner join Libros on Cod_Libro_S = Cod_Libro_Lb where Cantidad_S <= 10";
+
+            consultas[3] = "SELECT NombreLibro_Lb as Nombre, Cantidad_S as Cantidad from Stock inner join Libros on Cod_Libro_S = Cod_Libro_Lb where Cantidad_S > 10";
+
+            consultas[4] = "SELECT Precio_Lb as Precio,NombreLibro_Lb as Nombre FROM LIBROS where precio_lb = (select max(precio_lb) from libros)";
+
+            consultas[5] = "SELECT Precio_Lb as Precio,NombreLibro_Lb as Nombre FROM LIBROS where precio_lb = (select min(precio_lb) from libros)";
+
+            consultas[6] = "SELECT NombreLibro_Lb as Nombre,sum(CantidadDeLibros_Dv) as Cantidad from libros inner join DetalleVentas on Cod_Libro_lb = " +
+                "Cod_Libro_Dv group by NombreLibro_Lb";
+
+            consultas[7] = "SELECT TOP 1 NombreLibro_Lb as Nombre,sum(CantidadDeLibros_Dv) as Cantidad from libros inner join DetalleVentas on Cod_Libro_lb = " +
+                "Cod_Libro_Dv group by NombreLibro_Lb order by Cantidad desc";
+
+            consultas[8] = "SELECT TOP 1 NombreLibro_Lb as Nombre,sum(CantidadDeLibros_Dv) as Cantidad from libros inner join DetalleVentas on Cod_Libro_lb = " +
+                "Cod_Libro_Dv group by NombreLibro_Lb order by Cantidad asc";
 
             util.cambiarConsultaDataSource(ref SqlDataSource1, consultas, ddlReportesYEstadisticas.SelectedValue);
 
