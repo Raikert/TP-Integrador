@@ -218,7 +218,17 @@
                 
         .auto-style61 {
             text-align: center;
+            width:50%; 
+            margin: 0 auto;
+           
         }
+
+        #ListaLibros{
+            width:100%;
+              margin: 0 13%;
+        }
+
+
         .auto-style62 {
             color: #FFFFFF;
         }
@@ -244,6 +254,13 @@
             justify-content: center;
             align-items: center;
             border: 2px groove gray;
+            text-align: center;
+        }
+
+        
+
+                
+        .auto-style67 {
             text-align: center;
         }
 
@@ -329,12 +346,14 @@
                 <td class="auto-style25">Listado de los distintos libros a disposicion </td>
             </tr>
         </table>
-        <br />
-        <br />
+        <div class="auto-style67">
+            <br />
+            <br />
         <asp:Button ID="Anterior" runat="server" BackColor="#6600FF" BorderStyle="Ridge" Font-Names="Arial Black" ForeColor="White" OnClick="Button1_Click" Text="&lt; Anterior" />
 &nbsp;<asp:Button ID="Siguiente" runat="server" BackColor="#6600FF" BorderStyle="Ridge" Font-Names="Arial Black" ForeColor="White" OnClick="Button2_Click" Text="Siguiente &gt;" />
         <br />
         <br />
+        </div>
         <div class="auto-style61">
 &nbsp;&nbsp;&nbsp;
         <asp:DataList ID="ListaLibros" runat="server" DataKeyField="Cod_Libro_Lb">
