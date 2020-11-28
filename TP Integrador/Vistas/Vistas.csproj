@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Forms_Admin\ReportesYEstadisticas.aspx" />
     <Content Include="Forms_DatosUsuario\IngresoMiCuenta.aspx" />
     <Content Include="Forms_DatosUsuario\MiCuenta.aspx" />
     <Content Include="Forms_DatosUsuario\RegistroUsuario2.aspx" />
@@ -120,6 +121,13 @@
     <Content Include="Forms_VistaCliente\Forms_ParaNavegar\vistaLibros.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms_Admin\ReportesYEstadisticas.aspx.cs">
+      <DependentUpon>ReportesYEstadisticas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms_Admin\ReportesYEstadisticas.aspx.designer.cs">
+      <DependentUpon>ReportesYEstadisticas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms_DatosUsuario\IngresoMiCuenta.aspx.cs">
       <DependentUpon>IngresoMiCuenta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
