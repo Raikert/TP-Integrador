@@ -4,26 +4,25 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Vistas.Clases;
 
 namespace Vistas.Forms_Admin
 {
     public partial class ReportesYEstadisticas : System.Web.UI.Page
     {
+        private Utilidades util;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            string consulta = "";
+            util = new Utilidades();
 
-            switch(ddlReportesYEstadisticas.SelectedValue)
-            {
-                case "0":
-                    consulta = "select NombreLibro_Lb from Libros";
-                    break;
-                case "1":
-                    consulta = "select NombreLibro_Lb, Precio_Lb  from Libros";
-                    break;
-            }
+            string[] consultas = new string[5];
 
-            SqlDataSource1.SelectCommand = consulta;
+            consultas[0] = "select NombreLibro_Lb from Libros";
+
+            consultas[1] = "select NombreLibro_Lb, Precio_Lb from Libros";
+
+            util.cambiarConsultaDataSource(ref SqlDataSource1, consultas, ddlReportesYEstadisticas.SelectedValue);
 
             grdReportesYEstadisticas.DataSource = SqlDataSource1;
             grdReportesYEstadisticas.DataBind();

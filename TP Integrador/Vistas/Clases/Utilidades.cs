@@ -17,6 +17,11 @@ namespace Vistas.Clases
             obj = new NegocioGenerales();
         }
 
+        public void cambiarConsultaDataSource(ref SqlDataSource sql, string [] consultas, string value)
+        {
+            sql.SelectCommand = consultas[Convert.ToInt32(value)];
+        }
+
         public int Bindear(ref GridView grid, string consulta, bool reiniciar_paginas = false)
         {
             DataTable tabla = obj.DataTable_Query(consulta);
