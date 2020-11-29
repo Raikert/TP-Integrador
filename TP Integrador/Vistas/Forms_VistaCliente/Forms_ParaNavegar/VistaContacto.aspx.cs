@@ -20,9 +20,9 @@ namespace vistas
                 Response.Redirect("~/Forms_DatosUsuario/IngresoMiCuenta.aspx");
             else
             {
-                Response.Redirect("~/Forms_DatosUsuario/SeccionLogueo.aspx");
-
                 Session["ruta_de_regreso"] = "~/Forms_VistaCliente/Forms_ParaNavegar/VistaContacto.aspx";
+
+                Response.Redirect("~/Forms_DatosUsuario/SeccionLogueo.aspx");         
             }
         }
 

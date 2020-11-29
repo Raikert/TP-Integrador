@@ -34,10 +34,10 @@ namespace vistas
             if (Session["Usuario"] != null)
                 Response.Redirect("~/Forms_DatosUsuario/IngresoMiCuenta.aspx");
             else
-            {
-                Response.Redirect("~/Forms_DatosUsuario/SeccionLogueo.aspx");
-
+            {         
                 Session["ruta_de_regreso"] = "~/Forms_VistaCliente/Forms_DeCompra/Carrito.aspx";
+
+                Response.Redirect("~/Forms_DatosUsuario/SeccionLogueo.aspx");
             }
         }
 

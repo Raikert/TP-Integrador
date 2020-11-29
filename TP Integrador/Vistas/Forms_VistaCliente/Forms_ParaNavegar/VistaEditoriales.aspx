@@ -248,6 +248,10 @@
 
         }
 
+        .auto-style62 {
+            color: #000000;
+        }
+
         </style>
 </head>
 <body class="centrado">
@@ -371,7 +375,10 @@
             <tr>
                 <td class="auto-style6"><span class="auto-style38">
                     <br />
-                    <span class="auto-style58">Efectivo</span><span class="auto-style41"> - </span> <span class="auto-style46">Tarjeta Visa</span><span class="auto-style60"> </span> <span class="auto-style41">o</span> <span class="auto-style39">Master Card</span><span class="auto-style59"> - </span> <span class="auto-style40">Rapi Pago</span></span></td>
+                    <span class="auto-style58">Efectivo</span><span class="auto-style41"> - </span> <span class="auto-style46">Tarjeta Visa</span><span class="auto-style60"> </span> <span class="auto-style41">o</span> <span class="auto-style39">Master Card</span><span class="auto-style59"> </span><span class="auto-style62">
+                    -</span><span class="auto-style38">
+                    </span> </span> <span class="auto-style38">
+                    <span class="auto-style40">Rapi Pago</span></span></td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>

@@ -253,13 +253,13 @@
                 <tr>
                     <td class="auto-style33">
             <asp:TextBox ID="txtBuscar" runat="server" Font-Overline="False" TextMode="Search" Width="359px" placeholder="Titulo, Categoria, Editorial"></asp:TextBox>
+            <strong>
             <asp:DropDownList ID="ddlFiltro" runat="server">
                 <asp:ListItem Value="1-2-3">Todos</asp:ListItem>
                 <asp:ListItem Value="1">Titulo</asp:ListItem>
-                <asp:ListItem Value="2">Editorial</asp:ListItem>
-                <asp:ListItem Value="3">Categoria</asp:ListItem>
+                <asp:ListItem Value="2">Categoria</asp:ListItem>
+                <asp:ListItem Value="3">Editorial</asp:ListItem>
             </asp:DropDownList>
-            <strong>
                 <asp:Button ID="btnBuscar" runat="server" BackColor="#4375C7" CssClass="auto-style4" Font-Bold="True" Font-Names="Trebuchet MS" ForeColor="White" Height="31px" Text="Buscar" Width="82px" OnClick="btnBuscar_Click" />
                         &nbsp;<asp:LinkButton ID="LinkButton3" runat="server">Mostrar todos</asp:LinkButton>
                         </strong></td>
