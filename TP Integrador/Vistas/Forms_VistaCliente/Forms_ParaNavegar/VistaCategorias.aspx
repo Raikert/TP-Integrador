@@ -256,6 +256,12 @@
         }
           
  
+         .auto-style29 {
+            text-align: center;
+
+        }
+
+         
     </style>
 </head>
 <body class="centrado">
@@ -291,17 +297,22 @@
                 <td class="auto-style56">&nbsp;&nbsp;
                     </td>
                 <td class="auto-style57">
-                    <strong>
+                        <table class="auto-style1">
+                            <tr>
+                                <td class="auto-style29"><strong>
                 <asp:Label ID="CantidadProductosCarrito" runat="server" ForeColor="#009933" Text="0"></asp:Label>
-                &nbsp; </strong><asp:Label ID="lblTexto" runat="server" CssClass="auto-style3" Text="producto | AR$"></asp:Label>
-            &nbsp;<strong><asp:Label ID="MontoCarrito" runat="server" ForeColor="#CC3300" Text="0,00"></asp:Label>
-            </strong><asp:ImageButton ID="ImageButton1" runat="server" Height="48px" ImageUrl="~/Imagenes/carrito logo.png" Width="48px" PostBackUrl="~/Forms_VistaCliente/Forms_DeCompra/Carrito.aspx" />
-                    &nbsp;
+                &nbsp;</strong><asp:Label ID="lblTexto" runat="server" CssClass="auto-style3" Text="producto | AR$"></asp:Label>
+                                    <strong>&nbsp;<asp:Label ID="MontoCarrito" runat="server" ForeColor="#CC3300" Text="0,00"></asp:Label>
+            </strong></td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style29"><asp:ImageButton ID="ImageButton1" runat="server" Height="48px" ImageUrl="~/Imagenes/carrito logo.png" Width="48px" PostBackUrl="~/Forms_VistaCliente/Forms_DeCompra/Carrito.aspx" />
+                                </td>
+                            </tr>
+                        </table>
                 </td>
             </tr>
         </table>
-      
-                    <br />
       
                     <table class="auto-style52">
                         <tr class="hl2" >

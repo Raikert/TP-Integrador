@@ -5,6 +5,7 @@ using System.Web;
 using System.Data;
 using Negocio;
 using System.Web.UI.WebControls;
+using System.Web.SessionState;
 
 namespace Vistas.Clases
 {
@@ -17,9 +18,25 @@ namespace Vistas.Clases
             obj = new NegocioGenerales();
         }
 
-        public void cambiarConsultaDataSource(ref SqlDataSource sql, string [] consultas, string value)
+        public void cambiarConsultaDataSource(ref SqlDataSource sql, string consulta)
         {
-            sql.SelectCommand = consultas[Convert.ToInt32(value)];
+            sql.SelectCommand = consulta;
+        }
+
+        public void cargarDatosCarro(ref Label lbl1, ref Label lbl2, HttpSessionState Session)
+        {
+            DataTable tabla_carro = (DataTable)Session["Carrito"];
+
+            lbl1.Text = tabla_carro.Rows.Count.ToString();
+
+            Decimal precio_libro = new Decimal();
+
+            foreach (DataRow registro in tabla_carro.Rows)
+            {
+                precio_libro += Convert.ToDecimal(registro["Precio_Lb"]);
+            }
+
+            lbl2.Text = Convert.ToString(precio_libro);
         }
 
         public int Bindear(ref GridView grid, string consulta, bool reiniciar_paginas = false)

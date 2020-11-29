@@ -95,6 +95,8 @@ namespace Vistas
 
                 obj.cerrarConexion();
 
+                Session["Compra_realizada"] = true;
+
                 Response.Redirect("~/Home.aspx");
             }
         }

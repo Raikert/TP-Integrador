@@ -91,28 +91,6 @@
          
 
 
-        .auto-style24 {
-            justify-content: center;
-            align-items: center;
-            border: 2px groove gray;
-            width: 120px;
-            text-align: center;
-        }
-        .auto-style25 {
-            width: 120px;
-        }
-
-        .auto-style27 {
-            justify-content: center;
-            align-items: center;
-            border: 2px groove gray;
-            width: 92px;
-            text-align: center;
-        }
-        .auto-style28 {
-            width: 92px;
-        }
-
         .auto-style29 {
             height: 45px;
         }
@@ -220,7 +198,7 @@
         
                                 
         .auto-style56 {
-            text-align: right;
+            text-align: center;
         }
 
                         
@@ -228,14 +206,7 @@
             width: 564px;
         }
         
-        .auto-style58 {
-            justify-content: center;
-            align-items: center;
-            border: 2px groove gray;
-            text-align: center;
-        }
-        
-                                
+                                        
         .auto-style59 {
             justify-content: center;
             align-items: center;
@@ -273,17 +244,16 @@
                 </tr>
             </table>
         </div>
+        <br />
         <table class="auto-style1">
             <tr>
-                <td class="auto-style57">&nbsp;&nbsp;&nbsp;&nbsp;
-                    </td>
+                <td class="auto-style57">&nbsp;</td>
                 <td class="auto-style56">
-            <strong>&nbsp;
+                        <strong>
                 <asp:Label ID="CantidadProductosCarrito" runat="server" ForeColor="#009933" Text="0"></asp:Label>
-                &nbsp;</strong><asp:Label ID="lblTexto" runat="server" CssClass="auto-style3" Text="producto  AR$"></asp:Label>
-            &nbsp;<strong><asp:Label ID="MontoCarrito" runat="server" ForeColor="#CC3300" Text="0,00"></asp:Label>
-            </strong>&nbsp;<asp:ImageButton ID="ImageButton1" runat="server" Height="54px" ImageUrl="~/Imagenes/carrito logo.png" Width="49px" PostBackUrl="~/Forms_VistaCliente/Forms_DeCompra/Carrito.aspx" />
-                &nbsp;&nbsp;&nbsp;
+                &nbsp;</strong><asp:Label ID="lblTexto" runat="server" CssClass="auto-style3" Text="producto | AR$"></asp:Label>
+                                    <strong>&nbsp;<asp:Label ID="MontoCarrito" runat="server" ForeColor="#CC3300" Text="0,00"></asp:Label>
+            </strong>
                 </td>
             </tr>
         </table>

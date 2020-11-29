@@ -6,7 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using Negocio;
-
+using Entidades.Clases;
+using Vistas.Clases;
 
 namespace vistas
 {
@@ -14,22 +15,144 @@ namespace vistas
     {
         private NegocioGenerales obj;
 
+        private Libro lib;
+
+        private Utilidades util;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             obj = new NegocioGenerales();
 
-            if (!IsPostBack)
+            lib = new Libro();
+
+            util = new Utilidades();
+
+            PagedDataSource pg = devuelvePaginador();
+
+            ListaLibros.DataSource = pg;
+            ListaLibros.DataBind();
+
+            if (Session["Carrito"] != null)
             {
-                PagedDataSource pg = devuelvePaginador();
+                util.cargarDatosCarro(ref CantidadProductosCarrito, ref MontoCarrito, Session);
+            }
+        }
+
+        protected void MostrarTodos_Click(object sender, EventArgs e)
+        {
+            Anterior.Visible = true;
+            Siguiente.Visible = true;
+            MensajeListado.Text = "";
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (txtBuscar.Text == "")
+            {
+                MensajeListado.Text = "";
+                Anterior.Visible = true;
+                Siguiente.Visible = true;
+                return;
+            }
+
+            Anterior.Visible = false;
+            Siguiente.Visible = false;
+
+            string consulta = "";
+
+            switch (ddlFiltro.SelectedValue)
+            {
+                case "1-2-3":
+
+                    int max_reg = 0;
+
+                    string formato_where = "";
+
+                    for (int i = 0; i < 3; i++)
+                    {
+                        switch (i)
+                        {
+                            case 0:
+                                formato_where = "NombreLibro_Lb like '%" + txtBuscar.Text + "%'";
+                                lib.setMostrar_Where(formato_where);
+                                break;
+                            case 1:
+                                formato_where = "Categoria_Lb like '%" + txtBuscar.Text + "%'";
+                                lib.setMostrar_Where(formato_where);
+                                break;
+                            case 2:
+                                formato_where = "Editorial_Lb like '%" + txtBuscar.Text + "%'";
+                                lib.setMostrar_Where(formato_where);
+                                break;
+                        }
+
+                        DataTable tabla = obj.DataTable_Query(lib.getConsulta(1));
+
+                        if (max_reg == 0 && tabla.Rows.Count != 0)
+                        {
+                            consulta = "select * from Libros where " + formato_where;
+                            max_reg = tabla.Rows.Count;
+                        }
+
+                        if (tabla.Rows.Count < max_reg && tabla.Rows.Count != 0)
+                        {
+                            consulta = "select * from Libros where " + formato_where;
+                            max_reg = tabla.Rows.Count;
+                        }
+                    }
+
+                    break;
+
+                case "1":
+
+                    consulta = "select * from Libros where NombreLibro_Lb like '%" + txtBuscar.Text + "%'";
+                    break;
+
+                case "2":
+
+                    consulta = "select * from Libros where Categoria_Lb like '%" + txtBuscar.Text + "%'";
+                    break;
+
+                case "3":
+
+                    consulta = "select * from Libros where Editorial_Lb like '%" + txtBuscar.Text + "%'";
+                    break;
+            }
+
+            util.cambiarConsultaDataSource(ref dsLibrosL, consulta);
+
+            DataTable tabla2 = new DataTable();
+
+            PagedDataSource pg = new PagedDataSource();
+
+            if (dsLibrosL.Select(DataSourceSelectArguments.Empty) != null)
+            {
+                DataView dv = (DataView)dsLibrosL.Select(DataSourceSelectArguments.Empty);
+
+                tabla2 = dv.Table;
+            }
+
+            if (tabla2.Rows.Count != 0)
+            {
+                pg = devuelvePaginador();
 
                 ListaLibros.DataSource = pg;
                 ListaLibros.DataBind();
 
-                string[] data = new string[2];
+                MensajeListado.Text = "Se encontraron " + tabla2.Rows.Count + " resultados para '" + txtBuscar.Text + "'";
+            }
+            else
+            {
+                consulta = "select * from Libros";
 
-                data[0] = (pg.PageCount).ToString();
+                util.cambiarConsultaDataSource(ref dsLibrosL, consulta);
 
-                Session["VistaLibros"] = data;
+                pg = devuelvePaginador();
+
+                ListaLibros.DataSource = pg;
+                ListaLibros.DataBind();
+
+                MensajeListado.Text = "No se han encontrado libros para '" + txtBuscar.Text + "'";
             }
         }
 

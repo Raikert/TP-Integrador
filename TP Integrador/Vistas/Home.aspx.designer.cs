@@ -42,6 +42,15 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.SqlDataSource dsEditoriales;
 
         /// <summary>
+        /// Control ListaLibros.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource ListaLibros;
+
+        /// <summary>
         /// Control Image1.
         /// </summary>
         /// <remarks>
@@ -130,6 +139,15 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBuscar;
+
+        /// <summary>
+        /// Control LinkButton3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton3;
 
         /// <summary>
         /// Control CantidadProductosCarrito.
@@ -222,22 +240,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.LinkButton lbMejoresOfertas;
 
         /// <summary>
-        /// Control lbUltimosDeLaSemana.
+        /// Control lbMasVentasHoy.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbUltimosDeLaSemana;
-
-        /// <summary>
-        /// Control lbMasVotados.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbMasVotados;
+        protected global::System.Web.UI.WebControls.LinkButton lbMasVentasHoy;
 
         /// <summary>
         /// Control Label5.

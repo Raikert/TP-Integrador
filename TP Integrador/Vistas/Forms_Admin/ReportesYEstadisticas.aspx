@@ -55,18 +55,18 @@
                 <br />
                 <br />
                 <asp:DropDownList ID="ddlReportesYEstadisticas" runat="server" AutoPostBack="True">
-                    <asp:ListItem Value="0">Top 5 mejores ofertas</asp:ListItem>
-                    <asp:ListItem Value="1">Top 5 libros mas caros</asp:ListItem>
-                    <asp:ListItem Value="2">Stock menor o igual a 10</asp:ListItem>
-                    <asp:ListItem Value="3">Stock mayor a 10</asp:ListItem>
-                    <asp:ListItem Value="4">Libro mas caro</asp:ListItem>
-                    <asp:ListItem Value="5">Libro mas barato</asp:ListItem>
-                    <asp:ListItem Value="6">Libros vendidos</asp:ListItem>
-                    <asp:ListItem Value="7">Libro mas vendido</asp:ListItem>
-                    <asp:ListItem Value="8">Libro menos vendido</asp:ListItem>
-                    <asp:ListItem Value="9">Cliente que mas libros compro</asp:ListItem>
-                    <asp:ListItem Value="10">Cliente que menos libros compro</asp:ListItem>
-                    <asp:ListItem Value="11">Promedio de libros comprados por cliente</asp:ListItem>
+                    <asp:ListItem Value="3">Top 5 mejores ofertas</asp:ListItem>
+                    <asp:ListItem Value="4">Top 5 libros mas caros</asp:ListItem>
+                    <asp:ListItem Value="5">Stock menor o igual a 10</asp:ListItem>
+                    <asp:ListItem Value="6">Stock mayor a 10</asp:ListItem>
+                    <asp:ListItem Value="7">Libro mas caro</asp:ListItem>
+                    <asp:ListItem Value="8">Libro mas barato</asp:ListItem>
+                    <asp:ListItem Value="9">Libros vendidos</asp:ListItem>
+                    <asp:ListItem Value="10">Libro mas vendido</asp:ListItem>
+                    <asp:ListItem Value="11">Libro menos vendido</asp:ListItem>
+                    <asp:ListItem Value="12">Cliente que mas libros compro</asp:ListItem>
+                    <asp:ListItem Value="13">Cliente que menos libros compro</asp:ListItem>
+                    <asp:ListItem Value="14">Promedio de libros comprados por cliente</asp:ListItem>
                 </asp:DropDownList>
                 <br />
                 <br />

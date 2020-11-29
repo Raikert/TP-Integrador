@@ -6,13 +6,18 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Entidades.Clases;
 using System.Data;
+using Vistas.Clases;
 
 namespace vistas
 {
     public partial class vista1 : System.Web.UI.Page
     {
+        private Utilidades util;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            util = new Utilidades();
+
             if (Session["Libro_Tabla"] != null)
             {
                 DataTable tabla = (DataTable)Session["Libro_Tabla"];
@@ -25,6 +30,9 @@ namespace vistas
                 ImagenURL_Lb.ImageUrl = registro["ImagenURL_Lb"].ToString();
                 Precio_Lb.Text = registro["Precio_Lb"].ToString();
             }
+
+            if(Session["Carrito"] != null)
+                util.cargarDatosCarro(ref CantidadProductosCarrito, ref MontoCarrito, Session);
         }
 
         protected void lbMiCuenta_Click(object sender, EventArgs e)
@@ -46,6 +54,8 @@ namespace vistas
                 if (Session["Carrito"] == null)
                 {
                     Session["Carrito"] = (DataTable)Session["Libro_Tabla"];
+
+                    util.cargarDatosCarro(ref CantidadProductosCarrito, ref MontoCarrito, Session);
                 }
                 else
                 {
@@ -79,9 +89,12 @@ namespace vistas
                         tabla_carro.Rows.Add(fila_nueva);
 
                         Session["Carrito"] = tabla_carro;
+
+                        util.cargarDatosCarro(ref CantidadProductosCarrito, ref MontoCarrito, Session);
                     }
                 }
             }
         }
+
     }
 }

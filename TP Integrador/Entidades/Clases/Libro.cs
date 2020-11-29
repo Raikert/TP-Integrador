@@ -18,7 +18,7 @@ namespace Entidades.Clases
 		private String estado_Libro;
 		private String ImagenURL_Lb;
 		private string[] consultas;
-		
+
 		public Libro()
 		{
 			Consultas();
@@ -88,12 +88,110 @@ namespace Entidades.Clases
 		}
 
 		public void Consultas()
-        {
-			consultas = new string[10];
+		{
+			consultas = new string[20];
+			
+			//Trae todos los registros de la tabla Libros
 
 			consultas[0] = "SELECT id_libro_lb AS ID, Cod_Libro_Lb AS CODIGO, NombreLibro_Lb AS NOMBRE, " +
+
 			   "Descripcion_lb AS DESCRIPCION, Categoria_Lb AS CATEGORIA, Editorial_Lb AS EDITORIAL, Precio_Lb AS PRECIO, " +
+
 			   "Activo_Lb AS ACTIVO FROM Libros";
+
+			//Top 5 mejores ofertas
+
+			consultas[3] = "SELECT TOP 5 NombreLibro_Lb as Nombre, Precio_Lb as Precio FROM Libros ORDER BY Precio_Lb asc";
+
+			//Top 5 libros mas caros
+
+			consultas[4] = "SELECT TOP 5 NombreLibro_Lb as Nombre, Precio_Lb as Precio FROM Libros ORDER BY Precio_Lb desc";
+
+			//Stock menor o igual a 10
+
+			consultas[5] = "SELECT NombreLibro_Lb as Nombre, Cantidad_S as Cantidad from Stock " +
+
+				"inner join Libros on Cod_Libro_S = Cod_Libro_Lb where Cantidad_S <= 10";
+
+			//Stock mayor a 10
+
+			consultas[6] = "SELECT NombreLibro_Lb as Nombre, Cantidad_S as Cantidad from Stock " +
+
+				"inner join Libros on Cod_Libro_S = Cod_Libro_Lb where Cantidad_S > 10";
+
+			//Libro mas caro
+
+			consultas[7] = "SELECT Precio_Lb as Precio,NombreLibro_Lb as Nombre FROM LIBROS where precio_lb = (select max(precio_lb) from libros)";
+
+			//Libro mas barato
+
+			consultas[8] = "SELECT Precio_Lb as Precio,NombreLibro_Lb as Nombre FROM LIBROS where precio_lb = (select min(precio_lb) from libros)";
+
+			//Libros vendidos
+
+			consultas[9] = "SELECT NombreLibro_Lb as Nombre,sum(CantidadDeLibros_Dv) as Cantidad from libros " +
+				
+				"inner join DetalleVentas on Cod_Libro_lb = Cod_Libro_Dv group by NombreLibro_Lb";
+
+			//Libro mas vendido
+
+			consultas[10] = "SELECT TOP 1 NombreLibro_Lb as Nombre,sum(CantidadDeLibros_Dv) as Cantidad from libros " +
+
+				"inner join DetalleVentas on Cod_Libro_lb = Cod_Libro_Dv group by NombreLibro_Lb order by Cantidad desc";
+
+			//Libro menos vendido
+
+			consultas[11] = "SELECT TOP 1 NombreLibro_Lb as Nombre,sum(CantidadDeLibros_Dv) as Cantidad from libros " +
+				
+				"inner join DetalleVentas on Cod_Libro_lb = Cod_Libro_Dv " +
+
+				"group by NombreLibro_Lb order by Cantidad asc";
+
+			//Cliente que mas libros compro
+
+			consultas[12] = "SELECT TOP 1 Cod_Cliente_Cl as Codigo, Nombre_Cl as Nombre,sum(CantidadDeLibros_Dv) as Cantidad from libros " +
+				
+				"inner join DetalleVentas on Cod_Libro_lb = Cod_Libro_Dv inner join Ventas on Cod_Venta_V = Cod_Venta_Dv " +
+				
+				"inner join Clientes on Cod_Cliente_V = Cod_Cliente_Cl " +
+				
+				"group by  Cod_Cliente_Cl,Nombre_Cl order by Cantidad desc";
+
+			//Cliente que menos libros compro
+
+			consultas[13] = "SELECT TOP 1 Cod_Cliente_Cl as Codigo, Nombre_Cl as Nombre,sum(CantidadDeLibros_Dv) as Cantidad from libros " +
+				
+				"inner join DetalleVentas on Cod_Libro_lb = Cod_Libro_Dv inner join Ventas on Cod_Venta_V = Cod_Venta_Dv " +
+				
+				"inner join Clientes on Cod_Cliente_V = Cod_Cliente_Cl " +
+				
+				"group by  Cod_Cliente_Cl,Nombre_Cl order by Cantidad asc";
+
+			//Promedio de libros comprados por cliente
+
+			consultas[14] = "SELECT (SUM(CantidadDeLibros_Dv) / (SELECT count(Cod_Cliente_Cl) from Clientes)) as [Promedio Total] from DetalleVentas";
+
+			//Los mas buscados
+
+			consultas[15] = "SELECT TOP 4 * from Libros ORDER BY Precio_Lb asc";
+
+			//Mejores ofertas all campos
+
+			consultas[16] = "Select TOP 4 Cod_Libro_lb, ImagenURL_Lb,  sum(CantidadDeLibros_Dv) as CantidadVXLibro from DetalleVentas " +
+				
+				"inner join Libros on Cod_Libro_Dv = Cod_Libro_Lb " +
+				
+				"group by Cod_Libro_Lb,ImagenURL_Lb order by CantidadVXLibro desc";
+
+			//Top ventas hoy
+
+			consultas[17] = "Select TOP 4 Cod_Libro_lb, ImagenURL_Lb,  sum(CantidadDeLibros_Dv) as CantidadVXLibro from DetalleVentas " +
+				
+				"inner join Libros on Cod_Libro_Dv = Cod_Libro_Lb inner join Ventas on Cod_Venta_Dv = Cod_Venta_V " +
+
+				"where SUBSTRING(CONVERT(VARCHAR(10), Fecha_V), 9, 2) = SUBSTRING(CONVERT(VARCHAR(10), GETDATE(), 110), 4, 2) " +
+				
+				"group by Cod_Libro_Lb,ImagenURL_Lb, Fecha_V order by CantidadVXLibro desc";
 		}
 
 		public void setConsultaInsert()

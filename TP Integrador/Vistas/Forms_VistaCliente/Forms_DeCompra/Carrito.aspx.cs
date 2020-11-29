@@ -5,19 +5,26 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using Vistas.Clases;
 
 namespace vistas
 {
     public partial class vista2_carrito_ : System.Web.UI.Page
     {
+        private Utilidades util;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            util = new Utilidades();
+
             if (!IsPostBack)
             {
                 if (Session["Carrito"] != null)
                 {
                     DataList1.DataSource = (DataTable)Session["Carrito"];
                     DataList1.DataBind();
+
+                    util.cargarDatosCarro(ref CantidadProductosCarrito, ref MontoCarrito, Session);
                 }
             }
         }

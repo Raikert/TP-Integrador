@@ -77,10 +77,7 @@
             width: 702px;
             text-align: center;
         }
-        .auto-style34 {
-            text-align: right;
-        }
-
+        
         .auto-style35 {
             text-align: left;
         }
@@ -200,6 +197,10 @@
             width:32%;
         }
 
+        .auto-style546 {
+            float:right;
+        }
+
         </style>
 </head>
 <body>
@@ -207,7 +208,8 @@
         <div class="auto-style28">
             <asp:SqlDataSource ID="dsCategorias" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Nombre_Ca] FROM [Categorias]"></asp:SqlDataSource>
             <asp:SqlDataSource ID="dsEditoriales" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT [Nombre_E] FROM [Editoriales]"></asp:SqlDataSource>
-            &nbsp;</div>
+            <asp:SqlDataSource ID="ListaLibros" runat="server" ConnectionString="<%$ ConnectionStrings:PFprogramacion3ConnectionString %>" SelectCommand="SELECT * FROM [Categorias]"></asp:SqlDataSource>
+&nbsp;</div>
 
         <div class="auto-style43">
 
@@ -250,7 +252,7 @@
             <table class="auto-style50">
                 <tr>
                     <td class="auto-style33">
-            <asp:TextBox ID="txtBuscar" runat="server" Font-Overline="False" TextMode="Search" Width="359px" placeholder="Titulo, Autor, Categoria"></asp:TextBox>
+            <asp:TextBox ID="txtBuscar" runat="server" Font-Overline="False" TextMode="Search" Width="359px" placeholder="Titulo, Categoria, Editorial"></asp:TextBox>
             <asp:DropDownList ID="ddlFiltro" runat="server">
                 <asp:ListItem Value="1-2-3">Todos</asp:ListItem>
                 <asp:ListItem Value="1">Titulo</asp:ListItem>
@@ -259,12 +261,22 @@
             </asp:DropDownList>
             <strong>
                 <asp:Button ID="btnBuscar" runat="server" BackColor="#4375C7" CssClass="auto-style4" Font-Bold="True" Font-Names="Trebuchet MS" ForeColor="White" Height="31px" Text="Buscar" Width="82px" OnClick="btnBuscar_Click" />
+                        &nbsp;<asp:LinkButton ID="LinkButton3" runat="server">Mostrar todos</asp:LinkButton>
                         </strong></td>
-                    <td class="auto-style34"><strong>
+                    <td class="auto-style546">
+                        <table class="auto-style1">
+                            <tr>
+                                <td class="auto-style29"><strong>
                 <asp:Label ID="CantidadProductosCarrito" runat="server" ForeColor="#009933" Text="0"></asp:Label>
                 &nbsp;</strong><asp:Label ID="lblTexto" runat="server" CssClass="auto-style3" Text="producto | AR$"></asp:Label>
-            &nbsp;<strong><asp:Label ID="MontoCarrito" runat="server" ForeColor="#CC3300" Text="0,00"></asp:Label>
-            </strong>&nbsp;<asp:ImageButton ID="ImageButton1" runat="server" Height="48px" ImageUrl="~/Imagenes/carrito logo.png" Width="48px" PostBackUrl="~/Forms_VistaCliente/Forms_DeCompra/Carrito.aspx" />
+                                    <strong>&nbsp;<asp:Label ID="MontoCarrito" runat="server" ForeColor="#CC3300" Text="0,00"></asp:Label>
+            </strong></td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style29"><asp:ImageButton ID="ImageButton1" runat="server" Height="48px" ImageUrl="~/Imagenes/carrito logo.png" Width="48px" PostBackUrl="~/Forms_VistaCliente/Forms_DeCompra/Carrito.aspx" />
+                                </td>
+                            </tr>
+                        </table>
                     </td>
                 </tr>
             </table>
@@ -293,17 +305,14 @@
 &nbsp;</span><br />
                                 <br />
                             </em>
-                                <asp:LinkButton ID="lbTopVentas" runat="server" CssClass="auto-style42" Font-Names="Bahnschrift Light" OnClick="lbTopVentas_Click">Top ventas</asp:LinkButton>
+                                <asp:LinkButton ID="lbTopVentas" runat="server" CssClass="auto-style42" Font-Names="Bahnschrift Light" OnClick="lbTopVentas_Click">Los mas buscados</asp:LinkButton>
                                 <span class="auto-style40">
                                 <br />
                                 <br />
-                                <asp:LinkButton ID="lbMejoresOfertas" runat="server" CssClass="auto-style42" Font-Names="Bahnschrift Light">Mejores ofertas</asp:LinkButton>
+                                <asp:LinkButton ID="lbMejoresOfertas" runat="server" CssClass="auto-style42" Font-Names="Bahnschrift Light" OnClick="lbMejoresOfertas_Click">Mejores ofertas</asp:LinkButton>
                                 <br />
                                 <br />
-                                <asp:LinkButton ID="lbUltimosDeLaSemana" runat="server" CssClass="auto-style42" Font-Names="Bahnschrift Light">Los ultimos de la semana</asp:LinkButton>
-                                <br />
-                                <br />
-                                <asp:LinkButton ID="lbMasVotados" runat="server" CssClass="auto-style42" Font-Names="Bahnschrift Light">Los mas votados del año</asp:LinkButton>
+                                <asp:LinkButton ID="lbMasVentasHoy" runat="server" CssClass="auto-style42" Font-Names="Bahnschrift Light" OnClick="lbMasVentasHoy_Click">Top ventas hoy</asp:LinkButton>
                                 <br />
                                 &nbsp;<br />
                                 </span>
@@ -357,7 +366,7 @@
             </div>
             <div class="auto-style39"> 
                 <div class="auto-style38">
-                    <asp:Label style="float:left;text-align: center;" ID="MensajeListado" runat="server" Text="Mas vendidos" BackColor="#FF99CC" BorderColor="#FF99CC" Font-Overline="False" ForeColor="Black" Height="27px" BorderStyle="Ridge" BorderWidth="2px"></asp:Label>
+                    <asp:Label style="float:left;text-align: center;" ID="MensajeListado" runat="server" Text="Libros disponibles" BackColor="#FF99CC" BorderColor="#FF99CC" Font-Overline="False" ForeColor="Black" Height="27px" BorderStyle="Ridge" BorderWidth="2px"></asp:Label>
         </div>
                 <asp:ListView ID="lvLibrosMasVendidos" runat="server" GroupItemCount="4" DataKeyNames="Cod_Libro_Lb">
                     <EditItemTemplate>

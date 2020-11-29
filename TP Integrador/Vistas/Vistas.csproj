@@ -73,8 +73,10 @@
     <Content Include="Forms_DatosUsuario\RegistroUsuario2.aspx" />
     <Content Include="Forms_DatosUsuario\SeccionLogueo.aspx" />
     <Content Include="Forms_VistaCliente\Forms_DeCompra\Carrito.aspx" />
+    <Content Include="Forms_VistaCliente\Forms_DeCompra\LibroSeleccionado.aspx" />
     <Content Include="Forms_VistaCliente\Forms_ParaNavegar\VistaCategorias.aspx" />
     <Content Include="Forms_VistaCliente\Forms_ParaNavegar\VistaEditoriales.aspx" />
+    <Content Include="Forms_VistaCliente\Forms_ParaNavegar\VistaLibros.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Imagenes\1.jpg" />
     <Content Include="Imagenes\10.jpg" />
@@ -116,11 +118,10 @@
     <Content Include="Forms_Tests\Pruebas.aspx" />
     <Content Include="Forms_DatosUsuario\RegistroUsuario1.aspx" />
     <Content Include="Forms_DatosUsuario\RestablecerContraseña.aspx" />
-    <Content Include="Forms_VistaCliente\Forms_DeCompra\LibroSeleccionado.aspx" />
     <Content Include="Forms_VistaCliente\Forms_ParaNavegar\VistaContacto.aspx" />
-    <Content Include="Forms_VistaCliente\Forms_ParaNavegar\vistaLibros.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\Utilidades.cs" />
     <Compile Include="Forms_Admin\ReportesYEstadisticas.aspx.cs">
       <DependentUpon>ReportesYEstadisticas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -163,7 +164,13 @@
     <Compile Include="Forms_VistaCliente\Forms_DeCompra\Carrito.aspx.designer.cs">
       <DependentUpon>Carrito.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Clases\Utilidades.cs" />
+    <Compile Include="Forms_VistaCliente\Forms_DeCompra\LibroSeleccionado.aspx.cs">
+      <DependentUpon>LibroSeleccionado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms_VistaCliente\Forms_DeCompra\LibroSeleccionado.aspx.designer.cs">
+      <DependentUpon>LibroSeleccionado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms_VistaCliente\Forms_ParaNavegar\VistaCategorias.aspx.cs">
       <DependentUpon>VistaCategorias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -177,13 +184,6 @@
     </Compile>
     <Compile Include="Forms_VistaCliente\Forms_ParaNavegar\VistaEditoriales.aspx.designer.cs">
       <DependentUpon>VistaEditoriales.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms_DatosUsuario\InicioSesion1.aspx.cs">
       <DependentUpon>InicioSesion1.aspx</DependentUpon>
@@ -205,6 +205,20 @@
     </Compile>
     <Compile Include="Forms_VistaCliente\Forms_DeCompra\ProcesoCompraCarro.aspx.designer.cs">
       <DependentUpon>ProcesoCompraCarro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_VistaCliente\Forms_ParaNavegar\VistaLibros.aspx.cs">
+      <DependentUpon>VistaLibros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms_VistaCliente\Forms_ParaNavegar\VistaLibros.aspx.designer.cs">
+      <DependentUpon>VistaLibros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms_Tests\Pruebas.aspx.cs">
@@ -228,26 +242,12 @@
     <Compile Include="Forms_DatosUsuario\RestablecerContraseña.aspx.designer.cs">
       <DependentUpon>RestablecerContraseña.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms_VistaCliente\Forms_DeCompra\LibroSeleccionado.aspx.cs">
-      <DependentUpon>LibroSeleccionado.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms_VistaCliente\Forms_DeCompra\LibroSeleccionado.aspx.designer.cs">
-      <DependentUpon>LibroSeleccionado.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Forms_VistaCliente\Forms_ParaNavegar\VistaContacto.aspx.cs">
       <DependentUpon>VistaContacto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Forms_VistaCliente\Forms_ParaNavegar\VistaContacto.aspx.designer.cs">
       <DependentUpon>VistaContacto.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Forms_VistaCliente\Forms_ParaNavegar\vistaLibros.aspx.cs">
-      <DependentUpon>vistaLibros.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms_VistaCliente\Forms_ParaNavegar\vistaLibros.aspx.designer.cs">
-      <DependentUpon>vistaLibros.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

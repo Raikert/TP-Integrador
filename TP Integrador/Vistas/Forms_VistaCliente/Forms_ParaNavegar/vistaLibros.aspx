@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="vistaLibros.aspx.cs" Inherits="vistas.vistaLibros" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="VistaLibros.aspx.cs" Inherits="vistas.vistaLibros" %>
 
 <!DOCTYPE html>
 
@@ -139,7 +139,7 @@
 
                 
         .auto-style56 {
-            width: 570px;
+            width: 623px;
             height: 56px;
         }
         .auto-style57 {
@@ -267,6 +267,14 @@
         
 
                 
+         .auto-style29 {
+            text-align: center;
+
+        }
+
+                
+
+                
     </style>
 </head>
 <body class="centrado">
@@ -301,27 +309,34 @@
         <table class="auto-style1">
             <tr>
                 <td class="auto-style56">&nbsp;&nbsp;
-                    <asp:TextBox ID="txtBuscar" runat="server" Font-Overline="False" TextMode="Search" Width="359px" placeholder="Titulo, Autor, Categoria"></asp:TextBox>
+                    <asp:TextBox ID="txtBuscar" runat="server" Font-Overline="False" TextMode="Search" Width="243px" placeholder="Titulo, Categoria, Editorial"></asp:TextBox>
             <asp:DropDownList ID="ddlFiltro" runat="server">
-                <asp:ListItem>Todos</asp:ListItem>
-                <asp:ListItem>Titulo</asp:ListItem>
-                <asp:ListItem>Autor</asp:ListItem>
-                <asp:ListItem>Categoria</asp:ListItem>
+                <asp:ListItem Value="1-2-3">Todos</asp:ListItem>
+                <asp:ListItem Value="1">Titulo</asp:ListItem>
+                <asp:ListItem Value="2">Editorial</asp:ListItem>
+                <asp:ListItem Value="3">Categoria</asp:ListItem>
             </asp:DropDownList>
             <strong>
-                <asp:Button ID="btnBuscar" runat="server" BackColor="#4375C7" CssClass="auto-style4" Font-Bold="True" Font-Names="Trebuchet MS" ForeColor="White" Height="31px" Text="Buscar" Width="82px" />
+                <asp:Button ID="btnBuscar" runat="server" BackColor="#4375C7" CssClass="auto-style4" Font-Bold="True" Font-Names="Trebuchet MS" ForeColor="White" Height="31px" Text="Buscar" Width="82px" OnClick="btnBuscar_Click" />
+                    &nbsp;<asp:LinkButton ID="MostrarTodos" runat="server" OnClick="MostrarTodos_Click">Mostrar todos</asp:LinkButton>
                     </strong> </td>
                 <td class="auto-style57">
-                    <strong>
+                        <table class="auto-style1">
+                            <tr>
+                                <td class="auto-style29"><strong>
                 <asp:Label ID="CantidadProductosCarrito" runat="server" ForeColor="#009933" Text="0"></asp:Label>
-                &nbsp; </strong><asp:Label ID="lblTexto" runat="server" CssClass="auto-style3" Text="producto | AR$"></asp:Label>
-            &nbsp;<strong><asp:Label ID="MontoCarrito" runat="server" ForeColor="#CC3300" Text="0,00"></asp:Label>
-            </strong><asp:ImageButton ID="ImageButton1" runat="server" Height="48px" ImageUrl="~/Imagenes/carrito logo.png" Width="48px" PostBackUrl="~/Forms_VistaCliente/Forms_DeCompra/Carrito.aspx" />
-                    &nbsp;
+                &nbsp;</strong><asp:Label ID="lblTexto" runat="server" CssClass="auto-style3" Text="producto | AR$"></asp:Label>
+                                    <strong>&nbsp;<asp:Label ID="MontoCarrito" runat="server" ForeColor="#CC3300" Text="0,00"></asp:Label>
+            </strong></td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style29"><asp:ImageButton ID="ImageButton1" runat="server" Height="48px" ImageUrl="~/Imagenes/carrito logo.png" Width="48px" PostBackUrl="~/Forms_VistaCliente/Forms_DeCompra/Carrito.aspx" />
+                                </td>
+                            </tr>
+                        </table>
                 </td>
             </tr>
         </table>
-                    <br />
                     <table  class="auto-style52">
                         <tr class="hl2">
                             <td class="auto-style54" style="justify-content: center; align-items: center;">
@@ -351,6 +366,7 @@
             <br />
         <asp:Button ID="Anterior" runat="server" BackColor="#6600FF" BorderStyle="Ridge" Font-Names="Arial Black" ForeColor="White" OnClick="Button1_Click" Text="&lt; Anterior" />
 &nbsp;<asp:Button ID="Siguiente" runat="server" BackColor="#6600FF" BorderStyle="Ridge" Font-Names="Arial Black" ForeColor="White" OnClick="Button2_Click" Text="Siguiente &gt;" />
+            <asp:Label ID="MensajeListado" runat="server"></asp:Label>
         <br />
         <br />
         </div>

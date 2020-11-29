@@ -31,30 +31,30 @@ namespace Vistas
 
             util.cerrarConexion();
 
-            if (Session["Usuario"] != null)
+            MensajeListado.Text = "Libros disponibles";
+
+            if (!IsPostBack)
             {
-                UsuarioConectado.Text = "Hola, " + ((Cliente)Session["Usuario"]).nombreCliente;
-
-                lbSalir.Visible = true;
-                hlInicioSesion.Visible = false;
-                hlRegistrarse.Visible = false;
-                hlMiCuenta.Visible = true;
-            }
-
-            if (Session["Carrito"] != null)
-            {
-                DataTable tabla_carro = (DataTable)Session["Carrito"];
-
-                CantidadProductosCarrito.Text = tabla_carro.Rows.Count.ToString();
-
-                Decimal precio_libro = new Decimal();
-
-                foreach (DataRow registro in tabla_carro.Rows)
+                if (Session["Usuario"] != null)
                 {
-                    precio_libro += Convert.ToDecimal(registro["Precio_Lb"]);
+                    UsuarioConectado.Text = "Hola " + ((Cliente)Session["Usuario"]).nombreCliente;
+
+                    lbSalir.Visible = true;
+                    hlInicioSesion.Visible = false;
+                    hlRegistrarse.Visible = false;
+                    hlMiCuenta.Visible = true;
                 }
 
-                MontoCarrito.Text = Convert.ToString(precio_libro);
+                if (Session["Carrito"] != null)
+                {
+                    util.cargarDatosCarro(ref CantidadProductosCarrito, ref MontoCarrito, Session);
+                }
+
+                if (Session["Compra_realizada"] != null)
+                {
+                    UsuarioConectado.Text = "Gracias " + ((Cliente)Session["Usuario"]).nombreCliente + ", disfruta de tu compra";
+                    Session["Compra_realizada"] = null;
+                }
             }
         }
 
@@ -95,38 +95,130 @@ namespace Vistas
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            if(ddlFiltro.SelectedValue == "1-2-3")
+            if (txtBuscar.Text == "")
+                return;
+
+            string consulta = "";
+
+            switch (ddlFiltro.SelectedValue)
             {
-                lib.nombreLibro = ddlFiltro.Text;
-                lib.catLibro = ddlFiltro.Text;
-                lib.editLibro = ddlFiltro.Text;
+                case "1-2-3":
 
-                string[] campos = ddlFiltro.Text.Split('-');
+                    int max_reg = 0;
 
-                lib.setMostrar_Where(Convert.ToInt32(campos[0]));
+                    string formato_where = "";
 
-                int[] filas_afectadas = new int[3];
+                    for (int i = 0; i < 3; i++)
+                    {
+                        switch (i)
+                        {
+                            case 0:
+                                formato_where = "NombreLibro_Lb like '%" + txtBuscar.Text + "%'";
+                                lib.setMostrar_Where(formato_where);
+                                break;
+                            case 1:
+                                formato_where = "Categoria_Lb like '%" + txtBuscar.Text + "%'";
+                                lib.setMostrar_Where(formato_where);
+                                break;
+                            case 2:
+                                formato_where = "Editorial_Lb like '%" + txtBuscar.Text + "%'";
+                                lib.setMostrar_Where(formato_where);
+                                break;
+                        }
 
-                DataTable[] tabla = new DataTable[3];
+                        DataTable tabla = obj.DataTable_Query(lib.getConsulta(1));
 
-                tabla[0] = obj.DataTable_Query(lib.getConsulta(1));
+                        if (max_reg == 0 && tabla.Rows.Count != 0)
+                        {
+                            consulta = "select * from Libros where " + formato_where;
+                            max_reg = tabla.Rows.Count;
+                        }
 
-                lib.setMostrar_Where(Convert.ToInt32(campos[1]));
+                        if (tabla.Rows.Count < max_reg && tabla.Rows.Count != 0)
+                        {
+                            consulta = "select * from Libros where " + formato_where;
+                            max_reg = tabla.Rows.Count;
+                        }
+                    }
 
-                tabla[1] = obj.DataTable_Query(lib.getConsulta(1));
+                    break;
 
-                lib.setMostrar_Where(Convert.ToInt32(campos[1]));
+                case "1":
+
+                    consulta = "select * from Libros where NombreLibro_Lb like '%" + txtBuscar.Text + "%'";
+                    break;
+
+                case "2":
+
+                    consulta = "select * from Libros where Categoria_Lb like '%" + txtBuscar.Text + "%'";
+                    break;
+
+                case "3":
+
+                    consulta = "select * from Libros where Editorial_Lb like '%" + txtBuscar.Text + "%'";
+                    break;
             }
 
+            util.cambiarConsultaDataSource(ref ListaLibros, consulta);
+
+            DataTable tabla2 = new DataTable();
+
+            if(ListaLibros.Select(DataSourceSelectArguments.Empty) != null)
+            {
+                DataView dv = (DataView)ListaLibros.Select(DataSourceSelectArguments.Empty);
+
+                tabla2 = dv.Table;
+            }
+            
+            if(tabla2.Rows.Count != 0)
+            {
+                lvLibrosMasVendidos.DataSource = ListaLibros;
+                lvLibrosMasVendidos.DataBind();
+
+                MensajeListado.Text = "Se encontraron " + tabla2.Rows.Count + " resultados para '" + txtBuscar.Text + "'";
+            }
+            else
+            {
+                consulta = "select * from Libros";
+
+                util.cambiarConsultaDataSource(ref ListaLibros, consulta);
+
+                lvLibrosMasVendidos.DataSource = ListaLibros;
+
+                lvLibrosMasVendidos.DataBind();
+
+                MensajeListado.Text = "No se han encontrado libros para '" + txtBuscar.Text + "'";
+            }
         }
 
         protected void lbTopVentas_Click(object sender, EventArgs e)
         {
-            util.Bindear(ref lvLibrosMasVendidos, "select Cod_Libro_Lb, ImagenURL_Lb from Libros");
+            util.cambiarConsultaDataSource(ref ListaLibros, lib.getConsulta(16));
 
-            util.cerrarConexion();
+            lvLibrosMasVendidos.DataSource = ListaLibros;
+            lvLibrosMasVendidos.DataBind();
 
-            MensajeListado.Text = "Mas vendidos";
+            MensajeListado.Text = "Mas buscados";
+        }
+
+        protected void lbMejoresOfertas_Click(object sender, EventArgs e)
+        {
+            util.cambiarConsultaDataSource(ref ListaLibros, lib.getConsulta(15));
+
+            lvLibrosMasVendidos.DataSource = ListaLibros;
+            lvLibrosMasVendidos.DataBind();
+
+            MensajeListado.Text = "Mas baratos";
+        }
+
+        protected void lbMasVentasHoy_Click(object sender, EventArgs e)
+        {
+            util.cambiarConsultaDataSource(ref ListaLibros, lib.getConsulta(17));
+
+            lvLibrosMasVendidos.DataSource = ListaLibros;
+            lvLibrosMasVendidos.DataBind();
+
+            MensajeListado.Text = "Mas vendidos hoy";
         }
 
         protected void lbBuscaPrecio_Click(object sender, EventArgs e)
@@ -146,7 +238,7 @@ namespace Vistas
                 precioMaximo = txtPrecioMaximo.Text;
 
             string consulta = "select Cod_Libro_Lb, ImagenURL_Lb from Libros where ";
-            
+
             if (!precioMinimo_valido && precioMaximo_valido)
             {
                 util.Bindear(ref lvLibrosMasVendidos, consulta + "Precio_Lb <= " + precioMaximo);
@@ -161,7 +253,7 @@ namespace Vistas
                 MensajeListado.Text = "Por mas de $" + precioMinimo;
             }
 
-            if(precioMinimo_valido && precioMaximo_valido)
+            if (precioMinimo_valido && precioMaximo_valido)
             {
                 util.Bindear(ref lvLibrosMasVendidos, consulta + "Precio_Lb >= " + precioMinimo + " and " + " Precio_Lb <= " + precioMaximo);
 
