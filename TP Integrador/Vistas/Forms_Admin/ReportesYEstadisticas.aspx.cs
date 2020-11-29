@@ -16,7 +16,7 @@ namespace Vistas.Forms_Admin
         {
             util = new Utilidades();
 
-            string[] consultas = new string[10];
+            string[] consultas = new string[15];
 
             consultas[0] = "SELECT TOP 5 NombreLibro_Lb as Nombre, Precio_Lb as Precio FROM Libros ORDER BY Precio_Lb asc";
 
@@ -38,6 +38,18 @@ namespace Vistas.Forms_Admin
 
             consultas[8] = "SELECT TOP 1 NombreLibro_Lb as Nombre,sum(CantidadDeLibros_Dv) as Cantidad from libros inner join DetalleVentas on Cod_Libro_lb = " +
                 "Cod_Libro_Dv group by NombreLibro_Lb order by Cantidad asc";
+            
+            consultas[9] = "SELECT TOP 1 Cod_Cliente_Cl as Codigo, Nombre_Cl as Nombre,sum(CantidadDeLibros_Dv) as Cantidad from libros inner join DetalleVentas on Cod_Libro_lb = " +
+                "Cod_Libro_Dv inner join Ventas on Cod_Venta_V = Cod_Venta_Dv inner join Clientes on Cod_Cliente_V = Cod_Cliente_Cl group by  Cod_Cliente_Cl,Nombre_Cl" +
+                " order by Cantidad desc";
+
+            consultas[10] = "SELECT TOP 1 Cod_Cliente_Cl as Codigo, Nombre_Cl as Nombre,sum(CantidadDeLibros_Dv) as Cantidad from libros inner join DetalleVentas on Cod_Libro_lb = " +
+                "Cod_Libro_Dv inner join Ventas on Cod_Venta_V = Cod_Venta_Dv inner join Clientes on Cod_Cliente_V = Cod_Cliente_Cl group by  Cod_Cliente_Cl,Nombre_Cl" +
+                " order by Cantidad asc";
+
+            consultas[11] = "SELECT (SUM(CantidadDeLibros_Dv) / (SELECT count(Cod_Cliente_Cl) from Clientes)) as [Promedio Total] from DetalleVentas";	
+
+
 
             util.cambiarConsultaDataSource(ref SqlDataSource1, consultas, ddlReportesYEstadisticas.SelectedValue);
 

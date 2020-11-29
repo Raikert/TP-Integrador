@@ -248,6 +248,10 @@
                     <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/Panel del Administrador logo.png" CssClass="auto-style20" />
                     <br />
                 <asp:HyperLink ID="hlVolver" runat="server" ForeColor="#CC6600" NavigateUrl="~/Home.aspx">Volver al Home</asp:HyperLink>
+                &nbsp;
+                    <br />
+                    <br />
+                <asp:HyperLink ID="hlreportes" runat="server" ForeColor="#CC6600" NavigateUrl="~/Forms_Admin/ReportesYEstadisticas.aspx">Ir a reportes y estadisticas</asp:HyperLink>
                 </div>
                 <div class="auto-style7"> 
                         <br />

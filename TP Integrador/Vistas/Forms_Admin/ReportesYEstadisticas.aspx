@@ -46,6 +46,8 @@
             <div style="background-color:#FAE8BF;float:left; width:30%" class="auto-style1">  
                     <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/Panel del Administrador logo.png" CssClass="auto-style20" />
                     <br />
+                <asp:HyperLink ID="hlVolverpanel" runat="server" ForeColor="#CC6600" NavigateUrl="~/Forms_Admin/PanelDelAdministrador.aspx">Volver al panel</asp:HyperLink>
+                    <br />
                 <br />
                     <strong>
                 <asp:Label ID="lblMensaje" runat="server" Font-Names="Bahnschrift" Text="Reportes y Estadisticas" CssClass="auto-style21"></asp:Label>
@@ -62,6 +64,9 @@
                     <asp:ListItem Value="6">Libros vendidos</asp:ListItem>
                     <asp:ListItem Value="7">Libro mas vendido</asp:ListItem>
                     <asp:ListItem Value="8">Libro menos vendido</asp:ListItem>
+                    <asp:ListItem Value="9">Cliente que mas libros compro</asp:ListItem>
+                    <asp:ListItem Value="10">Cliente que menos libros compro</asp:ListItem>
+                    <asp:ListItem Value="11">Promedio de libros comprados por cliente</asp:ListItem>
                 </asp:DropDownList>
                 <br />
                 <br />
